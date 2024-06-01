@@ -1,18 +1,65 @@
-\documentclass{article}
+\documentclass[11pt]{amsart}
 
-% set font encoding for PDFLaTeX, XeLaTeX, or LuaTeX
-\usepackage{ifxetex,ifluatex}
-\if\ifxetex T\else\ifluatex T\else F\fi\fi T%
-  \usepackage{fontspec}
-\else
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{lmodern}
-\fi
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
-\usepackage{hyperref}
+\usepackage[centering]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{lscape}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz,caption}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=2em}
+\setlist[enumerate]{leftmargin=2em}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[aligntableaux=center, smalltableaux]{ytableau}
+\usepackage{youngtab}
 
-\title{Catalan Hopf sub-algebras of $NCSym$}
+\definecolor{darkblue}{rgb}{0.0,0,0.7} % darkblue color
+\definecolor{darkred}{rgb}{0.7,0,0} % darkred color
+\definecolor{darkgreen}{rgb}{0, .6, 0} % darkgreen color
+
+% Dark red emphasis
+\newcommand{\defncolor}{\color{darkred}}
+\newcommand{\defn}[1]{{\defncolor\emph{#1}}} % emphasis of a definition
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\def\NN{{\mathbb N}}
+\def\CC{{\mathbb C}}
+\def\ZZ{{\mathbb Z}}
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+\newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
+\newcommand{\lucas}[1]{\todo[size=\tiny,color=red]{#1 \\ \hfill --- Lucas}}
+\newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Felix}}
+\newcommand{\farhad}[1]{\todo[size=\tiny,color=blue!50]{#1 \\ \hfill --- Farhad}}
+\newcommand{\eric}[1]{\todo[size=\tiny,color=BurntOrange!50]{#1 \\ \hfill --- Eric}}
+\newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
+\setlength{\marginparwidth}{28mm}
+
+
+\title{Catalan Hopf sub-algebras of $\mathsf{NCSym}$}
 \author{}
 
 \begin{document}
@@ -21,7 +68,7 @@
 \section{Project description}
 
 \noindent
-To identify all the Hopf sub-algebras of $NCSym$ that are of dimension Catalan and classify them.
+To identify all the Hopf sub-algebras of $\mathsf{NCSym}$ that are of dimension Catalan and classify them.
 
 
 \begin{itemize}
