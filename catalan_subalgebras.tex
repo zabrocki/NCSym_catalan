@@ -1,0 +1,52 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX, XeLaTeX, or LuaTeX
+\usepackage{ifxetex,ifluatex}
+\if\ifxetex T\else\ifluatex T\else F\fi\fi T%
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+\usepackage{hyperref}
+
+\title{Catalan Hopf sub-algebras of $NCSym$}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section{Project description}
+
+\noindent
+To identify all the Hopf sub-algebras of $NCSym$ that are of dimension Catalan and classify them.
+
+
+\begin{itemize}
+\item Introduction - notation and background
+\begin{itemize}
+\item Set partitions, non-crossing and non-nesting
+\item $\mathsf{NCSym}$ as a Hopf algebra of set partitions which is non-commutative but co-commutative.
+\item (Relevant/useful) bases and known formulae for the product and coproduct.
+\item subalgebras characterized by primitives
+\end{itemize}
+\item I think that we have identified all of the possible Hopf subalgebras of $\mathsf{NCSym}$
+(or at least the ones that are characterized by their basis of primitives, which I think is all of them).
+Let $b_i$ be the number of atomic set partitions of size $i$, for each sequence of integers $(\mathbf{a}) = (a_1, a_2, a_3,\ldots)$ such that
+$0 \leq a_i \leq b_i$ there is a Hopf subalgebra $H^{(\mathbf{a})}$.
+Let $H^{(\mathbf{a})}_n$ be the graded component of degree $n$,
+$$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}{1 - a_1 t - a_2 t^2 - a_3 t^3 - \cdots}~.$$
+\end{itemize}
+
+\section{A Hopf subalgebra of dimension Catalan}
+
+\noindent
+{\bf Bibliography} (do we do this in BibTeX?):
+
+N. Thiem, F. Aliniaeifard, Pattern groups and a poset based Hopf monoid, J. Comb. Theory Ser. A 172 (2020), 31 pages.
+
+M. Rosas, B. Sagan, Symmetric functions in noncommuting variables, Trans. Amer. Math. Soc. 358 (2006), 183--214.
+
+\end{document}
