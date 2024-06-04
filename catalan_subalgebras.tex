@@ -73,7 +73,7 @@ To identify all the Hopf sub-algebras of $\mathsf{NCSym}$ that are of dimension 
 
 \begin{itemize}
 \item Introduction - notation and background
-\cite{AT20, BBT14, BHRZ05, B08, F12, LM11, NT05, RS06}
+\cite{AT20, BBT14, BHRZ05, B08, BZ09, F12, LM11, NT05, RS06}
 \begin{itemize}
 \item Set partitions, non-crossing and non-nesting
 \item $\mathsf{NCSym}$ as a Hopf algebra of set partitions which is non-commutative but co-commutative.
@@ -90,15 +90,31 @@ $$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}
 
 \section{Notation}
 
-A \defn{set partition} $A$ of $[n] := \{1,2, \ldots, n\}$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq [n]$,
-$A_i \cap A_j = \emptyset$ if $i \neq j$ and $\cup_{i=1}^k A_i = [n]$.  The sets $A_i$ are known as the \defn{parts}
-of the set partition.  We indicate that $A$ is a set partition of $n$ by the notation $A \vdash n$ and the \defn{length} of the
+A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
+$A_i \cap A_j = \emptyset$ if $i \neq j$ and $\cup_{i=1}^k A_i = X$.  The sets $A_i$ are known as the \defn{parts}
+of the set partition.  We indicate that $A$ is a set partition of
+$[n] := \{1,2, \ldots, n\}$ by the notation $A \vdash [n]$ and the \defn{length} of the
 set partition $A$ is $k$ and is denoted $\ell(A)$.
 
 A set partition $A$ is called \defn{crossing} if there exists $A_i \neq A_j$ which
 are parts of $A$ with $a < b < c < d$ and $a,c \in A_i$ and $b,d \in A_j$.  A set partition is said to be \defn{noncrossing} otherwise.
 A set partition $A$ is said to be \defn{nesting} if there exists $A_i \neq A_j$ which
 are parts of $A$ with $a < b < c < d$ and $a,d \in A_i$ and $b,c \in A_j$ and is \defn{nonnesting} otherwise.
+
+We will define a few combinatorial operations on set partitions that we will need to describe the algebra structure.
+For $A \vdash [n]$ and $k \in \mathbb{Z}_{\geq 0}$, let $A_{\uparrow k}$ be the set partition
+$\{ \{ a + k : a \in A_i \} : 1 \leq i \leq \ell(A) \}$.
+
+The algebra of symmetric functions in noncommuting variables was first considered by Wolf \cite{W36}
+and much later in a more combinatorial setting by Rosas and Sagan \cite{RS06}.
+We will define $\mathsf{NCSym}$ by its Hopf algebra structure as the linear span of set partitions.
+We define the finite dimensional vector space
+$\mathsf{NCSym}_n = \mathrm{span}_{\mathbb C}\{ \mathbf{h}_A : A \vdash [n] \}$
+and set $\mathsf{NCSym} := \bigoplus_{n \geq 0} \mathsf{NCSym}_n$.
+
+The product on $\mathsf{NCSym}$ is defined on the basis elements and extended linearly.
+Let $A \vdash [k]$ and $B \vdash [n]$, then
+$$\mathbf{h}_A \cdot \mathbf{h}_B = \mathbf{h}_{A \cup B_{\uparrow k}}~.$$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
