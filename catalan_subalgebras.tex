@@ -88,7 +88,17 @@ Let $H^{(\mathbf{a})}_n$ be the graded component of degree $n$,
 $$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}{1 - a_1 t - a_2 t^2 - a_3 t^3 - \cdots}~.$$
 \end{itemize}
 
-\section{A Hopf subalgebra of dimension Catalan}
+\section{Notation}
+
+A \defn{set partition} $A$ of $[n] := \{1,2, \ldots, n\}$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq [n]$,
+$A_i \cap A_j = \emptyset$ if $i \neq j$ and $\cup_{i=1}^k A_i = [n]$.  The sets $A_i$ are known as the \defn{parts}
+of the set partition.  We indicate that $A$ is a set partition of $n$ by the notation $A \vdash n$ and the \defn{length} of the
+set partition $A$ is $k$ and is denoted $\ell(A)$.
+
+A set partition $A$ is called \defn{crossing} if there exists $A_i \neq A_j$ which
+are parts of $A$ with $a < b < c < d$ and $a,c \in A_i$ and $b,d \in A_j$.  A set partition is said to be \defn{noncrossing} otherwise.
+A set partition $A$ is said to be \defn{nesting} if there exists $A_i \neq A_j$ which
+are parts of $A$ with $a < b < c < d$ and $a,d \in A_i$ and $b,c \in A_j$ and is \defn{nonnesting} otherwise.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
