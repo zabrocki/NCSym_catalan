@@ -100,10 +100,13 @@ A set partition $A$ is called \defn{crossing} if there exists $A_i \neq A_j$ whi
 are parts of $A$ with $a < b < c < d$ and $a,c \in A_i$ and $b,d \in A_j$.  A set partition is said to be \defn{noncrossing} otherwise.
 A set partition $A$ is said to be \defn{nesting} if there exists $A_i \neq A_j$ which
 are parts of $A$ with $a < b < c < d$ and $a,d \in A_i$ and $b,c \in A_j$ and is \defn{nonnesting} otherwise.
+\mike{The definition of non-nesting is probably not correct}
 
 We will define a few combinatorial operations on set partitions that we will need to describe the algebra structure.
 For $A \vdash [n]$ and $k \in \mathbb{Z}_{\geq 0}$, let $A_{\uparrow k}$ be the set partition
-$\{ \{ a + k : a \in A_i \} : 1 \leq i \leq \ell(A) \}$.
+$\{ \{ a + k : a \in A_i \} : 1 \leq i \leq \ell(A) \}$.  If $A \vdash [n]$ is not equal to $B \cup C_{\uparrow k}$
+for some set partitions $B \vdash [k]$ and $C \vdash [n-k]$ with $0 < k < n$, then we say that
+$A$ is \defn{atomic}.
 
 The algebra of symmetric functions in noncommuting variables was first considered by Wolf \cite{W36}
 and much later in a more combinatorial setting by Rosas and Sagan \cite{RS06}.
@@ -115,6 +118,12 @@ and set $\mathsf{NCSym} := \bigoplus_{n \geq 0} \mathsf{NCSym}_n$.
 The product on $\mathsf{NCSym}$ is defined on the basis elements and extended linearly.
 Let $A \vdash [k]$ and $B \vdash [n]$, then
 $$\mathbf{h}_A \cdot \mathbf{h}_B = \mathbf{h}_{A \cup B_{\uparrow k}}~.$$
+
+The coproduct on the Hopf algebra $\mathsf{NCSym}$ appears in \cite{B08}
+and is equal to
+$$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
+\mathbf{h}_{\mathrm{st}(A|_S)} \otimes \mathbf{h}_{\mathrm{st}(A|_{S^c})}~.$$
+\mike{notation to be defined above: $A|_S$, $\mathrm{st}(A)$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
