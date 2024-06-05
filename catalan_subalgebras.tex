@@ -25,6 +25,8 @@
 \usepackage[aligntableaux=center, smalltableaux]{ytableau}
 \usepackage{youngtab}
 
+\newtheorem{thm}{Theorem}
+
 \definecolor{darkblue}{rgb}{0.0,0,0.7} % darkblue color
 \definecolor{darkred}{rgb}{0.7,0,0} % darkred color
 \definecolor{darkgreen}{rgb}{0, .6, 0} % darkgreen color
@@ -124,6 +126,46 @@ and is equal to
 $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 \mathbf{h}_{\mathrm{st}(A|_S)} \otimes \mathbf{h}_{\mathrm{st}(A|_{S^c})}~.$$
 \mike{notation to be defined above: $A|_S$, $\mathrm{st}(A)$}
+
+\section{Classification of free cocommutative graded connected Hopf algebras}
+
+Given a sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers, let $\mathfrak{L}(\vec{a})$ denote the free, graded Lie algebra with $a_{i}$ generators in degree $i$, and zero generators in degree zero.  The universal enveloping algebra
+\[
+\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)
+\]
+is a free, cocommutative, graded, connected Hopf algebra with Hilbert series\lucas{We have a reference for this in Jacobson's book (something by Witt), but this also seems simple enough to sketch in a few sentences, so maybe we should.}
+\[
+\frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}.
+\]
+
+
+\begin{thm}[Various Sources]
+Let $H$ be a free, cocommutative, graded, connected Hopf algebra, and let $\vec{a} = (a_{1}, a_{2}, \ldots, )$ count the number of free generators of $H$ in each degree.  
+\begin{enumerate}
+\item There is a graded isomorphism $H \cong \mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ of Hopf algebras.
+
+\item Every sub-Hopf algebra of $H$ is isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$ for some sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$.
+
+\item For every sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$, $H$ has a sub-Hopf algebra isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Here is a sketch of what we need to formalize:
+\begin{enumerate}
+\item Using Aliniaeifard--Thiem's result, we only beed to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
+
+\item Let $G \subseteq H$ be a sub-Hopf algebra.  By (1), the Lie algebra of primitives $\mathcal{P}(H) \cong \mathcal{L}(\vec{a})$.  Thus $\mathcal{P}(G)$ is isomorphic to a subalgebra of $\mathcal{L}(\vec{a})$.  
+
+By~\cite{}, $\mathcal{P}(G)$ is a free Lie algebra, so there exists a sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ for which $\mathcal{P}(G) \cong \mathfrak{L}(\vec{b})$.\lucas{Detail: show that this result plays well with the grading?}  By Milnor--Moore, $G \cong \mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+
+Missing: what can we say about $\vec{b}$, i.e. the rank of $\mathcal{P}(G)$?  I really think it should satisfy $b_{i} \le a_{i}$, but free objects are weird so this needs a proof\lucas{Big detail!!}.  If we are wrong here, we still could have a classification of sub-Hopf algebras by sequences $\vec{b}$, but we would need to figure out the correct constraints on $\vec{b}$.
+
+\item Here, we construct $\mathfrak{L}(\vec{b})$ as a subalgebra of $\mathfrak{L}(\vec{a})$ by taking $b_{i}$ of the free generators in degree $i$.
+\end{enumerate}
+\end{proof}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
