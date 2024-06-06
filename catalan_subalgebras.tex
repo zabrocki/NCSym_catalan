@@ -54,7 +54,7 @@
 
 \newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
 \newcommand{\lucas}[1]{\todo[size=\tiny,color=red]{#1 \\ \hfill --- Lucas}}
-\newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Felix}}
+\newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Félix}}
 \newcommand{\farhad}[1]{\todo[size=\tiny,color=blue!50]{#1 \\ \hfill --- Farhad}}
 \newcommand{\eric}[1]{\todo[size=\tiny,color=BurntOrange!50]{#1 \\ \hfill --- Eric}}
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
@@ -134,7 +134,7 @@ Given a sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers, let
 \[
 \mathcal{U}\big(\mathfrak{L}(\vec{a})\big)
 \]
-is a free, cocommutative, graded, connected Hopf algebra with Hilbert series\lucas{We have a reference for this in Jacobson's book (something by Witt), but this also seems simple enough to sketch in a few sentences, so maybe we should.}
+is a free, cocommutative, graded, connected Hopf algebra with Hilbert series\lucas{We have a reference for this in Jacobson's book (something by Witt), but this also seems simple enough to sketch in a few sentences, so maybe we should.} \felix{I gave some details in the part (1) of the proof for the generating functions.}
 \[
 \frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}.
 \]
@@ -154,7 +154,14 @@ Let $H$ be a free, cocommutative, graded, connected Hopf algebra, and let $\vec{
 \begin{proof}
 Here is a sketch of what we need to formalize:
 \begin{enumerate}
-\item Using Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, we only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
+\item %Using Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, we only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
+
+Following Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, one only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$. From ~\cite[Theorem 7 (Witt)]{jacobson2013lie} we have that a basis for the graded components $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)_n$ is the set of monomials of the form $m=x_i^{a_{\alpha_1}}\cdots x_i^{a_{\alpha_\ell}}$ where $\alpha=(\alpha_1,\dots,\alpha_\ell)$ is a set composition of $n$, where $\deg(x^{a_{\alpha_i}})=i$ and where $x_i^{a_{\alpha_1}},\dots, x_i^{a_{\alpha_\ell}}$ are all free generators of $\mathfrak{L}(\vec{a})$. This gives us that the dimension of each graded components is given by $\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. Let $H^{(\mathbf{a})}_n$ be the graded component of degree $n$. The relationship between the dimension of the graded component and the number of free generators given by the sequence $\Vec{a}$ gives us 
+
+$$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}{1 - a_1 t - a_2 t^2 - a_3 t^3 - \cdots}~.$$
+
+After proceeding of the Taylor expansion of this series, a simple proof by induction on the number of free generators gives us the equality between the dimension of the graded components $H^{(\mathbf{a})}_n$ of $H$ and the the dimension of the graded components $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)_n$ of $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$. \felix{I guessed we did not want the proof by induction.}
+
 
 \item Let $G \subseteq H$ be a sub-Hopf algebra.  By (1), the Lie algebra of primitives $\mathcal{P}(H) \cong \mathcal{L}(\vec{a})$.  Thus $\mathcal{P}(G)$ is isomorphic to a subalgebra of $\mathcal{L}(\vec{a})$.  
 
