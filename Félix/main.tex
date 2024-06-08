@@ -1,0 +1,251 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+\usepackage[centering]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{lscape}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz,caption}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=2em}
+\setlist[enumerate]{leftmargin=2em}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage[aligntableaux=center, smalltableaux]{ytableau}
+\usepackage{youngtab}
+
+\newtheorem{thm}{Theorem}
+
+\definecolor{darkblue}{rgb}{0.0,0,0.7} % darkblue color
+\definecolor{darkred}{rgb}{0.7,0,0} % darkred color
+\definecolor{darkgreen}{rgb}{0, .6, 0} % darkgreen color
+
+% Dark red emphasis
+\newcommand{\defncolor}{\color{darkred}}
+\newcommand{\defn}[1]{{\defncolor\emph{#1}}} % emphasis of a definition
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\def\NN{{\mathbb N}}
+\def\CC{{\mathbb C}}
+\def\ZZ{{\mathbb Z}}
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+\newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
+\newcommand{\lucas}[1]{\todo[size=\tiny,color=red]{#1 \\ \hfill --- Lucas}}
+\newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Félix}}
+\newcommand{\farhad}[1]{\todo[size=\tiny,color=blue!50]{#1 \\ \hfill --- Farhad}}
+\newcommand{\eric}[1]{\todo[size=\tiny,color=BurntOrange!50]{#1 \\ \hfill --- Eric}}
+\newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
+\setlength{\marginparwidth}{28mm}
+
+
+\title{Catalan Hopf sub-algebras of $\mathsf{NCSym}$}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section{Project description}
+
+\noindent
+To identify all the Hopf sub-algebras of $\mathsf{NCSym}$ that are of dimension Catalan and classify them.
+
+
+\begin{itemize}
+\item Introduction - notation and background
+\cite{AT20, BBT14, BHRZ05, B08, BZ09, F12, LM11, NT05, RS06}
+\cite{S09}
+\begin{itemize}
+\item Set partitions, non-crossing and non-nesting
+\item $\mathsf{NCSym}$ as a Hopf algebra of set partitions which is non-commutative but co-commutative.
+\item (Relevant/useful) bases and known formulae for the product and coproduct.
+\item subalgebras characterized by primitives
+\end{itemize}
+\item I think that we have identified all of the possible Hopf subalgebras of $\mathsf{NCSym}$
+(or at least the ones that are characterized by their basis of primitives, which I think is all of them).
+Let $b_i$ be the number of atomic set partitions of size $i$, for each sequence of integers $(\mathbf{a}) = (a_1, a_2, a_3,\ldots)$ such that
+$0 \leq a_i \leq b_i$ there is a Hopf subalgebra $H^{(\mathbf{a})}$.
+Let $H^{(\mathbf{a})}_n$ be the graded component of degree $n$,
+$$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}{1 - a_1 t - a_2 t^2 - a_3 t^3 - \cdots}~.$$
+\end{itemize}
+
+\section{Notation}
+
+A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
+$A_i \cap A_j = \emptyset$ if $i \neq j$ and $\cup_{i=1}^k A_i = X$.  The sets $A_i$ are known as the \defn{parts}
+of the set partition.  We indicate that $A$ is a set partition of
+$[n] := \{1,2, \ldots, n\}$ by the notation $A \vdash [n]$ and the \defn{length} of the
+set partition $A$ is $k$ and is denoted $\ell(A)$.
+
+A set partition $A$ is called \defn{crossing} if there exists $A_i \neq A_j$ which
+are parts of $A$ with $a < b < c < d$ and $a,c \in A_i$ and $b,d \in A_j$.  A set partition is said to be \defn{noncrossing} otherwise.
+A set partition $A$ is said to be \defn{nesting} if there exists $A_i \neq A_j$ which
+are parts of $A$ with $a < b < c < d$ and $a,d \in A_i$ and $b,c \in A_j$ and is \defn{nonnesting} otherwise.
+\mike{The definition of non-nesting is probably not correct}
+
+We will define a few combinatorial operations on set partitions that we will need to describe the algebra structure.
+For $A \vdash [n]$ and $k \in \mathbb{Z}_{\geq 0}$, let $A_{\uparrow k}$ be the set partition
+$\{ \{ a + k : a \in A_i \} : 1 \leq i \leq \ell(A) \}$.  If $A \vdash [n]$ is not equal to $B \cup C_{\uparrow k}$
+for some set partitions $B \vdash [k]$ and $C \vdash [n-k]$ with $0 < k < n$, then we say that
+$A$ is \defn{atomic}.
+
+The algebra of symmetric functions in noncommuting variables was first considered by Wolf \cite{W36}
+and much later in a more combinatorial setting by Rosas and Sagan \cite{RS06}.
+We will define $\mathsf{NCSym}$ by its Hopf algebra structure as the linear span of set partitions.
+We define the finite dimensional vector space
+$\mathsf{NCSym}_n = \mathrm{span}_{\mathbb C}\{ \mathbf{h}_A : A \vdash [n] \}$
+and set $\mathsf{NCSym} := \bigoplus_{n \geq 0} \mathsf{NCSym}_n$.
+
+The product on $\mathsf{NCSym}$ is defined on the basis elements and extended linearly.
+Let $A \vdash [k]$ and $B \vdash [n]$, then
+$$\mathbf{h}_A \cdot \mathbf{h}_B = \mathbf{h}_{A \cup B_{\uparrow k}}~.$$
+
+The coproduct on the Hopf algebra $\mathsf{NCSym}$ appears in \cite{B08}
+and is equal to
+$$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
+\mathbf{h}_{\mathrm{st}(A|_S)} \otimes \mathbf{h}_{\mathrm{st}(A|_{S^c})}~.$$
+\mike{notation to be defined above: $A|_S$, $\mathrm{st}(A)$}
+
+\section{Results from Jacobson that we are interested in}
+
+The following is quoted word for word from \cite{jacobson2013lie}. Lie algebras arise from assoicative algebras in a very simple way. Let $\mathfrak{U}$ be an associative algebra. If $x,y,\in \mathfrak{U}$, then we define the \textit{Lie product} or (additive) \textit{commutator} of $x$ and $y$ as
+
+$$[xy]=xy-yx.$$
+
+One checks immediately that
+
+$$\begin{matrix}
+    [x_1+x_2,y]=[x_1y]+[x_2y], \\
+    [x,y_1+y_2]=[xy_1]+[xy_2],\\
+    \alpha[xy]=[\alpha x,y]=[x,\alpha y].
+\end{matrix}$$
+
+Thus the products $[xy]$ satisfies all the conditions on the product in a Lie algebra. The Lie algebra obtained in this way is called \textit{the Lie algebra} of the associative algebra $\mathfrak{U}$. We shall denote this Lie algebra as $\mathfrak{U}_L$.
+
+\begin{thm}[Theorem $7$ (Witt),\cite{jacobson2013lie}]
+    Let $X$ be an aribtrary set and let $\mathfrak{F}$ denote the free algebra (freely) generated by $X$. Let $\mathfrak{F}^{\mathfrak{L}}$ denote the subalgebra of $\mathfrak{F}_L$ generated by the elements of $X$. Then $\mathfrak{F}^{\mathfrak{L}}$ is a free Lie algebra generated by $X$ and $\mathfrak{F}$ is the universal enveloping algebra of $\mathfrak{F}^{\mathfrak{L}}$. 
+\end{thm}
+
+Let $\Phi$ be a field. For the sake of simplcity we shall now restrict our attention to the case of a finite set set $X=\{x_1,x_2,\cdots,x_r\}$. Then
+
+$$\mathfrak{M}=\Phi x_1 \oplus \Phi x_2 \oplus \cdots \oplus \Phi x_r$$
+
+and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdot \cdot$, and we write $\mathfrak{F}=\Phi\{x_1,\cdots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
+ 
+
+
+\section{Classification of free cocommutative graded connected Hopf algebras} 
+
+\begin{proposition}
+    Given a sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers, let $\mathfrak{L}(\vec{a})$ denote the free, graded Lie algebra with $a_{i}$ generators in degree $i$, and zero generators in degree zero.  The universal enveloping algebra
+\[
+\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)
+\]
+
+\begin{enumerate}
+
+\item is a free, cocommutative, graded, connected Hopf algebra.
+
+\item has Hilbert series
+
+\[
+f(t)=\frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}.
+\]
+
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+\begin{enumerate}
+
+    \item From Jacobson,\cite{jacobson2013lie}
+
+    \item Given $f(t)$, by geometric series we have 
+
+    $${\begin{split}
+        \frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots} &= \sum_{n=0}^\infty (a_1t+a_2t^2+\cdots)^n
+    \end{split}}$$
+
+    Expending this sum we get the results wanted
+
+    $$\frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}=\sum_{n=0}^\infty \left(\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell} \right) t^n.$$
+
+    Given $\Vec{a}$, we can consider that $\mathfrak{L}(\Vec{a})$ is generated by the set $X=\{x_{(i,j)}: 1 \leq j \leq a_i\}$ where $x_{(i,j)}$ is a generators of degree $i$. From ~\cite[Theorem 7 (Witt)]{jacobson2013lie} we have that a basis for the graded components $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)_n$ is the set of monomials of the form $m=x_{(\alpha_1,k)} \cdots x_{(\alpha_\ell,s)}$ where $\alpha=(\alpha_1,\dots,\alpha_\ell)$ is a set composition of $n$. This gives us that the dimension of each graded components is given by $\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. This gives us the results and this conclude the proof.
+
+\end{enumerate}
+
+\end{proof}
+
+
+\begin{thm}\cite[Theorem 4.2]{AT22}
+Let $H=\bigoplus_{n\geq 0} H_n$ and $H'=\bigoplus_{n\geq 0} H'_n$ be two free graded cocommutative Hopf algebras. Then $H\cong H'$ if and only if 
+
+$$\dim(H_n)=\dim(H') \text{ for all } n\geq 0.$$
+    
+\end{thm}
+
+\begin{proof}
+    \felix{Let us write in our words the proof of Theorem 4.2.}
+\end{proof}
+
+
+\begin{thm}[Various Sources]
+Let $H$ be a free, cocommutative, graded, connected Hopf algebra, and let $\vec{a} = (a_{1}, a_{2}, \ldots, )$ count the number of free generators of $H$ in each degree.  
+\begin{enumerate}
+\item There is a graded isomorphism $H \cong \mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ of Hopf algebras.
+
+\item Every sub-Hopf algebra of $H$ is isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$ for some sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$.
+
+\item For every sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$, $H$ has a sub-Hopf algebra isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Here is a sketch of what we need to formalize:
+\begin{enumerate}
+\item %Using Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, we only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
+
+Following Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, one only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$.
+
+
+\item Let $G \subseteq H$ be a sub-Hopf algebra.  By (1), the Lie algebra of primitives $\mathcal{P}(H) \cong \mathcal{L}(\vec{a})$.  Thus $\mathcal{P}(G)$ is isomorphic to a subalgebra of $\mathcal{L}(\vec{a})$.  
+
+By~\cite[Theorem 2.2]{MSZ}, $\mathcal{P}(G)$ is a free Lie algebra, so there exists a sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ for which $\mathcal{P}(G) \cong \mathfrak{L}(\vec{b})$.\lucas{Detail: show that this result plays well with the grading?}  By Milnor--Moore, $G \cong \mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+
+Missing: what can we say about $\vec{b}$, i.e. the rank of $\mathcal{P}(G)$?  I really think it should satisfy $b_{i} \le a_{i}$, but free objects are weird so this needs a proof\lucas{Big detail!!}.  If we are wrong here, we still could have a classification of sub-Hopf algebras by sequences $\vec{b}$, but we would need to figure out the correct constraints on $\vec{b}$.
+
+\item Here, we construct $\mathfrak{L}(\vec{b})$ as a subalgebra of $\mathfrak{L}(\vec{a})$ by taking $b_{i}$ of the free generators in degree $i$.
+\end{enumerate}
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliography{bibliography}{}
+
+\end{document}
+
