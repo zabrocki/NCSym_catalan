@@ -297,14 +297,23 @@ is a cocommutative, graded, connected Hopf algebra, and in the previous section 
 \]
 
 \begin{thm}\cite[Theorem 4.2]{AT22}
-Let $H=\bigoplus_{n\geq 0} H_n$ and $H'=\bigoplus_{n\geq 0} H'_n$ be two free graded cocommutative Hopf algebras. Then $H\cong H'$ if and only if 
+Let $H=\bigoplus_{n\geq 0} H_n$ and $K=\bigoplus_{n\geq 0} K_n$ be two free graded connected cocommutative Hopf algebras. The following are equivalent.
+\begin{enumerate}
+\item $H\cong K$ as graded Hopf algebras. 
 
-$$\dim(H_n)=\dim(H_n') \text{ for all } n\geq 0.$$
-    
+\item $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0.$
+\end{enumerate}   
 \end{thm}
 
 \begin{proof}
     \felix{Let us write in our words the proof of Theorem 4.2.}
+Immediately we have (1)$\Rightarrow$(2). Assume that $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0,$ or equivalently $\mathcal{H}(H;t)=\mathcal{H}(K;t).$ By freeness, there exist graded sets $X$ and $Y$ generating $H$ and $K$, respectively. We define the Hilbert series of $X$ as $\mathcal{H}(X;t)=\sum_{i\geq 0}|X_i|t^i$. It follows from Prop. 3.2 that
+$$\mathcal{H}(H;t)=\frac{1}{1-\mathcal{H}(X;t)} \text{  and  } \mathcal{H}(K;t)=\frac{1}{1-\mathcal{H}(Y;t)}.$$
+Because $H$ and $K$ are connected, the degree zero terms of their Hilbert series $\dim(H_0)=\dim(K_0)=1$ are non-zero, hence the following equality of series
+$$\mathcal{H}(X;t)=1-\frac{1}{\mathcal{H}(H;t)}=1-\frac{1}{\mathcal{H}(K;t)}=\mathcal{H}(Y;t).$$
+
+We then have $|X_i|=|Y_i|$ for all $i\geq 0.$ Fix bijections $\varphi_i:X_i\to Y_i$ and extend to a bijection $\varphi:X\to Y$. With $\mathcal{L}(Y)$ the free Lie algebra on $Y$, the inclusion $Y\to \mathcal{L}(Y)$ induces a map $\Phi:X\to \mathcal{L}(Y).$ By freeness, $\Phi$ extends uniquely to a Lie algebra morphism $\hat{\Phi}:\mathcal{L}(X)\to \mathcal{L}(Y)$ which is a grading preserving isomorphism. We conclude by the Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} that
+$$H\cong \mathcal{U}(\mathcal{L}(X))\cong \mathcal{U}(\mathcal{L}(Y))\cong K.$$
 \end{proof}
 
 
