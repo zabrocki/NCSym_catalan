@@ -145,21 +145,21 @@ X = \biguplus_{n \ge 1} X_{i}.
 The free graded algebra on the set $X$ is 
 \[
 \mathcal{F}(X) = \bigoplus_{n \ge 0} \bigoplus_{\alpha \vDash n} 
-\CC\operatorname{-span}\{x_{i_{1}} x_{i_{2}} \cdots x_{i_{\ell}} \;|\; x_{i_{k}} \in X_{\alpha_{k}}\},
+\CC\operatorname{-span}\{g_{x_{i_{1}} }g_{x_{i_{2}}} \cdots g_{x_{i_{\ell}}} \;|\; x_{i_{k}} \in X_{\alpha_{k}}\},
 \]
 where the degree zero component is $\CC 1_{\mathcal{F}(X)}$.  This algebra $\mathcal{F}(X)$ has the following \emph{universal property}:
 
 \begin{property}
-Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every function $\phi: X \to A$ such that $\psi(X_{i}) \subseteq A_{i}$, there exists a unique graded algebra homomorphism $\tilde{\phi}: \mathcal{F}(X) \to A$ such that $\tilde{\phi}|_{X} = \phi$, i.e.
+Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every function $\phi: X \to A$ such that $\phi(X_{i}) \subseteq A_{i}$, there exists a unique graded algebra homomorphism $\tilde{\phi}: \mathcal{F}(X) \to A$ such that $\tilde{\phi}|_{X} = \phi$, i.e.
 \[
-\begin{tikzpicture}
-\node at (0, 0) (X) {$X$};
-\node at (3, 0) (F) {$\mathcal{F}(X)$};
-\node at (0, -1) (A) {$A$};
-\draw[->] (X) -- node[above] {inclusion} (F);
-\draw[->] (X) -- node[left] {$\phi$} (A);
-\draw[->, dashed] (A) -- node[below right] {$\tilde{\phi}$} (F);
-\end{tikzpicture}.
+    \begin{tikzpicture}
+        \node at (0, 0) (X) {$X$};
+        \node at (3, 0) (F) {$A$};
+        \node at (0, -1) (A) {$\mathcal{F}(X)$};
+        \draw[->] (X) -- node[above] {$\phi$} (F);
+        \draw[->] (X) -- node[left] {inclusion} (A);
+        \draw[->, dashed] (A) -- node[below right] {$\tilde{\phi}$} (F);
+        \end{tikzpicture}.
 \]
 \end{property}
 
@@ -231,22 +231,22 @@ Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every linear map $
 \psi([a, b]) = \psi(a)\phi(b) - \psi(b)\psi(a)
 \qquad\text{for all $a, b \in L$},
 \]
-there exists a unique graded algebra homomorphism $\tilde{\psi}: \mathcal{F}(X) \to A$ such that $\tilde{\psi}|_{L} = \psi$, i.e.
+there exists a unique graded algebra homomorphism $\tilde{\psi}: \mathcal{U}(L) \to A$ such that $\tilde{\psi}|_{L} = \psi$, i.e.
 \[
-\begin{tikzpicture}
-\node at (0, 0) (L) {$L$};
-\node at (3, 0) (U) {$\mathcal{U}(L)$};
-\node at (0, -1) (A) {$A$};
-\draw[->] (X) -- node[above] {inclusion} (U);
-\draw[->] (X) -- node[left] {$\psi$} (A);
-\draw[->, dashed] (A) -- node[below right] {$\tilde{\psi}$} (U);
-\end{tikzpicture}.
+    \begin{tikzpicture}
+        \node at (0, 0) (L) {$L$};
+        \node at (3, 0) (U) {$A$};
+        \node at (0, -1) (A) {$\mathcal{U}(L)$};
+        \draw[->] (X) -- node[above] {$\psi$} (U);
+        \draw[->] (X) -- node[left] {inclusion} (A);
+        \draw[->, dashed] (A) -- node[below right] {$\tilde{\psi}$} (U);
+        \end{tikzpicture}.
 \]
 \end{property}
 
 Given a graded set $X = \biguplus_{i \ge 1} X_{i}$, we also define the free Lie algebra on $X$ to be the graded Lie algebra
 \[
-\mathfrak{L}_{X} = \bigoplus_{n \ge 1} \bigoplus_{\alpha \vDash n} \CC\operatorname{-spanning}\{\text{brackets of $x_{i_{1}}, \ldots, x_{i_{\ell}}$} \;|\; x_{i_{k}} \in X_{\alpha_{k}} \},
+\mathfrak{L}_{X} = \bigoplus_{n \ge 1} \bigoplus_{\alpha \vDash n} \CC\operatorname{-spanning}\{\text{brackets of $h_{x_{i_{1}}}, \ldots, h_{x_{i_{\ell}}}$} \;|\; x_{i_{k}} \in X_{\alpha_{k}} \},
 \]
 subject only to anticommutativity and the Jacobi identities.
 
