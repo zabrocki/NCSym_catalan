@@ -306,15 +306,16 @@ Let $H=\bigoplus_{n\geq 0} H_n$ and $K=\bigoplus_{n\geq 0} K_n$ be two free grad
 \end{thm}
 
 \begin{proof}
-Immediately we have (1)$\Rightarrow$(2). Assume that $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0,$ or equivalently $\mathcal{H}(H;t)=\mathcal{H}(K;t).$ By freeness, there exist graded sets $X$ and $Y$ generating $H$ and $K$, respectively. We define the Hilbert series of $X$ as $\mathcal{H}(X;t)=\sum_{i\geq 0}|X_i|t^i$. It follows from Prop. 3.2 that
-$$\mathcal{H}(H;t)=\frac{1}{1-\mathcal{H}(X;t)} \text{  and  } \mathcal{H}(K;t)=\frac{1}{1-\mathcal{H}(Y;t)}.$$
+Immediately we have (1)$\Rightarrow$(2). Assume that $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0,$ or equivalently $\mathcal{H}(H;t)=\mathcal{H}(K;t).$ By freeness, there exist graded sets $X$ and $Y$ generating $H$ and $K$, respectively. We define the Hilbert series of $X$ as $\mathcal{H}(X;t)=\sum_{n\geq 0}|X_n|t^n$. It follows from Prop. 3.2 that
+$$\mathcal{H}(H;t)=\frac{1}{1-\mathcal{H}(X;t)}\ \text{  and  }\ \mathcal{H}(K;t)=\frac{1}{1-\mathcal{H}(Y;t)}.$$
 Because $H$ and $K$ are connected, the degree zero terms of their Hilbert series $\dim(H_0)=\dim(K_0)=1$ are non-zero, hence the following equality of series
 $$\mathcal{H}(X;t)=1-\frac{1}{\mathcal{H}(H;t)}=1-\frac{1}{\mathcal{H}(K;t)}=\mathcal{H}(Y;t).$$
 
-We then have $|X_i|=|Y_i|$ for all $i\geq 0.$ Fix bijections $\varphi_i:X_i\to Y_i$ and extend to a bijection $\varphi:X\to Y$. With $\mathcal{L}(Y)$ the free Lie algebra on $Y$, the inclusion $Y\to \mathcal{L}(Y)$ induces a map $\Phi:X\to \mathcal{L}(Y).$ By freeness, $\Phi$ extends uniquely to a Lie algebra morphism $\hat{\Phi}:\mathcal{L}(X)\to \mathcal{L}(Y)$ which is a grading preserving isomorphism. We conclude by the Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} and Theorem 1 that 
-$$\mathcal{P}(H)\cong \mathcal{L}(X) \text{ and } \mathcal{P}(K)\cong \mathcal{L}(Y)$$. \eric{This version has a lot of overlap with Thm 3}
-Therefore,
-$$H\cong \mathcal{U}(\mathcal{L}(X))\cong \mathcal{U}(\mathcal{L}(Y))\cong K.$$
+We then have $|X_i|=|Y_i|$ for all $i\geq 0.$ Fix bijections $\varphi_i:X_i\to Y_i$ and extend to a bijection $\varphi:X\to Y$. With $\mathfrak{L}(Y)$ the free Lie algebra on $Y$, the inclusion $Y\to \mathfrak{L}(Y)$ induces a map $\Phi:X\to \mathfrak{L}(Y).$ By freeness, $\Phi$ extends uniquely to a Lie algebra morphism $\hat{\Phi}:\mathfrak{L}(X)\to \mathfrak{L}(Y)$ which is a grading preserving isomorphism. From (Prop. to be written? from ~\cite[Prop. 2.4]{F23}) we have 
+\eric{If we use this version of the proof, we would need to show that the primitives are in fact free beforehand - There is a nice proof of this without using the current theorem}
+$$\mathcal{P}(H)\cong \mathfrak{L}(X) \text{ and } \mathcal{P}(K)\cong \mathfrak{L}(Y).$$ 
+We conclude by the Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} that
+$$H\cong \mathcal{U}(\mathfrak{L}(X))\cong \mathcal{U}(\mathfrak{L}(Y))\cong K.$$
 \end{proof}
 
 
