@@ -345,7 +345,9 @@ for a connected cocommutative Hopf algebra $H$ and a Lie algebra $L$.
     \[
     F\otimes F\circ \Delta_L(x)=1\otimes F(x)+F(x)\otimes 1. 
     \]
-    Because $F|_X=f$ we have $F(x)\in M$, hence $\Delta_M\circ F(x)=1\otimes F(x)+F(x)\otimes 1$. Extending algebraically we see $F$ is a Hopf morphism. The primitive functor then gives the desired map $\tilde{f}=\mathcal{P}(F):L\to M$ which one can verify uniquely extends $f$.
+    Because $F|_X=f$ we have $F(x)\in M$, hence $\Delta_M\circ F(x)=1\otimes F(x)+F(x)\otimes 1$. Extending algebraically we see $F$ is a Hopf morphism, and therefore it induces a Lie algebra map on the primitives $\tilde{f}:L\to M$ with $\tilde{f}|_X=f$.
+
+    To show uniqueness, suppose $g:L\to M$ is another Lie morphism such that $g|_X=f.$ The induced algebra map $G:\mathcal{U}(L)\to \mathcal{U}(M)$ has $G|_X=f$, and freeness of $\mathcal{U}(G)$ gives $G=F$, hence $g=\tilde{f}.$
 \end{proof}
 
 \begin{corollary}
