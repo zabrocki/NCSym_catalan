@@ -150,6 +150,7 @@ The free graded algebra on the set $X$ is
 where the degree zero component is $\CC 1_{\mathcal{F}(X)}$.  This algebra $\mathcal{F}(X)$ has the following \emph{universal property}:
 
 \begin{property}
+\label{prop:universalfree}
 Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every function $\phi: X \to A$ such that $\phi(X_{i}) \subseteq A_{i}$, there exists a unique graded algebra homomorphism $\tilde{\phi}: \mathcal{F}(X) \to A$ such that $\tilde{\phi}|_{X} = \phi$, i.e.
 \[
     \begin{tikzpicture}
@@ -226,6 +227,7 @@ Let $L$ be a graded Lie algebra with bracket $[\cdot, \cdot]$.  The universal en
 where the degree zero component is $\CC 1_{\mathcal{U}(L)}$.  Multiplication in $\mathcal{U}(L)$ is concatenation of tensors, subject to the relations of the form $a \otimes b - b \otimes a = [a, b]$ for all $a, b \in L$.  This algebra $\mathcal{F}(X)$ has the following \emph{universal property}:
 
 \begin{property}
+\label{prop:universalLie}
 Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every linear map $\psi: L \to A$ such that $\psi(L_{i}) \subseteq A_{i}$ and
 \[
 \psi([a, b]) = \psi(a)\phi(b) - \psi(b)\psi(a)
@@ -287,8 +289,7 @@ Let \(F(X)\) and \(\mathfrak{L}_{X}\) be the free algebra and free Lie algebra g
     \end{array}
 \end{align*}
     
-
-By properties 3.1 and 3.2 we have the existence of unique graded algebra homomorphisms 
+By Properties~\ref{prop:universalfree} and~\ref{prop:universalLie} we have the existence of unique graded algebra homomorphisms 
 \begin{align*}
     \begin{array}{rcl}
         \tilde{\phi}: \mathcal{F}(X) \longrightarrow & \mathcal{U} (\mathfrak{L}_{X}) \\
