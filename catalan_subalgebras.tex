@@ -40,6 +40,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{property}[theorem]{Property}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{question}[theorem]{Question}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{definition}
@@ -150,6 +151,7 @@ The free graded algebra on the set $X$ is
 where the degree zero component is $\CC 1_{\mathcal{F}(X)}$.  This algebra $\mathcal{F}(X)$ has the following \emph{universal property}:
 
 \begin{property}
+\label{prop:universalfree}
 Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every function $\phi: X \to A$ such that $\phi(X_{i}) \subseteq A_{i}$, there exists a unique graded algebra homomorphism $\tilde{\phi}: \mathcal{F}(X) \to A$ such that $\tilde{\phi}|_{X} = \phi$, i.e.
 \[
     \begin{tikzpicture}
@@ -226,6 +228,7 @@ Let $L$ be a graded Lie algebra with bracket $[\cdot, \cdot]$.  The universal en
 where the degree zero component is $\CC 1_{\mathcal{U}(L)}$.  Multiplication in $\mathcal{U}(L)$ is concatenation of tensors, subject to the relations of the form $a \otimes b - b \otimes a = [a, b]$ for all $a, b \in L$.  This algebra $\mathcal{F}(X)$ has the following \emph{universal property}:
 
 \begin{property}
+\label{prop:universalLie}
 Let $A = \bigoplus_{n \ge 0} A_{i}$ be a graded algebra.  For every linear map $\psi: L \to A$ such that $\psi(L_{i}) \subseteq A_{i}$ and
 \[
 \psi([a, b]) = \psi(a)\phi(b) - \psi(b)\psi(a)
@@ -295,8 +298,7 @@ Let $X$ be an arbitrary graded set.  Then
     \end{array}
 \end{align*}
     
-
-By properties 3.1 and 3.2 we have the existence of unique graded algebra homomorphisms 
+By Properties~\ref{prop:universalfree} and~\ref{prop:universalLie} we have the existence of unique graded algebra homomorphisms 
 \begin{align*}
     \begin{array}{rcl}
         \tilde{\phi}: \mathcal{F}(X) \longrightarrow & \mathcal{U} (\mathfrak{L}_{X}) \\
@@ -409,9 +411,9 @@ Let $H$ be a free, cocommutative, graded, connected Hopf algebra, and let $\vec{
 \begin{enumerate}
 \item There is a graded isomorphism $H \cong \mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ of Hopf algebras.
 
-\item Every sub-Hopf algebra of $H$ is isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$ for some sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$.
+\item Every graded sub-Hopf algebra of $H$ is isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$ for some sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$.
 
-\item For every sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$, $H$ has a sub-Hopf algebra isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+\item For every sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ with $b_{i} \le a_{i}$, $H$ has a graded sub-Hopf algebra isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
 
 \end{enumerate}
 \end{thm}
@@ -425,13 +427,59 @@ Following Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, one only need t
 
 \item Let $G \subseteq H$ be a sub-Hopf algebra.  By (1), the Lie algebra of primitives $\mathcal{P}(H) \cong \mathcal{L}(\vec{a})$.  Thus $\mathcal{P}(G)$ is isomorphic to a subalgebra of $\mathcal{L}(\vec{a})$.  
 
-By~\cite[Theorem 2.2]{MSZ}, $\mathcal{P}(G)$ is a free Lie algebra, so there exists a sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ for which $\mathcal{P}(G) \cong \mathfrak{L}(\vec{b})$.\lucas{Detail: show that this result plays well with the grading?}  By Milnor--Moore, $G \cong \mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
+By~\cite[Theorem 2.2]{MSZ}, $\mathcal{P}(G)$ is a free Lie algebra, so there exists a sequence $\vec{b} = (b_{1}, b_{2}, \ldots)$ for which $\mathcal{P}(G) \cong \mathfrak{L}(\vec{b})$.
+%\lucas{Detail: show that this result plays well with the grading?}  
+By Milnor--Moore, $G \cong \mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$.
 
-Missing: what can we say about $\vec{b}$, i.e. the rank of $\mathcal{P}(G)$?  I really think it should satisfy $b_{i} \le a_{i}$, but free objects are weird so this needs a proof\lucas{Big detail!! This actually seems to be false}.  Since we are wrong here, we still could have a classification of sub-Hopf algebras by sequences $\vec{b}$, but we would need to figure out the correct constraints on $\vec{b}$.
+%Missing: what can we say about $\vec{b}$, i.e. the rank of $\mathcal{P}(G)$?  I really think it should satisfy $b_{i} \le a_{i}$, but free objects are weird so this needs a proof\lucas{Big detail!! This actually seems to be false}.  Since we are wrong here, we still could have a classification of sub-Hopf algebras by sequences $\vec{b}$, but we would need to figure out the correct constraints on $\vec{b}$.
 
 \item Here, we construct $\mathfrak{L}(\vec{b})$ as a subalgebra of $\mathfrak{L}(\vec{a})$ by taking $b_{i}$ of the free generators in degree $i$.
 \end{enumerate}
 \end{proof}
+
+Previously, we had thought that the condition in (3) above was sufficient, i.e. that every graded sub-Hopf algebra of $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ was isomorphic to $\mathcal{U}\big(\mathfrak{L}(\vec{b})\big)$ for some sequence $(b_{1}, b_{2}, \ldots)$ with $0 \le b_{i} \le a_{i}$ for all $i \ge 1$.  However, this is not true!  
+
+Consider the free, connected, cocommutative Hopf algebra which is freely generated as an algebra by four homogeneous elements of degree one, $x$, $y$, $z$, and $w$, so that
+\[
+H_{1} = \CC\operatorname{-span}\{x, y, z, w\}
+\]
+and
+\[
+H_{k} = \CC\operatorname{-span}\big\{ \text{products $m_{1} m_{2} \cdots m_{k}$} \;|\; m_{i} \in \{x, y, z, w\} \big\}
+\qquad\text{for $k \ge 2$}.
+\]
+By proposition~\ref{},\lucas{I don't want to cause a conflict so I'm not labelling this now} $H$ has the Hilbert series
+\[
+\frac{1}{1 - 4t - 0 t^{2} - 0 t^{3} - \cdots }.
+\]
+
+The Lie algebra of primitives $\mathcal{P}(H)$ is the free Lie algebra $\mathfrak{L}_{\{x, y, z, w\}}$.  Now consider the Lie subalgebra
+\[
+M = \CC\operatorname{-span}\{[x, y]\} \subseteq \mathfrak{L}_{\{x, y, z, w\}},
+\]
+as well as its universal enveloping algebra $\mathcal{U}(M) \subseteq H$.
+By Theorem~\ref{}, this is a free Lie algebra generated by one element, and by dimension consideration we can take the free generator to be $[x, y]$.  
+Therefore by Theorem~\ref{}, the universal enveloping algebra $\mathcal{U}(M)$ is freely generated (as an algebra) by $[x, y]$.
+Now $[x, y] = xy - yx$ is a homogeneous element of degree $2$ in $H$, so as the subalgebra generated by $[x, y]$, the universal enveloping algebra $\mathcal{U}(M)$ is a graded sub-Hopf algebra and has Hilbert series
+\[
+\frac{1}{1 - 0t - t^{2} - 0t^{3} - \cdots}.
+\]
+Since $H$ has no free generators in degree $2$, this shows that sub-Hopf algebras may have more free generators in a given degree than the Hopf algebra which contains them.
+
+Is is also possible to obtain a sub-Hopf algebra which has more free generators (in total) than the Hopf algebra which contains it.  
+Consider the Lie subalgebra
+\[
+N = \langle [x, y], [x, z], [x, w], [y, z], [y, w], [z, w] \rangle \subseteq \mathfrak{L}_{\{x, y, z, w\}}.
+\]
+This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \lucas{Definitely true, but details needed.}  Repeating the argument we made for $\mathcal{U}(M)$, we have that $\mathcal{U}(N)$ is a graded sub-Hopf algebra of $H$ with six free generators in degree two, so that its Hilbert series is
+\[
+\frac{1}{1 - 0t - 6t^{2} - 0 t^{3} - \cdots }.
+\]
+
+\begin{question}
+Let $\vec{a} = (a_{1}, a_{2}, \ldots)$ be a sequence of nonnegative integers.  What characterizes the sequences $\vec{b} = (b_{1}, b_{2}, \ldots)$ for which $\mathcal{U}(\mathfrak{L}(\vec{a}))$ has a graded sub-Hopf algebra isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$?
+\end{question}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
