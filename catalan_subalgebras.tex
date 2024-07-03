@@ -522,9 +522,10 @@ Given a sequence $\vec{a} = (a_1,a_2, \ldots)$ we have a formula for the dimensi
 \[
 \dim \mathfrak{L}(\vec{a})_n = \sum_{mk=n} \frac{1}{k}\mu (k)W_m(\vec{a})
 \]
-where $\mu$ is the Mobius function, and setting $s(\lambda)$ to be the sum of multiplicities of $\lambda$ and $\lambda^!$ the multipllicity factorial,
+where $\mu$ is the Mobius function, and setting $\ell(\lambda)$ to be the sum of multiplicities of $\lambda$
+and $\lambda^! = \prod_{i \geq 1} m_i(\lambda)$ the multiplicity factorial with $m_i(\lambda) = $ the number of parts of size $i$ in $\lambda$,
 \[
-W_m(\vec{a}) = \sum_{\lambda \vdash m} \frac{(s(\lambda)-1)!}{\lambda^!}a_{\lambda_1} \cdots a_{\lambda_{\ell}}.
+W_m(\vec{a}) = \sum_{\lambda \vdash m} \frac{(\ell(\lambda)-1)!}{\lambda^!}a_{\lambda_1} \cdots a_{\lambda_{\ell}}.
 \]
 Define 
 \eric{I will write the complete definition later}\[
@@ -549,7 +550,7 @@ so that $P_n(\vec{a}) = \dim \mathfrak{L}(\vec{a})_n$.
 
     Now suppose $P_n(\vec{a}) \geq P_n(\vec{b})$ for all $n > 0$. We will construct a sub-Lie algebra $B \subseteq \mathfrak{L}(\vec{a})$ isomorphic to $\mathfrak{L}(\vec{b})$ by recursively choosing $b_n$-dimensional subspaces complementary to $[B,B]_n$ in each degree $n$. Let $V \subseteq \mathfrak{L}(\vec{a})$ be the subspace spanned by the free generators, so that $\mathfrak{L}(\vec{a}) = V \oplus [\mathfrak{L}(\vec{a}),\mathfrak{L}(\vec{a})]$. Note that we can recursively define 
     \[ 
-    [B,B]_n = \sum_{k=1}^{n-1} [B_n,B_{n-k}].
+    [B,B]_n = \sum_{k=1}^{n-1} [B_k,B_{n-k}].
     \]
 
     For $n=1$ we have $P_1(\vec{a}) = a_1$ and $P_1(\vec{b}) = b_1$, hence $a_1 \geq b_1$. Let $W_1$ be the span of $b_1$ of the degree 1 generators. Trivially $W_1$ is complementary to $[B,B]_1 = \{0\}.$
