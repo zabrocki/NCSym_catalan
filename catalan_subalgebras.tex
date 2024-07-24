@@ -631,6 +631,76 @@ Hence we find the free primitive generators \(X\) of \(H\) and \(Y\) of \(K\), a
 \cite{AT22}, fix bijections \(f_i: X_i  \to Y_i\) and extend to a bijection
 \(f:X \to Y\).
 
+\section{Statements}
+
+\subsection{Statement 2 in CoCalc}
+
+Given a sequence $\mathbf{h} = (h_0, h_1, h_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra.
+
+\begin{proposition}
+	Given a sequence of nonnegative integers $\mathbf{h} = (h_0, h_1, h_2, \ldots)$. $\mathbf{h}$ correspond to the dimension of a Hopf algebra at degree $n$ if and only if 
+	
+	$$a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}} \textit{ and } a_n\geq 0.$$
+	
+	Following this we can construct the Hopf algebra associated to it.
+\end{proposition}
+
+\begin{proof}
+	Félix
+\end{proof}
+
+\subsection{Statement 3 in CoCalc}
+
+Given a sequence $\mathbf{p} = (p_0, p_1, p_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra. (I liked the example Lucas gave for $p_1=1, p_2=1$ and then $p_n =0$ for $n\geq3$.  There does not exist a Hopf algebra with this sequence because $a_1=1, a_2=1, a_3=-1$ and $a_n = 0$ for $n\geq4$)
+
+\begin{proposition}
+	Given a sequence of nonnegative integers $\mathbf{p} = (p_0, p_1, p_2, \ldots)$. $\mathbf{p}$ correspond to the dimension of the primitives at degree $n$ if and only if 
+	
+	$$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)} \textit{ and } a_n\geq 0.$$ 
+	
+	Following this we can construct the Hopf algebra associated to it.  
+\end{proposition}
+
+\begin{proof}
+	Félix
+\end{proof}
+
+\subsection{Statement 4 in CoCalc}
+
+Given two Hopf algebras with the same sequence of dimensions, we can construct an isomorphism (all of the isomorphisms?) between them.
+
+\begin{proposition}
+	Given two Hopf algebras $A,B$ with the same sequence of dimensions such that $\dim(A_n)=\dim(B_n)$ for all $n$, there exists a construction of isomorphism (all of the isomorphisms?) between them.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\subsection{Statement 5 in CoCalc}
+
+
+Given a Hopf algebra $A$ and a sequence $(g_1, g_{2}, \ldots) \textit{ with } g_{i} \le \dim(A_{i})$, does there exists a Hopf subalgebra $B$ with $\dim(B_{i}) = g_{i}$?  We need to:
+
+\begin{itemize}
+	
+	\item [1.] 
+	
+	See if such a B exists by checking that the corresponding a-sequence is nonnegative, and
+	
+	\item[2.] 
+	
+	[Assuming 1. is a yes] Check if B is contained in $A$ by comparing their p-sequences.  If we call these $(p_{1}, p_{2}, \ldots) \textit{ and } (q_{1}, q_{2}, \ldots)$, the requirement is that $q_{i} \le p_{i} \textit{ for all } i \ge 1$.
+	
+	\item[3.] 
+	
+	We don't need to compare the h-sequences: checking p's tells usthat the Lie algebra of primitives for B is contained in the Lie algebra of primitives for $A$, and passing to universal enveloping algebras gives $B \subseteq A$.
+	
+	Reformulate this recipe in a nicer way.
+
+\end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
