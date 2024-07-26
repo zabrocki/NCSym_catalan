@@ -638,32 +638,24 @@ Hence we find the free primitive generators \(X\) of \(H\) and \(Y\) of \(K\), a
 Given a sequence $\mathbf{h} = (h_0, h_1, h_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra.
 
 \begin{proposition}
-	Given a sequence of nonnegative integers $\mathbf{h} = (h_0, h_1, h_2, \ldots)$. $\mathbf{h}$ correspond to the dimension of a Hopf algebra at degree $n$ if and only if 
-	
-	$$a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}} \textit{ and } a_n\geq 0.$$
-	
-	Following this we can construct the Hopf algebra associated to it.
+	Given a sequence of nonnegative integers $\mathbf{h} = (h_0, h_1, h_2, \ldots)$. $h_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra at degree $n$ if and only if $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ such that $a_n\geq 0$. Following this we can construct the Hopf algebra associated to $\mathbf{h}$.
 \end{proposition}
 
 \begin{proof}
-		Suppose that $h_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By freeness, there exist graded sets X generating $H$. Theorem $1$, followed by Corollary $3.6$ gives us that $\mathcal{F}(X) \cong H$. From Proposition $3.2$ we then have that the dimension of each graded component of $\mathcal{F}(X)$, is given by $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. After manipulation, this gives us that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$. We also have that $a_n$ are nonnegative integers since they correspond to the number of of free generators at degree $n$. Suppose that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ such that $a_n\geq 0$, by Theorem $1$, followed by Corollary $3.6$ and by Proposition $3.2$ we have that $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. Since $a_n$ are all nonnegative integers, we have that $h_n\geq 0$. The relationship between $\mathbf{h}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X)\cong H$ given in the proof of the Proposition $3.2$ gives us a way to construct the Hopf algebra associated to $\mathbf{h}$.
+	Suppose that $h_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By freeness, there exist graded sets X generating $H$. Theorem $1$, followed by Corollary $3.6$ gives us that $\mathcal{F}(X) \cong H$. From Proposition $3.2$ we then have that the dimension of each graded component of $\mathcal{F}(X)$, is given by $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. After manipulation, this gives us that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$. We also have that the $a_n$ are nonnegative integers since they correspond to the number of free generators at degree $n$. Suppose that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ such that $a_n\geq 0$, by Theorem $1$, followed by Corollary $3.6$ and by Proposition $3.2$ we have that $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$ which correspond to the dimension of each graded component. Since $a_n$ are all nonnegative integers, we have that $h_n\geq 0$. The relationship between $\mathbf{h}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X)\cong H$ given in the proof of the Proposition $3.2$ gives us a way to construct the Hopf algebra associated to $\mathbf{h}$.
 \end{proof}
 
-\subsection{Statement 3 in CoCalc}
+\subsection{Statement 3}
 
 Given a sequence $\mathbf{p} = (p_0, p_1, p_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra. (I liked the example Lucas gave for $p_1=1, p_2=1$ and then $p_n =0$ for $n\geq3$.  There does not exist a Hopf algebra with this sequence because $a_1=1, a_2=1, a_3=-1$ and $a_n = 0$ for $n\geq4$)
 
 \begin{proposition}
-	Given a sequence of nonnegative integers $\mathbf{p} = (p_0, p_1, p_2, \ldots)$. $\mathbf{p}$ correspond to the dimension of the primitives at degree $n$ if and only if 
-	
-	$$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)} \textit{ and } a_n\geq 0.$$ 
-	
-	Following this we can construct the Hopf algebra associated to it.  
+	Given a sequence of nonnegative integers $\mathbf{p} = (p_0, p_1, p_2, \ldots)$. $p_n$ correspond to the dimension of the primitives at degree $n$ if and only if $a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ such that $a_n\geq 0$. Following this we can construct the Hopf algebra associated to it.  
 \end{proposition}
 
 \begin{proof}
-	Félix
-\end{proof}
+	Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By ~\cite[Theorem 2.2]{KK95} and after manipulation we get $a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ \felix{Is this enough?}. By freeness, there exist graded sets X generating $H$. Hence, by Lemma $3.4$, we have that  there exists a set of primitives $X'=\biguplus_{n \geq 1}X_n'$ that freely generates $H$. We have that the $a_n$ are nonnegative integers since they correspond to the number of free generators at degree $n$ of $H\cong \mathcal{U}(\mathfrak{L}_{X'})$. Suppose that $a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ such that $a_n\geq 0$, by Theorem $3$, we have that $\mathfrak{L}(\mathbf{a})\cong \mathcal{P}(H)$. Hence, we have that $\dim(\mathfrak{L}(\mathbf{a})=\mathbf{p}$. We have that the $a_n$ are nonnegative integers since they correspond to the dimension of the free Lie aglebra $\mathfrak{L}(\mathbf{a})$.\felix{Really not sure about this part.} The relationship between $\mathbf{p}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X')\cong\mathcal{U}(\mathfrak{L}_{X'})\cong H$ given by Theorem $1$ and Lemma $3.4$  gives us a way to construct the Hopf algebra associated to $\mathbf{p}$.
+\end{proof} \felix{The labeling is made by hand so it's not we have to be careful here!} \felix{Please look at this proof, I am not sure about it. I will take a look to it when I will come back from vacation.}
 
 \subsection{Statement 4 in CoCalc}
 
