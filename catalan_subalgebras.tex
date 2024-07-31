@@ -631,11 +631,23 @@ Hence we find the free primitive generators \(X\) of \(H\) and \(Y\) of \(K\), a
 \cite{AT22}, fix bijections \(f_i: X_i  \to Y_i\) and extend to a bijection
 \(f:X \to Y\).
 
-\section{Statements}
+\section{Classification by Sequences}
 
-\subsection{Statement 2 in CoCalc}
+In this section we will characterize free graded connected cocommutative Hopf algebras in terms of sequences. For such a Hopf algebra $H$, we will denote
+\begin{itemize} 
+    \item $\mathbf{h} = (h_0, h_1, h_2, \ldots)$ where $h_n = \dim H_n$,
+    \item $\mathbf{p} = (p_0, p_1, p_2, \ldots)$ where $p_n = \dim P(H)_n$,
+    \item $\mathbf{a} = (a_0 = 0, a_1, a_2, \ldots)$ where $a_n$ is the number of generators in degree $n$.
+\end{itemize}
 
-Given a sequence $\mathbf{h} = (h_0, h_1, h_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra.
+\begin{proposition}
+    The sequences above obey the following relations:
+    \begin{itemize}
+        \item[i)] $\displaystyle h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}} = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
+        \item[ii)] $\displaystyle p_n = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}} = \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$
+        \item[iii)] $\displaystyle a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}} = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
+    \end{itemize}
+\end{proposition}
 
 \begin{proposition}
 	Given a sequence of nonnegative integers $\mathbf{h} = (h_0, h_1, h_2, \ldots)$, there exists a free graded connected cocommutative Hopf algebra $H$ with $\dim(H_n) = h_n$ for all $n \geq 0$ if and only if 
@@ -649,10 +661,6 @@ Given a sequence $\mathbf{h} = (h_0, h_1, h_2, \ldots)$, we can test if a free, 
 	Suppose that $h_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By freeness, there exist graded sets X generating $H$. Theorem $1$, followed by Corollary $3.6$ gives us that $\mathcal{F}(X) \cong H$. From Proposition $3.2$ we then have that the dimension of each graded component of $\mathcal{F}(X)$, is given by $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. After manipulation, this gives us that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$. We also have that the $a_n$ are nonnegative integers since they correspond to the number of free generators at degree $n$. Suppose that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ such that $a_n\geq 0$, by Theorem $1$, followed by Corollary $3.6$ and by Proposition $3.2$ we have that $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$ which correspond to the dimension of each graded component. Since $a_n$ are all nonnegative integers, we have that $h_n\geq 0$. The relationship between $\mathbf{h}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X)\cong H$ given in the proof of the Proposition $3.2$ gives us a way to construct the Hopf algebra associated to $\mathbf{h}$.
 \end{proof}
 
-\subsection{Statement 3}
-
-Given a sequence $\mathbf{p} = (p_0, p_1, p_2, \ldots)$, we can test if a free, connected, co-commutative Hopf algebra exists if the $a_n \geq 0$ and we can construct the Hopf algebra. (I liked the example Lucas gave for $p_1=1, p_2=1$ and then $p_n =0$ for $n\geq3$.  There does not exist a Hopf algebra with this sequence because $a_1=1, a_2=1, a_3=-1$ and $a_n = 0$ for $n\geq4$)
-
 \begin{proposition}
 	Given a sequence of nonnegative integers $\mathbf{p} = (p_0, p_1, p_2, \ldots)$, there exists a free graded connected cocommutative Hopf algebra $H$ with $\dim P(H)_n = p_n$ for all $n \geq 0$ if and only if 
 	
@@ -665,10 +673,6 @@ Given a sequence $\mathbf{p} = (p_0, p_1, p_2, \ldots)$, we can test if a free, 
 	Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By ~\cite[Theorem 2.2]{KK95} and after manipulation we get $a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ \felix{Is this enough?}. By freeness, there exist graded sets X generating $H$. Hence, by Lemma $3.4$, we have that  there exists a set of primitives $X'=\biguplus_{n \geq 1}X_n'$ that freely generates $H$. We have that the $a_n$ are nonnegative integers since they correspond to the number of free generators at degree $n$ of $H\cong \mathcal{U}(\mathfrak{L}_{X'})$. Suppose that $a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ such that $a_n\geq 0$, by Theorem $3$, we have that $\mathfrak{L}(\mathbf{a})\cong \mathcal{P}(H)$. Hence, we have that $\dim(\mathfrak{L}(\mathbf{a})=\mathbf{p}$. We have that the $a_n$ are nonnegative integers since they correspond to the dimension of the free Lie aglebra $\mathfrak{L}(\mathbf{a})$.\felix{Really not sure about this part.} The relationship between $\mathbf{p}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X')\cong\mathcal{U}(\mathfrak{L}_{X'})\cong H$ given by Theorem $1$ and Lemma $3.4$  gives us a way to construct the Hopf algebra associated to $\mathbf{p}$.
 \end{proof} \felix{The labeling is made by hand so it's not we have to be careful here!} \felix{Please look at this proof, I am not sure about it. I will take a look to it when I will come back from vacation.}
 
-\subsection{Statement 4 in CoCalc}
-
-Given two Hopf algebras with the same sequence of dimensions, we can construct an isomorphism (all of the isomorphisms?) between them.
-
 \begin{proposition}
 	Given two free graded connected cocommutative Hopf algebras $A,B$ with $\dim A_n = \dim B_n$ for all $n \geq 0$, there exists a construction of isomorphism (all of the isomorphisms?) between them.
 \end{proposition}
@@ -676,30 +680,6 @@ Given two Hopf algebras with the same sequence of dimensions, we can construct a
 \begin{proof}
 	
 \end{proof}
-
-
-\subsection{Statement 5 in CoCalc}
-
-
-Given a Hopf algebra $A$ and a sequence $(g_1, g_{2}, \ldots) \textit{ with } g_{i} \le \dim A_{i}$, does there exists a Hopf subalgebra $B$ with $\dim(B_{i}) = g_{i}$?  We need to:
-
-\begin{itemize}
-	
-	\item [1.] 
-	
-	See if such a B exists by checking that the corresponding a-sequence is nonnegative, and
-	
-	\item[2.] 
-	
-	[Assuming 1. is a yes] Check if B is contained in $A$ by comparing their p-sequences.  If we call these $(p_{1}, p_{2}, \ldots) \textit{ and } (q_{1}, q_{2}, \ldots)$, the requirement is that $q_{i} \le p_{i} \textit{ for all } i \ge 1$.
-	
-	\item[3.] 
-	
-	We don't need to compare the h-sequences: checking p's tells usthat the Lie algebra of primitives for B is contained in the Lie algebra of primitives for $A$, and passing to universal enveloping algebras gives $B \subseteq A$.
-	
-	Reformulate this recipe in a nicer way.
-
-\end{itemize}
 
 \begin{proposition}
     Let $H$ be a free graded connected cocommutative Hopf algebra, let $\mathbf{g} = (g_1,g_2,\ldots )$ be a sequence of nonnegative integers. There exists a sub-Hopf algebra $G \leq H$ with $\dim G_n = g_n$ for all $n \geq 0$ if and only if the following hold:
