@@ -662,9 +662,15 @@ for some permutation $\sigma$ of $\{1,2, \ldots, \ell(\beta)\}$ then $c_\alpha =
 \label{prop:sequences}
     The sequences above obey the following relations:
     \begin{itemize}
-        \item[i)] $\displaystyle h_n = \sum_{\beta \vDash n} a_\beta = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
-        \item[ii)] $\displaystyle p_n = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta = \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
-        \item[iii)] $\displaystyle a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
+        \item[i)] $\displaystyle h_n
+        = \sum_{\beta \vDash n} a_\beta
+        = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
+        \item[ii)] $\displaystyle p_n
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
+        \item[iii)] $\displaystyle a_n
+        = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
+        = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
     \end{itemize}
 \end{proposition}
 \begin{proof}
