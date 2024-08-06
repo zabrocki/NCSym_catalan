@@ -100,10 +100,13 @@ $$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}
 
 A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that
 $\beta_1 + \beta_2 + \cdots + \beta_\ell = n$.  The length of the sequence $\ell$ will be denoted $\ell(\beta)$.
-We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
+We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.  The integers $\beta_i$
+are sometimes referred to as the parts of the composition.
+
 We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
-of $n$ with the notation $\lambda \vdash n$.
+of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
+that $d$ appears as a part in $\lambda$.
 
 Let $\{ c_n \}_{n \geq 1}$ be a sequence of numbers (that is, $c_n \in \mathbb{C}$ for all $n \geq 1$)
 indexed by positive integers $n$ and $\beta$
@@ -122,9 +125,77 @@ $\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$.
 It is well known, but we will provide reasoning to support, that the generating functions for these sequences
 are related by the equation:
 \begin{equation}\label{eq:gf_relation}
-1 + \sum_{n \geq 1} h_n t^n = \frac{1}{1 - \sum_{n \geq 1} a_n t^n} = \prod_{n \geq 1} \frac{1}{(1-t^n)^{p_n}}~.
+1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
 \end{equation}
 
+These generating function relations hold for more general sequences and they imply the following relations
+hold even if the sequences do not consist of non-negative integers.
+
+\begin{proposition}
+\label{prop:sequences}
+    Let $\{ h_n \}_{n \geq 1}$, $\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$ be three seqences of numbers satisfying
+    Equation \eqref{eq:gf_relation}, then these sequences are related by the following formulae:
+    \begin{itemize}
+        \item[i)] $\displaystyle h_n
+        = \sum_{\beta \vDash n} a_\beta
+        = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
+        \item[ii)] $\displaystyle p_n
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
+        \item[iii)] $\displaystyle a_n
+        = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
+        = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+Recall that $(1-x)^p = \sum_{k \geq 0} \binom{p}{k} x^k$,
+$\frac{1}{(1-x)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} x^k$
+and $\log(1-x) = \sum_{j \geq 1} \frac{x^j}{j}$.
+We will use these three expansions and series manipulation
+to derive the expressions stated in the proposition.
+
+By manipulating Equation \eqref{eq:gf_relation} as
+\begin{equation}\label{eq:gf_relation}
+1 + \sum_{k \geq 1} h_k t^k = \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k = \prod_{d \geq 1}
+\left(\sum_{k \geq 0} \binom{p_d+k-1}{p_d-1} t^{kd}\right)~.
+\end{equation}
+By taking the coefficient of $t^n$ in each of these three equations, we obtain the expressions in item $i)$.
+
+Next we take the logarithm of each of the expressions in Equation \eqref{eq:gf_relation} and note that
+\begin{equation}
+\sum_{d \geq 1} p_d \log( 1-t^d )
+= \log\left( 1 - \sum_{m \geq 1} a_m t^m \right)
+= -\log\left( 1 + \sum_{k \geq 1} h_k t^k \right)
+\end{equation}
+
+Then each of the forms of $\log(1 - x)$ may be expanded as
+\begin{equation}
+\sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}
+= \sum_{r \geq 1} \frac{(\sum_{m \geq 1} a_m t^m )^r}{r}
+= \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}~.
+\end{equation}
+
+By taking the coefficient of $t^n$ in each of the equations we obtain that
+\begin{equation}
+\frac{1}{n}\sum_{d |n} d p_d
+= \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
+= \sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}~.
+\end{equation}
+The equations in item $ii)$ follow by applying M\"obius inversion.
+
+By taking the reciprocals of the generating functions we have that Equation \eqref{eq:gf_relation} is equivalent to
+\begin{equation}
+\sum_{m \geq 1} a_m t^m = 1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} =  \prod_{d \geq 1} (1-t^d)^{p_d}~.
+\end{equation}
+Expanding the two rightmost expressions yields
+\begin{equation}
+\sum_{m \geq 1} a_m t^m
+= \sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
+= \prod_{d \geq 1} \sum_{k \geq 0} \binom{p_d}{k} t^{dk}~.
+\end{equation}
+The coefficient of $t^n$ in these three equations are the expressions in item $iii)$ of the proposition.
+\end{proof}
 
 \begin{comment}
 A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
