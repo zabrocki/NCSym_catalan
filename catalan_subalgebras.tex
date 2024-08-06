@@ -58,7 +58,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 
 \newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
-\newcommand{\lucas}[1]{\todo[size=\tiny,color=red]{#1 \\ \hfill --- Lucas}}
+\newcommand{\lucas}[1]{\todo[size=\tiny,color=red!50]{#1 \\ \hfill --- Lucas}}
 \newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Félix}}
 \newcommand{\farhad}[1]{\todo[size=\tiny,color=blue!50]{#1 \\ \hfill --- Farhad}}
 \newcommand{\eric}[1]{\todo[size=\tiny,color=BurntOrange!50]{#1 \\ \hfill --- Eric}}
@@ -111,6 +111,20 @@ a composition of $r > 0$.  We will use the
 notation $c_\beta := c_{\beta_1} c_{\beta_2} \cdots c_{\beta_{\ell(\beta)}}$.
 If $\alpha \vDash r$ is $\alpha = (\beta_{\sigma(1)}, \beta_{\sigma(2)}, \ldots, \beta_{\sigma(\ell(\beta))})$
 for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\beta)\}$, then $c_\alpha = c_\beta$.
+
+\section{Combinatorics of sequences of numbers}
+
+In this paper we will be working with three sequences of non-negative integers related to a combinatorial Hopf
+algebra: the graded dimension of the algebra, the graded numbers of free generators of the algebra and the
+graded dimension of the space of primitive elements.  These sequences will be respectively denoted $\{h_n\}_{n \geq 1}$,
+$\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$.
+
+It is well known, but we will provide reasoning to support, that the generating functions for these sequences
+are related by the equation:
+\begin{equation}\label{eq:gf_relation}
+1 + \sum_{n \geq 1} h_n t^n = \frac{1}{1 - \sum_{n \geq 1} a_n t^n} = \prod_{n \geq 1} \frac{1}{(1-t^n)^{p_n}}~.
+\end{equation}
+
 
 \begin{comment}
 A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
