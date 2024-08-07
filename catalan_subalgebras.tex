@@ -25,6 +25,7 @@
 \usepackage[aligntableaux=center, smalltableaux]{ytableau}
 \usepackage{youngtab}
 \usepackage{verbatim}
+\usepackage{faktor}
 
 \usepackage{stmaryrd}
 
@@ -55,16 +56,18 @@
 \def\CC{{\mathbb C}}
 \def\ZZ{{\mathbb Z}}
 
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\OPG}{OPG}
+
 \usepackage[colorinlistoftodos]{todonotes}
 
 \newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
-\newcommand{\lucas}[1]{\todo[size=\tiny,color=red]{#1 \\ \hfill --- Lucas}}
+\newcommand{\lucas}[1]{\todo[size=\tiny,color=red!50]{#1 \\ \hfill --- Lucas}}
 \newcommand{\felix}[1]{\todo[size=\tiny,color=Cyan]{#1 \\ \hfill --- Félix}}
 \newcommand{\farhad}[1]{\todo[size=\tiny,color=blue!50]{#1 \\ \hfill --- Farhad}}
 \newcommand{\eric}[1]{\todo[size=\tiny,color=BurntOrange!50]{#1 \\ \hfill --- Eric}}
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
 \setlength{\marginparwidth}{28mm}
-
 
 \title{Catalan Hopf sub-algebras of $\mathsf{NCSym}$}
 \author{}
@@ -97,6 +100,106 @@ $$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}
 \end{itemize}
 
 \section{Notation}
+
+A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that
+$\beta_1 + \beta_2 + \cdots + \beta_\ell = n$.  The length of the sequence $\ell$ will be denoted $\ell(\beta)$.
+We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.  The integers $\beta_i$
+are sometimes referred to as the parts of the composition.
+
+We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
+$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
+of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
+that $d$ appears as a part in $\lambda$.
+
+Let $\{ c_n \}_{n \geq 1}$ be a sequence of numbers (that is, $c_n \in \mathbb{C}$ for all $n \geq 1$)
+indexed by positive integers $n$ and $\beta$
+a composition of $r > 0$.  We will use the
+notation $c_\beta := c_{\beta_1} c_{\beta_2} \cdots c_{\beta_{\ell(\beta)}}$.
+If $\alpha \vDash r$ is $\alpha = (\beta_{\sigma(1)}, \beta_{\sigma(2)}, \ldots, \beta_{\sigma(\ell(\beta))})$
+for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\beta)\}$, then $c_\alpha = c_\beta$.
+
+\section{Combinatorics of sequences of numbers}
+
+In this paper we will be working with three sequences of non-negative integers related to a combinatorial Hopf
+algebra: the graded dimension of the algebra, the graded numbers of free generators of the algebra and the
+graded dimension of the space of primitive elements.  These sequences will be respectively denoted $\{h_n\}_{n \geq 1}$,
+$\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$.
+
+It is well known, but we will provide reasoning to support, that the generating functions for these sequences
+are related by the equation:
+\begin{equation}\label{eq:gf_relation}
+1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
+\end{equation}
+
+These generating function relations hold for more general sequences and they imply the following relations
+hold even if the sequences do not consist of non-negative integers.
+
+\begin{proposition}
+\label{prop:sequences}
+    Let $\{ h_n \}_{n \geq 1}$, $\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$ be three seqences of numbers satisfying
+    Equation \eqref{eq:gf_relation}, then these sequences are related by the following formulae:
+    \begin{itemize}
+        \item[i)] $\displaystyle h_n
+        = \sum_{\beta \vDash n} a_\beta
+        = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
+        \item[ii)] $\displaystyle p_n
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
+        \item[iii)] $\displaystyle a_n
+        = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
+        = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+Recall that $(1-x)^p = \sum_{k \geq 0} \binom{p}{k} x^k$,
+$\frac{1}{(1-x)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} x^k$
+and $\log(1-x) = \sum_{j \geq 1} \frac{x^j}{j}$.
+We will use these three expansions and series manipulation
+to derive the expressions stated in the proposition.
+
+By manipulating Equation \eqref{eq:gf_relation} as
+\begin{equation}\label{eq:gf_relation}
+1 + \sum_{k \geq 1} h_k t^k = \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k = \prod_{d \geq 1}
+\left(\sum_{k \geq 0} \binom{p_d+k-1}{p_d-1} t^{kd}\right)~.
+\end{equation}
+By taking the coefficient of $t^n$ in each of these three equations, we obtain the expressions in item $i)$.
+
+Next we take the logarithm of each of the expressions in Equation \eqref{eq:gf_relation} and note that
+\begin{equation}
+\sum_{d \geq 1} p_d \log( 1-t^d )
+= \log\left( 1 - \sum_{m \geq 1} a_m t^m \right)
+= -\log\left( 1 + \sum_{k \geq 1} h_k t^k \right)
+\end{equation}
+
+Then each of the forms of $\log(1 - x)$ may be expanded as
+\begin{equation}
+\sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}
+= \sum_{r \geq 1} \frac{(\sum_{m \geq 1} a_m t^m )^r}{r}
+= \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}~.
+\end{equation}
+
+By taking the coefficient of $t^n$ in each of the equations we obtain that
+\begin{equation}
+\frac{1}{n}\sum_{d |n} d p_d
+= \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
+= \sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}~.
+\end{equation}
+The equations in item $ii)$ follow by multiplying both sides of the equation by $n$ and then
+applying M\"obius inversion.
+
+By taking the reciprocals of the generating functions we have that Equation \eqref{eq:gf_relation} is equivalent to
+\begin{equation}
+\sum_{m \geq 1} a_m t^m = 1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} =  \prod_{d \geq 1} (1-t^d)^{p_d}~.
+\end{equation}
+Expanding the two rightmost expressions yields
+\begin{equation}
+\sum_{m \geq 1} a_m t^m
+= \sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
+= \prod_{d \geq 1} \sum_{k \geq 0} \binom{p_d}{k} t^{dk}~.
+\end{equation}
+The coefficient of $t^n$ in these three equations are the expressions in item $iii)$ of the proposition.
+\end{proof}
 
 \begin{comment}
 A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
@@ -211,7 +314,8 @@ Given a sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers, let
 
     Expanding this sum we have the following equality
 
-    $$\frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}=\sum_{n=0}^\infty \left(\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell} \right) t^n.$$
+    $$\frac{1}{1 - a_{1}t - a_{2}t^{2} - a_{3}t^{3} - \cdots}
+    =\sum_{n=0}^\infty \left(\sum_ {\beta \vDash n} a_\beta \right) t^n.$$
 
     Given $\Vec{a} = (a_{1}, a_{2}, \ldots)$, we can consider that $\mathfrak{L}(\Vec{a})$\mike{what is $\mathfrak{L}(\Vec{a})$?  Should this be
     $\mathcal{F}(X)$?}
@@ -219,11 +323,11 @@ is generated by the set
     $$X=\biguplus_{i \geq 1}\{x_{(i,j)}: 1 \leq j \leq a_i\}$$
      where for each $j$, $x_{(i,j)}$ is a generator of degree $i$.\mike{what do we mean ``is a generator''? of what?}
 
-From ~\cite[Theorem 7 (Witt)]{jacobson2013lie} we have that a basis for the graded components $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)_n$ is the set of monomials of the form $m=x_{(\alpha_1,j_1)} \cdots x_{(\alpha_\ell,j_\ell)}$ where
-     for each $d$, $1 \leq j_d \leq a_{\alpha_{d}}$ with $\alpha=(\alpha_1,\dots,\alpha_\ell)$ is a composition of $n$.
+From ~\cite[Theorem 7 (Witt)]{jacobson2013lie} we have that a basis for the graded components $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)_n$ is the set of monomials of the form $m=x_{(\beta_1,j_1)} \cdots x_{(\beta_\ell,j_\ell)}$ where
+     for each $d$, $1 \leq j_d \leq a_{\beta_{d}}$ with $\beta=(\beta_1,\dots,\beta_\ell)$ is a composition of $n$.
 By counting the number of monomials of degree $n$,
 we conclude that the dimension of each graded component of $\mathcal{F}(X)$
-is given by $\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$
+is given by $\sum_ {\beta \models n} a_\beta$
 which is the coefficient of $t^n$ in the generating function.
 %\end{enumerate}
 
@@ -376,7 +480,7 @@ Our methods generalize those of Lauve-Mastnak in \cite{LM11}, which make use of 
 \label{lemma:primitive generators}
     Let $H$ be a graded connected cocommutative Hopf algebra, freely generated by a graded set $X=\biguplus_{n \geq 1}X_n$.  Then the graded set
 \[
-eX = \biguplus_{n \ge 1} \{e(x) \;|\; x \in X_{n}\}
+\mathbf{e}(X) = \biguplus_{n \ge 1} \{\mathbf{e}(x) \;|\; x \in X_{n}\}
 \]
 comprises a complete set of primitive generators of $H$.
 \end{lemma}
@@ -647,18 +751,24 @@ Hence we find the free primitive generators \(X\) of \(H\) and \(Y\) of \(K\), a
 
 In this section we will characterize free graded connected cocommutative Hopf algebras in terms of sequences. For such a Hopf algebra $H$, we will denote
 \begin{itemize} 
-    \item $\vec{h} = (h_0, h_1, h_2, \ldots)$ where $h_n = \dim H_n$,
-    \item $\vec{p} = (p_0, p_1, p_2, \ldots)$ where $p_n = \dim P(H)_n$,
-    \item $\vec{a} = (a_0 = 0, a_1, a_2, \ldots)$ where $a_n$ is the number of generators in degree $n$.
+    \item $\vec{h} = (h_1, h_2, \ldots)$ where $h_n = \dim H_n$,
+    \item $\vec{p} = (p_1, p_2, \ldots)$ where $p_n = \dim P(H)_n$,
+    \item $\vec{a} = (a_1, a_2, \ldots)$ where $a_n$ is the number of generators in degree $n$.
 \end{itemize}
 
 \begin{proposition}
 \label{prop:sequences}
     The sequences above obey the following relations:
     \begin{itemize}
-        \item[i)] $\displaystyle h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}} = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
-        \item[ii)] $\displaystyle p_n = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}} = \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$
-        \item[iii)] $\displaystyle a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}} = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
+        \item[i)] $\displaystyle h_n
+        = \sum_{\beta \vDash n} a_\beta
+        = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
+        \item[ii)] $\displaystyle p_n
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
+        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
+        \item[iii)] $\displaystyle a_n
+        = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
+        = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
     \end{itemize}
 \end{proposition}
 \begin{proof}
@@ -669,7 +779,7 @@ In this section we will characterize free graded connected cocommutative Hopf al
 \label{prop:h sequence}
 	Given a sequence of nonnegative integers $\vec{h} = (h_0, h_1, h_2, \ldots)$, there exists a free graded connected cocommutative Hopf algebra $H$ with $\dim(H_n) = h_n$ for all $n \geq 0$ if and only if 
 	
-	$$a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}} \geq 0 \text{ for all } n \geq 0.$$
+	$$a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta \geq 0 \text{ for all } n \geq 0.$$
 	
 	Moreover, if this is the case, then $H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))$.	
 %	Following this we can construct the Hopf algebra associated to it.
@@ -734,24 +844,53 @@ Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{co
 
 \lucas{Eric will work on 6.4 and 6.5 below}
 
+\begin{definition}
+    A graded set $X = \biguplus_{n\geq 1} X_n$ will be called \textit{homogeneously ordered} if each $X_n$ is ordered. We will write the ordered homogeneous componenents as 
+    \[
+    \vec{X}_n = (x_n^1,x_n^2, \ldots ,x_n^{a_n}).
+    \]
+\end{definition}
 For a free graded, connected, cocommutative Hopf algebra $H$, let
 \[
-\operatorname{pgs}(H) = \{\text{sets of homogeneous primitive generators of $H$}\}.
+\OPG(H) = \{\text{Graded sets of homogeneously ordered primitive generators of $H$}\}.
 \]
 
 \begin{proposition}
-Describe how to construct $\operatorname{pgs}(H)$ here.
+Let $H$ be a free graded connected cocommutative Hopf algebra, $X \subset H$ a set of homogeneously ordered primitive generators with $|X_n| = a_n$. For any $Y \in \operatorname{opg}(H)$ there exists a unique sequence $((A_n,\vec{B}_n))_{n=1}^{\infty}$ with $A_n \in \GL_{a_n}(\mathbb{C})$ and $\vec{B}_n = (b_n^1,b_n^2, \ldots ,b_n^{a_n})$ with $b_n^i \in [P(H),P(H)]_n$, such that for each ordered graded component $\vec{Y}_n = (y_n^1,y_n^2, \ldots ,y_n^{a_n})$ we have
+\[
+\vec{Y}_n = A_n \vec{X}_n + \vec{B}_n.
+\]
 \end{proposition}
 
+\begin{proof}
+    For a fixed $X \in \OPG(H)$, setting $V = \operatorname{span}_{\mathbb{C}}(X)$ we have 
+    \[
+    P(H) = \operatorname{span}_{\mathbb{C}}(X) \oplus \operatorname{span}_{\mathbb{C}}\{[[[x_{i_1},x_{i_2}],\ldots],x_{i_k}]:x_{i_j} \in X, k>1\} = V \oplus [P(H),P(H)]
+    \]
+    because $P(H) \cong \mathfrak{L}(X)$. Similarly, for an arbitrary $Y \in \OPG(H)$ we have 
+    \[
+    P(H) = W \oplus [P(H),P(H)] \text{  where  } W = \operatorname{span}_{\mathbb{C}}(Y).
+    \]
+    Letting $\overline{p}$ denote the coset of $p$ mod $[P(H),P(H)]$, we see that $\{\overline{x}:x \in X\}$ and $\{\overline{y}: y \in Y\}$ are both bases for $\displaystyle \frac{P(H)}{[P(H),P(H)]}$. Fixing the component of degree $n$, we have for any $y_n^i \in Y_n$,
+    \begin{align*}
+        \overline{y_n^i} &= a_n^{i1}\overline{x_n^1} + a_n^{i2}\overline{x_n^2} + \cdots + a_n^{ia_n}\overline{x_n^{a_n}}\\ 
+        &= \overline{a_n^{i1}x_n^1 + a_n^{i2}x_n^2 + \cdots + a_n^{ia_n}x_n^{a_n}}\\
+    \end{align*}
+    for some coefficients $a_n^{ij}$. Therefore,
+    \[
+    y_n^i = a_n^{i1}x_n^1 + a_n^{i2}x_n^2 + \cdots + a_n^{ia_n}x_n^{a_n} + b_n^i
+    \]
+    for some $b_n^i \in [P(H),P(H)]$, and for $A_n = [a_n^{ij}] \in \GL_{a_n}(\mathbb{C})$ we have $\vec{Y}_n = A_n \vec{X}_n + \vec{B}_n$ as desired. 
+\end{proof}
 
+Conversely, given $X \in \OPG(H)$ and $((A_n,\vec{B}_n))_{n=1}^\infty$ as above, $\vec{Z}_n = A_n\vec{X}_n + \vec{B}_n$ descends to a basis for $\displaystyle \left( \frac{P(H)}{[P(H),P(H)]} \right)_n$, hence $Z = \biguplus_{n \geq 1}\vec{Z}_n \in \OPG(H)$. Therefore the above conditions completely characterize $\OPG(H)$.
 
 \begin{proposition}
-Suppose that $A$ and $B$ are free graded connected cocommutative Hopf algebras with $\dim A_n = \dim B_n$ for all $n \geq 0$.  Then $A \cong B$.  Moreover, for any fixed $X \in \operatorname{pgs}(A)$, there exists a bijection
+Suppose that $H$ and $K$ are free graded connected cocommutative Hopf algebras with $\dim H_n = \dim K_n$ for all $n \geq 0$.  Then $H \cong K$.  Moreover, for any fixed $X \in \OPG(H)$, there is a bijection
 \[
 \begin{array}{rcl}
-\{\text{isomorphisms $A \to B$}\} &\leftrightarrow& \{\text{Graded bijections $X \to Y$ for $Y \in \operatorname{pgs}(B)$}\} \\
+\{\text{isomorphisms $H \to K$}\} &\leftrightarrow& \OPG(K) \\
 \phi & \mapsto & \phi(X) \\
-\tilde{f} & \mapsfrom & f: X \to Y
 \end{array}
 \]
 	
@@ -760,17 +899,30 @@ Suppose that $A$ and $B$ are free graded connected cocommutative Hopf algebras w
 \end{proposition}
 
 \begin{proof}
-	
+	Let $\phi : H \to K$ be an isomorphism, let $X = \biguplus_{n \geq 1} \vec{X}_n \in \OPG(H)$ be fixed. Then $\phi(X)$ generates $K$, since for any $y \in K$ we have for some $z \in H$,
+    \[
+    y = \phi(z) = \phi(\sum_{I} x_{i_1}x_{i_2}\cdots x_{i_k}) = \sum_{I} \phi(x_{i_1})\phi(x_{i_2})\cdots \phi(x_{i_k}).
+    \]
+    For any nontrovial polynomial $p$ in $\phi(X)$ such that 
+    \[
+    p(\phi(x_{i_1}),\phi(x_{i_2}),\ldots ,\phi(x_{i_n})) = 0 = \phi(p(x_{i_1},x_{i_2},\ldots ,x_{i_n})),
+    \]
+    we must have $p(x_{i_1},x_{i_2},\ldots ,x_{i_n}) = 0$, a contradiction, hence $\phi(X)$ is algebraically independent. Because $\phi$ is a Hopf isomorphism the $\phi(X)$ are primitive, and with the ordering inherited from $X$ we have $\phi(X) \in \OPG(K)$. We know $\phi(X)$ is uniquely determined by $\phi$ as a homogeneously ordered set, since an isomorphism is completely determined by it's action on generators.
+
+    Now given any $Y = \biguplus_{n \geq 1} \vec{Y}_n \in \OPG(K)$, we will construct an isomorphism $H \to K$ whose image on $X$ is $Y$ and respects ordering. Define $f_n:X_n \to Y_n$ with $f_n(x_n^i) = y_n^i$ for all $n \geq 1$, and extend to $f:X \to Y$. By freeness, $f$ extends to the desired isomorphism $\tilde{f}:H \to K$.
 \end{proof}
 
+\begin{remark}
+    Given two Hopf algebras $H$ and $K$ satisfying the criterion of Prop. 7.2, we may present a method to compute an explicit isomorphism. Given graded sets $X$ and $Y$ generating $H$ and $K$ respectively, we apply Lemma~\ref{lemma:primitive generators} to obtain primitive generators $\mathbf{e}(X)$ and $\mathbf{e}(Y)$. Choosing bijections $f_n:\mathbf{e}(X)_n \to \mathbf{e}(Y)_n$ for all $n \geq 1$ we obtain a bijection of primitive generators $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ which completely determines an isomorphism $\tilde{f}:H \to K$.
+\end{remark}
 
 \subsection{SubHopf algebras}
 \lucas{Lucas will work on this.}
 \begin{proposition}
     Let $H$ be a free graded connected cocommutative Hopf algebra, let $\mathbf{g} = (g_1,g_2,\ldots )$ be a sequence of nonnegative integers. There exists a sub-Hopf algebra $G \leq H$ with $\dim G_n = g_n$ for all $n \geq 0$ if and only if the following hold:
     \begin{itemize}
-        \item[i)] $\displaystyle \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} g_{\beta_1} g_{\beta_2} \cdots g_{\beta_{\ell(\beta)}} \geq 0 \text{ for all } n \geq 0.$
-        \item[ii)] $\displaystyle \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} g_{\beta_1} g_{\beta_2} \cdots g_{\beta_{\ell(\beta)}} \leq \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ for all $n \geq 0$
+        \item[i)] $\displaystyle \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} g_\beta \geq 0 \text{ for all } n \geq 0.$
+        \item[ii)] $\displaystyle \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} g_\beta \leq \sum_{d|n} \sum_{\beta \vdash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$ for all $n \geq 0$
     \end{itemize}
 \end{proposition}
 
@@ -779,4 +931,3 @@ Suppose that $A$ and $B$ are free graded connected cocommutative Hopf algebras w
 \bibliography{bibliography}{}
 
 \end{document}
-`'
