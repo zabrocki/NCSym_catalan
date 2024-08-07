@@ -530,6 +530,7 @@ is a cocommutative, graded, connected Hopf algebra, and we have shown that it is
 \]
 
 \begin{thm}~\cite[Theorem 4.2]{AT22}
+\label{thm: Hopf dimension isomorphic}
 Let $H=\bigoplus_{n\geq 0} H_n$ and $K=\bigoplus_{n\geq 0} K_n$ be two free graded connected cocommutative Hopf algebras. The following are equivalent.
 \begin{enumerate}
 \item $H\cong K$ as graded Hopf algebras. 
@@ -792,7 +793,6 @@ Suppose that we have a free, graded, connected, cocommutative Hopf algebra $H$ w
 On the other hand, assuming \(a_n \geq 0\) for all \(n \geq 0\), as a non-negative graded set, \(a_n\) generates a free graded connected cocommutative Hopf algebra \(H\). By Proposition~\ref{prop:sequences}  we have that  \(\vec{a}\) also corresponds to 
 \(\vec{h} = (h_0, h_1, h_2, \ldots)\), where \(h_n \geq 0\) for all \(n \geq 0\) and \(\dim{H_n} = h_n\). 
 Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{cor: free hopf primitives}.
-\lucas{Finish the rest of the proof in a similar fashion.  Nicolas will do.}
 %	Suppose that $h_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. By freeness, there exist graded sets X generating $H$. Theorem $1$, followed by Corollary $3.6$ gives us that $\mathcal{F}(X) \cong H$. From Proposition $3.2$ we then have that the dimension of each graded component of $\mathcal{F}(X)$, is given by $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$. After manipulation, this gives us that 
 %	\[
 %	a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}.
@@ -806,15 +806,11 @@ Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{co
 	Given a sequence of nonnegative integers $\vec{p} = (p_0, p_1, p_2, \ldots)$, there exists a free graded connected cocommutative Hopf algebra $H$ with $\dim P(H)_n = p_n$ for all $n \geq 0$ if and only if 
 	
 	$$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)} \geq 0 \text{ for all } n\geq 0.$$ 
-	
-	Then the \(\vec{p}\) and \(\vec{a}\) determine a Hopf algebra. \lucas{Change to constructive statement like in 6.2}
 \end{proposition}
 
-\begin{proof}
-\lucas{Cross-reference with Proposition~\ref{prop:sequences}.  Nicolas will do.}
-	
-    Let \(H\) be a free graded connected cocommutative Hopf algebra and let \(\vec{p} = (p_0, p_1, p_2, \ldots)\) 
-    be a nonnegative integer sequence where \(\dim P(H)_n = p_n\).
+\begin{proof}	
+    Let \(\vec{p} = (p_0, p_1, p_2, \ldots)\) be a nonnegative integer sequence and let \(H\) be a 
+    free graded connected cocommutative Hopf algebra such that \(\dim P(H)_n = p_n\).
     By Proposition~\ref{prop:sequences} we have that
     \[
         h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}
@@ -825,7 +821,7 @@ Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{co
 
     Supposing \(a_n \geq 0\) for all \(n \geq 0\), then by Proposition~\ref{prop:h sequence} we have that \(\vec{a}\) generates a free graded connected 
     cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\). Hence \(\dim P(H)_n = p_n \geq 0\).
-    
+
     %Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. 
     %By ~\cite[Theorem 2.2]{KK95} and after manipulation we get 
     %$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ \felix{Is this enough?}.
