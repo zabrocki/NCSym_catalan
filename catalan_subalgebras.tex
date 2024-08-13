@@ -122,10 +122,11 @@ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\beta)\}$, th
 
 In this paper we will be working with three sequences of non-negative integers related to a combinatorial Hopf
 algebra: the graded dimension of the algebra, the graded numbers of free generators of the algebra and the
-graded dimension of the space of primitive elements.  These sequences will be respectively denoted $\{h_n\}_{n \geq 1}$,
-$\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$.
+graded dimension of the space of primitive elements.  These sequences will be respectively denoted $\vec{h} = (h_1, h_2, h_3, \ldots)$,
+$\vec{a} = (a_1, a_2, a_3, \ldots)$ and $\vec{p} = (p_1, p_2, p_3, \ldots)$.
 
-It is well known, but we will provide reasoning to support, that the generating functions for these sequences
+It is well known, but we will provide the supporting reasoning
+that the generating functions for these sequences
 are related by the equation:
 \begin{equation}\label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
@@ -821,7 +822,8 @@ Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{co
     for all \(n \geq 0\) by Proposition~\ref{prop:h sequence}.
 
     Supposing \(a_n \geq 0\) for all \(n \geq 0\), then by Proposition~\ref{prop:h sequence} we have that \(\vec{a}\) generates a free graded connected 
-    cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\). Hence \(\dim P(H)_n = p_n \geq 0\).
+    cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\).
+    Hence \(\vec{\dim} P(H)_n = \vec{p}\geq 0\).
 
     %Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. 
     %By ~\cite[Theorem 2.2]{KK95} and after manipulation we get 
