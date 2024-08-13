@@ -202,6 +202,43 @@ Expanding the two rightmost expressions yields
 The coefficient of $t^n$ in these three equations are the expressions in item $iii)$ of the proposition.
 \end{proof}
 
+If the sequences $\vec{a}$ are non-negative then we can say more about $\vec{a}$, $\vec{h}$ and $\vec{p}$ because
+they will have combinatorial interpretations as subsets of words in an alphabet.  To this end, we require a few
+definitions.
+
+Let $X = \bigcup_{i \geq 1} X^{(i)}$ be an alphabet of letters for which $|X^{(i)}| < \infty$
+is the finite set of letters of degree $i$.  We denote the degree of $x \in X^{(i)}$ by $\mathsf{deg}(x) := i$.
+A word in $X$ is a concatenation of letters
+$w = w_1 w_2 \ldots w_m$ where $w_r \in X$ and the degree of $w$ is denoted $\mathsf{deg}(w) = \sum_{j = 1}^m \mathsf{deg}(w_j)$.
+
+Place a total order on the alphabet and the dictionary order on the words imposes a total order which is
+normally referred to as lexicographic order.
+For $0 < a < m$, a cyclic shift of $w$ is denoted $cyc^a(w) = w_{a+1} w_{a+1} \cdots w_n w_1 w_2 \cdots w_a$.
+We say that $w$ is a Lyndon word if $w$ is strictly smaller than $cyc^a(w)$ in lexicographic order for all $0 < a < m$.
+For instance, if $m=1$ and $w = w_1$, then $w$ is a Lyndon word since there are no cyclic shifts.
+If $x < y$, then $xyxyy$ is a Lyndon word, but $w = xyxy$ is not because $cyc^2(w) = w$.
+
+\begin{proposition}
+Assume that the sequences $\vec{a}$, $\vec{h}$ and $\vec{p}$ are related by Equation \eqref{eq:gf_relation}
+and that $\vec{a} \geq \vec{0}$, then let $X = \bigcup_{i \geq 1} X^{(i)}$ be a graded alphabet where
+$|X^{(i)}| = a_i$ for all $i \geq 1$ and the degree of a letter $x \in X^{(i)}$ is assumed to be of degree $i$.
+Then,
+\begin{itemize}
+\item for $n\geq 1$, $h_n$ is equal to the number of words in the alphabet $X$ of degree $n$
+\item for $n\geq 1$, $p_n$ is equal to the number of Lyndon words in the alphabet $X$ of degree $n$~.
+\end{itemize}
+\end{proposition}
+
+\mike{Need a proof or a reference for this proposition.}
+
+\begin{corollary}
+If $\vec{a} \geq \vec{0}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
+\end{corollary}
+\begin{proof}
+We have that for each $i \geq 1$ and each $x \in X^{(i)}$ is a Lyndon word, hence $a_i \leq p_i$.
+Moreover each Lyndon word of degree $i$ is itself a word of degree $i$, so $h_i \geq p_i$.
+\end{proof}
+
 \begin{comment}
 A \defn{set partition} $A$ of a finite set $X$ is a set of sets $A = \{ A_1, A_2, \ldots, A_k \}$ where $A_i \subseteq X$,
 $A_i \cap A_j = \emptyset$ if $i \neq j$ and $\cup_{i=1}^k A_i = X$.  The sets $A_i$ are known as the \defn{parts}
