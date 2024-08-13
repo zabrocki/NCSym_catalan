@@ -137,8 +137,8 @@ hold even if the sequences do not consist of non-negative integers.
 
 \begin{proposition}
 \label{prop:sequences}
-    Let $\{ h_n \}_{n \geq 1}$, $\{ a_n \}_{n \geq 1}$ and $\{ p_n \}_{n \geq 1}$ be three seqences of numbers satisfying
-    Equation \eqref{eq:gf_relation}, then these sequences are related by the following formulae:
+    Let $\vec{h}$, $\vec{a}$ and $\vec{p}$ be three seqences of numbers related by
+    Equation \eqref{eq:gf_relation}, then these sequences are also related by the following formulae:
     \begin{itemize}
         \item[i)] $\displaystyle h_n
         = \sum_{\beta \vDash n} a_\beta
@@ -229,7 +229,16 @@ Then,
 \end{itemize}
 \end{proposition}
 
-\mike{Need a proof or a reference for this proposition.}
+\begin{proof}
+For a composition $\beta \vdash n$, $a_\beta$ is equal to the number of words
+of length $m$ with $w = w_1 w_2 \cdots w_m$, with $\beta_i = \mathsf{deg}(w_i)$ and $w_i \in X^{(\beta_i)}$.
+That is, $\beta$ is the sequences of the degrees of the letters of $w$.
+Since by Proposition \ref{prop:sequences}, we have that $h_n = \sum_\beta a_\beta$
+and every word has some sequence of degrees of the letters, it follows that
+$h_n$ is equal to the total number of words of degree $n$.
+
+\mike{Need a proof or a reference for Lyndon words.}
+\end{proof}
 
 \begin{corollary}
 If $\vec{a} \geq \vec{0}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
