@@ -541,7 +541,14 @@ Let $H=\bigoplus_{n\geq 0} H_n$ and $K=\bigoplus_{n\geq 0} K_n$ be two free grad
 \end{thm}
 
 \begin{proof}
-Immediately we have (1)$\Rightarrow$(2). Assume that $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0,$ or equivalently $\mathcal{H}(H;t)=\mathcal{H}(K;t).$ By freeness, there exist graded sets $X$ and $Y$ generating $H$ and $K$, respectively. Define the series $\mathcal{G}(X;t)=\sum_{n\geq 0}|X_n|t^n$. It follows from Prop. 3.2 that
+Immediately we have (1)$\Rightarrow$(2). Assume that $\dim(H_n)=\dim(K_n) \text{ for all } n\geq 0,$
+or equivalently $\mathcal{H}(H;t)=\mathcal{H}(K;t).$
+Since both $H$ and $K$ are both freely generated, there exist graded sets
+$X$ and $Y$ generating $H$ and $K$, respectively.
+Define the series $\mathcal{G}(X;t)=\sum_{n\geq 0}|X_n|t^n$.
+It follows from Proposition \ref{prop: free algebra hilbert series}
+\mike{is this right?  I found "Prop. 3.2" in the text and
+it no longer referred to the correct thing} that
 \[
 \mathcal{H}(H;t)=\frac{1}{1-\mathcal{G}(X;t)}\ \text{  and  }\ \mathcal{H}(K;t)=\frac{1}{1-\mathcal{G}(Y;t)}.
 \]
@@ -549,7 +556,10 @@ Because $H$ and $K$ are connected, the degree zero terms of their Hilbert series
 \[
 \mathcal{G}(X;t)=1-\frac{1}{\mathcal{H}(H;t)}=1-\frac{1}{\mathcal{H}(K;t)}=\mathcal{G}(Y;t).
 \]
-We then have $|X_i|=|Y_i|$ for all $i\geq 0.$ Fix bijections $\varphi_i:X_i\to Y_i$ and extend to a bijection $\varphi:X\to Y$. This graded bijection of generating sets induces a graded Lie algebra isomorphism $\hat{\varphi}:\mathfrak{L}_X\to \mathfrak{L}_  Y$. From Corollary~\ref{cor: free hopf primitives} we have 
+We then have $|X_i|=|Y_i|$ for all $i\geq 0.$ Fix bijections $\varphi_i:X_i\to Y_i$ and extend
+to a bijection $\varphi:X\to Y$. This graded bijection of generating sets induces a graded
+Lie algebra isomorphism $\hat{\varphi}:\mathfrak{L}_X\to \mathfrak{L}_  Y$.\mike{How? reference?}
+From Corollary~\ref{cor: free hopf primitives} we have
 \[
 \mathcal{P}(H)\cong \mathfrak{L}_X \text{ and } \mathcal{P}(K)\cong \mathfrak{L}_Y.
 \]
