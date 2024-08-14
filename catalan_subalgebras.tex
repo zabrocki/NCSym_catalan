@@ -238,6 +238,8 @@ Since by Proposition \ref{prop:sequences}, we have that $h_n = \sum_\beta a_\bet
 and every word has some sequence of degrees of the letters, it follows that
 $h_n$ is equal to the total number of words of degree $n$.
 
+For the second point the reader may refer to \cite[Theorem 4.9, Theorem 5.1]{Reutenauer-FreeLieAlgebras}.
+
 \mike{Need a proof or a reference for Lyndon words.}
 \end{proof}
 
@@ -495,6 +497,8 @@ Let $X$ be an arbitrary graded set.  Then
 %
 %and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdots$, and we write $\mathfrak{F}=\Phi\{x_1,\ldots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
 
+\section{Characterization of \textsf{FGCCHA}s by $a$ sequences}
+
 \subsection{Primitives}
 
 The \textit{primitive elements} of a Hopf algebra $H$ are the elements 
@@ -521,8 +525,9 @@ To begin, we will make use of certain primitive generating sets which were first
 Unlike~\cite{AT22}, however, we provide a constructive statement, which to the best of our knowledge does not appear elsewhere in the literature.\lucas{Really double-check this}  
 Our methods generalize those of Lauve-Mastnak in \cite{LM11}, which make use of the \emph{Eulerian idempotent}
 \[
-\mathbf{e} = \sum_{k \geq 1}\frac{(-1)}{k}^{k-1} \mu^{(k-1)} \circ \tilde{\Delta}^{(k-1)}.
+\mathbf{e} = \sum_{k \geq 1}\frac{(-1)}{k}^{k-1} \mu^{(k-1)} \circ \tilde{\Delta}^{(k-1)},
 \]
+which projects onto $P(H)$ for a connected cocommutative Hopf algebra $H$ \cite[Theorem 9.4]{S94}.
 
 \begin{lemma}
 \label{lemma:primitive generators}
@@ -540,6 +545,16 @@ We will show $\mathbf{e}(X)$ freely generates $H$. Fix a total order in each $X_
 where $p((x_i))$ is some polynomial in generators $x_i$ of lesser degree than $x$. Then the minimal term in $\mathbf{e}(x)$ is $x$, and any polynomial $q(\mathbf{e}(x_1),...,\mathbf{e}(x_n))$ has the same minimal term as $q(x_1,...,x_n)$. Hence if $f$ is a non-trivial polynomial and $f(\mathbf{e}(x_1), \ldots, \mathbf{e}(x_n)) = 0$, then $f(x_1, \ldots, x_n) = 0$, a contradiction. Therefore $\mathbf{e}(X)$ is an algebraically independent set.
 
     To show $\mathbf{e}(X)$ generates $H$, observe that in each degree $n$, the monomials in $X$ of degree $n$ form a basis for $H_n$. The degree $n$ monomials in $\mathbf{e}(X)$ are linearly independent, because the $\mathbf{e}(X)$ are algebraically independent. Because every monomial $\mathbf{e}(x_1)\mathbf{e}(x_2)\cdots \mathbf{e}(x_k)$ corresponds uniquely to the monomial $x_1x_2 \cdots x_k$, the degree $n$ monomials in $\mathbf{e}(X)$ form a basis of $H_n$, hence $\mathbf{e}(X)$ freely generates $H$.
+\end{proof}
+
+\begin{theorem}
+    For every non-negative sequence $(a_n)_{n \geq 1}$ there exists a \textsf{FGCCHA} with $a_n$ generators in degree $n$, unique up to isomorphism.
+\end{theorem}
+
+\begin{proof}
+    For a sequence of non-negative integers $(a_n)_{n \geq 1}$, the Hopf algebra $\mathcal{U}(\mathfrak{L}(\vec{a}))$ has $a_n$ generators in degree $n$.
+
+    To show uniqueness, suppose $H$ and $K$ are two \textsf{FGCCHA}s with $a_n$ generators in degree $n$. Choose homogeneous generating sets $X\subseteq H$ and $Y \subseteq K$, then $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are free primitive generators of each Hopf algebra. We may choose a bijection $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ that respects grading, i.e. $f(\mathbf{e}(X_n)) = \mathbf{e}(Y_n)$. Extending algebraically we have a graded algebra isomorphism $\tilde{f}:H \to K$, and because $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are primitives $\tilde{f}$ is a graded Hopf algebra isomorphism.
 \end{proof}
 
 \begin{proposition}~\cite[Prop. 2.4]{F23}
@@ -921,7 +936,7 @@ Let $H$ be a free graded connected cocommutative Hopf algebra, $X \subset H$ a s
 \begin{proof}
     For a fixed $X \in \OPG(H)$, setting $V = \operatorname{span}_{\mathbb{C}}(X)$ we have 
     \[
-    P(H) = \operatorname{span}_{\mathbb{C}}(X) \oplus \operatorname{span}_{\mathbb{C}}\{[[[x_{i_1},x_{i_2}],\ldots],x_{i_k}]:x_{i_j} \in X, k>1\} = V \oplus [P(H),P(H)]
+    P(H) = \operatorname{span}_{\mathbb{C}}(X) \oplus \operatorname{span}_{\mathbb{C}}\{[[[x_{i_1},x_{i_2}],\ldots,]x_{i_k}]:x_{i_j} \in X, k>1\} = V \oplus [P(H),P(H)]
     \]
     because $P(H) \cong \mathfrak{L}(X)$. Similarly, for an arbitrary $Y \in \OPG(H)$ we have 
     \[
