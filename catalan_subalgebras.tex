@@ -101,10 +101,9 @@ $$\mathrm{dim}~H^{(\mathbf{a})}_n = \hbox{coefficient of }t^n\hbox{ in }\frac{1}
 
 \section{Notation}
 
-A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that
-$\beta_1 + \beta_2 + \cdots + \beta_\ell = n$.  The length of the sequence $\ell$ will be denoted $\ell(\beta)$.
-We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.  The integers $\beta_i$
-are sometimes referred to as the parts of the composition.
+A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that $\beta_{1} + \beta_{2} + \cdots + \beta_{\ell} = n$.  
+We refer the the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
+We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
 
 We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
@@ -128,135 +127,189 @@ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\beta)\}$.
 
 \section{Combinatorics of sequences of numbers}
 
-In this paper we will be working with three sequences of non-negative integers related to a combinatorial Hopf
-algebra: the graded dimension of the algebra, the graded numbers of free generators of the algebra and the
-graded dimension of the space of primitive elements.  These sequences will be respectively denoted $\vec{h} = (h_1, h_2, h_3, \ldots)$,
-$\vec{a} = (a_1, a_2, a_3, \ldots)$ and $\vec{p} = (p_1, p_2, p_3, \ldots)$.
+Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
+In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation}.
+However, in later sections these sequences come from a combinatorial Hopf algebra $H$, which will provide useful motivation here:
+\begin{itemize}
+\item $\vec{h} = (h_{1}, h_{2}, \ldots)$ will be the graded dimensions of $H$,
 
-It is well known, but we will provide the supporting reasoning
-that the generating functions for these sequences
-are related by the equation:
-\begin{equation}\label{eq:gf_relation}
+\item $\vec{a} = (a_{1}, a_{2}, \ldots)$ will be the graded numbers of free generators of the algebra, and 
+
+\item $\vec{p} = (p_{1}, p_{2}, \ldots)$ will be the graded dimension of the Lie algebra of primitives $\mathcal{P}(H)$.
+
+\end{itemize}
+
+To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences} below---that any formal power series in $\CC[[t]]$ with constant term $1$ can be expressed in three equivalent ways,
+\begin{equation}
+\label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
 \end{equation}
+which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.  
 
-These generating function relations hold for more general sequences and they imply the following relations
-hold even if the sequences do not consist of non-negative integers.
+\begin{example}
+Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \CC[[t]]$, so that $\vec{h} = (1, 2, 3, \ldots)$.  Then $f(t)$ is a geometric series,
+\[
+f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
+\]
+so the remaining sequences are $\vec{a} = (2, -1, 0, \ldots)$ and $\vec{p} = (2, 0, 0, \ldots)$.
+\lucas{This is a boring example, but I am putting it in as a placeholder.}
+\end{example}
+
+We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  While these are well-known, we include a proof for the sake of completeness.
 
 \begin{proposition}
 \label{prop:sequences}
-    Let $\vec{h}$, $\vec{a}$ and $\vec{p}$ be three seqences of numbers related by
-    Equation \eqref{eq:gf_relation}, then these sequences are also related by the following formulae:
-    \begin{itemize}
-        \item[i)] $\displaystyle h_n
-        = \sum_{\beta \vDash n} a_\beta
-        = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$
-        \item[ii)] $\displaystyle p_n
-        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
-        = \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$
-        \item[iii)] $\displaystyle a_n
-        = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
-        = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}~$
-    \end{itemize}
+Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a unique triple $(\vec{h}, \vec{a}, \vec{p})$ of sequences that satisfy Equation~\eqref{eq:gf_relation}, given by:
+\begin{enumerate}[label = (\roman*), itemsep = 1em]
+\item $\displaystyle h_{n}
+= \sum_{\beta \vDash n} a_\beta
+= \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$, 
+
+\item $\displaystyle a_n
+= \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
+= \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$, and
+
+\item $\displaystyle p_n
+= \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d)}{n \cdot \ell(\beta)} a_\beta
+= \sum_{d|n} \sum_{\beta \vDash d} \frac{d\cdot \mu(n/d) (-1)^{\ell(\beta)-1}}{n \cdot \ell(\beta)} h_\beta$.
+
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Recall that $(1-x)^p = \sum_{k \geq 0} \binom{p}{k} x^k$,
-$\frac{1}{(1-x)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} x^k$
-and $\log(1-x) = \sum_{j \geq 1} \frac{x^j}{j}$.
-We will use these three expansions and series manipulation
-to derive the expressions stated in the proposition.
+%We will make use of the identities
+%\[
+%(1-t)^p = \sum_{k \geq 0} \binom{p}{k} t^k, \quad
+%\frac{1}{(1-t)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} t^k, \quad\text{and}\quad
+%\log(1-t) = \sum_{j \geq 1} \frac{t^j}{j}
+%\]
+%to derive equations (i)--(iii) from Equation \eqref{eq:gf_relation}.
 
-By manipulating Equation \eqref{eq:gf_relation} as
+In order to see (i), take the geometric series expansion of the second and third expressions in Equation \eqref{eq:gf_relation} to obtain
 \begin{equation}\label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k = \prod_{d \geq 1}
-\left(\sum_{k \geq 0} \binom{p_d+k-1}{p_d-1} t^{kd}\right)~.
+\left(\sum_{k \geq 0} \binom{p_d+k-1}{p_d-1} t^{kd}\right).
 \end{equation}
-By taking the coefficient of $t^n$ in each of these three equations, we obtain the expressions in item $i)$.
+Expanding each product of sums and isolating the coefficient of $t^{n}$ in each expression gives the desired equation.
 
-Next we take the logarithm of each of the expressions in Equation \eqref{eq:gf_relation} and note that
-\begin{equation}
-\sum_{d \geq 1} p_d \log( 1-t^d )
-= \log\left( 1 - \sum_{m \geq 1} a_m t^m \right)
-= -\log\left( 1 + \sum_{k \geq 1} h_k t^k \right)
-\end{equation}
+Now we prove (ii).  Take the reciprocal of Equation \eqref{eq:gf_relation} to obtain
+\[
+1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} 
+= \sum_{m \geq 1} a_m t^m 
+= \prod_{d \geq 1} (1-t^d)^{p_d}.
+\]
+Expanding the left- and rightmost expressions yields
+\[
+\sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
+= \sum_{m \geq 1} a_m t^m
+= \prod_{d \geq 1} \sum_{k \geq 0} \binom{p_d}{k} t^{dk}.
+\]
+Isolating the coefficient of $t^{n}$, we obtain equation (ii).
 
-Then each of the forms of $\log(1 - x)$ may be expanded as
-\begin{equation}
-\sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}
+Finally, we deduce (iii).  Beginning with the reciprocal of Equation \eqref{eq:gf_relation} as above, take the logarithm of each term and Taylor expand about $1$ to obtain
+%
+%giving
+%\[
+%-\log\left( 1 + \sum_{k \geq 1} h_k t^k \right)
+%= \log\left( 1 - \sum_{m \geq 1} a_m t^m \right)
+%= \sum_{d \geq 1} p_d \log( 1-t^d ).
+%\]
+%Replacing each logarithm with its Taylor expansion about $1$, this becomes
+\[
+ \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}
 = \sum_{r \geq 1} \frac{(\sum_{m \geq 1} a_m t^m )^r}{r}
-= \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}~.
-\end{equation}
-
-By taking the coefficient of $t^n$ in each of the equations we obtain that
-\begin{equation}
-\frac{1}{n}\sum_{d |n} d p_d
-= \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
-= \sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}~.
-\end{equation}
-The equations in item $ii)$ follow by multiplying both sides of the equation by $n$ and then
-applying M\"obius inversion.
-
-By taking the reciprocals of the generating functions we have that Equation \eqref{eq:gf_relation} is equivalent to
-\begin{equation}
-\sum_{m \geq 1} a_m t^m = 1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} =  \prod_{d \geq 1} (1-t^d)^{p_d}~.
-\end{equation}
-Expanding the two rightmost expressions yields
-\begin{equation}
-\sum_{m \geq 1} a_m t^m
-= \sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
-= \prod_{d \geq 1} \sum_{k \geq 0} \binom{p_d}{k} t^{dk}~.
-\end{equation}
-The coefficient of $t^n$ in these three equations are the expressions in item $iii)$ of the proposition.
+= \sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}.
+\]
+Now we isolate the coefficient of $t^{n}$ in each of the expressions: 
+\[
+\sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
+= \sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}
+= \frac{1}{n} \sum_{d | n} d p_{d} .
+\]
+Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $p_{d}$.
 \end{proof}
 
-If the sequences $\vec{a}$ are non-negative then we can say more about $\vec{a}$, $\vec{h}$ and $\vec{p}$ because
-they will have combinatorial interpretations as subsets of words in an alphabet.  To this end, we require a few
-definitions.
 
-Let $X = \bigcup_{i \geq 1} X^{(i)}$ be an alphabet of letters for which $|X^{(i)}| < \infty$
-where $X^{(i)}$ is the finite set of letters of degree $i$.
-We denote the degree of $x \in X^{(i)}$ by $\mathsf{deg}(x) := i$.
-A word in $X$ is a concatenation of letters
-$w = w_1 w_2 \ldots w_m$ where $w_r \in X$ and the degree of $w$ is denoted $\mathsf{deg}(w) = \sum_{j = 1}^m \mathsf{deg}(w_j)$.
-
-Place a total order on the alphabet and the dictionary order on the words imposes a total order which is
-normally referred to as lexicographic order.
-For $0 < a < m$, a cyclic shift of $w$ is denoted $cyc^a(w) = w_{a+1} w_{a+1} \cdots w_n w_1 w_2 \cdots w_a$.
-We say that $w$ is a Lyndon word if $w$ is strictly smaller than $cyc^a(w)$ in lexicographic order for all $0 < a < m$.
-For instance, if $m=1$ and $w = w_1$, then $w$ is a Lyndon word since there are no cyclic shifts.
-If $x < y$, then $xyxyy$ is a Lyndon word, but $w = xyxy$ is not because $cyc^2(w) = w$.
+If the sequence $\vec{a}$ consists of entirely non-negative integers, $\vec{h}$ and $\vec{p}$ also have combinatorial interpretation in terms of words.
+Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
+If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
+%$x \in X^{(n)}$ to be $n$, and let
+\[
+\mathsf{deg}(w_1 w_2 \ldots w_{\ell}) = \sum_{i = 1}^{\ell} \mathsf{deg}(w_{i})
+\qquad\text{where $\mathsf{deg}(x) = n$ for all $x \in X^{(n)}$}.
+%\qquad\text{for $d_{i}$ such that $w_{i} \in X^{(d_{i})}$}.
+\]
+For a fixed order on $X$, we order the words on $X$ lexicographically.  
+The \emph{rotation} of a word $w = w_{1} w_{2} \ldots w_{\ell}$ is the word
+\[
+\mathsf{cyc}(w) =  w_{2} \ldots w_{\ell} w_{1}.
+\]
+This defines an operation of order $\ell$ on words of with $\ell$ letters.  
+A word is \emph{Lyndon} if it is strictly smaller than each of $\mathsf{cyc}(w), \mathsf{cyc}^{2}(w), \ldots, \mathsf{cyc}^{\ell-1}(w)$.  
+For instance, if $X = \{x < y\}$, then $xyxyy$ is a Lyndon word, but neither $xyxy$ nor $xyx$ are: $xyxy = \mathsf{cyc}^{2}(xyxy)$, while $xyx < xxy = \mathsf{cyc}^{-1}(xyx)$.
 
 \begin{proposition}
-Assume that the sequences $\vec{a}$, $\vec{h}$ and $\vec{p}$ are related by Equation \eqref{eq:gf_relation}
-and that $\vec{a} \geq \vec{0}$, then let $X = \bigcup_{i \geq 1} X^{(i)}$ be a graded alphabet where
-$|X^{(i)}| = a_i$ for all $i \geq 1$ and the degree of a letter $x \in X^{(i)}$ is assumed to be of degree $i$.
-Then,
-\begin{itemize}
-\item for $n\geq 1$, $h_n$ is equal to the number of words in the alphabet $X$ of degree $n$
-\item for $n\geq 1$, $p_n$ is equal to the number of Lyndon words in the alphabet $X$ of degree $n$~.
-\end{itemize}
+\label{prop:combinatorialinterpretation}
+Let $(\vec{a}, \vec{h}, \vec{p})$ be a triple of sequences in $\CC^{\NN}$ satisfying Equation \eqref{eq:gf_relation}.  
+If $\vec{a}$ consists of only nonnegative integers, so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $|X^{(n)}| = a_{n}$ for each $n \geq 1$, we have:
+\begin{enumerate}[itemsep = 0.5em]
+\item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
+
+\item $p_n$ is equal to the number of Lyndon words of degree $n$ in the alphabet $X$ of degree $n$ for all $n \ge 1$.
+
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-For a composition $\beta \vdash n$, $a_\beta$ is equal to the number of words
-of length $m$ with $w = w_1 w_2 \cdots w_m$, with $\beta_i = \mathsf{deg}(w_i)$ and $w_i \in X^{(\beta_i)}$.
-That is, $\beta$ is the sequences of the degrees of the letters of $w$.
-Since by Proposition \ref{prop:sequences}, we have that $h_n = \sum_\beta a_\beta$
-and every word has some sequence of degrees of the letters, it follows that
-$h_n$ is equal to the total number of words of degree $n$.
+To see (1), note that any degree $n$ word $w = w_1 w_2 \cdots w_{\ell}$ in $X$ defines a unique composition $(\mathsf{deg}(w_{1}), \mathsf{deg}(w_{2}), \ldots, \mathsf{deg}(w_{\ell})$, and for a particular composition $\beta \vDash n$, every $w \in X^{(\beta_{1})} \times X^{(\beta_{2})} \times \cdots \times X^{(\beta_{\ell})}$ has this property.  
+Thus, the number of degree $n$ words in $X$ agrees with the formula for $h_{n}$ given in Proposition~\ref{prop:sequences} (i).  
 
 For the second point the reader may refer to \cite[Theorem 4.9, Theorem 5.1]{Reutenauer-FreeLieAlgebras}.
-
 \mike{Need a proof or a reference for Lyndon words.}
+
+\lucas{Here is a proof.  Haven't found a reference.}
+The proof will make use of the set
+\[
+I_{n} = \{ (i, w) \;|\; \text{degree $n$ words $w$ in $X$ and $1 \le i \le \mathsf{deg}(w_{1})$}\},
+\]
+which has size
+\[
+|I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta}
+= \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}.
+\]
+Define a ``faux-cycling'' operation on $I_{n}$ by
+\[
+\mathsf{fcyc}(i, w) = \begin{cases} 
+\big(i+1, w\big) & \text{if $i < \mathsf{deg}(w_{1})$} \\ 
+\big(1, \mathsf{cyc}(w)\big) & \text{otherwise}.
+\end{cases}
+\]
+Note that $\mathsf{fcyc}^{n}$ fixes every element, so this is a periodic operation.  
+We will show that each $\mathsf{fcyc}$-orbit of size $d$ (which divides $n$) determines a unique Lyndon word of degree $d$, so that 
+\[
+\sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)} = |I_{n}| = \sum_{d | n} d \; |\{\text{degree $d$ Lyndon words in $X$}\}|.
+\]
+Assuming this, M\"{o}bius inversion gives the desired equation.
+
+To this end, fix an $\mathsf{fcyc}$-orbit of size $d$, which has the form $\{(i, \mathsf{cyc}^{a}(w)) \;|\; 1 \le i \le \mathsf{cyc}^{a}(w)_{1} \}$.  
+Take $w = w_{1} \dots w_{\ell}$ so that $(0, w)$ is the minimum element of this orbit and let $k$ be the smallest positive integer for which $\mathsf{cyc}^{k}(w) = w$.  
+Then is Lyndon and $w$ is the $\ell/k$-fold concatenation of the element $w' = w_{1} \cdots w_{k}$ with itself, so that $\mathsf{cyc}(w) = \mathsf{cyc}(w') \cdots \mathsf{cyc}(w')$.  
+Therefore, $w'$ is Lyndon and its degree, which is the size of the $\mathsf{fcyc}$ orbit of $(0, w')$, must be $d$.
 \end{proof}
 
 \begin{corollary}
-If $\vec{a} \geq \vec{0}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
+If $\vec{a} \in \CC^{\NN}$ consists only of nonnegative integers, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
 \end{corollary}
 \begin{proof}
-We have that for each $i \geq 1$ and each $x \in X^{(i)}$ is a Lyndon word, hence $a_i \leq p_i$.
-Moreover each Lyndon word of degree $i$ is itself a word of degree $i$, so $h_i \geq p_i$.
+Let $X = \biguplus_{n \ge 1} X^{(n)}$ be a graded set with $|X^{(n)}| = a_{n}$.  
+Considered as a word with one letter, each element $x \in X$ is a Lyndon word, so by Proposition~\ref{prop:combinatorialinterpretation} the inequalities above correspond to the set inclusions
+\[
+\{\text{degree $n$ words in $X$}\} 
+\supseteq \{\text{degree $n$ Lyndon words in $X$}\} 
+\supseteq X^{(n)}.
+\]
+%We have that for each $i \geq 1$ and each $x \in X^{(i)}$ is a Lyndon word, hence $a_i \leq p_i$.
+%Moreover each Lyndon word of degree $i$ is itself a word of degree $i$, so $h_i \geq p_i$.
 \end{proof}
 
 \begin{comment}
@@ -1180,7 +1233,7 @@ x_{1}^{(n)} = \underbrace{[y, [y, \cdots [y}_{\text{$n-1$ times}}, x] \cdots]].
 \]
 To see that $x_{1}^{(n)}$ is linearly independent of all commutators in $x_{1}^{(i)}$ for $i < n$, we consider the number of times $x$ occurs in any generator or bracket of generators.  
 This will be $1$ if we have a generator and $k$ for a bracket of $k$ generators, and moreover remains constant on terms in any Jacobi relation or anti-commutation relation.  
-Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being the span of$x_{1}^{(n)}$, and the sum of components of degree $2$ or greater comprising all commutators of the $x_{1}^{(i)}$ for $i < n$.  
+Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being the span of $x_{1}^{(n)}$, and the sum of components of degree $2$ or greater comprising all commutators of the $x_{1}^{(i)}$ for $i < n$.  
 \end{example}
 
 
