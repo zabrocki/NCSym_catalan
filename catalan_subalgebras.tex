@@ -122,8 +122,20 @@ For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDa
 \[
 c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 \]
-Note that $c_{\alpha} = c_{\beta}$ whenever $\alpha, \beta \vDash n$ are permutations of one another, i.e.~ $\alpha = (\beta_{\sigma(1)}, \beta_{\sigma(2)}, \ldots, \beta_{\sigma(\ell(\beta))})$
-for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\beta)\}$.
+Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
+
+
+Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
+\[
+X(\vec{a}) = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n} \}.
+\]
+and let $\mathfrak{L}(\vec{a})$ denote the free graded Lie algebra on the graded set $X(\vec{a})$.  
+
+For a graded Lie algebra $L$, $\mathcal{U}(L)$ will denote the universal enveloping (Hopf) algebra of $L$.  
+For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra of primitives, so that
+\[
+\mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
+\]
 
 \section{Combinatorics of sequences of numbers}
 
@@ -277,24 +289,29 @@ which has size
 |I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta}
 = \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}.
 \]
-Define a ``faux-cycling'' operation on $I_{n}$ by
+We will show that 
+\begin{equation}
+\label{eq:LyndonMobius}
+\sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)} = |I_{n}| = \sum_{d | n} d \; |\{\text{degree $d$ Lyndon words in $X$}\}|,
+\end{equation}
+from which M\"{o}bius inversion shows that the number of degree $n$ Lyndon words is equal to the formula for $p_{n}$ in terms of $\vec{a}$ given in Proposition~\ref{prop:sequences} (iii).
+
+To start, we define a ``faux-cycling'' operation on $I_{n}$ by
 \[
 \mathsf{fcyc}(i, w) = \begin{cases} 
 \big(i+1, w\big) & \text{if $i < \mathsf{deg}(w_{1})$} \\ 
 \big(1, \mathsf{cyc}(w)\big) & \text{otherwise}.
 \end{cases}
 \]
-Note that $\mathsf{fcyc}^{n}$ fixes every element, so this is a periodic operation.  
-We will show that each $\mathsf{fcyc}$-orbit of size $d$ (which divides $n$) determines a unique Lyndon word of degree $d$, so that 
+For any degree $n$ word $w = w_{1} w_{2} \cdots w_{\ell}$ and  $1 \le a \le \ell$, 
 \[
-\sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)} = |I_{n}| = \sum_{d | n} d \; |\{\text{degree $d$ Lyndon words in $X$}\}|.
+(0, \mathsf{cyc}^{a}(w)) = \mathsf{fcyc}^{\mathsf{deg}(w_{1}) + \cdots + \mathsf{deg}(w_{a-1})} (0, w).
 \]
-Assuming this, M\"{o}bius inversion gives the desired equation.
-
-To this end, fix an $\mathsf{fcyc}$-orbit of size $d$, which has the form $\{(i, \mathsf{cyc}^{a}(w)) \;|\; 1 \le i \le \mathsf{cyc}^{a}(w)_{1} \}$.  
-Take $w = w_{1} \dots w_{\ell}$ so that $(0, w)$ is the minimum element of this orbit and let $k$ be the smallest positive integer for which $\mathsf{cyc}^{k}(w) = w$.  
-Then is Lyndon and $w$ is the $\ell/k$-fold concatenation of the element $w' = w_{1} \cdots w_{k}$ with itself, so that $\mathsf{cyc}(w) = \mathsf{cyc}(w') \cdots \mathsf{cyc}(w')$.  
-Therefore, $w'$ is Lyndon and its degree, which is the size of the $\mathsf{fcyc}$ orbit of $(0, w')$, must be $d$.
+Thus, $\mathsf{fcyc}$ is periodic of order $n$.  Moreover, if $k$ is the minimal positive integer for which $\mathsf{cyc}^{k}(w) = w$, then the $\mathsf{fcyc}$ orbit of $(0, w)$---or $(i, w)$ for any $1 \le i \le \mathsf{deg}(w_{1})$---has size
+\[
+d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
+\]
+Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $\ell/k$-fold concatenation of $w'$ with itself, this is uniquely determined by the $d$-elements of the $\mathsf{fcyc}$-orbic of $(0, w)$.
 \end{proof}
 
 \begin{corollary}
