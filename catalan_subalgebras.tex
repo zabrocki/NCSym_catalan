@@ -931,7 +931,26 @@ In this section we will characterize free graded connected cocommutative Hopf al
 \end{proposition}
 \begin{proof}
 
-\lucas{Farhad will do}
+By proposition \ref{prop:sequences},
+it suffices to show that \eqref{eq:gf_relation} holds. The number of monomials of degree m is  $\displaystyle 
+        \sum_{\beta \vDash m} a_\beta = \sum_{k\geq 0} \sum
+    \limits_{\substack{\beta \vDash m \\ l(\beta)=k } }a_\beta $. Therefore, the Hilbert series associated to H is
+ 
+\[ \sum_{k\geq 0} (\sum
+    \limits_{\substack{\beta \vDash m \\ l(\beta)=k } }a_\beta t^m)=
+   \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k
+   \]
+   which in turn is equal to 
+$\frac{1}{1 - \sum_{m \geq 1} a_m t^m}$
+ using the expansion $\frac{1}{1-x}= \sum_{k\geq 0} x^k $.
+
+On the other hand, each monomial of degree $m$ is a product of primitive generators. Therefore the number of polynomials of degree $m$ is the number of solutions to the equation $\sum\limits_{\substack {d}}\sum\limits_{\substack{ 1\leq i\leq p_d}}  c_{d_i}d=m$. The generating function associated to this equation is
+$\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}$ where the number of integer solutions to the equation is the coefficient of $t^m$. It follows that 
+\[
+1 + \sum_{k \geq 1} h_k t^k=
+\frac{1}{1 - \sum_{m \geq 1} a_m t^m}=
+\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}.\]
+
 \end{proof}
 \begin{proposition}
 \label{prop:h sequence}
