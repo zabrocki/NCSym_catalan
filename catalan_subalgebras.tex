@@ -292,17 +292,23 @@ every $w \in X^{(\beta_{1})} \times X^{(\beta_{2})} \times \cdots \times X^{(\be
 Thus, the number of degree $n$ words in $X$ agrees with the formula for $h_{n}$ given in Proposition~\ref{prop:sequences} (i).  
 
 For the second point the reader may refer to \cite[Theorem 4.9, Theorem 5.1]{Reutenauer-FreeLieAlgebras}.
-\mike{Need a proof or a reference for Lyndon words.}
 
-\lucas{Here is a proof.  Haven't found a reference.}
 The proof will make use of the set
 \[
 I_{n} = \{ (i, w) \;|\; \text{degree $n$ words $w$ in $X$ and $1 \le i \le \mathsf{deg}(w_{1})$}\},
 \]
 which has size
+$
+|I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta} .
+$
+Note that since $a_\beta = a_{\mathsf{cyc}(\beta)}$, then we have
 \[
-|I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta}
-= \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}.
+|I_{n}|
+= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
+\sum_{k=1}^{\ell(\beta)} \beta_{1} a_{\mathsf{cyc}(\beta)}
+= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
+\sum_{k=1}^{\ell(\beta)} \mathsf{cyc}^{-1}(\beta)_{1} a_{\beta}
+= \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}~.
 \]
 We will show that 
 \begin{equation}
@@ -322,7 +328,7 @@ For any degree $n$ word $w = w_{1} w_{2} \cdots w_{\ell}$ and  $1 \le a \le \ell
 \[
 (0, \mathsf{cyc}^{a}(w)) = \mathsf{fcyc}^{\mathsf{deg}(w_{1}) + \cdots + \mathsf{deg}(w_{a-1})} (0, w).
 \]
-Thus, $\mathsf{fcyc}$ is periodic of order $n$.\mike{I think it might be clearer if we say that for some words it might be period smaller than $n$, but for all words in general it is of period $n$}  Moreover, if $k$ is the minimal positive integer for which $\mathsf{cyc}^{k}(w) = w$, then the $\mathsf{fcyc}$ orbit of $(0, w)$---or $(i, w)$ for any $1 \le i \le \mathsf{deg}(w_{1})$---has size
+Thus, $\mathsf{fcyc}$ is periodic of order $n$.  Moreover, if $k$ is the minimal positive integer for which $\mathsf{cyc}^{k}(w) = w$, then the $\mathsf{fcyc}$ orbit of $(0, w)$---or $(i, w)$ for any $1 \le i \le \mathsf{deg}(w_{1})$---has size
 \[
 d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
 \]
