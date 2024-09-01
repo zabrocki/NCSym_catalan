@@ -69,7 +69,7 @@
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
 \setlength{\marginparwidth}{28mm}
 
-\title{Catalan Hopf sub-algebras of $\mathsf{NCSym}$}
+\title{A characterization of co-commutative Hopf algebras}
 \author{}
 
 \begin{document}
@@ -244,9 +244,15 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 = \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
 = \frac{1}{n} \sum_{d | n} d p_{d} .
 \]
-Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $p_{d}$.
+Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
+\begin{remark}
+Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
+that any one equality in the proposition implies, by reversing the calculations,
+that the corresponding generating function relations in Equation \eqref{eq:gf_relation}
+will hold.
+\end{remark}
 
 If the sequence $\vec{a}$ consists of entirely non-negative integers,
 then $\vec{h}$ and $\vec{p}$ will also have combinatorial interpretation in terms of words.
@@ -301,7 +307,7 @@ which has size
 $
 |I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta} .
 $
-Note that since $a_\beta = a_{\mathsf{cyc}(\beta)}$, then we have
+Note that since $a_\beta = a_{\mathsf{cyc}^k(\beta)}$, then we have
 \[
 |I_{n}|
 = \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
