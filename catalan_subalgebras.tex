@@ -169,6 +169,7 @@ For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra o
 \[
 \mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
 \]
+\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
 For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{n} = \CC$, let
 \[
@@ -486,6 +487,8 @@ $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 
 \section{Preliminary statements about \FGCCHAs}
 
+\lucas{Add details to this section about universal enveloping algebra, CMM, PBW theorems.  Include citations to Reutenauer's text.  Pay attention to what we need in ``classification by sequences'' section.}
+
 We now give the algebraic context for the results of Section~\ref{sec:SequencePrelims}.  
 As in the introduction, we use the abbreviation \FGCCHA to mean \textsf{F}ree \textsf{G}raded \textsf{C}onnected \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
 By definition, every \FGCCHA $H$ comes with a graded set of generators, 
@@ -498,14 +501,14 @@ for which $X^{(n)} \subseteq H_{n}$ and $X$ freely generates $H$ as an algebra.
 \label{prop:SequencesAsHopfStructures}
 Let $H$ be a \FGCCHA with generating set $X$.  The triple of sequences
 \[
-\left(\veccard(X),\,
-\vecdim(H), \,
+\left(\vecdim(H), \,
+\veccard(X),\,
 \vecdim\left(\mathcal{P}(H)\right) \right)
 \]
 satisfies Equation~\eqref{eq:gf_relation}.
 \end{proposition}
 \begin{proof}
-Let $\vec{a} = \veccard(X)$, $\vec{h} = \vecdim(H)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{p})$, from which the claim follows.  
+Let $\vec{h} = \vecdim(H)$, $\vec{a} = \veccard(X)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{p})$, from which the claim follows.  
 
 For $n \ge 1$, $h_{n}$ is the number of degree $n$ monomials in $X$, which is also the number of degree $n$ words in $X$.  
 Applying Proposition~\ref{prop:combinatorialinterpretation}, $\vec{h} = \phi_{a, h}(\vec{a})$.
@@ -739,6 +742,11 @@ We consider two well-known \FGCCHAs from the perspective of Proposition~\ref{pro
 %and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdots$, and we write $\mathfrak{F}=\Phi\{x_1,\ldots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
 
 \section{Characterization of \FGCCHAs by $a$ sequences}
+
+\lucas{section intro: 1. outline section, 2. Aliniaeifard--Thiem give us iso if hilbert series are equal. 3. we appraoch this from the sequences perspective. 4. state when Hopf algebra exists based on H-sequence. 5. example 6. state how to construct this iso using OPG's 6. example(?) 7. prove statements in subsections.}
+
+
+\subsection{Proof of classification}
 
 The structure of a connected cocommutative Hopf algebra is completely determined by certain elements called \textit{primitives}.
 \begin{definition}
@@ -1093,6 +1101,8 @@ We will now state some results which will be useful later in the paper.
 %\(f:X \to Y\).
 
 \section{Classification by Sequences}
+\lucas{Everything in this section should be moved to the previous one, I think.  Leave the section here for numbering reasons until next meeting though.}
+
 
 In this section we will characterize free graded connected cocommutative Hopf algebras in terms of sequences. 
 
@@ -1162,11 +1172,9 @@ If yes, find me a different example.  If no, apply this theorem to explain why.}
     %\felix{Really not sure about this part.} 
     %The relationship between $\mathbf{p}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X')\cong\mathcal{U}(\mathfrak{L}_{X'})\cong H$ 
     %given by Theorem $1$ and Lemma $3.4$  gives us a way to construct the Hopf algebra associated to $\mathbf{p}$.
-\end{proof} \felix{The labeling is made by hand so it's not we have to be careful here!} \felix{Please look at this proof, I am not sure about it. I will take a look to it when I will come back from vacation.}
+\end{proof} 
 
 \subsection{Constructing isomorphisms}
-
-\lucas{Eric will work on 6.4 and 6.5 below}
 
 \begin{definition}
     A graded set $X = \biguplus_{n\geq 1} X_n$ will be called \textit{homogeneously ordered} if each $X_n$ is ordered. We will write the ordered homogeneous componenents as 
@@ -1273,12 +1281,13 @@ Suppose that $H$ and $K$ are free graded connected cocommutative Hopf algebras w
 
 
 \section{Classifying SubHopf algebras by sequence}
+\lucas{Mike will read + make suggestions}
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
 In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
 To begin, recall the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
 \[
-\phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{q_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}.
+\phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}.
 \]
 
 \begin{thm}
@@ -1350,7 +1359,6 @@ However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ must b
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:subclassification2}]
-\lucas{Note that this is a restatement of Theorem~\ref{thm:subclassification1}.}
 First, suppose that $G$ is a sub-Hopf algebra of $H$ and let $\vec{g} = \vec{\dim}(G)$.  Let $\vec{q} = \phi_{h, p}(\vec{b})$, so that $\vec{q} = \vec{\dim}(\mathcal{P}(G))$.  By Proposition~\ref{prop:h sequence} the isomorphism class of $G$ is uniquely determined by $\vec{q}$, so the given map is injective.
 
 Now, suppose that $\vec{q}$ is a sequence satisfying the conditions that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\vec{b} = \phi_{p, a}(\vec{q}) \ge \vec{0}$.  
