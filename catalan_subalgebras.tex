@@ -1473,6 +1473,33 @@ This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \
 %    \end{itemize}
 %\end{proposition}
 
+\section{Example} \felix{I did not know where we wanted those examples}
+
+\begin{example}
+	
+	Given two Hopf algebras $A$ and $B$ respectively associated with $\vec{a}$ sequences $\vec{a_1}=(0,1,0,0,\dots)$ and $\vec{a_2}=(1,0,0,0,\dots)$, let us see that the $\vec{h}$ sequences $\vec{h_1}$ associated to $\vec{a_1}$ is dominated by the $\vec{h}$ sequences $\vec{h_2}$ associated to $\vec{a_2}$ but corresponding $\vec{p}$ sequence $\vec{p_1}$ and $\vec{p_2}$ are not comparable. Following the computation of the $\vec{h}$ sequence from the $\vec{a}$ sequence given by 
+	
+	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
+	
+	We can see that 
+	
+	$$(\vec{h_1})_n= 1$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
+	
+	$$(\vec{h_2})_n= \left \{ \begin{matrix}
+		0 & \textit{ if } n \textit{ is odd} \\
+		1 & \textit{ if } n \textit{ is even}
+	\end{matrix} \right.$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h_1}$ is domintated by $\vec{h_2}$. However, after computation we have that $(\vec{p_1})_1=1$ and $(\vec{p_2})_1=0$ but we have $(\vec{p_1})_2=0$ and $(\vec{p_2})_2=1$. Hence, those two sequences are not comparable.
+	
+\end{example}
+
+\begin{example}
+	Let us consider the Fibonacci sequence $F$ and the Lucas sequence $L$ as $\vec{h}$ sequence. We can easily check that the $\vec{a}$ sequence coming from $F$ has a Hopf algebra associated to it but as surprisingly as it is, the $\vec{a}$ sequence coming from $L$ does not correspond to any Hopf algebra.
+\end{example}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
 \bibliography{bibliography}{}
