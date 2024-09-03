@@ -26,6 +26,7 @@
 \usepackage{youngtab}
 \usepackage{verbatim}
 \usepackage{faktor}
+\usepackage{xspace}
 
 \usepackage{stmaryrd}
 
@@ -58,6 +59,11 @@
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\OPG}{OPG}
+
+\newcommand{\FGCCHA}{\textsf{FGCCHA}\xspace}
+\newcommand{\FGCCHAs}{\textsf{FGCCHA}s\xspace}
+\newcommand{\vecdim}{\overrightarrow{\dim}}
+\newcommand{\veccard}{\overrightarrow{\operatorname{card}}}
 
 \usepackage[colorinlistoftodos]{todonotes}
 
@@ -137,7 +143,17 @@ For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra o
 \mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
 \]
 
+For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{n} = \CC$, let
+\[
+\vecdim(V) = \left( \dim(V_{n}) \right)_{n \ge 1}.
+\]
+Similarly, for a graded set $X = \biguplus_{n \ge 1} X^{(n)}$, let
+\[
+\veccard(X) = \left( |X^{(n)}| \right)_{n \ge 0}
+\]
+
 \section{Combinatorics of sequences of numbers}
+\label{sec:SequencePrelims}
 
 Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
 In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field of characteristic $0$.
@@ -247,15 +263,44 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-\begin{remark}
+%\begin{remark}
 Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
 that any one equality in the proposition implies, by reversing the calculations,
-that the corresponding generating function relations in Equation \eqref{eq:gf_relation}
+that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
-\end{remark}
+%\end{remark}
+%In light of 
+
+\begin{definition}
+The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
+\begin{align*}
+\begin{array}{rcl}
+\phi_{p, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{p} & \mapsto & \vec{a}
+\end{array},
+\qquad
+\begin{array}{rcl}
+\phi_{h, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{h} & \mapsto & \vec{a}
+\end{array},
+\qquad\text{and}\qquad 
+\begin{array}{rcl}
+\phi_{p, h} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{p} & \mapsto & \vec{h}
+\end{array}
+\end{align*}
+as well as their inverses
+\[
+\phi_{a, p} = \phi_{p, a}^{-1},
+\qquad\qquad
+\phi_{a, h} = \phi_{h, a}^{-1},
+\qquad\qquad\text{and}\qquad\qquad
+\phi_{h, p} = \phi_{p, h}^{-1}.
+\]
+\end{definition}
 
 If the sequence $\vec{a}$ consists of entirely non-negative integers,
-then $\vec{h}$ and $\vec{p}$ will also have combinatorial interpretation in terms of words.
+then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
 Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
 If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
 %$x \in X^{(n)}$ to be $n$, and let
@@ -280,8 +325,8 @@ following result for completeness.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
-Let $(\vec{a}, \vec{h}, \vec{p})$ be a triple of sequences in $\CC^{\NN}$ satisfying Equation \eqref{eq:gf_relation}.  
-If $\vec{a}$ consists of only nonnegative integers, so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $|X^{(n)}| = a_{n}$ for each $n \geq 1$, we have:
+Let $\vec{a} \in \CC^{\NN}$ consist of only nonnegative integers, so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $|X^{(n)}| = a_{n}$.  
+If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{p})$, then for each $n \geq 1$, we have:
 \begin{enumerate}[itemsep = 0.5em]
 \item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
 
@@ -393,7 +438,52 @@ $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 \mike{notation to be defined above: $A|_S$, $\mathrm{st}(A)$}
 \end{comment}
 
-\section{Preparatory results about free algebras}
+\section{Preliminary statements about \FGCCHAs}
+
+We now give the algebraic context for the results of Section~\ref{sec:SequencePrelims}.  
+As in the introduction, we use the abbreviation \FGCCHA to mean \textsf{F}ree \textsf{G}raded \textsf{C}onnected \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
+By definition, every \FGCCHA $H$ comes with a graded set of generators, 
+\[
+X = \biguplus_{n \ge 1} X^{(n)} 
+\]
+for which $X^{(n)} \subseteq H_{n}$ and $X$ freely generates $H$ as an algebra.
+
+\begin{proposition}
+\label{prop:SequencesAsHopfStructures}
+Let $H$ be a \FGCCHA with generating set $X$.  The triple of sequences
+\[
+\left(\veccard(X),\,
+\vecdim(H), \,
+\vecdim\left(\mathcal{P}(H)\right) \right)
+\]
+satisfies Equation~\eqref{eq:gf_relation}.
+\end{proposition}
+\begin{proof}
+Let $\vec{a} = \veccard(X)$, $\vec{h} = \vecdim(H)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{p})$, from which the claim follows.  
+
+For $n \ge 1$, $h_{n}$ is the number of degree $n$ monomials in $X$, which is also the number of degree $n$ words in $X$.  
+Applying Proposition~\ref{prop:combinatorialinterpretation}, $\vec{h} = \phi_{a, h}(\vec{a})$.
+
+On the other hand, the Milnor--Moore theorem states that $H$ is isomorphic to the universal enveloping algebra of $\mathcal{P}(H)$.  
+By the Poincare--Birkhoff--Witt theorem, for any fixed homogeneous basis $Y = \biguplus_{n \ge 0} Y^{(n)}$ of $\mathcal{P}(H)$, $h_{n}$ counts the multisets of $Y$ whose elements have degree summing (with repetition) to $n$.  \lucas{Could also use Lyndon factorization if we added it to the previous Proposition} 
+Since $\vec{p} = \veccard{Y}$, $h_{n}$ is therefore the coefficient of $t^{n}$ in
+\[
+\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}},
+\]
+so it follows that $\vec{p} = \phi_{h, p}(\vec{p})$.
+\end{proof}
+
+\begin{example}
+We consider two well-known \FGCCHAs from the perspective of Proposition~\ref{prop:SequencesAsHopfStructures}.
+\begin{enumerate}
+\item $\mathrm{NSym}$
+
+\item $\mathrm{CQSym}$
+
+\end{enumerate}
+\end{example}
+
+\lucas{re-written up to here}
 
 \subsection{Free algebras}
 \label{sec:freealgebras}
@@ -602,7 +692,7 @@ Let $X$ be an arbitrary graded set.  Then
 %
 %and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdots$, and we write $\mathfrak{F}=\Phi\{x_1,\ldots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
 
-\section{Characterization of \textsf{FGCCHA}s by $a$ sequences}
+\section{Characterization of \FGCCHAs by $a$ sequences}
 
 The structure of a connected cocommutative Hopf algebra is completely determined by certain elements called \textit{primitives}.
 \begin{definition}
@@ -650,17 +740,17 @@ We may now present the main result of this section.
 
 \begin{theorem}
 \label{thm: Hopf dimension isomorphic}
-    For every non-negative sequence $(a_n)_{n \geq 1}$ there exists a \textsf{FGCCHA} with $a_n$ generators in degree $n$, unique up to isomorphism.
+    For every non-negative sequence $(a_n)_{n \geq 1}$ there exists a \FGCCHA with $a_n$ generators in degree $n$, unique up to isomorphism.
 \end{theorem}
 
 \begin{proof}
     For a sequence of non-negative integers $(a_n)_{n \geq 1}$, the Hopf algebra $\mathcal{U}(\mathfrak{L}(\vec{a}))$ has $a_n$ generators in degree $n$.
 
-    To show uniqueness, suppose $H$ and $K$ are two \textsf{FGCCHA}s with $a_n$ generators in degree $n$. Choose homogeneous generating sets $X\subseteq H$ and $Y \subseteq K$, then $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are free primitive generators of each Hopf algebra. We may choose a bijection $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ that respects grading, i.e. $f(\mathbf{e}(X_n)) = \mathbf{e}(Y_n)$. Extending algebraically we have a graded algebra isomorphism $\tilde{f}:H \to K$, and because $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are primitives $\tilde{f}$ is a graded Hopf algebra isomorphism.
+    To show uniqueness, suppose $H$ and $K$ are two \FGCCHAs with $a_n$ generators in degree $n$. Choose homogeneous generating sets $X\subseteq H$ and $Y \subseteq K$, then $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are free primitive generators of each Hopf algebra. We may choose a bijection $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ that respects grading, i.e. $f(\mathbf{e}(X_n)) = \mathbf{e}(Y_n)$. Extending algebraically we have a graded algebra isomorphism $\tilde{f}:H \to K$, and because $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are primitives $\tilde{f}$ is a graded Hopf algebra isomorphism.
 \end{proof}
 
 \begin{corollary}
-    Suppose $H$ and $K$ are \textsf{FGCCHA}s with $\dim(H_n) = \dim(K_n)$ for all $n \geq 0$. Then $H \cong K$.
+    Suppose $H$ and $K$ are \FGCCHAs with $\dim(H_n) = \dim(K_n)$ for all $n \geq 0$. Then $H \cong K$.
 \end{corollary}
 
 \begin{proof}
@@ -935,42 +1025,9 @@ We will now state some results which will be useful later in the paper.
 
 \section{Classification by Sequences}
 
-In this section we will characterize free graded connected cocommutative Hopf algebras in terms of sequences. For such a Hopf algebra $H$, we will denote
-\begin{itemize} 
-    \item $\vec{h} = (h_1, h_2, \ldots)$ where $h_n = \dim H_n$,
-    \item $\vec{p} = (p_1, p_2, \ldots)$ where $p_n = \dim \mathcal{P}(H)_n$,
-    \item $\vec{a} = (a_1, a_2, \ldots)$ where $a_n$ is the number of generators in degree $n$.
-\end{itemize}
+In this section we will characterize free graded connected cocommutative Hopf algebras in terms of sequences. 
 
-\begin{proposition}
-    The sequences above obey the relations in Proposition \ref{prop:sequences}.
-\end{proposition}
-\begin{proof}
 
-By Proposition \ref{prop:sequences},
-it suffices to show that \eqref{eq:gf_relation} holds. The number of monomials of degree $n$
-in a Hopf algebra $H$, with $a_m$ generators of degree $m$, is
-$\displaystyle
-        \sum_{\beta \vDash n} a_\beta = \sum_{k\geq 0} \sum
-    \limits_{\substack{\beta \vDash n \\ l(\beta)=k } }a_\beta $. Therefore,
-the Hilbert series associated to $H$ is
- 
-\[ \sum_{n \geq 0} \sum_{k\geq 0} \left(\sum
-    \limits_{\substack{\beta \vDash n \\ l(\beta)=k } }a_\beta \right)t^n=
-   \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k
-   \]
-   which in turn is equal to 
-$\frac{1}{1 - \sum_{m \geq 1} a_m t^m}$
- using the expansion $\frac{1}{1-x}= \sum_{k\geq 0} x^k $.
-
-On the other hand, each monomial of degree $m$ is a product of primitive generators. Therefore the number of polynomials of degree $m$ is the number of solutions to the equation $\sum\limits_{\substack {d}}\sum\limits_{\substack{ 1\leq i\leq p_d}}  c_{d_i}d=m$. The generating function associated to this equation is
-$\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}$ where the number of integer solutions to the equation is the coefficient of $t^m$. It follows that 
-\[
-1 + \sum_{k \geq 1} h_k t^k=
-\frac{1}{1 - \sum_{m \geq 1} a_m t^m}=
-\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}.\]
-
-\end{proof}
 \begin{proposition}
 \label{prop:h sequence}
 	Given a sequence of nonnegative integers $\vec{h} = (h_0, h_1, h_2, \ldots)$, there exists a free graded connected cocommutative Hopf algebra $H$ with $\dim(H_n) = h_n$ for all $n \geq 0$ if and only if 
@@ -1150,7 +1207,7 @@ Suppose that $H$ and $K$ are free graded connected cocommutative Hopf algebras w
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
 In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
-To begin, recall\lucas{assuming we will define this in the ``sequences'' section} the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
+To begin, recall the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
 \[
 \phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{q_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}.
 \]
