@@ -59,6 +59,7 @@
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\OPG}{OPG}
+\DeclareMathOperator{\st}{st}
 
 \usepackage[colorinlistoftodos]{todonotes}
 
@@ -702,6 +703,27 @@ We may now present the main result of this section.
 
     To show uniqueness, suppose $H$ and $K$ are two \textsf{FGCCHA}s with $a_n$ generators in degree $n$. Choose homogeneous generating sets $X\subseteq H$ and $Y \subseteq K$, then $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are free primitive generators of each Hopf algebra. We may choose a bijection $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ that respects grading, i.e. $f(\mathbf{e}(X_n)) = \mathbf{e}(Y_n)$. Extending algebraically we have a graded algebra isomorphism $\tilde{f}:H \to K$, and because $\mathbf{e}(X)$ and $\mathbf{e}(Y)$ are primitives $\tilde{f}$ is a graded Hopf algebra isomorphism.
 \end{proof}
+
+\begin{example}\textit{A Cocommutative Hopf algebra on permutations.}
+
+    Let $\vec{a}$ be the sequence determined by
+    \[
+    \sum_{n \geq 1}a_nt^n = 1 - \frac{1}{\sum_{m \geq 0}m!t^m}.
+    \]
+    Then $\vec{a} = (1,1,3,13,71,\ldots)$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$. By \ref{thm: Hopf dimension isomorphic} there exists a \textsf{FGCCHA} of graded dimension $n!$, which we will construct explicitly.
+
+    Let (placeholder) be the graded vector space spanned by permutations of $[n]$ in degree $n$. We will denote by $\pi = \pi_1\pi_2\cdots\pi_n$ the permutation of $[n]$ mapping $m \mapsto \pi_m$. For permutations $\sigma = \sigma_1\sigma_2\cdots\sigma_n$ of $[n]$ and $\tau = \tau_1\tau_2\cdots\tau_k$ of $[k]$, we define their concatenation product to be the permutation of $[n+k]$, 
+    \[
+    \sigma |\tau = \sigma_1\sigma_2\cdots\sigma_n(\tau_1 + n)(\tau_2+n)\cdots(\tau_k+n)
+    \]
+    which gives () the structure of a graded algebra. 
+    
+    The \textit{indecomposable permutations} are the permutations $\pi$ which cannot be written as the concatenation product of two non-trivial permutations, hence they are free generators for (). We now define the coproduct by declaring
+    \[
+    \Delta(\iota) = 1 \otimes \iota + \iota \otimes 1
+    \]
+    for all indecomposable permutations $\iota$, and extending algebraically. Under this coproduct () is endowed with the structure of a \textsf{FGCCHA}, with graded dimension $n!$.
+\end{example}
 
 \begin{corollary}
     Suppose $H$ and $K$ are \textsf{FGCCHA}s with $\dim(H_n) = \dim(K_n)$ for all $n \geq 0$. Then $H \cong K$.
