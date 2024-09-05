@@ -1297,7 +1297,7 @@ Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} =
 \begin{array}{rcl}
 \left\{\begin{array}{c}
 \text{Isomorphism classes of} \\
-\text{sub-Hopf algebra $G \subseteq H$}
+\text{sub-Hopf algebras $G \subseteq H$}
 \end{array}\right\}
 & \leftrightarrow & 
 \left\{\begin{array}{c}
@@ -1316,10 +1316,13 @@ Before completing the proof we will give several motivating examples and interme
 
 \begin{example}
 \label{ex:NSymInCxy}
-We apply the theorem to our running example: let $H = \CC\langle x, y \rangle$, so that $\vec{p} = \vec{\dim}(\mathcal{P}(H))$ is the sequence~\cite[A001037]{OEIS} given by 
+We apply the theorem to our running example: let $H = \CC\langle x, y \rangle$,
+so that $\vec{p} = \vec{\dim}(\mathcal{P}(H))$ is the sequence
+$\vec{p} = (2, 1, 2, 3, 6, 9, 18, 30,\ldots)$~\cite[A001037]{OEIS} given by 
 \[
 p_{n} = \frac{1}{n} \sum_{d | n} \mu(n/d) 2^{d}.
 \]
+
 Then we can take 
 \[
 \vec{q} = \vec{p} - (1, 0, 0, \ldots)
@@ -1352,7 +1355,8 @@ Using the fact that $\phi_{a, p}(\vec{a}) = \vec{\dim}(\mathfrak{L}(\vec{a}))$, 
 \[
 \vec{a} = \vec{\dim}\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
 \]
-To begin, note that by Proposition~\ref{prop:h sequence}, $\vec{a}$ enumerates any fixed choice of free homogeneous primitive generators for $\mathfrak{L}(\vec{a})$.  
+To begin, note that by Proposition~\ref{prop:h sequence}, $\vec{a}$ enumerates
+a fixed choice of free homogeneous generators for $\mathfrak{L}(\vec{a})$.
 The elements of this set are linearly independent modulo the derived sub-Lie algebra, so $a_{n}$ is a lower bound on the dimension of the degree $n$ part of the quotient.  
 However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ must be, by definition, a linear combination of some element of $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$ primitive generators, so the dimension of the quotient is at most $a_{n}$.
 \end{proof}
