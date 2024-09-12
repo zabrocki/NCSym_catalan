@@ -1097,7 +1097,7 @@ If yes, find me a different example.  If no, apply this theorem to explain why.}
 
     Supposing \(a_n \geq 0\) for all \(n \geq 0\), then by Proposition~\ref{prop:h sequence} we have that \(\vec{a}\) generates a free graded connected 
     cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\).
-    Hence \(\vec{\dim} \mathcal{P}(H)_n = \vec{p}\geq 0\).
+    Hence \(\vecdim(\mathcal{P}(H)_n) = \vec{p}\geq 0\).
 
     %Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. 
     %By ~\cite[Theorem 2.2]{KK95} and after manipulation we get 
@@ -1247,7 +1247,7 @@ To begin, recall the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
 
 \begin{thm}
 \label{thm:subclassification2}
-Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} = \vec{\dim}(\mathcal{P}(H)_{n})$.  Then there is a bijection
+Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} = \vecdim(\mathcal{P}(H)_{n})$.  Then there is a bijection
 \[
 \begin{array}{rcl}
 \left\{\begin{array}{c}
@@ -1260,7 +1260,7 @@ Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} =
 \text{that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\phi_{p, a}(\vec{q}) \ge \vec{0}$} 
 %\\\sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{q_{d}}{m_{d}(\lambda)} \ge 0
 \end{array}\right\} \\[2em]
-G & \mapsto & \big(\dim(\mathcal{P}(G)_{n} \big)_{n = 1}^{\infty} \\
+G & \mapsto & \vecdim\big(\mathcal{P}(G)\big) \\
 \mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q}))) & \mapsfrom & \vec{q}
 \end{array}
 \]
@@ -1272,7 +1272,7 @@ Before completing the proof we will give several motivating examples and interme
 \begin{example}
 \label{ex:NSymInCxy}
 We apply the theorem to our running example: let $H = \CC\langle x, y \rangle$,
-so that $\vec{p} = \vec{\dim}(\mathcal{P}(H))$ is the sequence
+so that $\vec{p} = \vecdim(\mathcal{P}(H))$ is the sequence
 $\vec{p} = (2, 1, 2, 3, 6, 9, 18, 30,\ldots)$~\cite[A001037]{OEIS} given by 
 \[
 p_{n} = \frac{1}{n} \sum_{d | n} \mu(n/d) 2^{d}.
@@ -1303,13 +1303,13 @@ We now state and prove an intermediate result in the proof of Theorem~\ref{thm:s
 \label{lem:deriveddimension}
 Let $\vec{a} = (a_{1}, a_{2}, \ldots)$ be a sequence of nonnegative integers.  Then
 \[
-\vec{\dim}([\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]) = \phi_{a, p}(\vec{a}) - \vec{a}.
+\vecdim([\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]) = \phi_{a, p}(\vec{a}) - \vec{a}.
 \]
 \end{lemma}
 \begin{proof}
-Using the fact that $\phi_{a, p}(\vec{a}) = \vec{\dim}(\mathfrak{L}(\vec{a}))$, it is sufficient to show that
+Using the fact that $\phi_{a, p}(\vec{a}) = \vecdim(\mathfrak{L}(\vec{a}))$, it is sufficient to show that
 \[
-\vec{a} = \vec{\dim}\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
+\vec{a} = \vecdim\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
 \]
 To begin, note that by Proposition~\ref{prop:h sequence}, $\vec{a}$ enumerates
 a fixed choice of free homogeneous primitive generators for $\mathfrak{L}(\vec{a})$.
@@ -1320,11 +1320,15 @@ However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ must b
 by definition, a linear combination of some element of
 $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$ primitive
 generators, so the dimension of the quotient is at most $a_{n}$.
+\mike{two assertions are being made in this paragraph that
+I think need to be justified: 1. the elements are lin ind mod $\mathfrak{L}(\vec{a})$
+and 2. $r \in \mathfrak{L}(\vec{a})$ implies $r = s + t$ with 
+$s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
 \end{proof}
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:subclassification2}]
-First, suppose that $G$ is a sub-Hopf algebra of $H$ and let $\vec{g} = \vec{\dim}(G)$.  Let $\vec{q} = \phi_{h, p}(\vec{b})$, so that $\vec{q} = \vec{\dim}(\mathcal{P}(G))$.  By Proposition~\ref{prop:h sequence} the isomorphism class of $G$ is uniquely determined by $\vec{q}$, so the given map is injective.
+First, suppose that $G$ is a sub-Hopf algebra of $H$ and let $\vec{g} = \vecdim(G)$.  Let $\vec{q} = \phi_{h, p}(\vec{b})$, so that $\vec{q} = \vecdim(\mathcal{P}(G))$.  By Proposition~\ref{prop:h sequence} the isomorphism class of $G$ is uniquely determined by $\vec{q}$, so the given map is injective.
 
 Now, suppose that $\vec{q}$ is a sequence satisfying the conditions that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\vec{b} = \phi_{p, a}(\vec{q}) \ge \vec{0}$.  
 We will construct a sub-Hopf algebra $G$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.  
@@ -1343,11 +1347,11 @@ Our construction is inductive with base case $L^{(1)} = 0$.
 Begin by assuming that $L^{(n)}$ has been constructed.  
 By Lemma~\ref{lem:deriveddimension} and our inductive hypothesis,
 \[
-\vec{\dim}([L^{(n)}, L^{(n)}])%_{i} 
+\vecdim([L^{(n)}, L^{(n)}])%_{i} 
  = 
 \phi_{a, p}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots) - (b_{1}, \ldots, b_{n-1}, 0, 0, \ldots).
 \]
-Considering the $n$th term, we see that $\vec{\dim}(L^{(n)})_{n} = \vec{\dim}([L^{(n)}, L^{(n)}])_{n}$, and we can further deduce---after a careful examination of the definition of $\phi_{a, p}$---that
+Considering the $n$th term, we see that $\vecdim(L^{(n)})_{n} = \vecdim([L^{(n)}, L^{(n)}])_{n}$, and we can further deduce---after a careful examination of the definition of $\phi_{a, p}$---that
 
 \begin{equation}
 \label{eq:inductivedimensionequality}
@@ -1359,7 +1363,7 @@ q_{n} - b_{n}.
 \end{equation}
 Therefore,
 \[
-\vec{\dim}\left( \mathcal{P} \big/ [L^{(n)}, L^{(n)}] \right)_{n}
+\vecdim\left( \mathcal{P} \big/ [L^{(n)}, L^{(n)}] \right)_{n}
 = p_{n} - (q_{n} - b_{n})
 = b_{n} + (p_{n} - q_{n})
 \ge b_{n}.
@@ -1471,16 +1475,48 @@ Let us consider the Fibonacci sequence $\vec{f} = (1,1,2,3,5,8,13,\ldots)$
 as if it could be the graded dimensions of some Hopf algebra.
 We compute first that $\phi_{ha}(\vec{f}) = (1,0,1,0,1,0,\ldots)$
 and by Theorem/Proposition/Corollary \ref{} conclude
-that there is a Hopf algebra with one generator at each odd degree.
+that there is a Hopf algebra $H$ with a basis indexed by
+compositions with only odd parts and with one generator at each odd degree.
+This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
 
 Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
 as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{ha}(\vec{\ell})$ and determine
 that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we must conclude
-that there does not exist a Hopf algebra with these graded degrees.
+that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
 \bibliography{bibliography}{}
+
+
+\begin{table}[h]
+    \hspace*{-1cm} %  move the table to the left
+    \begin{table}[h]
+    \hspace*{-1cm} %  move the table to the left 
+    \begin{tabular}{|l|l|l|l||l|l|l||l|l|l|l||l|l|l|}
+        \hline
+        Sequence & h sequence & a sequence & p sequence \\
+        \hline
+        Catalan & \(1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862\) & 
+        \(1, 0, 1, 2, 6, 18, 57, 186, 622, 2120\) & 
+        \(1, 0, 1, 3, 9, 27, 87, 282, 946, 3216\) \\
+        \hline
+        Ternary trees & \(1, 1, 3, 12, 55, 273, 1428, 7752, 43263\) & 
+        \(1, 0, 2, 7, 34, 171, 905, 4952, 27802\) & 
+        \(1, 0, 2, 9, 43, 215, 1137, 6193, 34690\)
+        \\
+        \hline
+        Motzkin & \(1, 1, 2, 4, 9, 21, 51, 127, 323, 835\) & 
+        \(1, 0, 1, 1, 3, 6, 15, 36, 91, 232\) & 
+        \(1, 0, 1, 2, 5, 11, 28, 68, 174, 445\)
+        
+        \\
+        \hline
+    \end{tabular}
+    \caption{Sequences}
+    \label{tab:sequences}
+\end{table}
+
 
 \end{document}
