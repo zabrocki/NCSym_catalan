@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{AT22}
+Farid Aliniaeifard and Nathaniel Thiem.
+\newblock Hopf structures in the representation theory of direct products.
+\newblock {\em Electronic Journal of Combinatorics}, 29:Paper No. 4.39, 2022.
+
+\bibitem{OEIS}
+OEIS~Foundation Inc.
+\newblock The on-line encyclopedia of integer sequences, 2024.
+
+\bibitem{MSZ}
+A.~A. Mikhalev, V.~E. Shpilrain, and A.~A. Zolotykh.
+\newblock Subalgebras of free algebras.
+\newblock {\em Proc. Amer. Math. Soc.}, 124(7):1977--1984, 1996.
+
+\bibitem{MM65}
+John~W Milnor and John~C Moore.
+\newblock On the structure of {H}opf algebras.
+\newblock {\em Annals of Mathematics}, 81:211--264, 1965.
+
+\bibitem{NT05}
+Jean-Christophe Novelli and Jean-Yves Thibon.
+\newblock Hopf algebras and dendriform structures arising from parking functions.
+\newblock {\em Fundamenta Mathematicae}, 193(1):189--241, 2007.
+
+\bibitem{Reutenauer-FreeLieAlgebras}
+C.~Reutenauer.
+\newblock {\em Free Lie Algebras}.
+\newblock London Mathematical Society Monographs New Series. Oxford University Press, 1993.
+
+\end{thebibliography}
