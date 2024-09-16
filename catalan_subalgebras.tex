@@ -250,7 +250,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a u
 \begin{enumerate}[label = (\roman*), itemsep = 1em]
 \item $\displaystyle h_{n}
 = \sum_{\beta \vDash n} a_\beta
-= \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$, 
+= \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)}$, 
 \lucas{We should be careful here: as written the formula gives zeros}
 \item $\displaystyle a_n
 = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
@@ -289,7 +289,7 @@ In order to see (i), take the geometric series expansion of the second and third
 \begin{equation}\label{eq:gf_relation_reciprocal}
 1 + \sum_{k \geq 1} h_k t^k
 = \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k
-= \prod_{d \geq 1} \left(\sum_{k \geq 0} \binom{p_d+k-1}{p_d-1} t^{kd}\right).
+= \prod_{d \geq 1} \left(\sum_{k \geq 0} \binom{p_d+k-1}{k} t^{kd}\right).
 \end{equation}
 Expanding each product of sums and isolating the coefficient of $t^{n}$ in each expression gives the desired equation.
 
@@ -1232,7 +1232,7 @@ If yes, find me a different example.  If no, apply this theorem to explain why.}
     free graded connected cocommutative Hopf algebra such that \(\dim \mathcal{P}(H)_n = p_n\).
     By Proposition~\ref{prop:sequences} we have that
     \[
-        h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}
+        h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)}
     \]
     so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_0, h_1, h_2, \ldots)\) which is clearly nonnegative. 
     Hence \(a_n \geq 0\) 
