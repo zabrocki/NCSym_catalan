@@ -843,12 +843,22 @@ This is proved later in the section; we continue our discussion after the follow
 \begin{example}
 Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not obvious when this is the case; we illustrate this by considering two closely-related sequences.
 \begin{enumerate}
-\item $\vec{h} =$Fib
+\item $(1,1,2,3,5,8,13,\ldots)$, the Fibonacci sequence
 
-\item $\vec{h} =$Lucas
-
+\item $(2,1,3,4,7,11,18,\ldots)$, the Lucas sequence
 \end{enumerate}
-\lucas{Insert example}
+Let us consider the Fibonacci sequence $\vec{f} = (1,1,2,3,5,8,13,\ldots)$
+as if it could be the graded dimensions of some Hopf algebra.
+We compute first that $\phi_{h,a}(\vec{f}) = (1,0,1,0,1,0,\ldots)$
+and by Proposition \ref{prop:h sequence} conclude
+that there is a Hopf algebra $H$ with a basis indexed by
+compositions with only odd parts and with one generator at each odd degree.
+This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
+
+Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
+as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{h,a}(\vec{\ell})$ and determine
+that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we must conclude
+that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
 The remainder of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
@@ -1610,21 +1620,6 @@ Following the computation of the $\vec{h}$ sequence from the $\vec{a}$ sequence 
 	
 	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h_1}$ is domintated by $\vec{h_2}$. However, after computation we have that $(\vec{p_1})_1=1$ and $(\vec{p_2})_1=0$ but we have $(\vec{p_1})_2=0$ and $(\vec{p_2})_2=1$. Hence, those two sequences are not comparable.
 	
-\end{example}
-
-\begin{example}
-Let us consider the Fibonacci sequence $\vec{f} = (1,1,2,3,5,8,13,\ldots)$
-as if it could be the graded dimensions of some Hopf algebra.
-We compute first that $\phi_{ha}(\vec{f}) = (1,0,1,0,1,0,\ldots)$
-and by Proposition \ref{prop:h sequence} conclude
-that there is a Hopf algebra $H$ with a basis indexed by
-compositions with only odd parts and with one generator at each odd degree.
-This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
-
-Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
-as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{ha}(\vec{\ell})$ and determine
-that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we must conclude
-that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
