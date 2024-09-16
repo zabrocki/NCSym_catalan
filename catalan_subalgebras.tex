@@ -60,13 +60,13 @@
 \def\ZZ{{\mathbb Z}}
 
 \DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\OPG}{OPG}
 \DeclareMathOperator{\st}{st}
 
 \newcommand{\FGCCHA}{\textsf{FGCCHA}\xspace}
 \newcommand{\FGCCHAs}{\textsf{FGCCHA}s\xspace}
 \newcommand{\vecdim}{\overrightarrow{\dim}}
 \newcommand{\veccard}{\overrightarrow{\operatorname{card}}}
+\newcommand{\OPG}{\operatorname{OPG}}
 
 \usepackage[colorinlistoftodos]{todonotes}
 
@@ -78,60 +78,88 @@
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
 \setlength{\marginparwidth}{28mm}
 
-\title{A characterization of co-commutative Hopf algebras}
+\title{Free, graded, connected, co-commutative Hopf algebras are integer sequences}
 \author{}
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
+\lucas{This is an outline-by-demonstration: a sketch of what points to hit in order to tell this story right.  Not  an attempt at the final version.}
+This paper builds a comprehensive dictionary between integer sequences and a class of Hopf algebras that we will call \FGCCHAs: \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebras.  
+A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+\[
+\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
+\qquad\text{where}\qquad
+H = \bigoplus_{n \ge 0} H_{n}.
+\]
+This inspired us to ask: ``how much about \FGCCHAs can one say using only integer sequences?'' and we found the answer to be ``almost everything.''
 
-A recent result of Aliniaeifard and Theim \cite{AT22}
-states that two non-commutative, co-commutative
-graded connected Hopf algebras are isomorphic if
-and only if their graded dimensions are equal.
-We found this result to be quite surprising because
-it answered a basic question that we set out
-to ask about the Hopf algebra of symmetric functions
-in non-commuting variables, $\mathsf{NCSym}$.
+Paragraph here about: why \FGCCHAs, why asking about isomorphism, maps between them make sense.  
+Summarize NCSym story in 1-2 sentences (since this is one of the bigger \FGCCHAs) including Advances Paper.  Touch on other examples of \FGCCHAs and maps in combinatorics: (Bergeron Adv. Appl. paper, the tree paper, maybe look for some other examples).  Takeaway: these are nontrivial and interesting objects.
+
+We find that essentially all categorical data about \FGCCHAs is determined by the dimension sequence via certain simple arithmetic transformations.  
+This is reminiscent of Foissy's work on cofree Hopf algebras~\cite{}, but we are still surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.  
+\begin{enumerate}[itemsep = 1ex]
+\item We give an elementary description of all isomorphism classes of \FGCCHA: Theorem~\ref{} states that an arbitrary nonnegative sequence $\vec{h}$ is the dimension sequence for an isomorphism class of \FGCCHAs if and only if it remains nonnegative under a simple arithmetic transformation $\phi_{h, a}$ that we define in Section~\ref{}.
+
+\item W show that every sub-Hopf algebra of an \FGCCHA is itself an \FGCCHA and classify these using a second transformation of the dimension sequence that we  denote by $\phi_{h, p}$.  Theorem~\ref{} states that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ is dominated by $\phi_{h, p}(\vecdim(K))$ term-wise, while Theorem~\ref{} give an algorithm to construct all such maps.  
+
+\item While not every quotient of an \FGCCHA is free, we determine when one \FGCCHA is the quotient of another.  With the transformation $\phi_{h, a}$ from (1), Theorem~\ref{} shows that there is a surjective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ dominates $\phi_{h, p}(\vecdim(K))$ term-wise, and Theorem~\ref{} gives an algorithm to produce all such maps.  \lucas{This is what I was talking about in Google Chat recently.  Keep?}
+
+\item Any map between two \FGCCHAs factors naturally as the  composition of a surjection and injections.  Section~\ref{} uses (2) and (3) to classify all maps between \FGCCHAs.
+
+\end{enumerate}
+These results follow primarily from new applications of known results, though in a few cases there are gaps or ``folklore'' results with no written proof and we introduce truly novel proof methods.  
+Throughout, we emphasize clear, constrictive statements which can be applied ``out of the box'' in the ongoing study of \FGCCHAs, with numerous examples.
+
+We close with a discussion of our initial motivation on this project, demonstrating one application of our results.  
+The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[A000108]{OEIS}; see Example~\ref{}.  
+We sought to understand ``how many'' of these Catalan sub-Hopf algebras there were.  
 
 \begin{problem}
-Identify all of the Hopf subalgebras of $\mathsf{NCSym}$ of graded dimension Catalan.
+\label{prob1}
+Identify all of the Hopf subalgebras $C \subseteq \mathsf{NCSym}$ for which $\vecdim(C)$ is the sequence of Catalan numbers.
 \end{problem}
 
-One does not have to search very hard to find at least
-one Hopf subalgebra of dimension
-Catalan (see Example \ref{}).
-A consequnce of the Aliniaeifard-Theim
-result is that it implies that any other
-Hopf subalgebra of $\mathsf{NCSym}$ of
-graded dimension Catalan must be isomorphic.
+With the information above, however, this is easy to resolve: (2) tells us that every one of these Catalan sub-Hopf algebras is an \FGCCHA, so Aliniaeifard-Theim~\cite{AT20} tell us they are isomorphic.  Moreover, Theorem~\ref{} gives an algorithm for constructing every such sub-Hopf algebra from some preliminary data about $\mathsf{NCSym}$.  This led us to the following, more ambitious question.
 
-Changing perspectives, one can then ask the following related problem:
 \begin{problem}
-Identify conditions on the graded dimensions that imply the existence of
-a free graded connected co-commutative Hopf algebra.
+\label{prob2}
+Classify all (isomorphism classes of) sub-Hopf algebras of $\mathsf{NCSym}$.
 \end{problem}
 
-We state the answer to this problem
-as a calculation that one can perform on the
-sequence of graded dimensions.
-The answer (stated in Theorem \ref{}) is that one should calculate a
-related sequence representing the number of free generators
-of the Hopf algebra.
-If the sequence is non-negative, then we can
-construct a Hopf algebra with these graded dimensions.
+Here, (1) comes into play: while (2) tells us how to check is a given \FGCCHA appears as a sub-Hopf algebra, we also need to be able to exhaustively enumerate \FGCCHAs to answer this question.  
+We resolve a more general version of this question in Theorem~\ref{}, and Problem~\ref{prob2} specifically in Example~\ref{}.  
 
-This provides a complete characterization of Hopf algebras
-of this type.  Every sequence of generators determines
-completely the Hopf algebra.
-This motivates a second problem.
-\begin{problem}
-Given two Hopf algebras that
-have the same graded dimension, find a procedure for
-determining an (all) isomorphism(s) between the Hopf
-algebras.
-\end{problem}
+%At this point we turned to two 
+%
+%At this point we 
+%
+%We also solved this and answered it in terms of sequences.  In the process, we encountered two more fundamental questions about  \FGCCHAs.
+%
+%\begin{problem}
+%Identify conditions on the graded dimensions that imply the existence of a free graded connected co-commutative Hopf algebra.
+%\end{problem}
+%
+%\begin{problem}
+%Given two Hopf algebras that
+%have the same graded dimension, find a procedure for
+%determining an (all) isomorphism(s) between the Hopf
+%algebras.
+%\end{problem}
+%
+%We state the answer to this problem
+%as a calculation that one can perform on the
+%sequence of graded dimensions.
+%The answer (stated in Theorem \ref{}) is that one should calculate a
+%related sequence representing the number of free generators
+%of the Hopf algebra.
+%If the sequence is non-negative, then we can
+%construct a Hopf algebra with these graded dimensions.
+%This provides a complete characterization of Hopf algebras
+%of this type.  
+%Every sequence of generators determines completely the Hopf algebra.
 
 \section{Notation}
 
@@ -159,19 +187,19 @@ c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
 
 
-Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
-\[
-X(\vec{a}) = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n} \}.
-\]
-and let $\mathfrak{L}(\vec{a})$ denote the free graded Lie algebra on the graded set $X(\vec{a})$.  
+%Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
+%\[
+%X(\vec{a}) = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n} \}.
+%\]
+%and let $\mathfrak{L}(\vec{a})$ denote the free graded Lie algebra on the graded set $X(\vec{a})$.  
+%
+%For a graded Lie algebra $L$, $\mathcal{U}(L)$ will denote the universal enveloping algebra of $L$. We can define $\mathcal{U}(L)$ as a quotient of the tensor algebra $T(L)/I$ where $I$ is the ideal generated by $x \otimes y - y \otimes x - [x,y]$ for $x,y \in L$. Because $I$ is generated by homogeneous elements, $\mathcal{U}(L)$ inherits a grading from $L$. The Poincar\'{e}-Birkhoff-Witt Theorem implies that for a given ordered basis $\{x_i\}$ of $L$, a basis for $\mathcal{U}(L)$ is given by $\{x_{i_1}x_{i_2}\cdots x_{i_k}:i_1 \leq i_2 \leq \cdots \leq i_k\}.$
 
-For a graded Lie algebra $L$, $\mathcal{U}(L)$ will denote the universal enveloping algebra of $L$. We can define $\mathcal{U}(L)$ as a quotient of the tensor algebra $T(L)/I$ where $I$ is the ideal generated by $x \otimes y - y \otimes x - [x,y]$ for $x,y \in L$. Because $I$ is generated by homogeneous elements, $\mathcal{U}(L)$ inherits a grading from $L$. The Poincar\'{e}-Birkhoff-Witt Theorem implies that for a given ordered basis $\{x_i\}$ of $L$, a basis for $\mathcal{U}(L)$ is given by $\{x_{i_1}x_{i_2}\cdots x_{i_k}:i_1 \leq i_2 \leq \cdots \leq i_k\}.$
-
-For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra of primitives, so that
-\[
-\mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
-\]
-\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
+%For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra of primitives, so that
+%\[
+%\mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
+%\]
+%\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
 For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{n} = \CC$, let
 \[
@@ -188,8 +216,7 @@ Similarly, for a graded set $X = \biguplus_{n \ge 1} X^{(n)}$, let
 Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
 In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field of characteristic $0$.
 
-However, in later sections these sequences come from a combinatorial
-Hopf algebra $H$ and have an interpretation when they are non-negative integers.
+However, in later sections these sequences come from an \FGCCHA $H$ and have an interpretation when they are non-negative integers.
 This interpretation will provide useful motivation here:
 \begin{itemize}
 \item $\vec{h} = (h_{1}, h_{2}, \ldots)$ will be the graded dimensions of $H$,
@@ -224,7 +251,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a u
 \item $\displaystyle h_{n}
 = \sum_{\beta \vDash n} a_\beta
 = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{p_d -1}$, 
-
+\lucas{We should be careful here: as written the formula gives zeros}
 \item $\displaystyle a_n
 = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_\beta
 = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$, and
@@ -314,6 +341,7 @@ will hold.
 %In light of 
 
 \begin{definition}
+\label{defn:sequencetransfer}
 The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
 \begin{align*}
 \begin{array}{rcl}
@@ -573,10 +601,6 @@ Since $\vec{p} = \veccard{Y}$, $h_{n}$ is therefore the coefficient of $t^{n}$ i
 so it follows that $\vec{p} = \phi_{h, p}(\vec{p})$.
 \end{proof}
 
-
-
-\lucas{re-written up to here}
-
 %\subsection{Free algebras}
 %\label{sec:freealgebras}
 %
@@ -784,28 +808,96 @@ so it follows that $\vec{p} = \phi_{h, p}(\vec{p})$.
 %
 %and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdots$, and we write $\mathfrak{F}=\Phi\{x_1,\ldots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
 
-\section{Characterization of \FGCCHAs by sequences}
+\section{Characterization of \FGCCHAs by graded dimension}
 
-\lucas{section intro: 1. outline section, 2. Aliniaeifard--Thiem give us iso if hilbert series are equal. 3. we appraoch this from the sequences perspective. 4. state when Hopf algebra exists based on H-sequence. 5. example 6. state how to construct this iso using OPG's 6. example(?) 7. prove statements in subsections.}
+This section gives a classification of isomorphism types of \FGCCHAs via the associated integer sequences.  
+This begins with Aliniaeifard and Thiem's result.  
 
-%To begin, we will construct a set of free primitive generators for $H$.  
-%Our methods generalize those of Lauve-Mastnak in \cite{LM11}, and also follow from~\cite[Prop. 9.9]{S94} which make use of the \emph{Eulerian idempotent}
-%\[
-%\mathbf{e} = \sum_{k \geq 1}\frac{(-1)}{k}^{k-1} \mu^{(k-1)} \circ \tilde{\Delta}^{(k-1)},
-%\]
-%which projects onto $\mathcal{P}(H)$ for a connected cocommutative Hopf algebra $H$ \cite[Theorem 9.4]{S94}.
+\begin{thm}[{\cite[Theorem 4.2]{AT22}}]
+\label{thm:AT}
+Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vecdim(G)$.
+\end{thm}
 
-In this section we will classify all \FGCCHAs by their graded dimensions. Then, we determine for which sequences there exists a \FGCCHA $H$ with $\vecdim(H)$ and $\vecdim(\mathcal{P}(H))$.
+What remains is to determine which sequences $\vec{h} \in \CC^{\NN}$ appear as the graded dimension of an \FGCCHA, a novel result.  In fact, we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
 
-Let $\mathfrak{L}(\vec{a})$ denote the free Lie algebra with $a_n$ generators of degree $n$.
+\begin{definition}[{see~\cite[??]{Reutenauer-FreeLieAlgebras}}]
+For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers, let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with $a_{n}$ generators in degree $n \ge 1$.
+\end{definition}
 
-In \cite[]{AT22}, it is proved that two \FGCCHAs $H$ and $K$ are isomorphic if and only if $\vecdim \left(H\right) = \vecdim \left(K\right)$. As in Proposition \ref{prop:SequencesAsHopfStructures}, $\vecdim(H)$ uniquely determines the triple 
-\[ 
-(\vecdim(H),\veccard(X),\vecdim(\mathcal{P}(H)))
-\] 
-and we can make the following conclusions.
+We now state our classification; recall the map $\phi_{h, a}$ from Definition~\ref{defn:sequencetransfer} and the universal enveloping algebra map $\mathcal{U}(-)$ defined in Section~\ref{}.
 
-\lucas{Define $\mathfrak{L}(\vec{a})$ here!  Point to reference on what it is.}
+\begin{thm}
+\label{prop:h sequence}
+\label{thm:h sequence}
+There is a bijection
+\[
+\begin{array}{rcl}
+\left\{ \begin{array}{c} \text{sequences $\vec{h} \in \CC^{\NN}$ for which $\phi_{h,a}(\vec{h})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\vec{h} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{h,a}(\vec{h})))
+\end{array}.
+\]
+\end{thm}
+
+This is proved later in the section; we continue our discussion after the following example.
+
+\begin{example}
+Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not obvious when this is the case; we illustrate this by considering two closely-related sequences.
+\begin{enumerate}
+\item $\vec{h} =$Fib
+
+\item $\vec{h} =$Lucas
+
+\end{enumerate}
+\lucas{Insert example}
+\end{example}
+
+The remainder of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
+Given an \FGCCHA $H$, and \emph{ordered primitive generating set} with be a sequence of tuples 
+\[
+\vec{X} = \Big(\vec{X}^{(n)} = (x_{1}^{(n)}, x_{2}^{(n)}, \ldots, x_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
+\qquad\text{with}\qquad
+\begin{array}{l}
+%\text{(1) $\vec{X}^{(n)} = (x_{1}^{(n)}, x_{2}^{(n)}, \ldots, x_{1}^{(n)})$} \\
+\text{(1) each $x_{i}^{(n)} \in \mathcal{P}(H)_{n}$ , and} \\
+\text{(2) $H$ is freely generated by $\vec{X}$.}
+\end{array}
+\]
+Let
+\[
+\OPG(H) = \left\{ \text{ordered primitive generating sets of $H$} \right\}.
+\]
+The second main result of the section is the the following.
+
+\begin{thm}
+\label{thm:OPGmaps}
+Let $H$ be an \FGCCHA with $\vec{h} = \vecdim(H)$.  Then writing $\vec{a} = \phi_{h, a}(\vec{h})$ and $\vec{p} = \phi_{h, p}(\vec{h})$, we have bijections
+\[
+\begin{array}{rcl}
+\{\text{isomorphisms $\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$}\} &\leftrightarrow& \OPG(H) \\
+\phi & \mapsto & \phi(X) \\
+\end{array}
+\]
+and
+\[
+\begin{array}{rcl}
+\OPG(H) &\leftrightarrow& \left\{ \begin{array}{c}
+\text{Sequences $\big(A^{(n)} \in \mathrm{Mat}_{a_{n} \times p_{n}}(\CC)\big)_{n=1}^{\infty}$ } \\
+\text{with $\det\big( (A^{(n)}_{i, j})_{1 \le i, j \le a_{n}} \big) \neq 0$ for $n \ge 1$}
+\end{array}\right\}
+\end{array}.
+\]
+\end{thm}
+
+\begin{example}
+\lucas{Insert example}
+\end{example}
+
+
+\subsection{Proof of Theorem~\ref{thm:h sequence}}
+
+\subsection{Ordered primitive generators and Theorem~\ref{thm:OPGmaps}}
+
+\lucas{re-written up to here, less examples and filling the sections above.}
 
 \begin{proposition}
     Let $H$ be a \FGCCHA generated by a graded set $X(\vec{a})$. Then,
@@ -1288,8 +1380,7 @@ Suppose that $H$ and $K$ are free graded connected cocommutative Hopf algebras w
 \end{example}
 
 
-\section{Classifying SubHopf algebras by sequence}
-\lucas{Mike will read + make suggestions}
+\section{Classifying SubHopf algebras by primitive dimensions}
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
 In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
@@ -1547,33 +1638,31 @@ that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\
         \hline
         Sequence & h sequence & a sequence & p sequence \\
         \hline
-        \href{https://oeis.org/A000108}{Catalan} & \(1, 2, 5, 14\) & 
-        \(1, 1, 2, 5, 14, 42, 132, 429, 1430\) & 
-        \(1, 1, 3, 8, 25, 75, 245, 800, 2700\) \\
-        
-        %\hline
-        %\href{https://oeis.org/A001764}%{Ternary Trees} & \(1, 3, 12, 55,273\) & 
-        %\(1, 2, 7, 30, 143, 728, 3876, %21318, 120175, 690690\) & 
-        %\(1, 2, 9, 40, 200, 1026, 5537, %30624, 173583, 1001400\)
-        %\\
-        
+        \href{https://oeis.org/A000108}{Catalan} & \(1, 1, 2, 5, 14\) & 
+        \(1, 0, 1, 2, 6, 18, 57, 186, 622, 2120\) & 
+        \(1, 0, 1, 3, 9, 27, 87, 282, 946, 3216\) \\
         \hline
-        \href{https://oeis.org/A001006}{Motzkin}  & \(1, 2, 4, 9, 21\) & 
-        \(1, 1, 1, 2, 4, 9, 21, 51, 127, 323\) & 
-        \(1, 1, 2, 4, 10, 22, 56, 136, 348, 890\)
+        \href{https://oeis.org/A001764}{Ternary Trees} & \(1, 1, 3, 12, 55\) & 
+        \(1, 0, 2, 7, 34, 171, 905, 4952, 27802\) & 
+        \(1, 0, 2, 9, 43, 215, 1137, 6193, 34690\)
+        \\
+        \hline
+        \href{https://oeis.org/A001006}{Motzkin}  & \(1, 1, 2, 4, 9\) & 
+        \(1, 0, 1, 1, 3, 6, 15, 36, 91, 232\) & 
+        \(1, 0, 1, 2, 5, 11, 28, 68, 174, 445\)
 
           \\
         \hline
         \href{https://oeis.org/A000045}{ Fibonacci}
-        & \(1, 1, 2, 3,5\) & 
-        \(1, 0, 1, 0, 1, 0, 1, 0, 1, 0\) & 
-        \(1, 0, 1, 1, 2, 2, 4, 5, 8, 11\)
+        & \(0, 1, 1, 2, 3\) & 
+        \(0, 1, 1, 1, 1, 1, 1, 1, 1, 1\) & 
+        \(0, 1, 1, 1, 2, 2, 4, 5, 8, 11\)
 
          \\
         \hline
-        \href{https://oeis.org/A000073}{Tribonacci} & \(0, 1, 1, 2, 4\) & 
-        \(0, 1, 1, 1, 2, 3, 4, 6, 9, 13\) & 
-        \(0, 1, 1, 1, 3, 4, 8, 13, 23, 38\)
+        \href{https://oeis.org/A000073}{Tribonacci} & \(0, 0, 1, 1, 2\) & 
+        \(0, 0, 1, 1, 2, 3, 5, 8, 13, 21\) & 
+        \(0, 0, 1, 1, 2, 3, 6, 10, 18, 31\)
 
              \\
         \hline
@@ -1584,9 +1673,9 @@ that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\
          \\
         \hline
         \href{https://oeis.org/A000110}{Bell}
-         & \(1, 2, 5, 15, 52\) & 
-        \(1, 1, 2, 6, 22, 92, 426, 2146, 11624, 67146\) & 
-        \(1, 1, 3, 9, 34, 135, 610, 2965, 15612, 87871\)
+         & \(1, 1, 2, 5, 15\) & 
+        \(1, 0, 1, 2, 7, 26, 109, 500, 2485, 13262\) & 
+        \(1, 0, 1, 3, 10, 36, 148, 658, 3196, 16693\)
 
 
    \\
@@ -1598,5 +1687,5 @@ that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\
 \end{table}
 
 
-
 \end{document}
+%
