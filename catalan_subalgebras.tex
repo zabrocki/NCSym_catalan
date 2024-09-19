@@ -263,6 +263,47 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a u
 \end{enumerate}
 \end{proposition}
 
+%\begin{remark}
+Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
+that any one equality in the proposition implies, by reversing the calculations,
+that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
+will hold.
+%\end{remark}
+%In light of 
+
+\begin{definition}
+\label{defn:sequencetransfer}
+The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
+\begin{align*}
+\begin{array}{rcl}
+\phi_{p, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{p} & \mapsto & \vec{a}
+\end{array},
+\qquad
+\begin{array}{rcl}
+\phi_{h, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{h} & \mapsto & \vec{a}
+\end{array},
+\qquad\text{and}\qquad 
+\begin{array}{rcl}
+\phi_{p, h} : \CC^{\NN} & \to & \CC^{\NN} \\
+\vec{p} & \mapsto & \vec{h}
+\end{array}
+\end{align*}
+as well as their inverses
+\[
+\phi_{a, p} = \phi_{p, a}^{-1},
+\qquad\qquad
+\phi_{a, h} = \phi_{h, a}^{-1},
+\qquad\qquad\text{and}\qquad\qquad
+\phi_{h, p} = \phi_{p, h}^{-1}.
+\]
+\end{definition}
+
+\mike{inverse Euler transform is $\phi_{h,p}$ (cite OEIS for the conventions),
+then Euler transform is $\phi_{p,h}$; INVERT is the transformation $\phi_{h,a}$, INVERTi is $\phi_{a,h}$;
+there might not be a name for $\phi_{a,p}$ and $\phi_{p,a}$ but should check more carefully}
+
 \begin{example}
 Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \CC[[t]]$,
 so that $h_n$ is equal to the $n^{th}$ Catalan number
@@ -275,6 +316,7 @@ so the $\vec{a}$ sequence is equal to $\vec{a} = (1,1,2,5,14,42, \ldots)$
 We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$ and it is known \cite{}\lucas{need proof/cite} that $p_n$ is the number of binary Lyndon words of length $2n$
 with the same number of $0$s as $1$s.
 \end{example}
+\mike{That is Example 3.3 says $\phi_{h,a}(1,2,5,14,\ldots) = (1,1,2,5,14,42)$}
 
 \begin{proof}
 %We will make use of the identities
@@ -332,42 +374,6 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-%\begin{remark}
-Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
-that any one equality in the proposition implies, by reversing the calculations,
-that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
-will hold.
-%\end{remark}
-%In light of 
-
-\begin{definition}
-\label{defn:sequencetransfer}
-The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
-\begin{align*}
-\begin{array}{rcl}
-\phi_{p, a} : \CC^{\NN} & \to & \CC^{\NN} \\
-\vec{p} & \mapsto & \vec{a}
-\end{array},
-\qquad
-\begin{array}{rcl}
-\phi_{h, a} : \CC^{\NN} & \to & \CC^{\NN} \\
-\vec{h} & \mapsto & \vec{a}
-\end{array},
-\qquad\text{and}\qquad 
-\begin{array}{rcl}
-\phi_{p, h} : \CC^{\NN} & \to & \CC^{\NN} \\
-\vec{p} & \mapsto & \vec{h}
-\end{array}
-\end{align*}
-as well as their inverses
-\[
-\phi_{a, p} = \phi_{p, a}^{-1},
-\qquad\qquad
-\phi_{a, h} = \phi_{h, a}^{-1},
-\qquad\qquad\text{and}\qquad\qquad
-\phi_{h, p} = \phi_{p, h}^{-1}.
-\]
-\end{definition}
 
 If the sequence $\vec{a}$ consists of entirely non-negative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
@@ -1751,6 +1757,7 @@ heap-ordered trees (Grossman-Larson),
 planar binary trees (Loady-Ronco), permutations (Malvenuto-Reutenauer, Aguiar-Sottile),
 compositions (QSym/NSym), odd compositions (Peak algebra of Stembridge),
 parking functions ($(n+1)^{n-1}$).
+Set partitions.
 
 \end{document}
 %
