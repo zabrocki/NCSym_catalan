@@ -1216,6 +1216,27 @@ Furthermore, \(H \cong \mathcal{U}(\mathfrak{L}(\vec{a}))\) by Corollary~\ref{co
 %Now suppose that $a_n = \sum_{\beta \vDash n} (-1)^{\ell(\beta)-1} h_{\beta_1} h_{\beta_2} \cdots h_{\beta_{\ell(\beta)}}$ such that $a_n\geq 0$, by Theorem $1$, followed by Corollary $3.6$ and by Proposition $3.2$ we have that $h_n=\sum_ {\alpha \models n} a_{\alpha_1} a_{\alpha_2} ... a_{\alpha_\ell}$ which correspond to the dimension of each graded component. Since $a_n$ are all nonnegative integers, we have that $h_n\geq 0$. The relationship between $\mathbf{h}$ and $\vec{a}$ followed by the construction of $\mathcal{F}(X)\cong H$ given in the proof of the Proposition $3.2$ gives us a way to construct the Hopf algebra associated to $\mathbf{h}$.
 \end{proof}
 
+\begin{example}
+	
+	Having in hand the above proposition, we illustrate that even if two sequences respectively associated to the graded dimension of two \FGCCHAs are comparable, it does not implies that one Hopf algebra is a sub-Hopf algebra of the other. Let us consider the \FGCCHAs $A$ and $B$ with sequences corresponding to the graded numbers of free generators $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$. Let us denote $\vecdim(A)=\vec{h}$ and $\vecdim(B)=\vec{q} $ and let us see that $\vec{h}\leq \vec{q}$. Following the computation given by
+	
+	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
+	
+	We can see that 
+	
+	$$\vec{h}_n= 1$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
+	
+	$$\vec{q}_n= \left \{ \begin{matrix}
+		0 & \textit{ if } n \textit{ is odd} \\
+		1 & \textit{ if } n \textit{ is even}
+	\end{matrix} \right.$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h}$ is domintated by $\vec{q}$. After computation, we have that $(\phi_{a,p}(\vec{a}))_1=1$ and $(\phi_{a,p}(\vec{b}))_1=0$ but we have $(\phi_{a,p}(\vec{a}))_2=0$ and $(\phi_{a,p}(\vec{b}))_2=1$. Hence, those two sequences are not comparable and thus $A$ cannot not a sub-Hopf algebra of $B$.
+	
+\end{example}
+
 \mike{It would be nice to have an example of a sequence $\vec{h}$ that
 is not obvious that it doesn't have a Hopf algebra.
 For instance, $\vec{h} = (1,2,2,2,2,\ldots)$ is there a Hopf algebra?
@@ -1593,33 +1614,7 @@ This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \
 %    \end{itemize}
 %\end{proposition}
 
-\section{Example} \felix{I did not know where we wanted those examples}
 
-\begin{example}
-	
-Given two Hopf algebras $A$ and $B$ respectively associated with $\vec{a}$
-sequences $\vec{a_A}=(0,1,0,0,\dots)$ and $\vec{a_B}=(1,0,0,0,\dots)$,
-let us see that the $\vec{h}$ sequence $\vec{h_A}$ associated to $\vec{a_A}$
-is dominated by the $\vec{h}$ sequence $\vec{h_B}$ associated to $\vec{a_B}$
-but corresponding $\vec{p}$ sequence $\vec{p_A}$ and $\vec{p_B}$ are not comparable.
-Following the computation of the $\vec{h}$ sequence from the $\vec{a}$ sequence given by 
-	
-	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
-	
-	We can see that 
-	
-	$$(\vec{h_1})_n= 1$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
-	
-	$$(\vec{h_2})_n= \left \{ \begin{matrix}
-		0 & \textit{ if } n \textit{ is odd} \\
-		1 & \textit{ if } n \textit{ is even}
-	\end{matrix} \right.$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h_1}$ is domintated by $\vec{h_2}$. However, after computation we have that $(\vec{p_1})_1=1$ and $(\vec{p_2})_1=0$ but we have $(\vec{p_1})_2=0$ and $(\vec{p_2})_2=1$. Hence, those two sequences are not comparable.
-	
-\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plain}
