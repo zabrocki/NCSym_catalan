@@ -313,7 +313,7 @@ f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
 \]
 so the $\vec{a}$ sequence is equal to $\vec{a} = (1,1,2,5,14,42, \ldots)$
 (that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$ and it is known \cite{}\lucas{need proof/cite} that $p_n$ is the number of binary Lyndon words of length $2n$
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$ and it is known \cite{}\lucas{TODO: need to explain this, see Mike's comment below} that $p_n$ is the number of binary Lyndon words of length $2n$
 with the same number of $0$s as $1$s.
 \end{example}
 \mike{That is Example 3.3 says $\phi_{h,a}(1,2,5,14,\ldots) = (1,1,2,5,14,42)$}
@@ -466,7 +466,9 @@ d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
 Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $(\ell/k$)-fold concatenation of $w'$ with itself, the $d$-elements of the $\mathsf{fcyc}$-orbit of $(0, w)$ are uniquely determined by $w'$.
 \end{proof}
 
-\begin{example} TODO: prove that
+\begin{example} 
+\lucas{TODO}
+TODO: prove that
 the number of balanced
 Lyndon words = number of Lyndon words in a Dyck path alphabet
 \end{example}
@@ -524,8 +526,6 @@ $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 \end{comment}
 
 \section{Sequences and universal enveloping algebras}
-
-\lucas{Add details to this section about universal enveloping algebra, CMM, PBW theorems.  Include citations to Reutenauer's text.  Pay attention to what we need in ``classification by sequences'' section.}
 
 We now give the algebraic context for the results of Section~\ref{sec:SequencePrelims}.  
 As in the introduction, we use the abbreviation \FGCCHA to mean \textsf{F}ree \textsf{G}raded \textsf{C}onnected \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra, which we now formally define.
@@ -604,12 +604,11 @@ For $n \ge 1$, $h_{n}$ is the number of degree $n$ monomials in $X$, which is al
 Applying Proposition~\ref{prop:combinatorialinterpretation}, $\vec{h} = \phi_{a, h}(\vec{a})$.
 
 On the other hand, the Milnor--Moore theorem states that $H$ is isomorphic to the universal enveloping algebra of $\mathcal{P}(H)$.  
-By the Poincare--Birkhoff--Witt theorem, for any fixed homogeneous basis $Y = \biguplus_{n \ge 0} Y^{(n)}$ of $\mathcal{P}(H)$, $h_{n}$ counts the multisets of $Y$ whose elements have degree summing (with repetition) to $n$.  \lucas{Could also use Lyndon factorization if we added it to the previous Proposition} 
-Since $\vec{p} = \veccard{Y}$, $h_{n}$ is therefore the coefficient of $t^{n}$ in
+By the Poincare--Birkhoff--Witt theorem, for any fixed homogeneous basis $Y = \biguplus_{n \ge 0} Y^{(n)}$ of $\mathcal{P}(H)$, $h_{n}$ counts the multisets of $Y$ whose elements have degree summing (with repetition) to $n$.  Since $|Y^{(n)}| = p_{n}$ for all $n \ge 1$, the number of these mutlisets is exactly
 \[
-\prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}},
-\]\lucas{This should just be the multiset formula.  Not chaning to avoid conflicts.}
-so it follows that $\vec{p} = \phi_{h, p}(\vec{p})$.
+\sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)},
+\]
+so by Proposition~\ref{prop:sequences} we have $\vec{p} = \phi_{h, p}(\vec{h})$.
 \end{proof}
 
 %\subsection{Free algebras}
@@ -911,7 +910,7 @@ and
 \end{thm}
 
 \begin{example}
-\lucas{Insert example}
+\lucas{TODO: Insert example}
 \end{example}
 
 \subsection{Proof of Theorem~\ref{thm:h sequence}}
@@ -945,8 +944,7 @@ As we deduced in the previous paragraph, the dimension sequence of $\mathcal{U}(
 Thus, by Aliniaeifard and Theim (Theorem~\ref{thm:AT}), $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 \end{proof}
 
-We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:h sequence}.
-
+We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:h sequence}.\lucas{GROUP TODO: is this worth keeping?  Should we move it to the beginning of the section?  Do we have an example where this is actually a more helpful formulation of the statement?}
 
 \begin{corollary}
 \label{prop:UniqueBySequence}
@@ -999,7 +997,7 @@ We now consider the problem of explicitly constructing isomorphisms between \FGC
 \]
 where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined).
 
-\lucas{Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mahajan actually don't seem to know that it holds in general?}
+\lucas{TODO: Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mahajan actually don't seem to know that it holds in general?}
 
 \begin{lemma}
 \label{lemma:primitive generators}
@@ -1028,7 +1026,7 @@ comprises a complete set of primitive generators of $H$.
 \end{proof}
 
 \begin{proposition}
-\lucas{Convert this into a proof of Theorem~\ref{thm:OPGmaps} (i).  All that's needed is to link up the notation.}
+\lucas{TODO: Convert this into a proof of Theorem~\ref{thm:OPGmaps} (i).  All that's needed is to link up the notation.}
 Let $H$ be a free graded connected cocommutative Hopf algebra,
 $X \subset H$ a set of homogeneously ordered primitive generators
 with $|X_n| = a_n$. For any $Y \in \OPG(H)$ there exists a unique
@@ -1062,12 +1060,12 @@ each ordered graded component $\vec{Y}_n = (y_n^1,y_n^2, \ldots ,y_n^{a_n})$ we 
 \end{proof}
 
 \begin{remark}
-\lucas{This is actually a proof of Theorem~\ref{thm:OPGmaps} (ii), should be converted as such.}
+\lucas{TODO: This is actually a proof of Theorem~\ref{thm:OPGmaps} (ii), should be converted as such.}
     Given two Hopf algebras $H$ and $K$ satisfying the criterion of Prop. 7.2, we may present a method to compute an explicit isomorphism. Given graded sets $X$ and $Y$ generating $H$ and $K$ respectively, we apply Lemma~\ref{lemma:primitive generators} to obtain primitive generators $\mathbf{e}(X)$ and $\mathbf{e}(Y)$. Choosing bijections $f_n:\mathbf{e}(X)_n \to \mathbf{e}(Y)_n$ for all $n \geq 1$ we obtain a bijection of primitive generators $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ which completely determines an isomorphism $\tilde{f}:H \to K$.
 \end{remark}
 
 \subsection{Examples that need a home}
-\lucas{We need to decide whether to keep these examples.  If we do, they should be edited up to the current notation/terminology and we need to find a home for them.}
+\lucas{GROUP TODO: We need to decide whether to keep these examples.  If we do, they should be edited up to the current notation/terminology and we need to find a home for them.}
 
 \begin{example}\textit{A Cocommutative Hopf algebra on permutations.}
 
@@ -1360,7 +1358,7 @@ each ordered graded component $\vec{Y}_n = (y_n^1,y_n^2, \ldots ,y_n^{a_n})$ we 
 %\(f:X \to Y\).
 
 \section{Empty this section out}
-\lucas{This section is almost empty!  Let's finish clearing it out and delete it.}
+\lucas{TODO: This section is almost empty!  Let's finish clearing it out and delete it.}
 
 \begin{example}
 	Having in hand the above proposition, we illustrate that even if two sequences respectively associated to the graded dimension of two \FGCCHAs are comparable, it does not implies that one Hopf algebra is a sub-Hopf algebra of the other. Let us consider the \FGCCHAs $A$ and $B$ with sequences corresponding to the graded numbers of free generators $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$. Let us denote $\vecdim(A)=\vec{h}$ and $\vecdim(B)=\vec{q} $ and let us see that $\vec{h}\leq \vec{q}$. Following the computation given by
@@ -1441,7 +1439,7 @@ The sequence $\vec{q}$ is identified in~\cite[A059966]{OEIS}, and direct computa
 \]
 so this sequence determines a subalgebra of $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots))$
 that is freely generated by one primitive element in each degree. 
-We have already\lucas{pretend that we have} identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
+We have already\lucas{GROUP TODO: either add an example of NSym earlier in the text or remove/change this one} identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
 \end{example}
 
 We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is 
@@ -1557,7 +1555,7 @@ Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being t
 \end{example}
 
 \begin{example}
-\lucas{Examples from earlier versions....do we keep?}
+\lucas{GROUP TODO: Examples from earlier versions....do we keep?}
 The Lie algebra of primitives $\mathcal{P}(H)$ is the free Lie algebra $\mathfrak{L}_{\{x, y, z, w\}}$.  Now consider the Lie subalgebra
 \[
 M = \CC\operatorname{-span}\{[x, y]\} \subseteq \mathfrak{L}_{\{x, y, z, w\}},
