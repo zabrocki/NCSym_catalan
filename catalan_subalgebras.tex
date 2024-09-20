@@ -103,11 +103,21 @@ Paragraph here about: why \FGCCHAs, why asking about isomorphism, maps between t
 Summarize NCSym story in 1-2 sentences (since this is one of the bigger \FGCCHAs) including Advances Paper.  Touch on other examples of \FGCCHAs and maps in combinatorics: (Bergeron Adv. Appl. paper, the tree paper, maybe look for some other examples).  Takeaway: these are nontrivial and interesting objects.
 
 We find that essentially all categorical data about \FGCCHAs is determined by the dimension sequence via certain simple arithmetic transformations.  
-This is reminiscent of Foissy's work on cofree Hopf algebras~\cite{}, but we are still surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.  
+This is reminiscent of Foissy's work on free and cofree Hopf algebras~\cite{F12}, but we are still
+surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.
 \begin{enumerate}[itemsep = 1ex]
-\item We give an elementary description of all isomorphism classes of \FGCCHA: Theorem~\ref{} states that an arbitrary nonnegative sequence $\vec{h}$ is the dimension sequence for an isomorphism class of \FGCCHAs if and only if it remains nonnegative under a simple arithmetic transformation $\phi_{h, a}$ that we define in Section~\ref{}.
+\item We give an elementary description of all isomorphism classes of \FGCCHA:
+Theorem~\ref{prop:h sequence} states that an arbitrary nonnegative sequence $\vec{h}$
+is the dimension sequence for an isomorphism class of \FGCCHAs if and only if it
+remains nonnegative under a simple arithmetic transformation $\phi_{h, a}$
+that we define in Section~\ref{sec:SequencePrelims}.
 
-\item W show that every sub-Hopf algebra of an \FGCCHA is itself an \FGCCHA and classify these using a second transformation of the dimension sequence that we  denote by $\phi_{h, p}$.  Theorem~\ref{} states that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ is dominated by $\phi_{h, p}(\vecdim(K))$ term-wise, while Theorem~\ref{} give an algorithm to construct all such maps.  
+\item W show that every sub-Hopf algebra of an \FGCCHA is itself an \FGCCHA
+and classify these using a second transformation of the dimension sequence
+that we  denote by $\phi_{h, p}$.  Theorem~\ref{thm:subclassification2} states
+that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$
+if and only if $\phi_{h, p}(\vecdim(H))$ is dominated by $\phi_{h, p}(\vecdim(K))$
+term-wise, while Theorem~\ref{} give an algorithm to construct all such maps.
 
 \item While not every quotient of an \FGCCHA is free, we determine when one \FGCCHA is the quotient of another.  With the transformation $\phi_{h, a}$ from (1), Theorem~\ref{} shows that there is a surjective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ dominates $\phi_{h, p}(\vecdim(K))$ term-wise, and Theorem~\ref{} gives an algorithm to produce all such maps.  \lucas{This is what I was talking about in Google Chat recently.  Keep?}
 
@@ -919,7 +929,8 @@ and
 
 \subsection{Proof of Theorem~\ref{thm:h sequence}}
 
-We will make use the following established resultsabout free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
+We will make use the following established results
+about free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
 
 \begin{proposition}[{\cite[??]{Reutenauer-FreeLieAlgebras}}]
 \label{prop:LieToFree}
