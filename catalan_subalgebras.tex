@@ -1375,26 +1375,6 @@ each ordered graded component $\vec{Y}_n = (y_n^1,y_n^2, \ldots ,y_n^{a_n})$ we 
 \section{Empty this section out}
 \lucas{TODO: This section is almost empty!  Let's finish clearing it out and delete it.}
 
-\begin{example}
-	Having in hand the above proposition, we illustrate that even if two sequences respectively associated to the graded dimension of two \FGCCHAs are comparable, it does not implies that one Hopf algebra is a sub-Hopf algebra of the other. Let us consider the \FGCCHAs $A$ and $B$ with sequences corresponding to the graded numbers of free generators $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$. Let us denote $\vecdim(A)=\vec{h}$ and $\vecdim(B)=\vec{q} $ and let us see that $\vec{h}\leq \vec{q}$. Following the computation given by
-	
-	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
-	
-	We can see that 
-	
-	$$\vec{h}_n= 1$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
-	
-	$$\vec{q}_n= \left \{ \begin{matrix}
-		0 & \textit{ if } n \textit{ is odd} \\
-		1 & \textit{ if } n \textit{ is even}
-	\end{matrix} \right.$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h}$ is domintated by $\vec{q}$. After computation, we have that $(\phi_{a,p}(\vec{a}))_1=1$ and $(\phi_{a,p}(\vec{b}))_1=0$ but we have $(\phi_{a,p}(\vec{a}))_2=0$ and $(\phi_{a,p}(\vec{b}))_2=1$. Hence, those two sequences are not comparable and thus $A$ cannot be a sub-Hopf algebra of $B$.
-	
-\end{example}
-
 \mike{It would be nice to have an example of a sequence $\vec{h}$ that
 is not obvious that it doesn't have a Hopf algebra.
 For instance, $\vec{h} = (1,2,2,2,2,\ldots)$ is there a Hopf algebra?
@@ -1433,6 +1413,26 @@ G & \mapsto & \vecdim\big(\mathcal{P}(G)\big) \\
 
 The proof of Theorem~\ref{thm:subclassification2} will construct a sub-Hopf algebra in $H$ isomorphic to each $\mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q})))$.  
 Before completing the proof we will give several motivating examples and intermediate results.
+
+\begin{example}
+	We illustrate that even if two sequences respectively associated to the graded dimension of two \FGCCHAs are comparable, it does not implies that one Hopf algebra is a sub-Hopf algebra of the other. Let us consider the \FGCCHAs $A$ and $B$ with sequences corresponding to the graded numbers of free generators $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$. Let us denote $\vecdim(A)=\vec{h}$ and $\vecdim(B)=\vec{g} $ and let us see that $\vec{h}\leq \vec{q}$. Following the computation given by
+	
+	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
+	
+	We can see that 
+	
+	$$\vec{g}_n= 1$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
+	
+	$$\vec{h}_n= \left \{ \begin{matrix}
+		0 & \textit{ if } n \textit{ is odd} \\
+		1 & \textit{ if } n \textit{ is even}
+	\end{matrix} \right.$$
+	
+	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h}$ is domintated by $\vec{g}$. After computation, we have that $(\phi_{a,p}(\vec{a}))_1=1$ and $(\phi_{a,p}(\vec{b}))_1=0$ but we have $(\phi_{a,p}(\vec{a}))_2=0$ and $(\phi_{a,p}(\vec{b}))_2=1$. Hence, those two sequences are not comparable and thus $A$ cannot be a sub-Hopf algebra of $B$.
+	
+\end{example}
 
 \begin{example}
 \label{ex:NSymInCxy}
