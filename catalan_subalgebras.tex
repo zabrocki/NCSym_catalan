@@ -314,9 +314,15 @@ as well as their inverses
 \]
 \end{definition}
 
-\mike{inverse Euler transform is $\phi_{h,p}$ (cite OEIS for the conventions),
-then Euler transform is $\phi_{p,h}$; INVERT is the transformation $\phi_{h,a}$, INVERTi is $\phi_{a,h}$;
-there might not be a name for $\phi_{a,p}$ and $\phi_{p,a}$ but should check more carefully}
+Following the conventions of \cite{OEIS}, the map $\phi_{p,h}$ is known
+as the Euler transform of the sequence
+% check A001970 = Euler transform applied twice to all 1's sequence = phi_ph(phi_ph([1,1,1,1,1,1,1,1,1,1]))
+(and consequently $\phi_{h,p}$ is the inverse Euler transform).
+Also following the conventions
+of \cite{OEIS},
+the map $\phi_{a,h}$ is known as the INVERT transform
+% check A033453 = "INVERT" transform of squares A000290 = phi_ah([1,4,9,16,25,36,...])
+and $\phi_{h,a}$ is the INVERTi transform.
 
 \begin{example}
 Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \CC[[t]]$,
@@ -325,12 +331,13 @@ $\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functi
 \[
 f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
 \]
-so the $\vec{a}$ sequence is equal to $\vec{a} = (1,1,2,5,14,42, \ldots)$
+so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
 (that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$ and it is known \cite{}\lucas{TODO: need to explain this, see Mike's comment below} that $p_n$ is the number of binary Lyndon words of length $2n$
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
+See Example \ref{ex:balancedLyndon} for an explanation of why this is equal to sequence \cite[A022553]{OEIS}
+and $p_n$ is the number of binary Lyndon words of length $2n$
 with the same number of $0$s as $1$s.
 \end{example}
-\mike{That is Example 3.3 says $\phi_{h,a}(1,2,5,14,\ldots) = (1,1,2,5,14,42)$}
 
 \begin{proof}
 %We will make use of the identities
@@ -480,11 +487,11 @@ d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
 Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $(\ell/k$)-fold concatenation of $w'$ with itself, the $d$-elements of the $\mathsf{fcyc}$-orbit of $(0, w)$ are uniquely determined by $w'$.
 \end{proof}
 
-\begin{example} 
+\begin{example}\label{ex:balancedLyndon}
 \lucas{TODO}
 TODO: prove that
 the number of balanced
-Lyndon words = number of Lyndon words in a Dyck path alphabet
+Lyndon words = number of Lyndon words in a Dyck paths that don't touch the diagonal
 \end{example}
 
 \begin{corollary}
