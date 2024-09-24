@@ -325,6 +325,7 @@ the map $\phi_{a,h}$ is known as the INVERT transform
 and $\phi_{h,a}$ is the INVERTi transform.
 
 \begin{example}
+\label{ex:catalan}
 Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \CC[[t]]$,
 so that $h_n$ is equal to the $n^{th}$ Catalan number
 $\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
@@ -334,7 +335,7 @@ f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
 so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
 (that is, $a_n$ is the $n-1^{st}$ Catalan number).
 We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-See Example \ref{ex:balancedLyndon} for an explanation of why this is equal to sequence \cite[A022553]{OEIS}
+It follows from \cite[Section 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[A022553]{OEIS}
 and $p_n$ is the number of binary Lyndon words of length $2n$
 with the same number of $0$s as $1$s.
 \end{example}
@@ -489,9 +490,8 @@ Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so tak
 
 \begin{example}\label{ex:balancedLyndon}
 \lucas{TODO}
-TODO: prove that
-the number of balanced
-Lyndon words = number of Lyndon words in a Dyck paths that don't touch the diagonal
+\mike{to discuss: do we add this as an example that $p_n$ from Example \ref{ex:catalan} is equal to the number of Lyndon words
+in Dyck paths}
 \end{example}
 
 \begin{corollary}
