@@ -337,7 +337,8 @@ so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, 
 We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
 It follows from \cite[Section 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[A022553]{OEIS}
 and $p_n$ is the number of binary Lyndon words of length $2n$
-with the same number of $0$s as $1$s.
+with the same number of $0$s as $1$s (the definition of Lyndon word appears before
+Proposition \ref{prop:combinatorialinterpretation} below).
 \end{example}
 
 \begin{proof}
@@ -489,9 +490,29 @@ Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so tak
 \end{proof}
 
 \begin{example}\label{ex:balancedLyndon}
-\lucas{TODO}
-\mike{to discuss: do we add this as an example that $p_n$ from Example \ref{ex:catalan} is equal to the number of Lyndon words
-in Dyck paths}
+Continuing with Example \ref{ex:catalan}, we have that if
+$h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, then $p_n$ is equal to the number of
+binary Lyndon words of length $2n$ with the same number of $1$s and $0$s.
+
+However Proposition
+\ref{prop:combinatorialinterpretation} says that $p_n$ is also equal to the number
+of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
+
+Let $D = d_1d_2\ldots d_{2n}$ be a binary word with an equal number of $1$s and $0$s (we use the notation $|D| = n$).
+We say that $D$ is a Dyck word of size $n$ if $\sum_{i=1}^k d_i \geq k/2$ for $1 \leq k \leq 2n$
+and it is well known that the number of Dyck words of size $n$ is the Catalan number $\frac{1}{n+1}\binom{2n}{n}$.
+
+We have that $p_n$ is also the number of Lyndon words of the form
+$(D_1, \ldots, D_r)$ where for $1 \leq i \leq r$,
+$D_i$ is a (possibly empty) Dyck word and $r+|D_1|+\cdots+|D_r| = n$.
+From Example \ref{ex:catalan}, we see that $p_4 = 8$ and these sequences are
+$(111000)$, $(110100)$, $(101100)$, $(110010)$, $(101010)$,
+$(1100,\bullet)$, $(1010,\bullet)$, $(10, \bullet, \bullet)$.
+\mike{I'm not sure this is a great example.  It doesn't use the lex ordering on the alphabet.
+Its kind of long.  We don't see the bijection with balanced binary Lyndon words
+of length $2n$ (I think I know the bijection, but I wouldn't want to prove it here).
+The advantage is that it connects to Example \ref{ex:catalan}.
+Is there a better one?}
 \end{example}
 
 \begin{corollary}
