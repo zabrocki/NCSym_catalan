@@ -1094,19 +1094,19 @@ comprises a complete set of primitive generators of $H$.
     \[
         \vec{Y}^{(n)} = M^{(n)}\vec{X}^{(n)} + \vec{B}^{(n)},
     \]
-    for some $M^{(n)} \in \GL(a_n,\CC)$ and $\vec{B}^{(n)} = \left(b_1^{(n)},b_2^{(n)},\ldots,b_{a_n}^{(n)}\right)$, for some $b_i^{(n)} \in [\mathcal{P}(H),\mathcal{P}(H)]_n$. We may fix a homogeneous basis $\{v_1,v_2,\ldots,v_{p_n - a_n}\}$ of $[\mathcal{P}(H),\mathcal{P}(H)]_n$, so that $\vec{B}^{(n)}$ can be identified with an $a_n$ by $p_n-a_n$ matrix $K^{(n)}$, such that $b_i^{(n)} = \sum_{j = 1}^{p_n - a_n}K_{ij}^{(n)}v_j$. Then we define the $a_n$ by $p_n$ matrix
+    for some $M^{(n)} \in \GL(a_n,\CC)$ and $\vec{B}^{(n)} = \left(b_1^{(n)},b_2^{(n)},\ldots,b_{a_n}^{(n)}\right)$, for some $b_i^{(n)} \in [\mathcal{P}(H),\mathcal{P}(H)]_n$. 
+    
+    Let us fix a homogeneous basis $\biguplus_{n \geq 1}\{v_1^{(n)},v_2^{(n)},\ldots,v_{p_n - a_n}^{(n)}\}$ of $[\mathcal{P}(H),\mathcal{P}(H)]$. Then $\vec{B}^{(n)}$ can be identified with an $a_n$ by $p_n-a_n$ matrix $K^{(n)}$, such that $b_i^{(n)} = \sum_{j = 1}^{p_n - a_n}K_{ij}^{(n)}v_j^{(n)}$. Then we define the $a_n$ by $p_n$ matrix
     \[
     A^{(n)} = \Bigl[M^{(n)} \big| K^{(n)}\Bigr]
     \]
     as desired. 
     
-    Note that in order for $K^{(n)}$ to be defined uniquely there should be no ambiguity in the choice of basis and it's ordering - based on the fixed $X \in \OPG(H)$ we choose the basis of $\mathcal{P}(H)$ indexed by Lyndon words in $X$, ordered lexicographically. Let $V = \biguplus_{n \geq 1} \vec{V}^{(n)}$ be the ordered homogeneous basis of $[\mathcal{P}(H),\mathcal{P}(H)]$ chosen accordingly.
-
     Conversely, given a sequence $\left(A^{(n)}\right)_{n \geq 1} = \left([P^{(n)}|Q^{(n)}]\right)_{n \geq 1}$ with $A^{(n)} \in \textrm{Mat}_{a_n \times p_n}$ and $P^{(n)} \in \GL(a_n,\CC)$, we see that
     \[
-    \vec{Z}^{(n)} = P^{(n)}\vec{X}^{(n)}+Q^{(n)}\vec{V}^{(n)}
+    \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right) \text{ where } z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}x_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}
     \]
-    descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$. It follows from \cite[F23]{Corollary 2.6} that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$, and it is clear the correspondence is one to one.
+    descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$. It follows from \cite[F23]{Corollary 2.6} that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$, and it is clear the correspondence between sequences $\left(A^{(n)}\right)_{n \geq 1}$ and $\OPG(H)$ is one to one.
 \end{proof}
 
 %The above results prove the first part of Theorem \ref{thm:OPGmaps}. By definition of $\mathfrak{L}(\vec{a})$ we have that $A_n\in \GL(\CC)$ correspond to all isomorphism between two free Lie algebra $\mathfrak{L}(\vec{a})$ and $\mathfrak{L}(\vec{b})$ and by definition of $\vec{B}_n$ and $\mathcal{U}(-)$ we have that $\vec{Y}_n$ correspond to all isomorphism between two universal enveloping algebra. Therefore, the above proposition gives us part (i) of Theorem \ref{thm:OPGmaps}.
