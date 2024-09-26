@@ -335,10 +335,10 @@ f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
 so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
 (that is, $a_n$ is the $n-1^{st}$ Catalan number).
 We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[Section 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[A022553]{OEIS}
-and $p_n$ is the number of binary Lyndon words of length $2n$
-with the same number of $0$s as $1$s (the definition of Lyndon word appears before
-Proposition \ref{prop:combinatorialinterpretation} below).
+It follows from \cite[Section 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[A022553]{OEIS}.
+%and $p_n$ is the number of binary Lyndon words of length $2n$
+%with the same number of $0$s as $1$s (the definition of Lyndon word appears before
+%Proposition \ref{prop:combinatorialinterpretation} below).
 \end{example}
 
 \begin{proof}
@@ -491,28 +491,21 @@ Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so tak
 
 \begin{example}\label{ex:balancedLyndon}
 Continuing with Example \ref{ex:catalan}, we have that if
-$h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, then $p_n$ is equal to the number of
-binary Lyndon words of length $2n$ with the same number of $1$s and $0$s.
-
-However Proposition
+$h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is also equal to the number
 of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
 
-Let $D = d_1d_2\ldots d_{2n}$ be a binary word with an equal number of $1$s and $0$s (we use the notation $|D| = n$).
+However,~\cite[A022553]{OEIS} states that $p_n$ is is also equal to the number of balanced binary Lyndon words of size $n$.  A balanced binary word is a sequence $D = d_1d_2\ldots d_{2n} \in \{0, 1\}^{n}$ with an equal number of $1$s and $0$s, and we say that $D$ has size $n$.  We take the order $0 < 1$ when considering the Lyndon condition.  
 We say that $D$ is a Dyck word of size $n$ if $\sum_{i=1}^k d_i \geq k/2$ for $1 \leq k \leq 2n$
-and it is well known that the number of Dyck words of size $n$ is the Catalan number $\frac{1}{n+1}\binom{2n}{n}$.
+and it is well known that the number of Dyck words of size $n$ is the Catalan number $\frac{1}{n+1}\binom{2n}{n}$.  
 
 We have that $p_n$ is also the number of Lyndon words of the form
 $(D_1, \ldots, D_r)$ where for $1 \leq i \leq r$,
-$D_i$ is a (possibly empty) Dyck word and $r+|D_1|+\cdots+|D_r| = n$.
-From Example \ref{ex:catalan}, we see that $p_4 = 8$ and these sequences are
+$D_i$ is a Dyck word, including the empty word $\bullet$, and $r+|D_1|+\cdots+|D_r| = n$.  
+If we order the set of Dyck words by size and then lexicographically within each size, then for $n = 8$ these Lyndon words are
 $(111000)$, $(110100)$, $(101100)$, $(110010)$, $(101010)$,
-$(1100,\bullet)$, $(1010,\bullet)$, $(10, \bullet, \bullet)$.
-\mike{I'm not sure this is a great example.  It doesn't use the lex ordering on the alphabet.
-Its kind of long.  We don't see the bijection with balanced binary Lyndon words
-of length $2n$ (I think I know the bijection, but I wouldn't want to prove it here).
-The advantage is that it connects to Example \ref{ex:catalan}.
-Is there a better one?}
+$(\bullet, 1100)$, $(\bullet, 1010)$, $(\bullet, \bullet, 10)$.
+From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.
 \end{example}
 
 \begin{corollary}
@@ -602,11 +595,12 @@ satisfies Equation~\eqref{eq:gf_relation}.
 The proof of Proposition~\ref{prop:SequencesAsHopfStructures} occupies the remainder of the section and makes use of the Cartier-Milnor-Moore and Poincare--Birkhoff--Witt theorems, which we state below.  First, however,  we give an example to illustrate the result.  
 
 \begin{example}
+\lucas{TODO: Add SHORT explanation of the h, p, and a sequences of $\mathsf{NSym}$ with some citation.  Mike says ``Gelfand--Krobb--Lasoux--Leclerc--Retakh--Thibon, advances'' is a probably sufficient citation.}
 We consider two well-known \FGCCHAs from the perspective of Proposition~\ref{prop:SequencesAsHopfStructures}.
 \begin{enumerate}
 \item $\mathrm{NSym}$
 
-\item $\mathrm{CQSym}$
+\item $\mathrm{CQSym}$\lucas{TODO: This moves down to Example~\ref{example:OPG}}
 
 \end{enumerate}
 \end{example}
@@ -882,11 +876,12 @@ For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
 let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
 $a_{n}$ generators in degree $n \ge 1$.
 \end{definition}
-\lucas{Should just define as tensor algebra?}
+\lucas{Should just define as tensor algebra?  Lucas will TODO}
 
 We now state our classification; recall the map $\phi_{h, a}$ from Definition~\ref{defn:sequencetransfer} and the universal enveloping algebra map $\mathcal{U}(-)$ defined in Section~\ref{}.
 
 \begin{thm}
+\lucas{TODO: This is actually a statement about ``$a$-sequences,'' let's change it to that and then mention that we can say it more complexly using $h$-sequences and/or $p$-sequences.}
 \label{prop:h sequence}
 \label{thm:h sequence}
 There is a bijection
@@ -960,7 +955,9 @@ and
 \end{thm}
 
 \begin{example}
-\lucas{TODO: Insert example}
+\label{ex:OPGexample}
+\lucas{TODO: Clean this example up}
+We do an example for the Catalan \FGCCHA.  We take $\mathcal{U}(\mathfrak{L}(\vec{a}))$ to be generated by Dyck words (of one smaller degree) and $H$ to be the noncrossing subalgebra (in some basis) of $\mathsf{NCSym}$.  By (Lauve--Mastanek or Bergeron et.~al.), we have a set or primitive generators for $\mathsf{NCSym}$, which gives an isomorphism by mapping Dyck words to primitives
 \end{example}
 
 \subsection{Proof of Theorem~\ref{thm:h sequence}}
@@ -970,6 +967,7 @@ about free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
 
 \begin{proposition}[{\cite[??]{Reutenauer-FreeLieAlgebras}}]
 \label{prop:LieToFree}
+\lucas{TODO: find exact citation for this}
 For an sequence $\vec{a}$ of a nonnegative integers, the enveloping algebra $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA which is generated in degree $n$ by the $a_{n}$-many primitive generators of $\mathfrak{L}(\vec{a})$.
 \end{proposition}
 
@@ -995,9 +993,7 @@ As we deduced in the previous paragraph, the dimension sequence of $\mathcal{U}(
 Thus, by Aliniaeifard and Theim (Theorem~\ref{thm:AT}), $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 \end{proof}
 
-We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:h sequence}.\lucas{GROUP TODO: is this worth keeping?  Should we move it to the beginning of the section?  Do we have an example where this is actually a more helpful formulation of the statement?}
-\mike{comment about this: there is a bijection between $\{$ sequences $\vec{p} \in \CC^{\NN}$ for which $\phi_{p,a}(\vec{p}) \in \NN^{\NN} \}$ =
-and $\{$ sequences $\vec{a} \in \NN^{\NN} \}$.  In fact that bijection is $\phi_{p,a}$.}
+We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:h sequence}.\lucas{We will fold this into a remark after theorem 2.}
 
 \begin{corollary}
 \label{prop:UniqueBySequence}
@@ -1044,9 +1040,9 @@ There is a bijection
 
 \subsection{Ordered primitive generators and Theorem~\ref{thm:OPGmaps}}
 
-We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  We will make use of the \emph{Eulerian Idempotent}
+We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  We will make use of the \emph{Eulerian Idempotent}\lucas{TODO: Add original citation or reference (text) for eulerian idempotent.  First place to look: Aguiar--Lauve's ``Adams operator'' paper.}
 \[
-\mathbf{e}(x) = \text{id} (x) - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
+\mathbf{e}(x) = x - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
 \]
 where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined).
 
@@ -1063,6 +1059,7 @@ comprises a complete set of primitive generators of $H$.
 \end{lemma}
 
 \begin{proof}
+\lucas{TODO:Distinguish between statements that are (1) obvious upon reflection, (2) require justification/proof, and (3) require a reference.  Anything that isn't (1) should have a written explanation/citation.}
         We will first show $\mathbf{e}(X)$ is algebraically independent in $H$. Fix a total order in each $X_n$, and extend to a total order on $X$, such that if $x\in X_i, y\in X_j$ and $i>j$, then $x<y$. For any $x\in X$, we have
         \[
         \mathbf{e}(x) = x + f((x_i)),
@@ -1084,7 +1081,7 @@ comprises a complete set of primitive generators of $H$.
 
     The assignment $\phi \mapsto \phi(X)$ is injective, because any two \FGCCHA isomorphisms equal on a set of generators extend to the same isomorphism. To show surjectivity, consider an arbitrary $Y\in \OPG(H).$ Define $\phi_{Y}:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$ by algebraically extending the mapping of generators $\phi_{Y}:x_{i}^{(n)} \mapsto y_i^{(n)}$. Then it is clear that $\phi_Y$ is an isomorphism and $\phi_Y(X) = Y \in \OPG(H)$.
 
-    We now prove the second statement of the theorem. By \cite[F23]{Prop. 2.4}, for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.\lucas{Have we defined $\mathfrak{L}(X)$?} Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$\lucas{Do we need a cite for this?} we have
+    We now prove the second statement of the theorem. By \cite[F23]{Prop. 2.4}, for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$. Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$ \lucas{TODO: -define  $\mathfrak{L}(X)$?, add citation for this fact}we have
     \[
         \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
@@ -1104,20 +1101,19 @@ comprises a complete set of primitive generators of $H$.
     \[
     \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right) \text{ where } z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}x_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}
     \]
-    descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$. It follows from \cite[F23]{Corollary 2.6} that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$, and it is clear the correspondence between sequences $\left(A^{(n)}\right)_{n \geq 1}$ and $\OPG(H)$ is one to one.
+    descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$. It follows from \cite[F23]{Corollary 2.6}\lucas{TODO:fill in number} that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$, and it is clear the correspondence between sequences $\left(A^{(n)}\right)_{n \geq 1}$ and $\OPG(H)$ is one to one.
 \end{proof}
 
 %The above results prove the first part of Theorem \ref{thm:OPGmaps}. By definition of $\mathfrak{L}(\vec{a})$ we have that $A_n\in \GL(\CC)$ correspond to all isomorphism between two free Lie algebra $\mathfrak{L}(\vec{a})$ and $\mathfrak{L}(\vec{b})$ and by definition of $\vec{B}_n$ and $\mathcal{U}(-)$ we have that $\vec{Y}_n$ correspond to all isomorphism between two universal enveloping algebra. Therefore, the above proposition gives us part (i) of Theorem \ref{thm:OPGmaps}.
 
 \begin{remark}
-\lucas{TODO: This is actually a proof of Theorem~\ref{thm:OPGmaps} (ii), should be converted as such.}
-    Given two Hopf algebras $H$ and $K$ satisfying the criterion of Prop. 7.2 \felix{what is this criterion?}, we may present a method to compute an explicit isomorphism. Given graded sets $X$ and $Y$ generating $H$ and $K$ respectively, we apply Lemma~\ref{lemma:primitive generators} to obtain primitive generators $\mathbf{e}(X)$ and $\mathbf{e}(Y)$. Choosing bijections $f_n:\mathbf{e}(X)_n \to \mathbf{e}(Y)_n$ for all $n \geq 1$ we obtain a bijection of primitive generators $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ which completely determines an isomorphism $\tilde{f}:H \to K$.
+    Given two Hopf algebras $H$ and $K$ satisfying the criterion of Proposition~\ref{},\lucas{TODO:fill in number} we may present a method to compute an explicit isomorphism. Given graded sets $X$ and $Y$ generating $H$ and $K$ respectively, we apply Lemma~\ref{lemma:primitive generators} to obtain primitive generators $\mathbf{e}(X)$ and $\mathbf{e}(Y)$. Choosing bijections $f_n:\mathbf{e}(X)_n \to \mathbf{e}(Y)_n$ for all $n \geq 1$ we obtain a bijection of primitive generators $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ which completely determines an isomorphism $\tilde{f}:H \to K$.
 \end{remark}
 
 \subsection{Examples that need a home}
-\lucas{GROUP TODO: We need to decide whether to keep these examples.  If we do, they should be edited up to the current notation/terminology and we need to find a home for them.}
 
 \begin{example}\textit{A Cocommutative Hopf algebra on permutations.}
+\lucas{TODO: cut this example down on detail, add references to the \FGCCHA papers where this appears: Mike says it may appear in two, Bergeron and possibly one other.  If there are good connections, we can keep it after Theorem~\ref{thm:h sequence}}
 
     Let $\vec{a}$ be the sequence determined by
     \[
@@ -1139,6 +1135,7 @@ comprises a complete set of primitive generators of $H$.
 \end{example}
 
 \begin{example}
+\lucas{TODO: This is our OPG Example~\ref{ex:OPGexample}, up to some re-writing and adaptation!}
     The Hopf algebra $\mathbf{CQSym}$ introduced in ~\cite{NT05} is a free graded connected cocommutative Hopf algebra, with a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$, and is freely generated by $\{\mathbf{P}^{\pi}:\pi \text{ is atomic and non-crossing}\}$~\cite[Proposition 5.2]{NT05}.
 
     There is a sub-Hopf algebra $\mathbf{\Pi}^{\mathrm{NC}}$ of $\mathsf{NCSym}$ spanned by the power-sum basis elements $\mathbf{p}_{\pi}$ indexed also by non-crossing set partitions, and freely generated by $\{\mathbf{p}_{\pi}:\pi \text{ is atomic and non-crossing}\}$ which can be seen from the product and coproduct formula,
@@ -1506,7 +1503,7 @@ as $a_{\beta} \neq 0$ implies that $\beta = (2, \ldots, 2)$.  Similarly, we can 
 \[
 k_{n} = 1 \qquad\text{for all $n \ge 1$}.
 \]
-Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a subHopf algebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.\lucas{I changed the letters for the ridiculous reason that reading it with $A$ and $B$ somehow felt less surprising.... of course $A$ and $B$ depend on $\vec{a}$ and $\vec{b}$ rather than $\vec{h}$ and $\vec{k}$!  But $H$ and $K$? Those should depend on $\vec{h}$ and $\vec{k}$!}
+Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a subHopf algebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.
 \end{example}
 
 \begin{example}
@@ -1529,7 +1526,7 @@ The sequence $\vec{q}$ is identified in~\cite[A059966]{OEIS}, and direct computa
 \]
 so this sequence determines a subalgebra of $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots))$
 that is freely generated by one primitive element in each degree. 
-We have already\lucas{GROUP TODO: either add an example of NSym earlier in the text or remove/change this one} identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
+We have already\lucas{TODO: reference earlier NSym Example} identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
 \end{example}
 
 We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is 
@@ -1557,11 +1554,10 @@ However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ is,
 by definition, a linear combination of some element of
 $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$
 generators, so the dimension of the quotient is at most $a_{n}$.
-\mike{two assertions are being made in this paragraph that
+\mike{TODO: Mike can we delete this? two assertions are being made in this paragraph that
 I think need to be justified: 1. the elements are lin ind mod $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$
 and 2. $r \in \mathfrak{L}(\vec{a})$ implies $r = s + t$ with 
 $s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
-\lucas{I think this is resolved}
 \end{proof}
 
 
@@ -1631,54 +1627,54 @@ b_{n}' &= \dim\left( L^{(n+1)}_{n} \big/ [L^{(n+1)}, L^{(n+1)}]_{n}\right) \\
 \end{align*}
 \end{proof}
 
-\begin{example}
-Building on Example~\ref{ex:NSymInCxy}, we construct an isomorphic copy of $\mathsf{NSym}$ inside of $H = \CC\langle x, y \rangle$ in the manner of the above proof.  
-This means that for each degree $n \ge 1$, we will choose a primitive element $x^{(n)}_{1}$ in degree $n$ that is linearly independent of all commutators in generators $x_{1}^{(i)}$ for $i < n$, and then define
-\[
-L = \langle x_{1}^{(1)}, x_{1}^{(2)}, x_{1}^{(3)}, \ldots \rangle. 
-\]
-
-In degree $1$, there are no constrains and we choose 
-\[
-x_{1}^{(1)} = x.
-\]
-In higher degrees, we let
-\[
-x_{1}^{(n)} = \underbrace{[y, [y, \cdots [y}_{\text{$n-1$ times}}, x] \cdots]].
-\]
-To see that $x_{1}^{(n)}$ is linearly independent of all commutators in $x_{1}^{(i)}$ for $i < n$, we consider the number of times $x$ occurs in any generator or bracket of generators.  
-This will be $1$ if we have a generator and $k$ for a bracket of $k$ generators, and moreover remains constant on terms in any Jacobi relation or anti-commutation relation.  
-Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being the span of $x_{1}^{(n)}$, and the sum of components of degree $2$ or greater comprising all commutators of the $x_{1}^{(i)}$ for $i < n$.  
-\end{example}
-
-\begin{example}
-\lucas{GROUP TODO: Examples from earlier versions....do we keep?}
-\felix{If we want to talk about the idea we had in first place about the sequences then this can be a good counterexample otherwise I think we can let it go}
-\lucas{I generally agree, though this was a fun example to work out.}
-The Lie algebra of primitives $\mathcal{P}(H)$ is the free Lie algebra $\mathfrak{L}_{\{x, y, z, w\}}$.  Now consider the Lie subalgebra
-\[
-M = \CC\operatorname{-span}\{[x, y]\} \subseteq \mathfrak{L}_{\{x, y, z, w\}},
-\]
-as well as its universal enveloping algebra $\mathcal{U}(M) \subseteq H$.
-By Theorem~\ref{}, this is a free Lie algebra generated by one element, and by dimension consideration we can take the free generator to be $[x, y]$.  
-Therefore by Theorem~\ref{}, the universal enveloping algebra $\mathcal{U}(M)$ is freely generated (as an algebra) by $[x, y]$.
-Now $[x, y] = xy - yx$ is a homogeneous element of degree $2$ in $H$, so as the subalgebra generated by $[x, y]$, the universal enveloping algebra $\mathcal{U}(M)$ is a graded sub-Hopf algebra and has Hilbert series
-\[
-\frac{1}{1 - 0t - t^{2} - 0t^{3} - \cdots}.
-\]
-Since $H$ has no free generators in degree $2$, this shows that sub-Hopf algebras may have more free generators in a given degree than the Hopf algebra which contains them.
-
-Is is also possible to obtain a sub-Hopf algebra which has more free generators (in total) than the Hopf algebra which contains it.  
-Consider the Lie subalgebra
-\[
-N = \langle [x, y], [x, z], [x, w], [y, z], [y, w], [z, w] \rangle \subseteq \mathfrak{L}_{\{x, y, z, w\}}.
-\]
-This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \lucas{Definitely true, but details needed.}  Repeating the argument we made for $\mathcal{U}(M)$, we have that $\mathcal{U}(N)$ is a graded sub-Hopf algebra of $H$ with six free generators in degree two, so that its Hilbert series is
-\[
-\frac{1}{1 - 0t - 6t^{2} - 0 t^{3} - \cdots }.
-\]
-\end{example}
-
+%\begin{example}
+%Building on Example~\ref{ex:NSymInCxy}, we construct an isomorphic copy of $\mathsf{NSym}$ inside of $H = \CC\langle x, y \rangle$ in the manner of the above proof.  
+%This means that for each degree $n \ge 1$, we will choose a primitive element $x^{(n)}_{1}$ in degree $n$ that is linearly independent of all commutators in generators $x_{1}^{(i)}$ for $i < n$, and then define
+%\[
+%L = \langle x_{1}^{(1)}, x_{1}^{(2)}, x_{1}^{(3)}, \ldots \rangle. 
+%\]
+%
+%In degree $1$, there are no constrains and we choose 
+%\[
+%x_{1}^{(1)} = x.
+%\]
+%In higher degrees, we let
+%\[
+%x_{1}^{(n)} = \underbrace{[y, [y, \cdots [y}_{\text{$n-1$ times}}, x] \cdots]].
+%\]
+%To see that $x_{1}^{(n)}$ is linearly independent of all commutators in $x_{1}^{(i)}$ for $i < n$, we consider the number of times $x$ occurs in any generator or bracket of generators.  
+%This will be $1$ if we have a generator and $k$ for a bracket of $k$ generators, and moreover remains constant on terms in any Jacobi relation or anti-commutation relation.  
+%Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being the span of $x_{1}^{(n)}$, and the sum of components of degree $2$ or greater comprising all commutators of the $x_{1}^{(i)}$ for $i < n$.  
+%\end{example}
+%
+%\begin{example}
+%\lucas{GROUP TODO: Examples from earlier versions....do we keep?}
+%\felix{If we want to talk about the idea we had in first place about the sequences then this can be a good counterexample otherwise I think we can let it go}
+%\lucas{I generally agree, though this was a fun example to work out.}
+%The Lie algebra of primitives $\mathcal{P}(H)$ is the free Lie algebra $\mathfrak{L}_{\{x, y, z, w\}}$.  Now consider the Lie subalgebra
+%\[
+%M = \CC\operatorname{-span}\{[x, y]\} \subseteq \mathfrak{L}_{\{x, y, z, w\}},
+%\]
+%as well as its universal enveloping algebra $\mathcal{U}(M) \subseteq H$.
+%By Theorem~\ref{}, this is a free Lie algebra generated by one element, and by dimension consideration we can take the free generator to be $[x, y]$.  
+%Therefore by Theorem~\ref{}, the universal enveloping algebra $\mathcal{U}(M)$ is freely generated (as an algebra) by $[x, y]$.
+%Now $[x, y] = xy - yx$ is a homogeneous element of degree $2$ in $H$, so as the subalgebra generated by $[x, y]$, the universal enveloping algebra $\mathcal{U}(M)$ is a graded sub-Hopf algebra and has Hilbert series
+%\[
+%\frac{1}{1 - 0t - t^{2} - 0t^{3} - \cdots}.
+%\]
+%Since $H$ has no free generators in degree $2$, this shows that sub-Hopf algebras may have more free generators in a given degree than the Hopf algebra which contains them.
+%
+%Is is also possible to obtain a sub-Hopf algebra which has more free generators (in total) than the Hopf algebra which contains it.  
+%Consider the Lie subalgebra
+%\[
+%N = \langle [x, y], [x, z], [x, w], [y, z], [y, w], [z, w] \rangle \subseteq \mathfrak{L}_{\{x, y, z, w\}}.
+%\]
+%This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \lucas{Definitely true, but details needed.}  Repeating the argument we made for $\mathcal{U}(M)$, we have that $\mathcal{U}(N)$ is a graded sub-Hopf algebra of $H$ with six free generators in degree two, so that its Hilbert series is
+%\[
+%\frac{1}{1 - 0t - 6t^{2} - 0 t^{3} - \cdots }.
+%\]
+%\end{example}
+%
 
 %\begin{proposition}
 %    Let $H$ be a free graded connected cocommutative Hopf algebra, let $\mathbf{g} = (g_1,g_2,\ldots )$ be a sequence of nonnegative integers. There exists a sub-Hopf algebra $G \leq H$ with $\dim G_n = g_n$ for all $n \geq 0$ if and only if the following hold:
@@ -1691,6 +1687,7 @@ This is free on the set $\{[x, y], [x, z], [x, w], [y, z], [y, w], [z, w]\}$.  \
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lucas{TODO: We need a better bibliography!}
 \bibliographystyle{plain}
 \bibliography{bibliography}{}
 
