@@ -882,6 +882,7 @@ For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
 let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
 $a_{n}$ generators in degree $n \ge 1$.
 \end{definition}
+\lucas{Should just define as tensor algebra?}
 
 We now state our classification; recall the map $\phi_{h, a}$ from Definition~\ref{defn:sequencetransfer} and the universal enveloping algebra map $\mathcal{U}(-)$ defined in Section~\ref{}.
 
@@ -1049,7 +1050,7 @@ We now consider the problem of explicitly constructing isomorphisms between \FGC
 \]
 where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined).
 
-\lucas{TODO: Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mahajan actually don't seem to know that it holds in general?}
+\lucas{TODO: Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mastanek actually don't seem to know that it holds in general?}
 
 \begin{lemma}
 \label{lemma:primitive generators}
@@ -1064,29 +1065,26 @@ comprises a complete set of primitive generators of $H$.
 \begin{proof}
         We will first show $\mathbf{e}(X)$ is algebraically independent in $H$. Fix a total order in each $X_n$, and extend to a total order on $X$, such that if $x\in X_i, y\in X_j$ and $i>j$, then $x<y$. For any $x\in X$, we have
         \[
-        \mathbf{e}(x) = x + p((x_i)),
+        \mathbf{e}(x) = x + f((x_i)),
         \]
-        where $p((x_i))$ is some polynomial in generators $x_i$ of lesser degree than $x$.
-        Then the minimal term in $\mathbf{e}(x)$ is $x$, and any polynomial
-        $q(\mathbf{e}(x_1),...,\mathbf{e}(x_n))$ has the same minimal term as
-        $q(x_1,...,x_n)$. Hence if $f$ is a non-trivial polynomial and
-        $f(\mathbf{e}(x_1), \ldots, \mathbf{e}(x_n)) = 0$, then
-        $f(x_1, \ldots, x_n) = 0$, a contradiction.
+        where $f((x_i))$ is some polynomial in generators $x_i$ of lesser degree than $x$.
+        Then the minimal\lucas{``Minimal term'' needs a definition/explanation.  Can we just prove this modulo $H^{2}$ or something similar?} term in $\mathbf{e}(x)$ is $x$.
+        Moreover, for any polynomial $g$, $g(\mathbf{e}(x_1),...,\mathbf{e}(x_n))$ has the same minimal term as $g(x_1,...,x_n)$, and therefore $g(\mathbf{e}(x_1), \ldots, \mathbf{e}(x_n)) = 0$ if and only if $g(x_1, \ldots, x_n) = 0$.
         Therefore $\mathbf{e}(X)$ is an algebraically independent set.
     
-        To show $\mathbf{e}(X)$ generates $H$, observe that in each degree $n$, the monomials in $X$ of degree $n$ form a basis for $H_n$. The degree $n$ monomials in $\mathbf{e}(X)$ are linearly independent, because the $\mathbf{e}(X)$ are algebraically independent. Because every monomial $\mathbf{e}(x_1)\mathbf{e}(x_2)\cdots \mathbf{e}(x_k)$ corresponds uniquely to the monomial $x_1x_2 \cdots x_k$, the degree $n$ monomials in $\mathbf{e}(X)$ form a basis of $H_n$, hence $\mathbf{e}(X)$ freely generates $H$.
+        To show $\mathbf{e}(X)$ generates $H$, observe that in each degree $n$, the monomials in $X$ of degree $n$ form a basis for $H_n$. The degree $n$ monomials in $\mathbf{e}(X)$ are linearly independent, because the $\mathbf{e}(X)$ are algebraically independent. Because every monomial $\mathbf{e}(x_1)\mathbf{e}(x_2)\cdots \mathbf{e}(x_k)$ corresponds uniquely to the monomial $x_1x_2 \cdots x_k$, the degree $n$ monomials in $\mathbf{e}(X)$ form a basis of $H_n$, hence $\mathbf{e}(X)$ freely generates $H$.\lucas{I'm not sure this is quite correct, at least as written.}
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
-    Let us fix $X = \biguplus_{n \geq 1} \vec{X}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$. For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$, it is clear that $\phi(X)$ is a set of free homogeneous generators for $H$. We may induce an ordering on $\phi(X)$ from the ordering on $X$, so that 
+    Let us fix $X = \biguplus_{n \geq 1} \vec{X}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$. For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$, it is clear that $\phi(X)$ is a set of free homogeneous generators for $H$. We may induce an ordering on $\phi(X)$ from the ordering on $X$, so that 
     \[
     \vv{\phi(X)}^{(n)} = \left(\phi\left(x_1^{(n)}\right), \phi\left(x_2^{(n)}\right), \ldots, \phi\left(x_{a_n}^{(n)}\right)\right),
     \]
     hence $\phi(X)$ is a uniquely determined member of $\OPG(H)$.
 
-    The assignment $\phi \mapsto \phi(X)$ is injective, because any two \FGCCHA isomorphisms equal on a set of generators extend to the same isomorphism. To show surjectivity, consider an arbitrary $Y\in OPG(H).$ Define $\phi_{Y}:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$ by algebraically extending the mapping of generators $\phi_{Y}:x_{i}^{(n)} \mapsto y_i^{(n)}$. Then it is clear that $\phi_Y$ is an isomorphism and $\phi_Y(X) = Y \in \OPG(H)$.
+    The assignment $\phi \mapsto \phi(X)$ is injective, because any two \FGCCHA isomorphisms equal on a set of generators extend to the same isomorphism. To show surjectivity, consider an arbitrary $Y\in \OPG(H).$ Define $\phi_{Y}:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$ by algebraically extending the mapping of generators $\phi_{Y}:x_{i}^{(n)} \mapsto y_i^{(n)}$. Then it is clear that $\phi_Y$ is an isomorphism and $\phi_Y(X) = Y \in \OPG(H)$.
 
-    We now prove the second statement of the theorem. By \cite[F23]{Prop. 2.4}, for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$. Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$ we have
+    We now prove the second statement of the theorem. By \cite[F23]{Prop. 2.4}, for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.\lucas{Have we defined $\mathfrak{L}(X)$?} Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$\lucas{Do we need a cite for this?} we have
     \[
         \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
@@ -1452,23 +1450,16 @@ The proof of Theorem~\ref{thm:subclassification2} will construct a sub-Hopf alge
 Before completing the proof we will give several motivating examples and intermediate results.
 
 \begin{example}
-	We illustrate that even if two sequences respectively associated to the graded dimension of two \FGCCHAs are comparable, it does not implies that one Hopf algebra is a sub-Hopf algebra of the other. Let us consider the \FGCCHAs $A$ and $B$ with sequences corresponding to the graded numbers of free generators $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$. Let us denote $\vecdim(A)=\vec{h}$ and $\vecdim(B)=\vec{g} $ and let us see that $\vec{h}\leq \vec{q}$. Following the computation given by
-	
-	$$h_n = \sum_{\beta \vDash n} a_{\beta_1} a_{\beta_2} \cdots a_{\beta_{\ell(\beta)}}$$
-	
-	We can see that 
-	
-	$$\vec{g}_n= 1$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the composition with $n$ parts given by $(1,\dots,1)$. On the other side we have that
-	
-	$$\vec{h}_n= \left \{ \begin{matrix}
-		0 & \textit{ if } n \textit{ is odd} \\
-		1 & \textit{ if } n \textit{ is even}
-	\end{matrix} \right.$$
-	
-	This comes from the fact that the only set composition $\beta$ that impact the summation is the even compositions with $n/2$ parts given by $(2,\dots,2)$. This gives us that $\vec{h}$ is domintated by $\vec{g}$. After computation, we have that $(\phi_{a,p}(\vec{a}))_1=1$ and $(\phi_{a,p}(\vec{b}))_1=0$ but we have $(\phi_{a,p}(\vec{a}))_2=0$ and $(\phi_{a,p}(\vec{b}))_2=1$. Hence, those two sequences are not comparable and thus $A$ cannot be a sub-Hopf algebra of $B$.
-	
+We illustrate a counterintuitive aspect of containment between \FGCCHAs. Let $H$ and $K$ be \FGCCHAs generated by graded sets with respective graded cardinalities $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$, and further denote $\vec{h} = \vecdim(H)$ and $\vec{k} = \vecdim(K)$.
+Using Proposition~\ref{prop:sequences}, we can compute that
+\[
+h_n = \begin{cases} 1 & \text{if $n$ is even,} \\ 0 & \text{if $n$ is odd,} \end{cases}
+\]
+as $a_{\beta} \neq 0$ implies that $\beta = (2, \ldots, 2)$.  Similarly, we can compute that
+\[
+k_{n} = 1 \qquad\text{for all $n \ge 1$}.
+\]
+Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a subHopf algebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.\lucas{I changed the letters for the ridiculous reason that reading it with $A$ and $B$ somehow felt less surprising.... of course $A$ and $B$ depend on $\vec{a}$ and $\vec{b}$ rather than $\vec{h}$ and $\vec{k}$!  But $H$ and $K$? Those should depend on $\vec{h}$ and $\vec{k}$!}
 \end{example}
 
 \begin{example}
@@ -1513,9 +1504,9 @@ Using the fact that $\phi_{a, p}(\vec{a}) = \vecdim(\mathfrak{L}(\vec{a}))$, it 
 \[
 \vec{a} = \vecdim\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
 \]
-By definition, $\vec{a}$ enumerates a fixed choice $X$ of free homogeneous generators for $\mathfrak{L}(\vec{a})$.
-The elements $X$ are linearly independent modulo the derived sub-Lie algebra $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$, so $a_{n}$ is a lower bound on the dimension of the degree $n$ part of the quotient.
-However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ must be,
+By definition, $\vec{a}$ enumerates a fixed choice $X$ of free homogeneous generators for $\mathfrak{L}(\vec{a})$.  
+Since free generators have no relations with lower-degree terms, the elements $X$ are linearly independent modulo the derived sub-Lie algebra $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$, so the dimension of the degree $n$ part of the quotient must be at least $a_{n}$.  
+However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ is,
 by definition, a linear combination of some element of
 $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$
 generators, so the dimension of the quotient is at most $a_{n}$.
@@ -1523,14 +1514,21 @@ generators, so the dimension of the quotient is at most $a_{n}$.
 I think need to be justified: 1. the elements are lin ind mod $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$
 and 2. $r \in \mathfrak{L}(\vec{a})$ implies $r = s + t$ with 
 $s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
+\lucas{I think this is resolved}
 \end{proof}
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:subclassification2}]
-First, suppose that $G$ is a sub-Hopf algebra of $H$ and let $\vec{g} = \vecdim(G)$.  Let $\vec{q} = \phi_{h, p}(\vec{b})$, so that $\vec{q} = \vecdim(\mathcal{P}(G))$.  By Proposition~\ref{prop:h sequence} the isomorphism class of $G$ is uniquely determined by $\vec{q}$, so the given map is injective.
+We first show that the given map is injective.  Suppose that $J$ and $K$ are sub-Hopf algebras of $H$ with the property that $\vecdim(\mathcal{P}(J)) = \vecdim(\mathcal{P}(K))$.  By Proposition~\ref{prop:SequencesAsHopfStructures}, we have
+\[
+\vecdim(J) = \phi_{p, h}\big(\vecdim(\mathcal{P}(J))\big)
+\qquad\text{and}\qquad
+\vecdim(K) = \phi_{p, h}\big(\vecdim(\mathcal{P}(K))\big),
+\]
+so that $\vecdim(J) = \vecdim(K)$.  We therefore conclude by Theorem~\ref{thm:h sequence} that $J \cong K$.  
 
 Now, suppose that $\vec{q}$ is a sequence satisfying the conditions that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\vec{b} = \phi_{p, a}(\vec{q}) \ge \vec{0}$.  
-We will construct a sub-Hopf algebra $G$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.  
+We will construct a sub-Hopf algebra $K$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.  
 
 In order to do so, we construct a tower of sub-Lie algebras 
 \[
@@ -1540,13 +1538,13 @@ such that
 \[
 L^{(n)} \cong \mathfrak{L}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots).
 \]
-Taking $L^{(\infty)}$ to be the union of the $L^{(n)}$, we obtain $G$ as $\mathcal{U}(L^{(\infty)}) \subseteq \mathcal{U}(\mathcal{P}(H)) = H$.
+Taking $L^{(\infty)}$ to be the union of the $L^{(n)}$, we obtain $K$ as $\mathcal{U}(L^{(\infty)}) \subseteq \mathcal{U}(\mathcal{P}(H)) = H$.
 
 Our construction is inductive with base case $L^{(1)} = 0$.  
 Begin by assuming that $L^{(n)}$ has been constructed.  
 By Lemma~\ref{lem:deriveddimension} and our inductive hypothesis,
 \[
-\vecdim([L^{(n)}, L^{(n)}])%_{i} 
+\vecdim([L^{(n)}, L^{(n)}])
  = 
 \phi_{a, p}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots) - (b_{1}, \ldots, b_{n-1}, 0, 0, \ldots).
 \]
@@ -1609,6 +1607,7 @@ Thus, $L_{n}$ is graded by this statistic, with the degree $1$ component being t
 \begin{example}
 \lucas{GROUP TODO: Examples from earlier versions....do we keep?}
 \felix{If we want to talk about the idea we had in first place about the sequences then this can be a good counterexample otherwise I think we can let it go}
+\lucas{I generally agree, though this was a fun example to work out.}
 The Lie algebra of primitives $\mathcal{P}(H)$ is the free Lie algebra $\mathfrak{L}_{\{x, y, z, w\}}$.  Now consider the Lie subalgebra
 \[
 M = \CC\operatorname{-span}\{[x, y]\} \subseteq \mathfrak{L}_{\{x, y, z, w\}},
