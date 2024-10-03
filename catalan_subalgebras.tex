@@ -186,7 +186,8 @@ $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will in
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
-Let $\CC^{\NN}$ denote the space of infinite sequences $(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of complex numbers, i.e.~$c_{n} \in \CC$ for all $n \ge 1$.  
+Let $\CC^{\NN}$ denote the space of infinite sequences $(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of complex numbers, i.e.~$c_{n} \in \CC$ for all $n \ge 1$.\mike{TODO: also do $\NN^\NN$, resolve whether we even need to
+refer to complex sequences and instead limit ourselves to $\mathbb{Z}$, $\NN$ and potentially $\mathbb{Q}$.}
 Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_{2}, \ldots)$, we write
 \[
 \vec{c} \le \vec{d} 
@@ -246,7 +247,7 @@ To define our sequences, we make use of the fact---recorded in Proposition~\ref{
 \label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
 \end{equation}
-which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.  
+which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.
 
 \begin{example}
 Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \CC[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.  Then $f(t)$ is a geometric series,
@@ -610,7 +611,7 @@ The dimensions of the primitives
 of the the noncommutative symmetric functions
 $\vecdim(\mathcal{P}(\mathsf{NSym})) = (1, 1, 2, 3, 6, 9, 18, 30, 56, \ldots)$
 where the $n^{th}$ component of the sequence is equal to the number
-of compositions of $n$ that are Lyndon \cite[Section 4]{H05}.
+of compositions of $n$ that are Lyndon \cite[Section 4]{H05}.\mike{check if maybe the correct reference is https://arxiv.org/pdf/math/0410365}
 \end{example}
 
 We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
