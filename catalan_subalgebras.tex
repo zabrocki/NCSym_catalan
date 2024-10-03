@@ -416,6 +416,9 @@ This defines an operation of order $\ell$ on words of with $\ell$ letters.
 A word is \emph{Lyndon} if it is strictly smaller than each of $\mathsf{cyc}(w), \mathsf{cyc}^{2}(w), \ldots, \mathsf{cyc}^{\ell-1}(w)$.  
 For instance, if $X = \{x < y\}$, then $xyxyy$ is a Lyndon word, but neither $xyxy$ nor $xyx$ are: $xyxy = \mathsf{cyc}^{2}(xyxy)$, while $xyx > xxy = \mathsf{cyc}^{2}(xyx)$.
 
+If the sequence $\vec{a}$ is of non-negative integers rather than
+any values from a field, there is a combinatorial interpretation for
+$\phi_{a, h}(\vec{a})$ and $\phi_{a, p}(\vec{a})$.
 The proposition below is well known, but the presentation of the
 formulae in Proposition \ref{prop:sequences} does not match a reference that
 we could find in the literature.  Hence we include the details of the
@@ -507,7 +510,7 @@ From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.
 \end{example}
 
 \begin{corollary}
-If $\vec{a} \in \CC^{\NN}$ consists only of nonnegative integers, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
+If $\vec{a} \in \NN^{\NN}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
 \end{corollary}
 \begin{proof}
 Let $X = \biguplus_{n \ge 1} X^{(n)}$ be a graded set with $|X^{(n)}| = a_{n}$.  
