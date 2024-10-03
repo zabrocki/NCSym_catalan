@@ -595,14 +595,18 @@ satisfies Equation~\eqref{eq:gf_relation}.
 The proof of Proposition~\ref{prop:SequencesAsHopfStructures} occupies the remainder of the section and makes use of the Cartier-Milnor-Moore and Poincare--Birkhoff--Witt theorems, which we state below.  First, however,  we give an example to illustrate the result.  
 
 \begin{example}
-\lucas{TODO: Add SHORT explanation of the h, p, and a sequences of $\mathsf{NSym}$ with some citation.  \cite{GKLLRT} is a probably sufficient citation.}
-We consider two well-known \FGCCHAs from the perspective of Proposition~\ref{prop:SequencesAsHopfStructures}.
-\begin{enumerate}
-\item $\mathrm{NSym}$
-
-\item $\mathrm{CQSym}$\lucas{TODO: This moves down to Example~\ref{example:OPG}}
-
-\end{enumerate}
+The Hopf algebra of noncommutative symmetric functions $\mathsf{NSym}$ \cite{GKLLRT}
+is the dual Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.
+We take as a free generating set of this Hopf algebra
+$X = \{ \mathbf{h}_1, \mathbf{h}_2, \mathbf{h}_3, \ldots \}$
+where $\veccard(X) = (1,1,1,\ldots)$.
+The basis of the degree $n$ homogeneous component are indexed by compositions
+of $n$ and hence $\vecdim(\mathsf{NSym}) = (1,2,4,8,\ldots)$.
+The dimensions of the primitives
+of the the noncommutative symmetric functions
+$\vecdim(\mathcal{P}(\mathsf{NSym})) = (1, 1, 2, 3, 6, 9, 18, 30, 56, \ldots)$
+where the $n^{th}$ component of the sequence is equal to the number
+of compositions of $n$ that are Lyndon \cite[Section 4]{H05}.
 \end{example}
 
 We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
