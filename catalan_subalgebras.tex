@@ -107,7 +107,7 @@ This is reminiscent of Foissy's work on free and cofree Hopf algebras~\cite{F12}
 surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.
 \begin{enumerate}[itemsep = 1ex]
 \item We give an elementary description of all isomorphism classes of \FGCCHA:
-Theorem~\ref{prop:h sequence} states that an arbitrary nonnegative sequence $\vec{h}$
+Theorem~\ref{prop:a sequence} states that an arbitrary nonnegative sequence $\vec{h}$
 is the dimension sequence for an isomorphism class of \FGCCHAs if and only if it
 remains nonnegative under a simple arithmetic transformation $\phi_{h, a}$
 that we define in Section~\ref{sec:SequencePrelims}.
@@ -281,7 +281,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a u
 Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
 that any one equality in the proposition implies, by reversing the calculations,
 that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
-will hold.
+will hold.\mike{TODO: either indicated that the proof is further down or move the proof up}
 %\end{remark}
 %In light of 
 
@@ -341,7 +341,7 @@ It follows from \cite[Section 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \
 %Proposition \ref{prop:combinatorialinterpretation} below).
 \end{example}
 
-\begin{proof}
+\begin{proof} (of Proposition \ref{prop:sequences})
 %We will make use of the identities
 %\[
 %(1-t)^p = \sum_{k \geq 0} \binom{p}{k} t^k, \quad
@@ -885,20 +885,24 @@ $a_{n}$ generators in degree $n \ge 1$.
 We now state our classification; recall the map $\phi_{h, a}$ from Definition~\ref{defn:sequencetransfer} and the universal enveloping algebra map $\mathcal{U}(-)$ defined in Section~\ref{}.
 
 \begin{thm}
-\lucas{TODO: This is actually a statement about ``$a$-sequences,'' let's change it to that and then mention that we can say it more complexly using $h$-sequences and/or $p$-sequences.}
-\label{prop:h sequence}
+\mike{TODO: I've changed the statement of the Theorem so that it is characterized by $\vec{a}$ sequences, but not the proof of Theorem 2.}
+\mike{TODO: In the text it is stated as
+Proposition \ref{prop:a sequence} and
+is currently stated as a Theorem, the
+labels and text need to be changed}
+\label{prop:a sequence}
 \label{thm:h sequence}
 There is a bijection
 \[
 \begin{array}{rcl}
-\left\{ \begin{array}{c} \text{sequences $\vec{h} \in \CC^{\NN}$ for which $\phi_{h,a}(\vec{h})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
-\vec{h} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{h,a}(\vec{h}))) \\
-\vecdim(H) & \mapsfrom & H
+\left\{ \text{sequences }\vec{a} \in \NN^{\NN} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\vec{a} & \mapsto & \mathcal{U}(\mathfrak{L}(\vec{a}))) \\
+\phi_{h,a}(\vecdim(H)) & \mapsfrom & H
 \end{array}.
 \]
 \end{thm}
 
-This is proved later in the section; we continue our discussion after the following example.
+This result is proved later in the section; we continue our discussion after the following example.
 
 \begin{example}
 Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not obvious when this is the case; we illustrate this by considering two closely-related sequences.
@@ -910,7 +914,7 @@ Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not
 Let us consider the Fibonacci sequence $\vec{f} = (1,1,2,3,5,8,13,\ldots)$
 as if it could be the graded dimensions of some Hopf algebra.
 We compute first that $\phi_{h,a}(\vec{f}) = (1,0,1,0,1,0,\ldots)$
-and by Proposition \ref{prop:h sequence} conclude
+and by Proposition \ref{prop:a sequence} conclude
 that there is a Hopf algebra $H$ with a basis indexed by
 compositions with only odd parts and with one generator at each odd degree.
 This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
@@ -970,6 +974,8 @@ generators for $\mathsf{NCSym}$, which gives an isomorphism by mapping Dyck word
 
 We will make use the following established results
 about free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
+\mike{TODO: I changed the statement of the theorem, but not the text
+of the proof, make sure that these align}
 
 \begin{proposition}[{\cite[??]{Reutenauer-FreeLieAlgebras}}]
 \label{prop:LieToFree}
@@ -1023,9 +1029,10 @@ There is a bijection
     \]
     so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_0, h_1, h_2, \ldots)\) which is clearly nonnegative. 
     Hence \(a_n \geq 0\) 
-    for all \(n \geq 0\) by Proposition~\ref{prop:h sequence}.
+    for all \(n \geq 0\) by Proposition~\ref{prop:a sequence}.
 
-    Supposing \(a_n \geq 0\) for all \(n \geq 0\), then by Proposition~\ref{prop:h sequence} we have that \(\vec{a}\) generates a free graded connected 
+    Supposing \(a_n \geq 0\) for all \(n \geq 0\), then by Proposition~\ref{prop:a sequence} we have that \(\vec{a}\)
+    generates a free graded connected
     cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\).
     Hence \(\vecdim(\mathcal{P}(H)_n) = \vec{p}\geq 0\).
 
