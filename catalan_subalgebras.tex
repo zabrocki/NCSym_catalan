@@ -886,6 +886,8 @@ Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vec
 What remains is to determine which sequences $\vec{h} \in \CC^{\NN}$ appear as the graded dimension of an \FGCCHA, a novel result.  In fact, we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
 
 \begin{definition}[{see~\cite[Section 0.2]{Reutenauer-FreeLieAlgebras}}]
+For a graded set $X$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.
+
 For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
 let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
 $a_{n}$ generators in degree $n \ge 1$.
@@ -1097,15 +1099,25 @@ There is a bijection
 \subsection{Ordered primitive generators and Theorem~\ref{thm:OPGmaps}}
 \label{sec:OPGproof}
 
-We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  Our proofs in this section and the next will make use of the subspace
+We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  Our proofs in this section and the next will make use of the subspaces
+\[
+H^{+} = \bigoplus_{n \geq 1} H_n \text{ and } H^{+2} = \bigoplus_{n \geq 1} H_n^{+2},
+\]
+where,
 \begin{equation}
 \label{eq:Hplusdef}
-H_{n}^{+} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}} H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
+H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}} H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
 \end{equation}
-By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
+By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
 \[
-\dim(H_{n}/H_{n}^{+}) = |X^{(n)}|.
+\dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
 \]
+There is a further relation between the quotient $H^+/H^{+2}$ and generators of $H$, proven in \cite{F23}.
+
+\begin{proposition}[{\cite[Proposition 2.2]{F23}}]
+\label{prop:indecomposable generators}
+If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
+\end{proposition}
 
 We will also make use of the \emph{Eulerian Idempotent}\lucas{TODO: Add original citation or reference (text) for eulerian idempotent.  First place to look: Aguiar--Lauve's ``Adams operator'' paper.  N.B.: Mike had identified a citation for this in the google chat.}
 \[
@@ -1125,17 +1137,15 @@ Then the graded set
 comprises a complete set of primitive generators of $H$.
 \end{lemma}
 \begin{proof}
-\lucas{TODO:Distinguish between statements that are (1) obvious upon reflection, (2) require justification/proof, and (3) require a reference.  Anything that isn't (1) should have a written explanation/citation.}
-        We will first show $\mathbf{e}(X)$ is algebraically independent in $H$. Fix a total order in each $X_n$, and extend to a total order on $X$, such that if $x\in X_i, y\in X_j$ and $i>j$, then $x<y$. For any $x\in X$, we have
-        \[
-        \mathbf{e}(x) = x + f((x_i)),
-        \]
-        where $f((x_i))$ is some polynomial in generators $x_i$ of lesser degree than $x$.
-        Then the minimal\lucas{``Minimal term'' needs a definition/explanation.  Can we just prove this modulo $H^{2}$ or something similar?} term in $\mathbf{e}(x)$ is $x$.
-        Moreover, for any polynomial $g$, $g(\mathbf{e}(x_1),...,\mathbf{e}(x_n))$ has the same minimal term as $g(x_1,...,x_n)$, and therefore $g(\mathbf{e}(x_1), \ldots, \mathbf{e}(x_n)) = 0$ if and only if $g(x_1, \ldots, x_n) = 0$.
-        Therefore $\mathbf{e}(X)$ is an algebraically independent set.
-    
-        To show $\mathbf{e}(X)$ generates $H$, observe that in each degree $n$, the monomials in $X$ of degree $n$ form a basis for $H_n$. The degree $n$ monomials in $\mathbf{e}(X)$ are linearly independent, because the $\mathbf{e}(X)$ are algebraically independent. Because every monomial $\mathbf{e}(x_1)\mathbf{e}(x_2)\cdots \mathbf{e}(x_k)$ corresponds uniquely to the monomial $x_1x_2 \cdots x_k$, the degree $n$ monomials in $\mathbf{e}(X)$ form a basis of $H_n$, hence $\mathbf{e}(X)$ freely generates $H$.\lucas{I'm not sure this is quite correct, at least as written.}
+    For all $k \geq 2$ and $x \in X$, the term 
+    \[
+    \frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x)
+    \]
+    is in the space $H^{+2}$. Then we have
+    \[
+    \mathbf{e}(x) = x + \sum_{k \geq 2}\frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x),
+    \]
+    hence $\mathbf{e}(x) + H^{+2} = x + H^{+2}$. Because $X$ descends to a basis for $H^+/H^{+2}$, so must $\mathbf{e}(X)$, and by Proposition \ref{prop:indecomposable generators}, $\mathbf{e}(X)$ freely generates $H$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
@@ -1317,26 +1327,26 @@ f: H \to K.
 \]
 
 For the next part of the argument, fix $n \ge 1$.  
-Recall the subspaces $H_{n}^{+} \subseteq H_{n}$ and $K^{+}_{n} \subseteq K_{n}$ defined in Equation~\eqref{eq:Hplusdef}, and that 
+Recall the subspaces $H_{n}^{+2} \subseteq H_{n}$ and $K^{+2}_{n} \subseteq K_{n}$ defined in Equation~\eqref{eq:Hplusdef}, and that 
 \[
-\dim(H_{n} / H_{n}^{+}) = a_{n}
+\dim(H_{n} / H_{n}^{+2}) = a_{n}
 \qquad\text{and}\qquad
-\dim(K_{n} / K_{n}^{+}) = b_{n}.
+\dim(K_{n} / K_{n}^{+2}) = b_{n}.
 \]
-As $f$ is an graded surjective algebra homomorphism, it must map $H_{n}$ onto $K_{n}$ and $H_{n}^{+}$ onto $K_{n}^{+}$, and therefore induce a surjective linear transformation from $H_{n} / H_{n}^{+}$ to $K_{n} / K_{n}^{+}$.  Dimension considerations now give that $a_{n} \ge b_{n}$, so the ``only if'' part of (1) holds.  
+As $f$ is an graded surjective algebra homomorphism, it must map $H_{n}$ onto $K_{n}$ and $H_{n}^{+2}$ onto $K_{n}^{+2}$, and therefore induce a surjective linear transformation from $H_{n} / H_{n}^{+2}$ to $K_{n} / K_{n}^{+2}$.  Dimension considerations now give that $a_{n} \ge b_{n}$, so the ``only if'' part of (1) holds.  
 
-We continue with our fixed $n$ for (2).  Using standard properties of linear maps, we choose an ordered subset $X^{(n)} = \big( x^{(n)}_{1}, x^{(n)}_{2}, \ldots, x^{(n)}_{a_{n}} \big)$ of $H_{n}$ with two properties: first, $f( x^{(n)}_{i}) \in K_{n}^{+}$ for all $i > b_{n}$, and second, the set
+We continue with our fixed $n$ for (2).  Using standard properties of linear maps, we choose an ordered subset $X^{(n)} = \big( x^{(n)}_{1}, x^{(n)}_{2}, \ldots, x^{(n)}_{a_{n}} \big)$ of $H_{n}$ with two properties: first, $f( x^{(n)}_{i}) \in K_{n}^{+2}$ for all $i > b_{n}$, and second, the set
 \[
 Y^{(n)} = \big(f(x^{(n)}_{1}), f(x^{(n)}_{2}), \ldots, f(x^{(n)}_{b_{n}}) \big)
 \]
-descends to a basis of $K_{n} / K_{n}^{+}$.  
-By possibly replacing each $x^{(n)}_{i}$ with its image $\mathbf{e}(x^{(n)}_{i})$ under the Eulerian idempotent, which preserves $H_{n}/H^{+}_{n}$, we can assume that the elements of $X^{(n)}$ and $Y^{(n)}$ are primitive without loss of generality.  
-Further, by possibly adding primitive elements of $H_{n}^{+}$ to each $x^{(n)}_{i}$, which does not change the defining properties above, we can assume that 
+descends to a basis of $K_{n} / K_{n}^{+2}$.  
+By possibly replacing each $x^{(n)}_{i}$ with its image $\mathbf{e}(x^{(n)}_{i})$ under the Eulerian idempotent, which preserves $H_{n}/H^{+2}_{n}$, we can assume that the elements of $X^{(n)}$ and $Y^{(n)}$ are primitive without loss of generality.  
+Further, by possibly adding primitive elements of $H_{n}^{+2}$ to each $x^{(n)}_{i}$, which does not change the defining properties above, we can assume that 
 \[
 f(x^{(n)}_{i}) = 0 \qquad \text{for all $i > b_{n}$}.
 \]
 
-Now, as they span $H_{n}/H_{n}^{+}$ and $K_{n}/K^{+}_{n}$, we have produces a set of primitive degree $n$ generators for $H$ and $K$ for all $n \ge 1$.  
+Now, as they span $H_{n}/H_{n}^{+2}$ and $K_{n}/K^{+2}_{n}$, we have produced a set of primitive degree $n$ generators for $H$ and $K$ for all $n \ge 1$.  
 Thus, with
 \[
 X = \biguplus_{n \ge 1} X^{(n)}
