@@ -58,6 +58,7 @@
 \def\NN{{\mathbb N}}
 \def\CC{{\mathbb C}}
 \def\ZZ{{\mathbb Z}}
+\def\QQ{{\mathbb Q}}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\st}{st}
@@ -186,15 +187,18 @@ $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will in
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
-Let $\CC^{\NN}$ denote the space of infinite sequences $(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of complex numbers, i.e.~$c_{n} \in \CC$ for all $n \ge 1$.  
+Let $\QQ^{\ZZ_+}$ (respectively $\ZZ^{\ZZ_+}$ and $\NN^{\ZZ_+}$) denote the space of infinite sequences
+$(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of rational (respectively, integer and natural) numbers,
+i.e.~$c_{n} \in \QQ$ for all $n \ge 1$.
 Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_{2}, \ldots)$, we write
 \[
 \vec{c} \le \vec{d} 
 \qquad\text{if and only if}\qquad
 \text{$c_{n} \le d_{n}$ for all $n \ge 1$}.
 \]
-Let $\vec{0} \in \CC^{\NN}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$ is and only if $\vec{c}$ consists of entirely nonnegative entries.  
-For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define 
+Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$
+if and only if $\vec{c}$ consists of entirely nonnegative entries.
+For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
 \[
 c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 \]
@@ -215,13 +219,13 @@ Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition wi
 %\]
 %\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
-For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{n} = \CC$, let
+For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{0} = \CC$, let
 \[
 \vecdim(V) = \left( \dim(V_{n}) \right)_{n \ge 1}.
 \]
 Similarly, for a graded set $X = \biguplus_{n \ge 1} X^{(n)}$, let
 \[
-\veccard(X) = \left( |X^{(n)}| \right)_{n \ge 0}
+\veccard(X) = \left( |X^{(n)}| \right)_{n \ge 0}~.
 \]
 
 \section{Combinatorics of sequences of numbers}
@@ -241,15 +245,17 @@ This interpretation will provide useful motivation here:
 
 \end{itemize}
 
-To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences} below---that any formal power series in $\CC[[t]]$ with constant term $1$ can be expressed in three equivalent ways,
+To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences}
+below---that any formal power series in $\QQ[[t]]$ with constant term $1$
+can be expressed in three equivalent ways,
 \begin{equation}
 \label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
 \end{equation}
-which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.  
+which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.
 
 \begin{example}
-Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \CC[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.  Then $f(t)$ is a geometric series,
+Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \QQ[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.  Then $f(t)$ is a geometric series,
 \[
 f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
 \]
@@ -260,7 +266,7 @@ We will make extensive use of explicit formulas relating the sequences $\vec{h}$
 
 \begin{proposition}
 \label{prop:sequences}
-Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a unique triple $(\vec{h}, \vec{a}, \vec{p})$ of sequences that satisfy Equation~\eqref{eq:gf_relation}, given by:
+Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a unique triple $(\vec{h}, \vec{a}, \vec{p})$ of sequences that satisfy Equation~\eqref{eq:gf_relation}, given by:
 \begin{enumerate}[label = (\roman*), itemsep = 1em]
 \item $\displaystyle h_{n}
 = \sum_{\beta \vDash n} a_\beta
@@ -276,6 +282,11 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a u
 
 \end{enumerate}
 \end{proposition}
+\mike{TODO: if h sequence is integers then the p sequence is integers.  Is this obvious?
+Is it true?
+should we remark that it is the case?}
+
+
 
 \begin{proof}
 %We will make use of the identities
@@ -346,17 +357,17 @@ will hold.
 The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
 \begin{align*}
 \begin{array}{rcl}
-\phi_{p, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{p, a} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{p} & \mapsto & \vec{a}
 \end{array},
 \qquad
 \begin{array}{rcl}
-\phi_{h, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{h, a} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{h} & \mapsto & \vec{a}
 \end{array},
 \qquad\text{and}\qquad 
 \begin{array}{rcl}
-\phi_{p, h} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{p, h} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{p} & \mapsto & \vec{h}
 \end{array}
 \end{align*}
@@ -382,7 +393,7 @@ and $\phi_{h,a}$ is the INVERTi transform.
 
 \begin{example}
 \label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \CC[[t]]$,
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
 so that $h_n$ is equal to the $n^{th}$ Catalan number
 $\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
 \[
@@ -426,10 +437,10 @@ following result for completeness.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
-Let $\vec{a} \in \NN^{\NN}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.  
+Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
 If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$, then for each $n \geq 1$, we have:
 %Old/conflict version:
-%Let $(\vec{h}, \vec{a}, \vec{p})$ be a triple of sequences in $\CC^{\NN}$ satisfying Equation \eqref{eq:gf_relation}.
+%Let $(\vec{h}, \vec{a}, \vec{p})$ be a triple of sequences in $\QQ^{\ZZ_+}$ satisfying Equation \eqref{eq:gf_relation}.
 %If $\vec{a}$ consists of only nonnegative integers, so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $|X^{(n)}| = a_{n}$ for each $n \geq 1$, we have:
 \begin{enumerate}[itemsep = 0.5em]
 \item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
@@ -506,11 +517,11 @@ $D_i$ is a Dyck word, including the empty word $\bullet$, and $r+|D_1|+\cdots+|D
 If we order the set of Dyck words by size and then lexicographically within each size, then for $n = 8$ these Lyndon words are
 $(111000)$, $(110100)$, $(101100)$, $(110010)$, $(101010)$,
 $(\bullet, 1100)$, $(\bullet, 1010)$, $(\bullet, \bullet, 10)$.
-From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.
+From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.\mike{Maybe remove a bit of details and clean up so that it is a little shorter}
 \end{example}
 
 \begin{corollary}
-If $\vec{a} \in \NN^{\NN}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
+If $\vec{a} \in \NN^{\ZZ_+}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
 \end{corollary}
 \begin{proof}
 Let $X = \biguplus_{n \ge 1} X^{(n)}$ be a graded set with $|X^{(n)}| = a_{n}$.  
@@ -562,17 +573,19 @@ $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 \end{comment}
 
 \section{Sequences and universal enveloping algebras}
+\label{sec:HopfAlgebra}
 
 We now give the algebraic context for the results of Section~\ref{sec:SequencePrelims}.  
 As in the introduction, we use the abbreviation \FGCCHA to mean \textsf{F}ree \textsf{G}raded \textsf{C}onnected \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra, which we now formally define.
 
 An \FGCCHA is a graded cocommutative Hopf algebra $H$ which is freely generated by some graded set $X = \biguplus_{n \ge 1} X^{(n)}$, meaning that as an algebra, $H$ is isomorphic to the tensor algebra
-\[
+\begin{equation}
+\label{eq:tensoralg}
 \mathsf{T}(\CC X) = \bigoplus_{n \ge 0} \Big( \bigoplus_{k \ge 0} \CC X^{(k)}\Big)^{\otimes n}
 \qquad\text{where}\qquad
 \CC X^{(k)} = \CC\operatorname{-span}\{x \in X^{(k)}\},
-\]
-which is naturally graded so that all elements of $\CC X^{(k)}$ have degree $k$.  
+\end{equation}
+with multiplication given by $\otimes$ and multiplicative grading so that all elements of $\CC X^{(k)}$ have degree $k$.  
 Under this isomorphism, the coproduct of $H$ corresponds to a graded algebra homomorphism $\Delta: \mathsf{T}(\CC X) \to \mathsf{T}(\CC X) \otimes \mathsf{T}(\CC X)$, but it need not be the canonical coproduct of the tensor algebra.
 
 Given any Hopf algebra $H$, the primitive elements of $H$ are elements of the graded subspace
@@ -596,6 +609,7 @@ satisfies Equation~\eqref{eq:gf_relation}.
 The proof of Proposition~\ref{prop:SequencesAsHopfStructures} occupies the remainder of the section and makes use of the Cartier-Milnor-Moore and Poincare--Birkhoff--Witt theorems, which we state below.  First, however,  we give an example to illustrate the result.  
 
 \begin{example}
+\label{ex:NSym}
 The Hopf algebra of noncommutative symmetric functions $\mathsf{NSym}$ \cite{GKLLRT}
 is the dual Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.
 We take as a free generating set of this Hopf algebra
@@ -607,7 +621,7 @@ The dimensions of the primitives
 of the the noncommutative symmetric functions
 $\vecdim(\mathcal{P}(\mathsf{NSym})) = (1, 1, 2, 3, 6, 9, 18, 30, 56, \ldots)$
 where the $n^{th}$ component of the sequence is equal to the number
-of compositions of $n$ that are Lyndon \cite[Section 4]{H05}.
+of compositions of $n$ that are Lyndon \cite[Section 4]{H05}.\mike{check if maybe the correct reference is https://arxiv.org/pdf/math/0410365} \felix{Both are stating this result. Both are showing that it $P_\alpha$ where $\alpha\in LYN$ is a basis of $\mathcal{P}(\mathsf{NSym})$} \felix{page 5 in the article proposed by Mike}
 \end{example}
 
 We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
@@ -867,16 +881,20 @@ so by Proposition~\ref{prop:sequences} we have $\vec{p} = \phi_{h, p}(\vec{h})$.
 \section{Characterization of \FGCCHAs by graded dimension}
 
 This section gives a classification of isomorphism types of \FGCCHAs via the associated integer sequences.  
-This begins with Aliniaeifard and Thiem's result.  
+This begins with Aliniaeifard and Thiem's result.
 
 \begin{thm}[{\cite[Theorem 4.2]{AT22}}]
 \label{thm:AT}
 Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vecdim(G)$.
 \end{thm}
 
-What remains is to determine which sequences $\vec{h} \in \CC^{\NN}$ appear as the graded dimension of an \FGCCHA, a novel result.  In fact, we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
+What remains is to determine which sequences $\vec{h} \in \QQ^{\ZZ_+}$
+appear as the graded dimension of an \FGCCHA, a novel result.  In fact,
+we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.
 
 \begin{definition}[{see~\cite[Section 0.2]{Reutenauer-FreeLieAlgebras}}]
+For a graded set $X$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.
+
 For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
 let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
 $a_{n}$ generators in degree $n \ge 1$.
@@ -891,14 +909,15 @@ We now state our classification; recall the map $\phi_{h, a}$ from Definition~\r
 There is a bijection
 \[
 \begin{array}{rcl}
-\left\{ \text{sequences }\vec{a} \in \NN^{\NN} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\left\{ \text{sequences }\vec{a} \in \NN^{\ZZ_+} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
 \vec{a} & \mapsto & \mathcal{U}(\mathfrak{L}(\vec{a}))) \\
 \phi_{h,a}(\vecdim(H)) & \mapsfrom & H
 \end{array}.
 \]
+In particular, $\vec{h} \in \QQ^{\ZZ_+}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  \lucas{added given the words abot the theorem.  OK?}
 \end{thm}
 
-This result is proved later in the section; we continue our discussion after the following example.
+We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results.  
 
 \begin{example}
 Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not obvious when this is the case; we illustrate this by considering two closely-related sequences.
@@ -914,6 +933,8 @@ and by Theorem \ref{thm:a sequence} conclude
 that there is a Hopf algebra $H$ with a basis indexed by
 compositions with only odd parts and with one generator at each odd degree.
 This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
+This Hopf algebra is sometimes referred to as the peak algebra(see \cite[Section 2]{Bergeron_2002}).
+\mike{TODO: citation?} \felix{Let us agree on this one}
 
 Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
 as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{h,a}(\vec{\ell})$ and determine
@@ -921,8 +942,11 @@ that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we m
 that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
-The remainder of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
-Given an \FGCCHA $H$, and \emph{ordered primitive generating set} with be a sequence of tuples 
+The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
+
+\begin{definition}
+\label{def:OPG}
+For an \FGCCHA $H$, an \emph{ordered primitive generating set} is a sequence of tuples 
 \[
 \vec{X} = \Big(\vec{X}^{(n)} = (x_{1}^{(n)}, x_{2}^{(n)}, \ldots, x_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
 \qquad\text{with}\qquad
@@ -936,6 +960,8 @@ Let
 \[
 \OPG(H) = \left\{ \text{ordered primitive generating sets of $H$} \right\}.
 \]
+\end{definition}
+
 The second main result of the section is the the following.
 
 \begin{thm}
@@ -947,7 +973,7 @@ Let $H$ be an \FGCCHA with $\vec{h} = \vecdim(H)$.  Then writing $\vec{a} = \phi
 \phi & \mapsto & \phi(X) \\
 \end{array}
 \]
-and
+and 
 \[
 \begin{array}{rcl}
 \OPG(H) &\leftrightarrow& \left\{ \begin{array}{c}
@@ -958,15 +984,47 @@ and
 \]
 \end{thm}
 
+The proof of Theorem~\ref{thm:OPGmaps} is given in Section~\ref{sec:OPGproof}.
+
+
 \begin{example}
 \label{ex:OPGexample}
-\lucas{TODO: Clean this example up}
+\lucas{TODO: Clean this example up.  Or delete?}
 We do an example for the Catalan \FGCCHA.  We take $\mathcal{U}(\mathfrak{L}(\vec{a}))$ to be generated by Dyck words (of one smaller degree) and $H$ to be the noncrossing subalgebra (in some basis) of $\mathsf{NCSym}$.
 By (Lauve--Mastanek \cite{LM11} or Bergeron et.~al.), we have a set or primitive
 generators for $\mathsf{NCSym}$, which gives an isomorphism by mapping Dyck words to primitives
 \end{example}
 
+%\begin{remark}
+As we do not explicitly describe our bijection, the second part of Theorem~\ref{thm:OPGmaps} should be read as a statement about how ``big'' the set $\OPG(H)$ is.  
+Realizing our bijection requires one to make a rather complicated choice of basis for $\mathcal{P}(H)$, which we explain fully in the proof.  
+However, we can illustrate the bijection concretely with a small example.  
+
+\begin{example}
+\label{ex:OPG}
+We construct the set $\OPG(H)$ for the \FGCCHA $H = \CC\langle x, y, z\rangle$ freely generated by two primitive generators $x$ and $y$ in degree one and one primitive generator $z$ in degree two.  
+Thus, in the notation of Theorem~\ref{thm:OPGmaps}, we have $\vec{a} = (1, 2, 0, \ldots)$ and $\vec{p} = \phi_{a, p}(\vec{a}) = (0, 1, \ldots)$. 
+The theorem then states that $\OPG(H)$ is determined by a choice of matrices
+\[
+A^{(1)} = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\text{with $ac-bd \neq 0$}
+\qquad\text{and}\qquad
+A^{(2)} = \begin{bmatrix}
+e & f
+\end{bmatrix}
+\text{with $e \neq 0$}
+\]
+to the ordered primitive generator set
+\[
+\Big(\big(ax+by, cx+dy\big), \big(ez + f(xy-yx)\big), \emptyset, \ldots \Big) \in \OPG(H).
+\]
+\end{example}
+
 \subsection{Proof of Theorem~\ref{thm:a sequence}}
+\label{sec:classificationproof}
 
 We will make use the following established results
 about free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
@@ -982,33 +1040,31 @@ For an sequence $\vec{a}$ of a nonnegative integers, the enveloping algebra $\ma
 We now prove Theorem~\ref{thm:a sequence}; recall Proposition~\ref{prop:SequencesAsHopfStructures}.
 
 \begin{proof}[Proof of Theorem~\ref{thm:a sequence}]
-Given a sequence $\vec{h}$ for which $\phi_{h, a}(\vec{h})$ consists of nonnegative integers, Proposition~\ref{prop:LieToFree} states that $\mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$ is an \FGCCHA freely generated by a set with graded cardinality $\phi_{h, a}(\vec{h})$, so the given map is well-defined.  
-
-Now consider injectivity.  By Proposition~\ref{prop:SequencesAsHopfStructures},
+Given a sequence $\vec{a} \in \NN^{\ZZ_+}$, Proposition~\ref{prop:LieToFree} states that $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA freely generated by a set with graded cardinality $\vec{a}$, so the given map is well-defined.  Now consider injectivity.  By Proposition~\ref{prop:SequencesAsHopfStructures},
 \[
-\vecdim\big(\mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))\big) = \phi_{a, h}\big(\phi_{h, a}(\vec{h})) = \vec{h},
+\vecdim\big(\mathcal{U}(\mathfrak{L}(\vec{a}))\big) = \phi_{a, h}\big(\vec{a}),
 \]
-which by Aliniaeifard and Thiem's result (Theorem~\ref{thm:AT}) is an invariant of the isomorphism type.  Thus, for any two sequences $\vec{h}, \vec{g}$ in the domain, 
+which by Aliniaeifard and Thiem's result (Theorem~\ref{thm:AT}) is an invariant of the isomorphism type.  Since the map $\phi_{a, h}$ is injective by~\ref{}\lucas{TODO: add number for where we say the maps are injective}, for any two sequences $\vec{a}, \vec{b}$ in the domain, 
 \[
-\mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h}))) \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{g})))
+\mathcal{U}(\mathfrak{L}(\vec{a})) \cong \mathcal{U}(\mathfrak{L}(\vec{b}))
 \qquad\text{if and only if}\qquad
-\vec{h} = \vec{g}.
+\vec{a} = \vec{b}.
 \]
 
-Finally for surjectivity, fix an isomophism class of \FGCCHA and let $H$ be a representative of that class.  Then the sequence $\vec{h} = \vecdim(H)$ belongs to the domain, since by  Proposition~\ref{prop:SequencesAsHopfStructures} $\phi_{h, a}(\vec{h})$ is the graded cardinality of its free generating set.  
-Moreover, we claim that our isomorphism class is the image of $\vec{h}$.  
-As we deduced in the previous paragraph, the dimension sequence of $\mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$ is $\vec{h}$, which by definition is the dimension sequence of $H$.  
+Finally for surjectivity, fix an isomophism class of \FGCCHA, let $H$ be a representative of that class, and let $\vec{h} = \vecdim(H)$.  Then the sequence $\vec{a} = \phi_{h, a}(\vec{h})$ belongs to the domain, since by Proposition~\ref{prop:SequencesAsHopfStructures} $\vec{a}$ is the graded cardinality of its free generating set.  
+Moreover, we claim that our isomorphism class is the image of $\vec{a}$.  
+As we deduced in the previous paragraph, the dimension sequence of $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is $\vec{h}$, which by definition is the dimension sequence of $H$.  
 Thus, by Aliniaeifard and Theim (Theorem~\ref{thm:AT}), $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 \end{proof}
 
-We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:a sequence}.\lucas{We will fold this into a remark after theorem 2.}
+We conclude by giving an alternative sequence-based characterization of \FGCCHAs which follows as a Corollary of Theorem~\ref{thm:a sequence}.\lucas{TODO: fold this into a remark after theorem 2.}
 
 \begin{corollary}
 \label{prop:UniqueBySequence}
 There is a bijection
 \[
 \begin{array}{rcl}
-\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \CC^{\NN}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \QQ^{\ZZ_+}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
 \vec{h} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
 \vecdim\big(\mathcal{P}(H)\big) & \mapsfrom & H
 \end{array}.
@@ -1048,12 +1104,33 @@ There is a bijection
 
 
 \subsection{Ordered primitive generators and Theorem~\ref{thm:OPGmaps}}
+\label{sec:OPGproof}
 
-We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  We will make use of the \emph{Eulerian Idempotent}\lucas{TODO: Add original citation or reference (text) for eulerian idempotent.  First place to look: Aguiar--Lauve's ``Adams operator'' paper.}
+We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  Our proofs in this section and the next will make use of the subspaces
+\[
+H^{+} = \bigoplus_{n \geq 1} H_n \text{ and } H^{+2} = \bigoplus_{n \geq 1} H_n^{+2},
+\]
+where,
+\begin{equation}
+\label{eq:Hplusdef}
+H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}} H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
+\end{equation}
+By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
+\[
+\dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
+\]
+There is a further relation between the quotient $H^+/H^{+2}$ and generators of $H$, proven in \cite{F23}.
+
+\begin{proposition}[{\cite[Proposition 2.2]{F23}}]
+\label{prop:indecomposable generators}
+If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
+\end{proposition}
+
+We will also make use of the \emph{Eulerian Idempotent} (see \cite[Section 1.4]{AL15},\cite{aguiar2005cocommutative} ,\cite{GERSTENHABER1991263},\cite[Section 4.5.2]{loday2013cyclic},\cite[Section 8.4]{Reutenauer-FreeLieAlgebras})\lucas{TODO: Add original citation or reference (text) for eulerian idempotent.  First place to look: Aguiar--Lauve's ``Adams operator'' paper.  N.B.: Mike had identified a citation for this in the google chat.} \felix{The first one suggested seems to cover the subject. I added them all}
 \[
 \mathbf{e}(x) = x - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
 \]
-where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined).
+where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined). 
 
 \lucas{TODO: Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mastanek actually don't seem to know that it holds in general?}
 
@@ -1066,19 +1143,16 @@ Then the graded set
 \]
 comprises a complete set of primitive generators of $H$.
 \end{lemma}
-
 \begin{proof}
-\lucas{TODO:Distinguish between statements that are (1) obvious upon reflection, (2) require justification/proof, and (3) require a reference.  Anything that isn't (1) should have a written explanation/citation.}
-        We will first show $\mathbf{e}(X)$ is algebraically independent in $H$. Fix a total order in each $X_n$, and extend to a total order on $X$, such that if $x\in X_i, y\in X_j$ and $i>j$, then $x<y$. For any $x\in X$, we have
-        \[
-        \mathbf{e}(x) = x + f((x_i)),
-        \]
-        where $f((x_i))$ is some polynomial in generators $x_i$ of lesser degree than $x$.
-        Then the minimal\lucas{``Minimal term'' needs a definition/explanation.  Can we just prove this modulo $H^{2}$ or something similar?} term in $\mathbf{e}(x)$ is $x$.
-        Moreover, for any polynomial $g$, $g(\mathbf{e}(x_1),...,\mathbf{e}(x_n))$ has the same minimal term as $g(x_1,...,x_n)$, and therefore $g(\mathbf{e}(x_1), \ldots, \mathbf{e}(x_n)) = 0$ if and only if $g(x_1, \ldots, x_n) = 0$.
-        Therefore $\mathbf{e}(X)$ is an algebraically independent set.
-    
-        To show $\mathbf{e}(X)$ generates $H$, observe that in each degree $n$, the monomials in $X$ of degree $n$ form a basis for $H_n$. The degree $n$ monomials in $\mathbf{e}(X)$ are linearly independent, because the $\mathbf{e}(X)$ are algebraically independent. Because every monomial $\mathbf{e}(x_1)\mathbf{e}(x_2)\cdots \mathbf{e}(x_k)$ corresponds uniquely to the monomial $x_1x_2 \cdots x_k$, the degree $n$ monomials in $\mathbf{e}(X)$ form a basis of $H_n$, hence $\mathbf{e}(X)$ freely generates $H$.\lucas{I'm not sure this is quite correct, at least as written.}
+    For all $k \geq 2$ and $x \in X$, the term 
+    \[
+    \frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x)
+    \]
+    is in the space $H^{+2}$. Then we have
+    \[
+    \mathbf{e}(x) = x + \sum_{k \geq 2}\frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x),
+    \]
+    hence $\mathbf{e}(x) + H^{+2} = x + H^{+2}$. Because $X$ descends to a basis for $H^+/H^{+2}$, so must $\mathbf{e}(X)$, and by Proposition \ref{prop:indecomposable generators}, $\mathbf{e}(X)$ freely generates $H$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
@@ -1180,51 +1254,114 @@ comprises a complete set of primitive generators of $H$.
 \end{example}
 
 \subsection{Surjections}
-\lucas{This section is bad and the statements are gross.  However, I have written enough to convince myself that it can be done, meaning we need to decide whether it should be done.}
 
-This section attempts to prove the following statement, which is probably a general statement about free algebras.  It isn't the most interesting but does round out our picture.
+We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
+Let $X \in \OPG(H)$ and $K \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(X)$ and $\vec{b} = \veccard(Y)$.  
+If $\vec{a} \ge \vec{b}$, projecting from $X$ to $Y$ gives a surjective homomorphism:
+\lucas{Group TODO: how do we feel about this notation}
+\begin{equation}
+\label{eq:defaultsurjection}
+\begin{array}{rcl}
+f^{X}_{Y}: H & \to & K \\[1ex]
+x^{(n)}_{i} & \mapsto & \begin{cases}
+y^{(n)}_{i} & \text{for $1 \le i \le b_{n}$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{array}
+\end{equation}
+where $x^{(n)}_{i}$ and $y^{(n)}_{i}$ denote the $i$th element of the degree $n$ parts of $X$ and $Y$, respectively.  
+We find that this construction actually accounts for all surjections between \FGCCHAs.
 
 \begin{thm}
-Let $H$ and $K$ be \FGCCHAs and fix ordered primitive generating sets $X \in \OPG(H)$ and $Y \in \OPG(K)$.
+\label{thm:surjection}
+Let $H$ and $K$ be \FGCCHAs which are generated by sets of graded cardinality $\vec{a}$ and $\vec{b}$, respectively.  
 \begin{enumerate}
-\item There is a surjective homomorphism $\phi: H \to K$ only if $\veccard(X) \ge \veccard(Y)$.
+\item There is a surjective homomorphism $f: H \to K$ if and only if $\vec{a} \ge \vec{b}$.
 
-\item For every surjective homomorphism $\phi: H \to K$, there exists elements $X' \in \OPG(H)$ and $Y' \in \OPG(K)$ for which
-\[
-\phi(x_{i}^{(n)}) = \begin{cases} y_{i}^{(n)} & \text{for $1 \le i \le |Y^{(n)}|$} \\ 0 & \text{otherwise} \end{cases}
-\]
+\item For every surjective homomorphism $f: H \to K$, there exists ordered primitive generating sets $X \in \OPG(H)$ and $Y \in \OPG(K)$ for which $f = f^{X}_{Y}$ as in Equation~\eqref{eq:defaultsurjection}.
 
 \end{enumerate}
 \end{thm}
-\begin{proof}
-To prove the first statement, note that by~\ref{},
+
+The proof of Theorem~\ref{thm:surjection} is given after the following example and corollary.
+
+\begin{example}
+Recall the \FGCCHA $H = \CC\langle x, y, z \rangle$ from Example~\ref{ex:OPG}, and let $K = \CC\langle u, v \rangle$ denote the \FGCCHA freely generated by two degree-one primitive elements $u$ and $v$.  
+There is a surjective homomorphism $f: H \to K$ defined by
 \[
-\veccard(X) = \vecdim(\mathcal{P}(H) / [\mathcal{P}(H), \mathcal{P}(H)])
+f(x) = u,
+\qquad
+f(y) = v,
 \qquad\text{and}\qquad
-\veccard(Y) = \vecdim(\mathcal{P}(K) / [\mathcal{P}(K), \mathcal{P}(K)]).
+f(z) = uv-vu,
 \]
-Now, any surjective homomorphism $\phi: H \to K$ induces a surjective linear map 
+which does not obviously match the format of Equation~\eqref{eq:defaultsurjection}.  However, if we write$f$ using a slightly different set of ordered primitive generators,
 \[
-(\mathcal{P}(H) / [\mathcal{P}(H), \mathcal{P}(H)] \to \mathcal{P}(K) / [\mathcal{P}(K), \mathcal{P}(K)],
+X = \Big(\big( x, y\big), \big( z - xy-yz \big), \emptyset, \ldots \Big)
+\qquad
+\text{and}
+\qquad
+Y =  \Big(\big( u, v\big), \emptyset, \ldots \Big),
 \]
-as $\phi$ must preserve primitives and the bracket.  By dimension consideration, we therefore have $\veccard(X) \ge \veccard(Y)$.
+then we have 
+\[
+f(x) = u,
+\qquad
+f(y) = v,
+\qquad\text{and}\qquad
+f(z - xy-yz) = 0,
+\]
+so $f = f^{X}_{Y}$ as predicted by the theorem.
+\end{example}
 
-To prove the second, begin with our fixed element $X \in \OPG(H)$ and consider $\ker(\phi)$.  
-If this kernel is generated by elements of $X$, then we have the desired property and are done.  
-If not, take $n$ to be the smallest degree for which $\ker(\phi)$ is not generated by generators.  By assumption, $\ker(\phi)$ contains an element
-\[
-f = \sum_{S} a_{S} \prod_{(i, m) \in S} x_{i}^{(m)} \qquad \text{for $a_{S} \in \CC$},
-\]
-where the sum is over subsets $S$ of tuples $(i, m)$ with $1 \le i \le |X^{(m)}|$ for which $x_{i}^{(m)}$ is not contained in $\ker(\phi)$ and sum of the second item in each tuple of $S$ is $n$.
-We need to show:
+\begin{corollary}
+Given a surjective homomorphism $f: H \to K$ between two \FGCCHAs,
 \begin{enumerate}
-\item $f$ has at least one degree $n$ generator in it: otherwise, we can show $K$ isn't free by showing that it's dimension/generator sequence is wrong (using minimality assumption, lower degree parts of $\phi$ send generators to generators or zero, so we get a relation on generators of $K$)
+\item $K$ is isomorphic to a subHopf algebra of $H$.
 
-\item Take $i$ to be minimal such that $x^{(n)}_{i} \in X^{(n)}$ appears with nonzero coefficient in some $f$ as above.  Then we can replace $x_{i}^{(n)}$ in our generating set by $f$ and still have a free generating set of $H$, but now $\phi$ sends this new generator to zero.  By induction, the number of degree $n$ generators which appear in nontrivial relations is reduced.  (note changing $x_{i}^{(n)} \to f$ can never introduce an $x_{j}^{(n)}$ for $j < i$ into a relation, since these don't appear in $f$).
-
-\item Finally, it's possible our generating set isn't primitive anymore.  If we care about this (maybe we don't), we just hit the set with the Eulerian idempotent, which preserves Hopf algebra morphisms, and therefore the desired zeroing out property.
+\item Every other surjective homomorphism $g: H \to K$ has the form $g = \alpha \circ f \circ \beta$ for some automorphims $\alpha$ of $K$ and $\beta$ of $H$.
 
 \end{enumerate}
+\end{corollary}
+\begin{proof}
+To see (1), we observe that the homomophism from $K$ to $H$ defined by $y^{(n)}_{i} \mapsto x^{(n)}_{i}$ is a left inverse of $f^{X}_{Y}$ and therefore must be injective.  For (2), we first note that by Theorem~\ref{thm:surjection}, $f = f^{X}_{Y}$ and $g = f^{Z}_{W}$ for $X, Z \in \OPG(H)$ and $Z, W \in \OPG(K)$, and then take $\beta: H \to H$ to be the extension of the order-preserving map which sends $X$ to $Z$, and similarly $\alpha: K \to K$ as the extension of the order-preserving mapping of $W$ to $Y$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:surjection}]
+If $\vec{a} \ge \vec{b}$, then Equation~\eqref{eq:defaultsurjection} defines a surjective homomorphism between $H$ and $K$, giving the ``if'' part of (1).  To prove the converse and (2), we analyze a generic surjective homomorphism
+\[
+f: H \to K.
+\]
+
+For the next part of the argument, fix $n \ge 1$.  
+Recall the subspaces $H_{n}^{+2} \subseteq H_{n}$ and $K^{+2}_{n} \subseteq K_{n}$ defined in Equation~\eqref{eq:Hplusdef}, and that 
+\[
+\dim(H_{n} / H_{n}^{+2}) = a_{n}
+\qquad\text{and}\qquad
+\dim(K_{n} / K_{n}^{+2}) = b_{n}.
+\]
+As $f$ is an graded surjective algebra homomorphism, it must map $H_{n}$ onto $K_{n}$ and $H_{n}^{+2}$ onto $K_{n}^{+2}$, and therefore induce a surjective linear transformation from $H_{n} / H_{n}^{+2}$ to $K_{n} / K_{n}^{+2}$.  Dimension considerations now give that $a_{n} \ge b_{n}$, so the ``only if'' part of (1) holds.  
+
+We continue with our fixed $n$ for (2).  Using standard properties of linear maps, we choose an ordered subset $X^{(n)} = \big( x^{(n)}_{1}, x^{(n)}_{2}, \ldots, x^{(n)}_{a_{n}} \big)$ of $H_{n}$ with two properties: first, $f( x^{(n)}_{i}) \in K_{n}^{+2}$ for all $i > b_{n}$, and second, the set
+\[
+Y^{(n)} = \big(f(x^{(n)}_{1}), f(x^{(n)}_{2}), \ldots, f(x^{(n)}_{b_{n}}) \big)
+\]
+descends to a basis of $K_{n} / K_{n}^{+2}$.  
+By possibly replacing each $x^{(n)}_{i}$ with its image $\mathbf{e}(x^{(n)}_{i})$ under the Eulerian idempotent, which preserves $H_{n}/H^{+2}_{n}$, we can assume that the elements of $X^{(n)}$ and $Y^{(n)}$ are primitive without loss of generality.  
+Further, by possibly adding primitive elements of $H_{n}^{+2}$ to each $x^{(n)}_{i}$, which does not change the defining properties above, we can assume that 
+\[
+f(x^{(n)}_{i}) = 0 \qquad \text{for all $i > b_{n}$}.
+\]
+
+Now, as they span $H_{n}/H_{n}^{+2}$ and $K_{n}/K^{+2}_{n}$, we have produced a set of primitive degree $n$ generators for $H$ and $K$ for all $n \ge 1$.  
+Thus, with
+\[
+X = \biguplus_{n \ge 1} X^{(n)}
+\qquad\text{and}\qquad
+Y = \biguplus_{n \ge 1} Y^{(n)}
+\]
+we have $X \in \OPG(H)$, $Y \in \OPG(K)$, and $f = f^{X}_{Y}$.
+\lucas{Something is still slightly off about the logic or writing on this proof... suggestions welcome}
 \end{proof}
 
 %\section{Classification of free cocommutative graded connected Hopf algebras} 
@@ -1479,7 +1616,7 @@ We need to show:
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
 In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
-To begin, recall the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
+To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ defined by
 \[
 \phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}
 \]
@@ -1542,10 +1679,11 @@ The sequence $\vec{q}$ is identified in~\cite[A059966]{OEIS}, and direct computa
 \]
 so this sequence determines a subalgebra of $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots))$
 that is freely generated by one primitive element in each degree. 
-We have already\lucas{TODO: reference earlier NSym Example} identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
+In Example~\ref{ex:NSym}, we identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
 \end{example}
 
-We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is 
+We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  
+Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is 
 \[
 [L, L] = \bigoplus_{n \ge 1} [L, L]_{n}
 \qquad\text{where}\qquad
@@ -1775,4 +1913,4 @@ parking functions ($(n+1)^{n-1}$).
 Set partitions.
 
 \end{document}
-%
+%))
