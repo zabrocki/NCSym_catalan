@@ -58,6 +58,7 @@
 \def\NN{{\mathbb N}}
 \def\CC{{\mathbb C}}
 \def\ZZ{{\mathbb Z}}
+\def\QQ{{\mathbb Q}}
 
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\st}{st}
@@ -186,16 +187,18 @@ $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will in
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
-Let $\CC^{\NN}$ denote the space of infinite sequences $(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of complex numbers, i.e.~$c_{n} \in \CC$ for all $n \ge 1$.\mike{TODO: also do $\NN^\NN$, resolve whether we even need to
-refer to complex sequences and instead limit ourselves to $\mathbb{Z}$, $\NN$ and potentially $\mathbb{Q}$.}
+Let $\QQ^{\ZZ_+}$ (respectively $\ZZ^{\ZZ_+}$ and $\NN^{\ZZ_+}$) denote the space of infinite sequences
+$(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of rational (respectively, integer and natural) numbers,
+i.e.~$c_{n} \in \QQ$ for all $n \ge 1$.
 Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_{2}, \ldots)$, we write
 \[
 \vec{c} \le \vec{d} 
 \qquad\text{if and only if}\qquad
 \text{$c_{n} \le d_{n}$ for all $n \ge 1$}.
 \]
-Let $\vec{0} \in \CC^{\NN}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$ is and only if $\vec{c}$ consists of entirely nonnegative entries.  
-For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define 
+Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$
+if and only if $\vec{c}$ consists of entirely nonnegative entries.
+For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
 \[
 c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 \]
@@ -216,7 +219,7 @@ Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition wi
 %\]
 %\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
-For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{n} = \CC$, let
+For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{0} = \CC$, let
 \[
 \vecdim(V) = \left( \dim(V_{n}) \right)_{n \ge 1}.
 \]
@@ -242,7 +245,9 @@ This interpretation will provide useful motivation here:
 
 \end{itemize}
 
-To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences} below---that any formal power series in $\CC[[t]]$ with constant term $1$ can be expressed in three equivalent ways,
+To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences}
+below---that any formal power series in $\QQ[[t]]$ with constant term $1$
+can be expressed in three equivalent ways,
 \begin{equation}
 \label{eq:gf_relation}
 1 + \sum_{k \geq 1} h_k t^k = \frac{1}{1 - \sum_{m \geq 1} a_m t^m} = \prod_{d \geq 1} \frac{1}{(1-t^d)^{p_d}}~.
@@ -250,7 +255,7 @@ To define our sequences, we make use of the fact---recorded in Proposition~\ref{
 which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.
 
 \begin{example}
-Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \CC[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.  Then $f(t)$ is a geometric series,
+Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \QQ[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.  Then $f(t)$ is a geometric series,
 \[
 f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
 \]
@@ -261,7 +266,7 @@ We will make extensive use of explicit formulas relating the sequences $\vec{h}$
 
 \begin{proposition}
 \label{prop:sequences}
-Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \CC^{\NN}$ belongs to a unique triple $(\vec{h}, \vec{a}, \vec{p})$ of sequences that satisfy Equation~\eqref{eq:gf_relation}, given by:
+Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a unique triple $(\vec{h}, \vec{a}, \vec{p})$ of sequences that satisfy Equation~\eqref{eq:gf_relation}, given by:
 \begin{enumerate}[label = (\roman*), itemsep = 1em]
 \item $\displaystyle h_{n}
 = \sum_{\beta \vDash n} a_\beta
@@ -352,17 +357,17 @@ will hold.
 The \emph{sequence transfer maps} relate sequences $(\vec{a}, \vec{h}, \vec{p})$ satisfying Equation~\eqref{eq:gf_relation}:
 \begin{align*}
 \begin{array}{rcl}
-\phi_{p, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{p, a} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{p} & \mapsto & \vec{a}
 \end{array},
 \qquad
 \begin{array}{rcl}
-\phi_{h, a} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{h, a} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{h} & \mapsto & \vec{a}
 \end{array},
 \qquad\text{and}\qquad 
 \begin{array}{rcl}
-\phi_{p, h} : \CC^{\NN} & \to & \CC^{\NN} \\
+\phi_{p, h} : \QQ^{\ZZ_+} & \to & \QQ^{\ZZ_+} \\
 \vec{p} & \mapsto & \vec{h}
 \end{array}
 \end{align*}
@@ -388,7 +393,7 @@ and $\phi_{h,a}$ is the INVERTi transform.
 
 \begin{example}
 \label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \CC[[t]]$,
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
 so that $h_n$ is equal to the $n^{th}$ Catalan number
 $\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
 \[
@@ -432,10 +437,10 @@ following result for completeness.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
-Let $\vec{a} \in \NN^{\NN}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.  
+Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
 If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$, then for each $n \geq 1$, we have:
 %Old/conflict version:
-%Let $(\vec{h}, \vec{a}, \vec{p})$ be a triple of sequences in $\CC^{\NN}$ satisfying Equation \eqref{eq:gf_relation}.
+%Let $(\vec{h}, \vec{a}, \vec{p})$ be a triple of sequences in $\QQ^{\ZZ_+}$ satisfying Equation \eqref{eq:gf_relation}.
 %If $\vec{a}$ consists of only nonnegative integers, so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $|X^{(n)}| = a_{n}$ for each $n \geq 1$, we have:
 \begin{enumerate}[itemsep = 0.5em]
 \item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
@@ -516,7 +521,7 @@ From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.\mike{Maybe remove a bi
 \end{example}
 
 \begin{corollary}
-If $\vec{a} \in \NN^{\NN}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
+If $\vec{a} \in \NN^{\ZZ_+}$, then $\vec{h} \geq \vec{p} \geq \vec{a} \geq \vec{0}$.
 \end{corollary}
 \begin{proof}
 Let $X = \biguplus_{n \ge 1} X^{(n)}$ be a graded set with $|X^{(n)}| = a_{n}$.  
@@ -876,14 +881,16 @@ so by Proposition~\ref{prop:sequences} we have $\vec{p} = \phi_{h, p}(\vec{h})$.
 \section{Characterization of \FGCCHAs by graded dimension}
 
 This section gives a classification of isomorphism types of \FGCCHAs via the associated integer sequences.  
-This begins with Aliniaeifard and Thiem's result.  
+This begins with Aliniaeifard and Thiem's result.
 
 \begin{thm}[{\cite[Theorem 4.2]{AT22}}]
 \label{thm:AT}
 Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vecdim(G)$.
 \end{thm}
 
-What remains is to determine which sequences $\vec{h} \in \CC^{\NN}$ appear as the graded dimension of an \FGCCHA, a novel result.  In fact, we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
+What remains is to determine which sequences $\vec{h} \in \QQ^{\ZZ_+}$
+appear as the graded dimension of an \FGCCHA, a novel result.  In fact,
+we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.
 
 \begin{definition}[{see~\cite[Section 0.2]{Reutenauer-FreeLieAlgebras}}]
 For a graded set $X$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.
@@ -902,12 +909,12 @@ We now state our classification; recall the map $\phi_{h, a}$ from Definition~\r
 There is a bijection
 \[
 \begin{array}{rcl}
-\left\{ \text{sequences }\vec{a} \in \NN^{\NN} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\left\{ \text{sequences }\vec{a} \in \NN^{\ZZ_+} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
 \vec{a} & \mapsto & \mathcal{U}(\mathfrak{L}(\vec{a}))) \\
 \phi_{h,a}(\vecdim(H)) & \mapsfrom & H
 \end{array}.
 \]
-In particular, $\vec{h} \in \CC^{\NN}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\NN}$.  \lucas{added given the words abot the theorem.  OK?}
+In particular, $\vec{h} \in \QQ^{\ZZ_+}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  \lucas{added given the words abot the theorem.  OK?}
 \end{thm}
 
 We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results.  
@@ -1033,7 +1040,7 @@ For an sequence $\vec{a}$ of a nonnegative integers, the enveloping algebra $\ma
 We now prove Theorem~\ref{thm:a sequence}; recall Proposition~\ref{prop:SequencesAsHopfStructures}.
 
 \begin{proof}[Proof of Theorem~\ref{thm:a sequence}]
-Given a sequence $\vec{a} \in \NN^{\NN}$, Proposition~\ref{prop:LieToFree} states that $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA freely generated by a set with graded cardinality $\vec{a}$, so the given map is well-defined.  Now consider injectivity.  By Proposition~\ref{prop:SequencesAsHopfStructures},
+Given a sequence $\vec{a} \in \NN^{\ZZ_+}$, Proposition~\ref{prop:LieToFree} states that $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA freely generated by a set with graded cardinality $\vec{a}$, so the given map is well-defined.  Now consider injectivity.  By Proposition~\ref{prop:SequencesAsHopfStructures},
 \[
 \vecdim\big(\mathcal{U}(\mathfrak{L}(\vec{a}))\big) = \phi_{a, h}\big(\vec{a}),
 \]
@@ -1057,7 +1064,7 @@ We conclude by giving an alternative sequence-based characterization of \FGCCHAs
 There is a bijection
 \[
 \begin{array}{rcl}
-\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \CC^{\NN}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \QQ^{\ZZ_+}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
 \vec{h} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
 \vecdim\big(\mathcal{P}(H)\big) & \mapsfrom & H
 \end{array}.
@@ -1609,7 +1616,7 @@ we have $X \in \OPG(H)$, $Y \in \OPG(K)$, and $f = f^{X}_{Y}$.
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
 In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
-To begin, recall the function $\phi_{p, a}$ on $\CC^{\NN}$ defined by
+To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ defined by
 \[
 \phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}
 \]
