@@ -30,7 +30,7 @@
 \usepackage{esvect}
 \usepackage{stmaryrd}
 
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}[equation]{Theorem}
 
 \definecolor{darkblue}{rgb}{0.0,0,0.7} % darkblue color
 \definecolor{darkred}{rgb}{0.7,0,0} % darkred color
@@ -99,6 +99,9 @@ This inspired us to ask: ``how much about \FGCCHAs can one say using only intege
 \mike{example here?  Connes-Kreimer Hopf algebra of rooted trees is an \FGCCHA by Theorem 3 of \cite{CK99}
 Theorem 3 states it is the dual of the enveloping algebra of the Lie algebra $\mathcal{L}_1$. To discuss: is it clear
 from that presentation that it is free?}
+-\lucas{TODO: Check if the Lie algebra in Mikes reference is free.  If so, we have what we need 
+about Connes-Kreimer}
+-\lucas{GROUP TODO: what other classes of Hopf algebra are there?}
 
 Paragraph here about: why \FGCCHAs, why asking about isomorphism, maps between them make sense.  
 Summarize NCSym story in 1-2 sentences (since this is one of the bigger \FGCCHAs) including Advances Paper.  Touch on other examples of \FGCCHAs and maps in combinatorics: (Bergeron Adv. Appl. paper, the tree paper, maybe look for some other examples).  Takeaway: these are nontrivial and interesting objects.
@@ -283,12 +286,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a
 
 \end{enumerate}
 \end{proposition}
-\mike{TODO: if h sequence is integers then the p sequence is integers.  Is this obvious?
-Is it true?
-should we remark that it is the case?}
-
-
-
+-\mike{TODO: mike will fix, add remark explaining that $p$-sequence is free}
 \begin{proof}
 %We will make use of the identities
 %\[
@@ -895,7 +893,7 @@ appear as the graded dimension of an \FGCCHA, a novel result.  In fact,
 we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.
 
 \begin{definition}[{see~\cite[Section 0.2]{Reutenauer-FreeLieAlgebras}}]
-For a graded set $X$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.
+For a graded set $X = \biguplus_{n\ge 1} X^{(n)}$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.\lucas{TODO: Move to section 4, near the definition of $\mathsf{T}(\CC X)$.  Needs to be clear why this is graded.}
 
 For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
 let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
@@ -935,8 +933,7 @@ and by Theorem \ref{thm:a sequence} conclude
 that there is a Hopf algebra $H$ with a basis indexed by
 compositions with only odd parts and with one generator at each odd degree.
 This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
-This Hopf algebra is sometimes referred to as the peak algebra(see \cite[Section 2]{Bergeron_2002}).
-\mike{TODO: citation?} \felix{Let us agree on this one}
+This Hopf algebra is sometimes referred to as the peak algebra~\cite[Section 2]{Bergeron_2002}.
 
 Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
 as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{h,a}(\vec{\ell})$ and determine
@@ -1128,13 +1125,14 @@ There is a further relation between the quotient $H^+/H^{+2}$ and generators of 
 If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
 \end{proposition}
 
-We will also make use of the \emph{Eulerian Idempotent} (see \cite[Section 1.4]{AL15},\cite{aguiar2005cocommutative} ,\cite{GERSTENHABER1991263},\cite[Section 4.5.2]{loday2013cyclic},\cite[Section 8.4]{Reutenauer-FreeLieAlgebras})\lucas{TODO: Add original citation or reference (text) for eulerian idempotent.  First place to look: Aguiar--Lauve's ``Adams operator'' paper.  N.B.: Mike had identified a citation for this in the google chat.} \felix{The first one suggested seems to cover the subject. I added them all}
+We will also make use of the \emph{Eulerian Idempotent} (see 
+%\cite[Section 1.4]{AL15},\cite{aguiar2005cocommutative} ,
+\cite[\S 3]{GERSTENHABER1991263},\cite[\S 4.5.2]{loday2013cyclic},\cite[\S 8.4]{Reutenauer-FreeLieAlgebras})\lucas{TODO: Add specific sections to each source that is missing one.} 
 \[
 \mathbf{e}(x) = x - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
 \]
 where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined). 
-
-\lucas{TODO: Explain how the next result fits into the literature.  I seem to remember it being a novel statement, and that e.g. Aguiar Mastanek actually don't seem to know that it holds in general?}
+\lucas{TODO: Explain how the next result fits into the literature.  Lauve--Mastanak make a specific version of this statement in one of their papers, which is why us giving a general statement and proof is worth doing.}
 
 \begin{lemma}
 \label{lemma:primitive generators}
@@ -1143,7 +1141,7 @@ Then the graded set
 \[
 \mathbf{e}(X) = \biguplus_{n \ge 1} \{\mathbf{e}(x) \;|\; x \in X_{n}\}
 \]
-comprises a complete set of primitive generators of $H$.
+is a complete set of primitive generators of $H$.
 \end{lemma}
 \begin{proof}
     For all $k \geq 2$ and $x \in X$, the term 
@@ -1169,7 +1167,7 @@ comprises a complete set of primitive generators of $H$.
     We now prove the second statement of the theorem. By \cite[Prop. 2.4]{F23},
     for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.
     Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$
-    \lucas{TODO: -define  $\mathfrak{L}(X)$?, add citation for this fact}we have
+    \lucas{TODO: add reference to wherever $\mathfrak{L}(X)$ is defined, add citation for this fact}we have
     \[
         \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
@@ -1258,7 +1256,7 @@ comprises a complete set of primitive generators of $H$.
 \subsection{Surjections}
 
 We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
-Let $X \in \OPG(H)$ and $K \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(X)$ and $\vec{b} = \veccard(Y)$.  
+Let $X \in \OPG(H)$ and $Y \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(X)$ and $\vec{b} = \veccard(Y)$. 
 If $\vec{a} \ge \vec{b}$, projecting from $X$ to $Y$ gives a surjective homomorphism:
 \lucas{Group TODO: how do we feel about this notation}
 \begin{equation}
@@ -1280,7 +1278,7 @@ Let $H$ and $K$ be \FGCCHAs which are generated by sets of graded cardinality $\
 \begin{enumerate}
 \item There is a surjective homomorphism $f: H \to K$ if and only if $\vec{a} \ge \vec{b}$.
 
-\item For every surjective homomorphism $f: H \to K$, there exists ordered primitive generating sets $X \in \OPG(H)$ and $Y \in \OPG(K)$ for which $f = f^{X}_{Y}$ as in Equation~\eqref{eq:defaultsurjection}.
+\item For every surjective homomorphism $f: H \to K$, there exists \lucas{add: non-unique} ordered primitive generating sets $X \in \OPG(H)$ and $Y \in \OPG(K)$ for which $f = f^{X}_{Y}$ as in Equation~\eqref{eq:defaultsurjection}.
 
 \end{enumerate}
 \end{thm}
@@ -1288,7 +1286,7 @@ Let $H$ and $K$ be \FGCCHAs which are generated by sets of graded cardinality $\
 The proof of Theorem~\ref{thm:surjection} is given after the following example and corollary.
 
 \begin{example}
-Recall the \FGCCHA $H = \CC\langle x, y, z \rangle$ from Example~\ref{ex:OPG}, and let $K = \CC\langle u, v \rangle$ denote the \FGCCHA freely generated by two degree-one primitive elements $u$ and $v$.  
+Recall the \FGCCHA from Example~\ref{ex:OPG}, $H = \CC\langle x, y, z \rangle$, and let $K = \CC\langle u, v \rangle$ denote the \FGCCHA freely generated by two degree-one primitive elements $u$ and $v$.  
 There is a surjective homomorphism $f: H \to K$ defined by
 \[
 f(x) = u,
@@ -1297,9 +1295,9 @@ f(y) = v,
 \qquad\text{and}\qquad
 f(z) = uv-vu,
 \]
-which does not obviously match the format of Equation~\eqref{eq:defaultsurjection}.  However, if we write$f$ using a slightly different set of ordered primitive generators,
+which does not obviously match the format of Equation~\eqref{eq:defaultsurjection}.  However, if we write $f$ using a slightly different set of ordered primitive generators,
 \[
-X = \Big(\big( x, y\big), \big( z - xy-yz \big), \emptyset, \ldots \Big)
+X = \Big(\big( x, y\big), \big( z - xy + yx \big), \emptyset, \ldots \Big)
 \qquad
 \text{and}
 \qquad
@@ -1311,9 +1309,9 @@ f(x) = u,
 \qquad
 f(y) = v,
 \qquad\text{and}\qquad
-f(z - xy-yz) = 0,
+f(z - xy + yx) = 0,
 \]
-so $f = f^{X}_{Y}$ as predicted by the theorem.
+so we have found the $X$ and $Y$ for which $f = f^{X}_{Y}$ as predicted by the theorem.
 \end{example}
 
 \begin{corollary}
