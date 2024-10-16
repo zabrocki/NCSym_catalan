@@ -1077,7 +1077,7 @@ There is a bijection
 \[
 \begin{array}{rcl}
 \left\{ \begin{array}{c} \text{sequences $\vec{p} \in \QQ^{\ZZ_+}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
-\vec{h} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
+\vec{p} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
 \vecdim\big(\mathcal{P}(H)\big) & \mapsfrom & H
 \end{array}.
 \]
@@ -1085,13 +1085,13 @@ There is a bijection
 \end{corollary}
 
 \begin{proof}	
-    Let \(\vec{p} = (p_0, p_1, p_2, \ldots)\) be a nonnegative integer sequence and let \(H\) be a 
+    Let \(\vec{p} = (p_1, p_2, \ldots)\) be a nonnegative integer sequence and let \(H\) be a
     free graded connected cocommutative Hopf algebra such that \(\dim \mathcal{P}(H)_n = p_n\).
     By Proposition~\ref{prop:sequences} we have that
     \[
         h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)}
     \]
-    so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_0, h_1, h_2, \ldots)\) which is clearly nonnegative. 
+    so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_1, h_2, \ldots)\) which is clearly nonnegative.
     Hence \(a_n \geq 0\) 
     for all \(n \geq 0\) by Theorem~\ref{thm:a sequence}.
 
