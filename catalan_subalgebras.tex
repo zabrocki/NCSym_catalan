@@ -636,7 +636,7 @@ The proof of Proposition~\ref{prop:SequencesAsHopfStructures} occupies the remai
 \begin{example}
 \label{ex:NSym}
 The Hopf algebra of noncommutative symmetric functions $\mathsf{NSym}$ \cite{GKLLRT}
-is the dual Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.
+is the dual Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.\lucas{TODO: relevant?}
 We take as a free generating set of this Hopf algebra
 $X = \{ \mathbf{h}_1, \mathbf{h}_2, \mathbf{h}_3, \ldots \}$
 where $\veccard(X) = (1,1,1,\ldots)$.
@@ -652,9 +652,9 @@ of compositions of $n$ that are Lyndon \cite{H07}.
 We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
 As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.  
 
-Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, the universal enveloping algebra is the cocommutative Hopf algebra
+Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, the universal enveloping algebra is the cocommutative Hopf algebra\lucas{TODO: redundant, and unclear what the coproduct is}
 \[
-\mathcal{U}(L) = \mathsf{T}(L) \big/ \big\langle x\otimes y - y \otimes x - [x, y] \;|\; \text{$x, y \in L$} \big\rangle.
+\mathcal{U}(L) = \mathsf{T}(L) \big/ \big\langle x\otimes y - y \otimes x - [x, y] \;|\; \text{$x, y \in L$} \big\rangle
 \]
 There is a canonical cocommutative Hopf algebra structure on $\mathcal{U}(L)$ in which every element of $L$ is primitive, and by \cite[Theorem 1.4]{Reutenauer-FreeLieAlgebras} we have $\mathcal{P}(\mathcal{U}(L))=L$.  
 
@@ -671,7 +671,7 @@ This statement carries important information about the dimension of $\mathcal{U}
 where $m_{z}(S)$ denotes the multiplicity of $z$ in $S$.
 
 For any \FGCCHA $H$, the space $\mathcal{P}(H)$ is a Lie algebra under the bracket $[x, y] = xy - yx$.  
-The Cartier-Milnor-Moore theorem~\cite[see Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism 
+The Cartier-Milnor-Moore theorem~\cite[see Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism \lucas{why ``see''}
 \[
 \begin{array}{rcl}
 \mathcal{U}(\mathcal{P}(H)) &\to& H \\
@@ -917,17 +917,14 @@ Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vec
 
 We consider here the question of determining which sequences $\vec{h} \in \NN^{\ZZ_+}$
 appear as the graded dimension of an \FGCCHA.  In fact,
-we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.
-
-\begin{definition}[{see~\cite[Section 0.2]{Reutenauer-FreeLieAlgebras}}]
-For a graded set $X = \biguplus_{n\ge 1} X^{(n)}$, the free graded Lie algebra $\mathfrak{L}(X)$ is the smallest subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket, $[x,y] = x \otimes y - y \otimes x$.\lucas{TODO: Move to section 4, near the definition of $\mathsf{T}(\CC X)$.  Needs to be clear why this is graded.}
-
-For any sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$ of nonnegative integers,
-let $\mathfrak{L}(\vec{a})$ be the free graded Lie algebra with
-$a_{n}$ generators in degree $n \ge 1$.
-\end{definition}
-
-We now state our classification; recall the map $\phi_{h, a}$ from
+we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
+Recall the free graded Lie algebra from Definition~\ref{def:freelie} and for each sequence $\vec{a} \in \NN^{\ZZ_{+}}$, let
+\begin{equation}
+\label{eq:La}
+\mathfrak{L}(\vec{a}) = \mathfrak{L}(X) \qquad\text{for}\qquad X = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n}\}.
+\end{equation}
+\lucas{TODO: is this the right notation for our generating set?}
+Further recall the map $\phi_{h, a}$ from
 Definition~\ref{defn:sequencetransfer} and the universal enveloping
 algebra map $\mathcal{U}(-)$ defined in Section~\ref{sec:HopfAlgebra}.
 
@@ -941,7 +938,7 @@ There is a bijection
 \phi_{h,a}(\vecdim(H)) & \mapsfrom & H
 \end{array}.
 \]
-In particular, $\vec{h} \in \QQ^{\ZZ_+}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  \lucas{Discuss: why $\mathbb{Q}$ here}
+In particular, $\vec{h} \in \QQ^{\ZZ_+}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  \lucas{Discuss: why $\mathbb{Q}$ here for $\vec{h}$}
 \end{theorem}
 
 We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results.  
@@ -1198,10 +1195,11 @@ is a complete set of primitive generators of $H$.
     By \cite[Prop. 2.4]{F23},
     for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.
     Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$
-    \lucas{TODO: add reference to wherever $\mathfrak{L}(X)$ is defined, add citation for this fact}we have
+    we have
     \[
         \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
+    \lucas{TODO: define bracket subspace, add citation for this fact}
     Fixing $X \in \OPG(H)$, we can then interpret an arbitrary choice of $Y \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
     \[
         \vec{Y}^{(n)} = M^{(n)}\vec{X}^{(n)} + \vec{B}^{(n)},
@@ -1235,7 +1233,7 @@ is a complete set of primitive generators of $H$.
 
 \subsection{Examples that need a home}
 
-\begin{example}\textit{A Cocommutative Hopf algebra on permutations.}
+\begin{example}\textit{A cocommutative Hopf algebra on permutations.}
 \lucas{TODO: cut this example down on detail, add references to the \FGCCHA papers where this appears: Mike says it may appear in two, Bergeron and possibly one other.  If there are good connections, we can keep it after Theorem~\ref{thm:a sequence}}
 
     Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
@@ -1629,7 +1627,7 @@ To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ defined by
 \[
 \phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}
 \]
-and recall that for any nonnegative sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$, we write $\mathfrak{L}(\vec{a})$ for the free Lie algebra generated by $a_{n}$ elements in degree $n$.
+and recall that for any nonnegative sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$, we write $\mathfrak{L}(\vec{a})$ for the free Lie algebra generated by $a_{n}$ elements in degree $n$ as in Equation~\eqref{eq:La}.
 
 \begin{theorem}
 \label{thm:subclassification2}
@@ -1642,8 +1640,8 @@ Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} =
 \end{array}\right\}
 & \leftrightarrow & 
 \left\{\begin{array}{c}
-\text{Sequences $\vec{q} = (q_{1}, q_{2}, \ldots)$ such } \\
-\text{that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\phi_{p, a}(\vec{q}) \ge \vec{0}$} 
+\text{Sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which } \\
+\text{that $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$} 
 %\\\sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{q_{d}}{m_{d}(\lambda)} \ge 0
 \end{array}\right\} \\[2em]
 G & \mapsto & \vecdim\big(\mathcal{P}(G)\big) \\
