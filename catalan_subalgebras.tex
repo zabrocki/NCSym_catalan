@@ -1133,8 +1133,9 @@ H^{+} = \bigoplus_{n \geq 1} H_n \text{ and } H^{+2} = \bigoplus_{n \geq 1} H_n^
 where,
 \begin{equation}
 \label{eq:Hplusdef}
-H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}} H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
-\end{equation}
+H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}}
+H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
+\end{equation}\mike{I think that this is not a $\bigoplus$ if there is an intersection of these spaces, $\bigcup$ instead?}
 By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
 \[
 \dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
@@ -1184,15 +1185,24 @@ is a complete set of primitive generators of $H$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
-    Let us fix $X = \biguplus_{n \geq 1} \vec{X}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$. For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$, it is clear that $\phi(X)$ is a set of free homogeneous generators for $H$. We may induce an ordering on $\phi(X)$ from the ordering on $X$, so that 
+    Let us fix $\vec{G} = \biguplus_{n \geq 1} \vec{G}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$.
+    For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$,
+    it is clear that $\phi(\vec{G})$ is a set of free homogeneous generators for $H$.
+    We may induce an ordering on $\phi(\vec{G})$ from the ordering on $\vec{G}$, so that 
     \[
-    \vv{\phi(X)}^{(n)} = \left(\phi\left(x_1^{(n)}\right), \phi\left(x_2^{(n)}\right), \ldots, \phi\left(x_{a_n}^{(n)}\right)\right),
+    \vv{\phi(\vec{G}^{(n)})} = \left(\phi\left(g_1^{(n)}\right), \phi\left(g_2^{(n)}\right), \ldots, \phi\left(g_{a_n}^{(n)}\right)\right),
     \]
-    hence $\phi(X)$ is a uniquely determined member of $\OPG(H)$.
+    hence $\phi(\vec{G})$ is a uniquely determined member of $\OPG(H)$.
 
-    The assignment $\phi \mapsto \phi(X)$ is injective, because any two \FGCCHA isomorphisms equal on a set of generators extend to the same isomorphism. To show surjectivity, consider an arbitrary $Y\in \OPG(H).$ Define $\phi_{Y}:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$ by algebraically extending the mapping of generators $\phi_{Y}:x_{i}^{(n)} \mapsto y_i^{(n)}$. Then it is clear that $\phi_Y$ is an isomorphism and $\phi_Y(X) = Y \in \OPG(H)$.
+    The assignment $\phi \mapsto \phi(\vec{G})$ is injective,
+    because any two \FGCCHA isomorphisms equal on a set of generators extend
+    to the same isomorphism. To show surjectivity, consider an arbitrary $\vec{K} \in \OPG(H)$.
+    Define $\phi_{\vec{K}}:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ by algebraically extending
+    the mapping of generators $\phi_{\vec{K}}:g_{i}^{(n)} \mapsto k_i^{(n)}$.
+    Then it is clear that $\phi_{\vec{K}}$ is an isomorphism and $\phi_{\vec{K}}(\vec{G}) = \vec{K} \in \OPG(H)$.
 
-    We now prove the second statement of the theorem. 
+    We now prove the second statement of the theorem.
+    \mike{what is the second statement of the theorem precisely?  I see one statement}
     Recall from Definition~\ref{defn:freelie} the free Lie algebra $\mathfrak{L}(X)$ on a graded set $X$.  
     By \cite[Prop. 2.4]{F23},
     for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.
