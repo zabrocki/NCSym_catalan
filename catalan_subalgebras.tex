@@ -1165,11 +1165,11 @@ We will also make use of the \emph{Eulerian idempotent} (see
 where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$,
 and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k^{th}$
 composition of the multiplication and comultiplication maps, respectively.
-By associativity and coassociativity of the Hopf algebra, these maps well defined.
+By associativity and coassociativity of the Hopf algebra, these maps are well defined.
 
 Aguiar and Sottile use the Eulerian idempotent to produce primitive
-generators in~\cite[Theorem 3.4]{aguiar2005cocommutative}, as do
-Novelli and Thibon in~\cite[\S 5]{NT05}. We will prove this method holds for any \FGCCHA.
+generators for $\mathcal{H}_{HO}$ in~\cite[Theorem 3.4]{aguiar2005cocommutative}, as do
+Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite[text]{LM11}. We will prove this method holds for any \FGCCHA.
 \lucas{TODO: talk to Aaron Lauve next week about this.}
 
 \begin{lemma}
@@ -1214,16 +1214,15 @@ is a complete set of primitive generators of $H$.
     \mike{what is the second statement of the theorem precisely?  I see one statement}
     Recall from Definition~\ref{defn:freelie} the free Lie algebra $\mathfrak{L}(X)$ on a graded set $X$.  
     By \cite[Prop. 2.4]{F23},
-    for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.
-    Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$
-    we have
+    for any $G \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(G)$.
+    By definition, $\mathfrak{L}(G) = \CC G \oplus [\mathfrak{L}(G),\mathfrak{L}(G)]$, therefore
     \[
-        \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
+        \CC G \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
     \lucas{TODO: define bracket subspace, add citation for this fact}
-    Fixing $X \in \OPG(H)$, we can then interpret an arbitrary choice of $Y \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
+    Fixing $G \in \OPG(H)$, we can then interpret an arbitrary choice of $S \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
     \[
-        \vec{Y}^{(n)} = M^{(n)}\vec{X}^{(n)} + \vec{B}^{(n)},
+        \vec{S}^{(n)} = M^{(n)}\vec{G}^{(n)} + \vec{B}^{(n)},
     \]
     for some $M^{(n)} \in \GL(a_n,\CC)$ and $\vec{B}^{(n)} = \left(b_1^{(n)},b_2^{(n)},\ldots,b_{a_n}^{(n)}\right)$, for some $b_i^{(n)} \in [\mathcal{P}(H),\mathcal{P}(H)]_n$. 
     
@@ -1233,14 +1232,18 @@ is a complete set of primitive generators of $H$.
     \]
     as desired. 
     
-    Conversely, given a sequence $\left(A^{(n)}\right)_{n \geq 1} = \left([P^{(n)}|Q^{(n)}]\right)_{n \geq 1}$ with $A^{(n)} \in \textrm{Mat}_{a_n \times p_n}$ and $P^{(n)} \in \GL(a_n,\CC)$, we see that
+    Conversely, given a sequence $\left(A^{(n)}\right)_{n \geq 1} = \left([P^{(n)}|Q^{(n)}]\right)_{n \geq 1}$ with $A^{(n)} \in \textrm{Mat}_{a_n \times p_n}$ and $P^{(n)} \in \GL(a_n,\CC)$, set
     \[
-    \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right) \text{ where } z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}x_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}
+        z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}g_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}.
+    \]
+    Then,
+    \[
+        \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right)
     \]
     descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$.
     It follows from \cite[Corollary 2.6]{F23}
      that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$,
-     and it is clear the correspondence between sequences
+     and we see the correspondence between sequences
      $\left(A^{(n)}\right)_{n \geq 1}$ and $\OPG(H)$ is one to one.
 \end{proof}
 
