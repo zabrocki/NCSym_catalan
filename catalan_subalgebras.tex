@@ -109,12 +109,11 @@ This is reminiscent of Foissy's work on free and cofree Hopf algebras~\cite{F12}
 surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.
 \begin{enumerate}[itemsep = 1ex]
 \item We give an elementary description of all isomorphism classes of \FGCCHA:
-Theorem~\ref{thm:a sequence} states that an arbitrary nonnegative sequence $\vec{h}$
-is the dimension sequence for an isomorphism class of \FGCCHAs if and only if it
-remains nonnegative under a simple arithmetic transformation $\phi_{h, a}$
-that we define in Section~\ref{sec:SequencePrelims}.
+Theorem~\ref{thm:a sequence} states that there is  an isomorphism class of \FGCCHAs
+for each arbitrary nonnegative sequence $\vec{a}$
+that are the free generators at each degree.
 
-\item W show that every sub-Hopf algebra of an \FGCCHA is itself an \FGCCHA
+\item W show that every Hopf subalgebra of an \FGCCHA is itself an \FGCCHA
 and classify these using a second transformation of the dimension sequence
 that we  denote by $\phi_{h, p}$.  Theorem~\ref{thm:subclassification2} states
 that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$
@@ -131,21 +130,26 @@ Throughout, we emphasize clear, constrictive statements which can be applied ``o
 
 We close with a discussion of our initial motivation on this project, demonstrating one application of our results.  
 The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[A000108]{OEIS}; see Example~\ref{}.  
-We sought to understand ``how many'' of these Catalan sub-Hopf algebras there were.  
+We sought to understand ``how many'' of these Catalan Hopf subalgebras there were.
 
 \begin{problem}
 \label{prob1}
 Identify all of the Hopf subalgebras $C \subseteq \mathsf{NCSym}$ for which $\vecdim(C)$ is the sequence of Catalan numbers.
 \end{problem}
 
-With the information above, however, this is easy to resolve: (2) tells us that every one of these Catalan sub-Hopf algebras is an \FGCCHA, so Aliniaeifard-Theim~\cite{AT20} tell us they are isomorphic.  Moreover, Theorem~\ref{} gives an algorithm for constructing every such sub-Hopf algebra from some preliminary data about $\mathsf{NCSym}$.  This led us to the following, more ambitious question.
+With the information above, however, this is easy to resolve:
+(2) tells us that every one of these Catalan Hopf subalgebras is an \FGCCHA,
+so Aliniaeifard-Thiem~\cite{AT20} tell us they are isomorphic.
+Moreover, Theorem~\ref{} gives an algorithm for constructing
+every such Hopf subalgebra from some preliminary data about $\mathsf{NCSym}$.
+This led us to the following, more ambitious question.
 
 \begin{problem}
 \label{prob2}
-Classify all (isomorphism classes of) sub-Hopf algebras of $\mathsf{NCSym}$.
+Classify all (isomorphism classes of) Hopf subalgebras of $\mathsf{NCSym}$.
 \end{problem}
 
-Here, (1) comes into play: while (2) tells us how to check is a given \FGCCHA appears as a sub-Hopf algebra, we also need to be able to exhaustively enumerate \FGCCHAs to answer this question.  
+Here, (1) comes into play: while (2) tells us how to check is a given \FGCCHA appears as a Hopf subalgebra, we also need to be able to exhaustively enumerate \FGCCHAs to answer this question.
 We resolve a more general version of this question in Theorem~\ref{}, and Problem~\ref{prob2} specifically in Example~\ref{}.  
 
 %At this point we turned to two 
@@ -504,14 +508,17 @@ d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
 Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $(\ell/k$)-fold concatenation of $w'$ with itself, the $d$-elements of the $\mathsf{fcyc}$-orbit of $(0, w)$ are uniquely determined by $w'$.
 \end{proof}
 
-\begin{example}\label{ex:balancedLyndon}  
-The sequence $\vec{p}$ may have better-known interpretations than the one given in  Proposition~\ref{prop:combinatorialinterpretation}.    
+\begin{example}\label{ex:balancedLyndon}
+For specific examples of sequences,
+$\vec{p}$ may have better-known interpretations
+than the one given in  Proposition~\ref{prop:combinatorialinterpretation}.
 Continuing with Example \ref{ex:catalan}, we have that if
 $h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is equal to the number
 of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
-However,~\cite[A022553]{OEIS} states that $p_n$ is also equal to the number of length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.  
-This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
+However,~\cite[A022553]{OEIS} states that $p_n$ is also equal to the number of
+length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.
+%This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
 %balanced binary Lyndon words of size $n$.  This implies that there should be a nice bijection between balanced binary Lyndon words of size $n$ and Lyndon words in an alphabet $X$; 
 %
 %A balanced binary word is a sequence $D = d_1d_2\ldots d_{2n} \in \{0, 1\}^{n}$ with an equal number of $1$s and $0$s, and we say that $D$ has size $n$.  We take the order $0 < 1$ when considering the Lyndon condition.  
@@ -590,32 +597,35 @@ In order to define an \FGCCHA, we must first recall the tensor algebra of a grad
 \label{eq:tensoralg}
 \mathsf{T}(V) = \bigoplus_{n \ge 0} \Big( \bigoplus_{k \ge 0} V_{k} \Big)^{\otimes n},
 \end{equation}
-\lucas{TODO: We only ever take $V = \CC X$, so we could just define the ``tensor algebra of a graded set'' at the expense of some canonicality}
+%\lucas{TODO: We only ever take $V = \CC X$, so we could just define the ``tensor algebra of a graded set'' at the expense of some canonicality}
 with a graded multiplication given by $\otimes$, where elements of $V_{k}$ have degree $k$.  
 
 \begin{definition}
 \label{def:FGCCHA}
-An \FGCCHA is a graded cocommutative Hopf algebra $H$ which is freely generated by some graded set $X = \biguplus_{n \ge 1} X^{(n)}$, so that \textit{as algebras}
+An \FGCCHA is a graded cocommutative Hopf algebra $H$ which is freely generated by some graded subset $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, so that \textit{as algebras}
 \[
 H \cong \mathsf{T}(\CC X) 
 \qquad\text{where}\qquad
 \CC X = \bigoplus_{k \ge 0} \CC\operatorname{-span}\{x \in X^{(k)}\}.
 \]
-Under this isomorphism, the coproduct of $H$ corresponds to some graded algebra homomorphism $\Delta: \mathsf{T}(\CC X) \to \mathsf{T}(\CC X) \otimes \mathsf{T}(\CC X)$.
+Under this isomorphism, the coproduct of $H$ corresponds to some graded algebra homomorphism $\tilde{\Delta}: \mathsf{T}(\CC X) \to \mathsf{T}(\CC X) \otimes \mathsf{T}(\CC X)$.
 \end{definition}
 
 We will also consider Lie subalgebras of $\mathsf{T}(V)$ and \FGCCHAs under the commutator bracket $[x, y] = xy - yx$.
 
 \begin{definition}[{see~\cite[\S 0.2]{Reutenauer-FreeLieAlgebras}}]
 \label{defn:freelie}
-The free Lie algebra $\mathfrak{L}(X)$ on a graded set $X = \biguplus_{n\ge 1} X^{(n)}$ is the smallest graded subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket.
+The free Lie algebra $\mathfrak{L}(X)$ on a graded set $X = \biguplus_{n\ge 1} X^{(n)}$ is the smallest graded subspace of $\mathsf{T}(\CC X)$ that contains $X$ and is closed under the commutator bracket.  
+This is a Lie algebra under the commutator bracket, but not a Hopf algebra.
 \end{definition}
 
-Given any Hopf algebra $H$, the primitive elements of $H$ are elements of the graded subspace
+Given any \FGCCHA $H$, the primitive elements of $H$ are elements of the graded subspace
 \[
 \mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = x \otimes 1 + 1 \otimes x\}.
 \]
-In general $\mathcal{P}(H)$ is a Lie algebra under the bracket operation $[x,y] = xy - yx$.  However it is not the case that $\mathcal{P}(H)$ maps to $\mathfrak{L}(X)$ under the isomorphism in Definition~\ref{def:FGCCHA}, as the generating set $X$ need not be primitive.  \lucas{TODO: is this clear?}
+To be clear, the generating set $X$ may not be contained in $\mathcal{P}(H)$.  
+The bracket operation $[x,y] = xy - yx$ makes $\mathcal{P}(H)$ into a Lie algebra.  
+%However it is not the case that $\mathcal{P}(H)$ maps to $\mathfrak{L}(X)$ under the isomorphism in Definition~\ref{def:FGCCHA}, as the generating set $X$ need not be primitive in $H$.  \lucas{TODO: is this clear?}
 
 The main result of this section relates the graded dimensions of an \FGCCHA to its generating set and primitives.  
 This sort of result is well-known to experts, but we have not found a statement which incorporates grading in the literature.  
@@ -636,29 +646,26 @@ The proof of Proposition~\ref{prop:SequencesAsHopfStructures} occupies the remai
 \begin{example}
 \label{ex:NSym}
 The Hopf algebra of noncommutative symmetric functions $\mathsf{NSym}$ \cite{GKLLRT}
-is the dual Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.\lucas{TODO: relevant?}
-We take as a free generating set of this Hopf algebra
-$X = \{ \mathbf{h}_1, \mathbf{h}_2, \mathbf{h}_3, \ldots \}$
-where $\veccard(X) = (1,1,1,\ldots)$.
+is freely generated by $X = \{ \mathbf{h}_1, \mathbf{h}_2, \mathbf{h}_3, \ldots \}$ where $\mathsf{deg}(\mathbf{h}_{i}) = i$ for all $i \ge 1$ so that $\veccard(X) = (1, 1, 1, \ldots)$.  
+%The Hopf algebra $\mathsf{NSym}$ is the graded dual of the Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.
 The bases of the degree $n$ homogeneous components of $\mathsf{NSym}$ are indexed by compositions
 of $n$ and hence $\vecdim(\mathsf{NSym}) = (1,2,4,8,\ldots)$.
-The dimensions of the primitives
-of the the noncommutative symmetric functions
+The dimensions of the space pf primitives is the sequence 
 $\vecdim(\mathcal{P}(\mathsf{NSym})) = (1, 1, 2, 3, 6, 9, 18, 30, 56, \ldots)$
-where the $n^{th}$ component of the sequence is equal to the number
+whose $n^{th}$ term is equal to the number
 of compositions of $n$ that are Lyndon \cite{H07}.
 \end{example}
 
 We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
 As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.  
 
-Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, the universal enveloping algebra is the cocommutative Hopf algebra\lucas{TODO: redundant, and unclear what the coproduct is}
+Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, let the \emph{universal enveloping algebra} of $L$ be
 \[
-\mathcal{U}(L) = \mathsf{T}(L) \big/ \big\langle x\otimes y - y \otimes x - [x, y] \;|\; \text{$x, y \in L$} \big\rangle
+\mathcal{U}(L) = \mathsf{T}(L) \big/ \big\langle x\otimes y - y \otimes x - [x, y] \;|\; \text{$x, y \in L$} \big\rangle.
 \]
-There is a canonical cocommutative Hopf algebra structure on $\mathcal{U}(L)$ in which every element of $L$ is primitive, and by \cite[Theorem 1.4]{Reutenauer-FreeLieAlgebras} we have $\mathcal{P}(\mathcal{U}(L))=L$.  
+This is a cocommutative Hopf algebra where the coproduct on $\mathcal{U}(L)$ is defined so that every element of $L$ is primitive.  By \cite[Theorem 1.4]{Reutenauer-FreeLieAlgebras} we have $\mathcal{P}(\mathcal{U}(L))=L$.  
 
-The Poincar\'{e}--Brikhoff--Witt Theorem~\cite[\S 0.1]{Reutenauer-FreeLieAlgebras}
+The Poincar\'{e}--Birkhoff--Witt Theorem~\cite[\S 0.1]{Reutenauer-FreeLieAlgebras}
 states for any given ordered homogeneous basis $\{z_i\}$ of $L$,
 the enveloping algebra $\mathcal{U}(L)$ has a homogeneous basis
 \[
@@ -671,16 +678,17 @@ This statement carries important information about the dimension of $\mathcal{U}
 where $m_{z}(S)$ denotes the multiplicity of $z$ in $S$.
 
 For any \FGCCHA $H$, the space $\mathcal{P}(H)$ is a Lie algebra under the bracket $[x, y] = xy - yx$.  
-The Cartier-Milnor-Moore theorem~\cite[see Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism \lucas{why ``see''}
+The Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism
 \[
 \begin{array}{rcl}
 \mathcal{U}(\mathcal{P}(H)) &\to& H \\
-\mathcal{P}(H) \ni x & \mapsto&  x
+\mathcal{P}(H) \ni x & \mapsto&  x.
 \end{array}
 \]
+\lucas{See the paper \url{https://arxiv.org/pdf/2112.08434} for explanation on CMM v.s. MM v.s. CKGMM naming conventions}
 
 \begin{proof}[Proof of Proposition~\ref{prop:SequencesAsHopfStructures}]
-Let $\vec{h} = \vecdim(H)$, $\vec{a} = \veccard(X)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{p})$, from which the claim follows.  
+Let $\vec{h} = \vecdim(H)$, $\vec{a} = \veccard(X)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{h})$, from which the claim follows.  
 
 For $n \ge 1$, $h_{n}$ is the number of degree $n$ monomials in $X$, which is also the number of degree $n$ words in $X$.  
 Applying Proposition~\ref{prop:combinatorialinterpretation}, $\vec{h} = \phi_{a, h}(\vec{a})$.
@@ -918,12 +926,11 @@ Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vec
 We consider here the question of determining which sequences $\vec{h} \in \NN^{\ZZ_+}$
 appear as the graded dimension of an \FGCCHA.  In fact,
 we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
-Recall the free graded Lie algebra from Definition~\ref{def:freelie} and for each sequence $\vec{a} \in \NN^{\ZZ_{+}}$, let
+Recall the free graded Lie algebra from Definition~\ref{defn:freelie} and for each sequence $\vec{a} \in \NN^{\ZZ_{+}}$, let
 \begin{equation}
 \label{eq:La}
-\mathfrak{L}(\vec{a}) = \mathfrak{L}(X) \qquad\text{for}\qquad X = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n}\}.
+\mathfrak{L}(\vec{a}) = \mathfrak{L}(X_{\vec{a}}) \qquad\text{for}\qquad X_{\vec{a}} = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n}\}.
 \end{equation}
-\lucas{TODO: is this the right notation for our generating set?}
 Further recall the map $\phi_{h, a}$ from
 Definition~\ref{defn:sequencetransfer} and the universal enveloping
 algebra map $\mathcal{U}(-)$ defined in Section~\ref{sec:HopfAlgebra}.
@@ -938,10 +945,58 @@ There is a bijection
 \phi_{h,a}(\vecdim(H)) & \mapsfrom & H
 \end{array}.
 \]
-In particular, $\vec{h} \in \QQ^{\ZZ_+}$ is the dimension sequence of an \FGCCHA if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  \lucas{Discuss: why $\mathbb{Q}$ here for $\vec{h}$}
+In particular, $\vec{h} \in \NN^{\ZZ_+}$ is the dimension sequence of an \FGCCHA $H$ if and only if $\phi_{h, a}(\vec{h}) \in \NN^{\ZZ_+}$.  
+Similarly, $\vec{p} \in \NN^{\ZZ_{+}}$ is the dimension sequence for $\mathcal{P}(H)$ of an \FGCCHA $H$ if and only if $\phi_{p, a}(\vec{p}) \in \NN^{\ZZ_{+}}$.
 \end{theorem}
 
-We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results.  
+We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results. 
+
+%We conclude by giving an alternative sequence-based characterization of
+%\FGCCHAs which follows as a corollary of
+%Theorem~\ref{thm:a sequence}.\lucas{TODO: fold this paragraph and corollary into a remark after theorem 2.}
+%
+%\begin{corollary}
+%\label{prop:UniqueBySequence}
+%There is a bijection
+%\[
+%\begin{array}{rcl}
+%\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \NN^{\ZZ_+}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
+%\vec{p} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
+%\vecdim\big(\mathcal{P}(H)\big) & \mapsfrom & H
+%\end{array}.
+%\]
+%%	Given a sequence of nonnegative integers $\vec{p} = (p_0, p_1, p_2, \ldots)$, there exists a \FGCCHA $H$ with $\vecdim(\mathcal{P}(H)) = \vec{p}$ if and only if $\phi_{p,a} \geq 0$.
+%\end{corollary}
+%
+%\begin{proof}	
+%    Let \(\vec{p} = (p_1, p_2, \ldots)\) be a nonnegative integer sequence and let \(H\) be a
+%    free graded connected cocommutative Hopf algebra such that \(\dim \mathcal{P}(H)_n = p_n\).
+%    By Proposition~\ref{prop:sequences} we have that
+%    \[
+%        h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)}
+%    \]
+%    so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_1, h_2, \ldots)\) which is clearly nonnegative.
+%    Hence\lucas{this is a false implication} \(a_n \geq 0\) 
+%    for all \(n \geq 1\) by Theorem~\ref{thm:a sequence}.
+%
+%    Supposing \(a_n \geq 0\) for all \(n \geq 1\), then by Theorem~\ref{thm:a sequence} we have that \(\vec{a}\)
+%    generates a free graded connected
+%    cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\).
+%    Hence \(\vecdim(\mathcal{P}(H)) = \vec{p}\geq \vec{0}\).
+%
+%    %Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. 
+%    %By ~\cite[Theorem 2.2]{KK95} and after manipulation we get 
+%    %$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ \felix{Is this enough?}.
+%    % By freeness, there exist graded sets X generating $H$. Hence, by Lemma $3.4$, we have that  there exists a set of primitives 
+%    %$X'=\biguplus_{n \geq 1}X_n'$ that freely generates $H$. We have that the $a_n$ are nonnegative integers since they correspond 
+%    %to the number of free generators at degree $n$ of $H\cong \mathcal{U}(\mathfrak{L}_{X'})$. Suppose that 
+%    %$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ such that $a_n\geq 0$, 
+%    %by Theorem $3$, we have that $\mathfrak{L}(\mathbf{a})\cong \mathcal{P}(H)$. Hence, we have that $\dim(\mathfrak{L}(\mathbf{a})=\mathbf{p}$. 
+%    %We have that the $a_n$ are nonnegative integers since they correspond to the dimension of the free Lie aglebra $\mathfrak{L}(\mathbf{a})$.
+%    %\felix{Really not sure about this part.} 
+%    %The relationship between $\mathbf{p}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X')\cong\mathcal{U}(\mathfrak{L}_{X'})\cong H$ 
+%    %given by Theorem $1$ and Lemma $3.4$  gives us a way to construct the Hopf algebra associated to $\mathbf{p}$.
+%\end{proof}  
 
 \begin{example}
 Many combinatorially interesting sequences correspond to \FGCCHAs, but it is not obvious when this is the case; we illustrate this by considering two closely-related sequences.
@@ -969,14 +1024,15 @@ The rest of the section concerns the technical question of explicitly realizing 
 
 \begin{definition}
 \label{def:OPG}
+\lucas{TODO: change the X and Y's in OPG to be a different letter}
 For an \FGCCHA $H$, an \emph{ordered primitive generating set} is a sequence of tuples 
 \[
-\vec{X} = \Big(\vec{X}^{(n)} = (x_{1}^{(n)}, x_{2}^{(n)}, \ldots, x_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
+\vec{G} = \Big(\vec{G}^{(n)} = (g_{1}^{(n)}, g_{2}^{(n)}, \ldots, g_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
 \qquad\text{with}\qquad
 \begin{array}{l}
 %\text{(1) $\vec{X}^{(n)} = (x_{1}^{(n)}, x_{2}^{(n)}, \ldots, x_{1}^{(n)})$} \\
-\text{(1) each $x_{i}^{(n)} \in \mathcal{P}(H)_{n}$ , and} \\
-\text{(2) $H$ is freely generated by $\vec{X}$.}
+\text{(1) each $g_{i}^{(n)} \in \mathcal{P}(H)_{n}$ , and} \\
+\text{(2) $H$ is freely generated by $\vec{G}$.}
 \end{array}
 \]
 Let
@@ -1010,20 +1066,11 @@ and
 The proof of Theorem~\ref{thm:OPGmaps} is given in Section~\ref{sec:OPGproof}.
 
 
-\begin{example}
-\label{ex:OPGexample}
-\lucas{TODO: Clean this example up.  Or delete?}
-We do an example for the Catalan \FGCCHA.  We take $\mathcal{U}(\mathfrak{L}(\vec{a}))$ to be generated by Dyck words (of one smaller degree) and $H$ to be the noncrossing subalgebra (in some basis) of $\mathsf{NCSym}$.
-By (Lauve--Mastanek \cite{LM11} or Bergeron et.~al.), we have a set or primitive
-generators for $\mathsf{NCSym}$, which gives an isomorphism by mapping Dyck words to primitives
-\end{example}
-
-%\begin{remark}
 As we do not explicitly describe our bijection, the second part of Theorem~\ref{thm:OPGmaps} should be read as a statement about how ``big'' the set $\OPG(H)$ is.  
 Realizing our bijection requires one to make a rather complicated choice of basis for $\mathcal{P}(H)$, which we explain fully in the proof.  
 However, we can illustrate the bijection concretely with a small example.  
 
-\begin{example}\mike{TODO: discuss this one because $\phi_{a,p}(\vec{a}) = (2, 2, 4, 7, 16, \ldots)$}\lucas{you are right}
+\begin{example}
 \label{ex:OPG}
 We construct the set $\OPG(H)$ for the \FGCCHA $H = \CC\langle x, y, z\rangle$ freely generated by two primitive generators $x$ and $y$ in degree one and one primitive generator $z$ in degree two.  
 Thus, in the notation of Theorem~\ref{thm:OPGmaps}, we have $\vec{a} = (2, 1, 0, \ldots)$ and $\vec{p} = \phi_{a, p}(\vec{a}) = (2, 2, \ldots)$. 
@@ -1051,13 +1098,10 @@ to the ordered primitive generator set
 
 We will make use the following established results
 about free Lie algebras from~\cite{Reutenauer-FreeLieAlgebras}.
-\mike{TODO: I changed the statement of the theorem, but not the text
-of the proof, make sure that these align}
 
-\begin{proposition}[{\cite[??]{Reutenauer-FreeLieAlgebras}}]
+\begin{proposition}[{\cite[Theorem 0.5]{Reutenauer-FreeLieAlgebras}}]
 \label{prop:LieToFree}
-\lucas{TODO: find exact citation for this}
-For an sequence $\vec{a}$ of a nonnegative integers, the enveloping algebra $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA which is generated in degree $n$ by the $a_{n}$-many primitive generators of $\mathfrak{L}(\vec{a})$.
+For a sequence $\vec{a}$ of a nonnegative integers, the enveloping algebra $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is an \FGCCHA which is generated in degree $n$ by the $a_{n}$-many primitive generators of $\mathfrak{L}(\vec{a})$.
 \end{proposition}
 
 We now prove Theorem~\ref{thm:a sequence}; recall Proposition~\ref{prop:SequencesAsHopfStructures}.
@@ -1082,55 +1126,9 @@ for any two sequences $\vec{a}, \vec{b}$ in the domain,
 Finally for surjectivity, fix an isomorphism class of \FGCCHA, let $H$ be a representative of that class, and let $\vec{h} = \vecdim(H)$.  Then the sequence $\vec{a} = \phi_{h, a}(\vec{h})$ belongs to the domain, since by Proposition~\ref{prop:SequencesAsHopfStructures} $\vec{a}$ is the graded cardinality of its free generating set.  
 Moreover, we claim that our isomorphism class is the image of $\vec{a}$.  
 As we deduced in the previous paragraph, the dimension sequence of $\mathcal{U}(\mathfrak{L}(\vec{a}))$ is $\vec{h}$, which by definition is the dimension sequence of $H$.  
-Thus, by Aliniaeifard and Theim (Theorem~\ref{thm:AT}), $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
+Thus, by Aliniaeifard and Thiem's result (Theorem~\ref{thm:AT})
+implies that $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 \end{proof}
-
-We conclude by giving an alternative sequence-based characterization of
-\FGCCHAs which follows as a corollary of
-Theorem~\ref{thm:a sequence}.\lucas{TODO: fold this into a remark after theorem 2.}
-
-\begin{corollary}
-\label{prop:UniqueBySequence}
-There is a bijection
-\[
-\begin{array}{rcl}
-\left\{ \begin{array}{c} \text{sequences $\vec{p} \in \QQ^{\ZZ_+}$ for which $\phi_{p,a}(\vec{p})$} \\ \text{contains only nonnegative integers} \end{array} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
-\vec{p} & \mapsto & \mathcal{U}(\mathfrak{L}(\phi_{p,a}(\vec{p}))) \\
-\vecdim\big(\mathcal{P}(H)\big) & \mapsfrom & H
-\end{array}.
-\]
-%	Given a sequence of nonnegative integers $\vec{p} = (p_0, p_1, p_2, \ldots)$, there exists a \FGCCHA $H$ with $\vecdim(\mathcal{P}(H)) = \vec{p}$ if and only if $\phi_{p,a} \geq 0$.
-\end{corollary}
-
-\begin{proof}	
-    Let \(\vec{p} = (p_1, p_2, \ldots)\) be a nonnegative integer sequence and let \(H\) be a
-    free graded connected cocommutative Hopf algebra such that \(\dim \mathcal{P}(H)_n = p_n\).
-    By Proposition~\ref{prop:sequences} we have that
-    \[
-        h_n = \sum_{\lambda \vdash n} \prod_{d \geq 1} \binom{p_d + m_d(\lambda) -1}{m_d(\lambda)}
-    \]
-    so that \(\vec{p}\)  corresponds to a sequence \(\vec{h} = (h_1, h_2, \ldots)\) which is clearly nonnegative.
-    Hence \(a_n \geq 0\) 
-    for all \(n \geq 1\) by Theorem~\ref{thm:a sequence}.
-
-    Supposing \(a_n \geq 0\) for all \(n \geq 1\), then by Theorem~\ref{thm:a sequence} we have that \(\vec{a}\)
-    generates a free graded connected
-    cocommutative Hopf algebra \(H\), and we let \(p_n\) count the number of primitive elements of \(H\) at degree \(n\).
-    Hence \(\vecdim(\mathcal{P}(H)) = \vec{p}\geq \vec{0}\).
-
-    %Suppose that $p_n$ correspond to the dimension of a free cocommutative graded connected Hopf algebra $H$ at degree $n$. 
-    %By ~\cite[Theorem 2.2]{KK95} and after manipulation we get 
-    %$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ \felix{Is this enough?}.
-    % By freeness, there exist graded sets X generating $H$. Hence, by Lemma $3.4$, we have that  there exists a set of primitives 
-    %$X'=\biguplus_{n \geq 1}X_n'$ that freely generates $H$. We have that the $a_n$ are nonnegative integers since they correspond 
-    %to the number of free generators at degree $n$ of $H\cong \mathcal{U}(\mathfrak{L}_{X'})$. Suppose that 
-    %$a_n = \sum_{\lambda \vdash n} (-1)^{\ell(\lambda)-1} \prod_{d \geq 1} \binom{p_d}{m_d(\lambda)}$ such that $a_n\geq 0$, 
-    %by Theorem $3$, we have that $\mathfrak{L}(\mathbf{a})\cong \mathcal{P}(H)$. Hence, we have that $\dim(\mathfrak{L}(\mathbf{a})=\mathbf{p}$. 
-    %We have that the $a_n$ are nonnegative integers since they correspond to the dimension of the free Lie aglebra $\mathfrak{L}(\mathbf{a})$.
-    %\felix{Really not sure about this part.} 
-    %The relationship between $\mathbf{p}$ and $\mathbf{a}$ followed by the construction of $\mathcal{F}(X')\cong\mathcal{U}(\mathfrak{L}_{X'})\cong H$ 
-    %given by Theorem $1$ and Lemma $3.4$  gives us a way to construct the Hopf algebra associated to $\mathbf{p}$.
-\end{proof} 
 
 
 \subsection{Ordered primitive generators and Theorem~\ref{thm:OPGmaps}}
@@ -1143,8 +1141,9 @@ H^{+} = \bigoplus_{n \geq 1} H_n \text{ and } H^{+2} = \bigoplus_{n \geq 1} H_n^
 where,
 \begin{equation}
 \label{eq:Hplusdef}
-H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}} H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
-\end{equation}
+H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}}
+H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
+\end{equation}\mike{I think that this is not a $\bigoplus$ if there is an intersection of these spaces, $\bigcup$ instead?}
 By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
 \[
 \dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
@@ -1156,20 +1155,24 @@ There is a further relation between the quotient $H^+/H^{+2}$ and generators of 
 If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
 \end{proposition}
 
-We will also make use of the \emph{Eulerian Idempotent} (see 
+We will also make use of the \emph{eulerian idempotent} (see 
 %\cite[Section 1.4]{AL15},\cite{aguiar2005cocommutative} ,
 \cite[\S 3]{GERSTENHABER1991263},\cite[\S 4.5.2]{loday2013cyclic},\cite[\S 8.4]{Reutenauer-FreeLieAlgebras})
+\mike{do all of these references call it the `eulerian idempotent'?  If not, take note here}
 \[
 \mathbf{e}(x) = x - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
 \]
-where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$, and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k$th composition of the multiplication and comuliplication maps, respectively.  (By associativity and coassociativity, these are well defined). 
+where $\Delta_{+}$ denotes the positive coproduct, $\Delta_{+}(x) = \Delta(x) - x \otimes 1 - 1 \otimes x$,
+and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k^{th}$
+composition of the multiplication and comultiplication maps, respectively.
+By associativity and coassociativity of the Hopf algebra, these maps are well defined.
 
-Aguiar and Sottile use the Eulerian Idempotent to produce primitive
-generators in~\cite[Theorem 3.4]{aguiar2005cocommutative}, as do
-Novelli and Thibon in~\cite[\S 5]{NT05}. We will prove this method holds for any \FGCCHA.
-\lucas{TODO: Explain how the next result fits into the literature.  Lauve--Mastanak make a specific version of this statement in one of their papers, which is why us giving a general statement and proof is worth doing.}
+Aguiar and Sottile use the eulerian idempotent to produce primitive
+generators for $\mathcal{H}_{HO}$ in~\cite[Theorem 3.4]{aguiar2005cocommutative}, as do
+Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite[text]{LM11}. We will prove this method holds for any \FGCCHA.
+\lucas{TODO: talk to Aaron Lauve next week about this.}
 
-\begin{lemma}
+\begin{lemma}[{\cite[Lemma 22]{PR04}}]
 \label{lemma:primitive generators}
 Let $H$ be an \FGCCHA freely generated by a graded set $X = \biguplus_{n \geq 1} X_{n}$.  
 Then the graded set
@@ -1178,6 +1181,7 @@ Then the graded set
 \]
 is a complete set of primitive generators of $H$.
 \end{lemma}
+\eric{I found a paper which proves this exactly - Lemma 22 of Patras, Reutenauer - On Descent Algebras and Twisted Bialgebras \url{https://reutenauer.math.uqam.ca/wp-content/uploads/2024/05/Twisted-bialgebras-compresse.pdf} }
 \begin{proof}
     For all $k \geq 2$ and $x \in X$, the term 
     \[
@@ -1191,27 +1195,35 @@ is a complete set of primitive generators of $H$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
-    Let us fix $X = \biguplus_{n \geq 1} \vec{X}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$. For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$, it is clear that $\phi(X)$ is a set of free homogeneous generators for $H$. We may induce an ordering on $\phi(X)$ from the ordering on $X$, so that 
+    Let us fix $\vec{G} = \biguplus_{n \geq 1} \vec{G}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$.
+    For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$,
+    it is clear that $\phi(\vec{G})$ is a set of free homogeneous generators for $H$.
+    We may induce an ordering on $\phi(\vec{G})$ from the ordering on $\vec{G}$, so that 
     \[
-    \vv{\phi(X)}^{(n)} = \left(\phi\left(x_1^{(n)}\right), \phi\left(x_2^{(n)}\right), \ldots, \phi\left(x_{a_n}^{(n)}\right)\right),
+    \vv{\phi(\vec{G}^{(n)})} = \left(\phi\left(g_1^{(n)}\right), \phi\left(g_2^{(n)}\right), \ldots, \phi\left(g_{a_n}^{(n)}\right)\right),
     \]
-    hence $\phi(X)$ is a uniquely determined member of $\OPG(H)$.
+    hence $\phi(\vec{G})$ is a uniquely determined member of $\OPG(H)$.
 
-    The assignment $\phi \mapsto \phi(X)$ is injective, because any two \FGCCHA isomorphisms equal on a set of generators extend to the same isomorphism. To show surjectivity, consider an arbitrary $Y\in \OPG(H).$ Define $\phi_{Y}:\mathcal{U}(\mathfrak{L}(\vec{a}) \to H$ by algebraically extending the mapping of generators $\phi_{Y}:x_{i}^{(n)} \mapsto y_i^{(n)}$. Then it is clear that $\phi_Y$ is an isomorphism and $\phi_Y(X) = Y \in \OPG(H)$.
+    The assignment $\phi \mapsto \phi(\vec{G})$ is injective,
+    because any two \FGCCHA isomorphisms equal on a set of generators extend
+    to the same isomorphism. To show surjectivity, consider an arbitrary $\vec{K} \in \OPG(H)$.
+    Define $\phi_{\vec{K}}:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ by algebraically extending
+    the mapping of generators $\phi_{\vec{K}}:g_{i}^{(n)} \mapsto k_i^{(n)}$.
+    Then it is clear that $\phi_{\vec{K}}$ is an isomorphism and $\phi_{\vec{K}}(\vec{G}) = \vec{K} \in \OPG(H)$.
 
-    We now prove the second statement of the theorem. 
+    We now prove the second statement of the theorem.
+    \mike{what is the second statement of the theorem precisely?  I see one statement}
     Recall from Definition~\ref{defn:freelie} the free Lie algebra $\mathfrak{L}(X)$ on a graded set $X$.  
     By \cite[Prop. 2.4]{F23},
-    for any $X \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(X)$.
-    Then, because $\mathfrak{L}(X) = \CC X \oplus [\mathfrak{L}(X),\mathfrak{L}(X)]$
-    we have
+    for any $G \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(G)$.
+    By definition, $\mathfrak{L}(G) = \CC G \oplus [\mathfrak{L}(G),\mathfrak{L}(G)]$, therefore
     \[
-        \CC X \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
+        \CC G \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
     \lucas{TODO: define bracket subspace, add citation for this fact}
-    Fixing $X \in \OPG(H)$, we can then interpret an arbitrary choice of $Y \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
+    Fixing $G \in \OPG(H)$, we can then interpret an arbitrary choice of $S \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
     \[
-        \vec{Y}^{(n)} = M^{(n)}\vec{X}^{(n)} + \vec{B}^{(n)},
+        \vec{S}^{(n)} = M^{(n)}\vec{G}^{(n)} + \vec{B}^{(n)},
     \]
     for some $M^{(n)} \in \GL(a_n,\CC)$ and $\vec{B}^{(n)} = \left(b_1^{(n)},b_2^{(n)},\ldots,b_{a_n}^{(n)}\right)$, for some $b_i^{(n)} \in [\mathcal{P}(H),\mathcal{P}(H)]_n$. 
     
@@ -1221,14 +1233,18 @@ is a complete set of primitive generators of $H$.
     \]
     as desired. 
     
-    Conversely, given a sequence $\left(A^{(n)}\right)_{n \geq 1} = \left([P^{(n)}|Q^{(n)}]\right)_{n \geq 1}$ with $A^{(n)} \in \textrm{Mat}_{a_n \times p_n}$ and $P^{(n)} \in \GL(a_n,\CC)$, we see that
+    Conversely, given a sequence $\left(A^{(n)}\right)_{n \geq 1} = \left([P^{(n)}|Q^{(n)}]\right)_{n \geq 1}$ with $A^{(n)} \in \textrm{Mat}_{a_n \times p_n}$ and $P^{(n)} \in \GL(a_n,\CC)$, set
     \[
-    \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right) \text{ where } z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}x_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}
+        z_i^{(n)} = \sum_{j = 1}^{a_n}P_{ij}^{(n)}g_{j}^{(n)} + \sum_{k = 1}^{p_n - a_n}Q_{ik}^{(n)}v_k^{(n)}.
+    \]
+    Then,
+    \[
+        \vec{Z}^{(n)} = \biguplus_{n\geq 1} \left(z_1^{(n)},z_2^{(n)},\ldots,z_{a_n}^{(n)}\right)
     \]
     descends to a basis for $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$.
     It follows from \cite[Corollary 2.6]{F23}
      that $Z = \biguplus_{n \geq 1} \vec{Z}^{(n)} \in \OPG(H)$,
-     and it is clear the correspondence between sequences
+     and we see the correspondence between sequences
      $\left(A^{(n)}\right)_{n \geq 1}$ and $\OPG(H)$ is one to one.
 \end{proof}
 
@@ -1242,11 +1258,27 @@ is a complete set of primitive generators of $H$.
 
 \subsection{Examples that need a home}
 
-\begin{example}\textit{A cocommutative Hopf algebra on permutations.}
+\begin{example}
+
+
+
+\textit{A cocommutative Hopf algebra on permutations.}
+
+
+
+\lucas{Add citations to other $n!$ \FGCCHAs: -
+Grossman Larson ``Hopf algebras of heap-ordered trees and permutations'' \cite{GL09},
+Teresa X.S. Li ``The monomial basis and the Q-basis of the Hopf algebra of parking functions'' \cite{Li15},
+``Commutative combinatorial Hopf algebras'' by Novelli and Thibon (dual) \cite{HNT08},
+and the Bergeron one}
 \lucas{TODO: cut this example down on detail, add references to the \FGCCHA papers where this appears: Mike says it may appear in two, Bergeron and possibly one other.  If there are good connections, we can keep it after Theorem~\ref{thm:a sequence}}
 
     Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
-    Then $\vec{a}$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$. By \ref{thm: Hopf dimension isomorphic} there exists a \textsf{FGCCHA} of graded dimension $n!$, which we will construct explicitly.
+    Then $\vec{a}$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$.  By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA} $H$ of graded dimension $n!$.
+    
+The Hopf algebra $H$ appears in the literature a number of times.  Li~\cite{Li15} 
+    
+    , which we will construct explicitly.
 
     Let (placeholder) be the graded vector space spanned by permutations of $[n]$ in degree $n$. We will denote by $\pi = \pi_1\pi_2\cdots\pi_n$ the permutation of $[n]$ mapping $m \mapsto \pi_m$. For permutations $\sigma = \sigma_1\sigma_2\cdots\sigma_n$ of $[n]$ and $\tau = \tau_1\tau_2\cdots\tau_k$ of $[k]$, we define their concatenation product to be the permutation of $[n+k]$, 
     \[
@@ -1265,18 +1297,13 @@ is a complete set of primitive generators of $H$.
 \lucas{TODO: This is our OPG Example~\ref{ex:OPGexample}, up to some re-writing and adaptation!}
     The \FGCCHA $\mathbf{CQSym}$ introduced in ~\cite{NT05} has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$, and is freely generated by $\{\mathbf{P}^{\pi}:\pi \text{ is atomic and non-crossing}\}$~\cite[Proposition 5.2]{NT05}.
 
-    There is a sub-Hopf algebra $\mathsf{NCSym}_{\mathrm{NC}}$ of $\mathsf{NCSym}$ spanned by the power-sum basis elements $\mathbf{p}_{\pi}$ indexed also by non-crossing set partitions, and freely generated by $\{\mathbf{p}_{\pi}:\pi \text{ is atomic and non-crossing}\}$ (see ~\cite{BHRZ05} for details on \textsf{NCSym}).
+    There is a Hopf subalgebra $\mathsf{NCSym}_{\mathrm{NC}}$ of $\mathsf{NCSym}$ spanned by the power-sum basis elements $\mathbf{p}_{\pi}$ indexed also by non-crossing set partitions, and freely generated by $\{\mathbf{p}_{\pi}:\pi \text{ is atomic and non-crossing}\}$ (see ~\cite{BHRZ05} for details on \textsf{NCSym}).
     
     The number of non-crossing set partitions of $[n]$ are enumerated by the Catalan numbers, $(C_n)_{n \geq 1}$. Given that 
     \[
     \vecdim(\mathbf{CQSym}) = \vecdim(\mathsf{NCSym}) = (C_n)_{n \geq 1},
     \]
-    we know that abstractly $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$.
-    To realize an explicit isomorphism as outlined above, $\mathbf{e}(\mathbf{P}^{\pi})$ and $\mathbf{e}(\mathbf{p}_{\pi})$ running over all atomic non-crossing set partitions $\pi$ constitute free primitive generators for their respective algebras, and the map
-    \[
-    f:\mathbf{e}(\mathbf{P}^{\pi}) \mapsto \mathbf{e}(\mathbf{p}_{\pi})
-    \]
-    induces a Hopf algebra isomorphism $\tilde{f}:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
+    we know $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$. To make the isomorphism explicit, we map $f:\mathbf{e}(\mathbf{P}^{\pi}) \to \mathbf{e}(\mathbf{p}_{\pi})$ for all atomic non-crossing set partitions $\pi$, and extending algebraically gives a Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
 \end{example}
 
 \section{Classifying surjections between \FGCCHAs}
@@ -1343,7 +1370,7 @@ so we have found the $X$ and $Y$ for which $f = f^{X}_{Y}$ as predicted by the t
 \begin{corollary}
 Given a surjective homomorphism $f: H \to K$ between two \FGCCHAs,
 \begin{enumerate}
-\item $K$ is isomorphic to a subHopf algebra of $H$.
+\item $K$ is isomorphic to a Hopf subalgebra of $H$.
 
 \item Every other surjective homomorphism $g: H \to K$ has the form $g = \alpha \circ f \circ \beta$ for some automorphims $\alpha$ of $K$ and $\beta$ of $H$.
 
@@ -1375,7 +1402,7 @@ Then because $f$ induces a surjection $H_{n} / H_{n}^{+2} \to K_{n} / K_{n}^{+2}
 \[
 f(x^{(n)}_{i}) = \begin{cases} y^{(n)}_{i} & \text{if $i \le b_{n}$} \\ 0 & \text{otherwise.} \end{cases}
 \]
-By definition, the Eulerian idempotent has the property that $f \circ \mathsf{e} = \mathsf{e} \circ f$, so we can assume that we have chosen primitive $x^{(n)}_{i}$ by possibly replacing each $x^{(n)}_{i}$ with $\mathsf{e}(x^{(n)}_{i})$ as we did with the $y^{(n)}_{i}$.
+By definition, the eulerian idempotent has the property that $f \circ \mathsf{e} = \mathsf{e} \circ f$, so we can assume that we have chosen primitive $x^{(n)}_{i}$ by possibly replacing each $x^{(n)}_{i}$ with $\mathsf{e}(x^{(n)}_{i})$ as we did with the $y^{(n)}_{i}$.
 
 Finally, repeat this construction for all $n \ge 1$.  By Proposition~\ref{prop:indecomposable generators} we have $X = \biguplus_{n \ge 1} X^{(n)} \in \OPG(H)$ and $Y = \biguplus_{n \ge 1} Y^{(n)} \in \OPG(K)$, and by construction $f = f^{X}_{Y}$.
 \end{proof}
@@ -1628,10 +1655,10 @@ Finally, repeat this construction for all $n \ge 1$.  By Proposition~\ref{prop:i
 %For instance, $\vec{h} = (1,2,2,2,2,\ldots)$ is there a Hopf algebra?
 %If yes, find me a different example.  If no, apply this theorem to explain why.}
 
-\section{Classifying SubHopf algebras by primitive dimensions}
+\section{Classifying Hopf subalgebras by primitive dimensions}
 
 Let $H$ be a free graded connected cocommutative Hopf algebra.  
-In this section we construct all the isomorphism classes of graded Hopf algebra which occur as sub-Hopf algebras of $H$.  
+In this section we construct all the isomorphism classes of graded Hopf algebra which occur as Hopf subalgebras of $H$.
 To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ defined by
 \[
 \phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}
@@ -1645,7 +1672,7 @@ Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} =
 \begin{array}{rcl}
 \left\{\begin{array}{c}
 \text{Isomorphism classes of} \\
-\text{sub-Hopf algebras $G \subseteq H$}
+\text{Hopf subalgebras $G \subseteq H$}
 \end{array}\right\}
 & \leftrightarrow & 
 \left\{\begin{array}{c}
@@ -1659,7 +1686,8 @@ G & \mapsto & \vecdim\big(\mathcal{P}(G)\big) \\
 \]
 \end{theorem}
 
-The proof of Theorem~\ref{thm:subclassification2} will construct a sub-Hopf algebra in $H$ isomorphic to each $\mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q})))$.  
+The proof of Theorem~\ref{thm:subclassification2} will construct a Hopf subalgebra in $H$ isomorphic to each
+$\mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q})))$.
 Before completing the proof we will give several motivating examples and intermediate results.
 
 \begin{example}
@@ -1672,7 +1700,7 @@ as $a_{\beta} \neq 0$ implies that $\beta = (2, \ldots, 2)$.  Similarly, we can 
 \[
 k_{n} = 1 \qquad\text{for all $n \ge 1$}.
 \]
-Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a subHopf algebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.
+Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a Hopf subalgebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.
 \end{example}
 
 \begin{example}
@@ -1732,7 +1760,7 @@ $s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:subclassification2}]
-We first show that the given map is injective.  Suppose that $J$ and $K$ are sub-Hopf algebras of $H$ with the property that $\vecdim(\mathcal{P}(J)) = \vecdim(\mathcal{P}(K))$.  By Proposition~\ref{prop:SequencesAsHopfStructures}, we have
+We first show that the given map is injective.  Suppose that $J$ and $K$ are Hopf subalgebras of $H$ with the property that $\vecdim(\mathcal{P}(J)) = \vecdim(\mathcal{P}(K))$.  By Proposition~\ref{prop:SequencesAsHopfStructures}, we have
 \[
 \vecdim(J) = \phi_{p, h}\big(\vecdim(\mathcal{P}(J))\big)
 \qquad\text{and}\qquad
@@ -1741,7 +1769,7 @@ We first show that the given map is injective.  Suppose that $J$ and $K$ are sub
 so that $\vecdim(J) = \vecdim(K)$.  We therefore conclude by Theorem~\ref{thm:AT} that $J \cong K$.
 
 Now, suppose that $\vec{q}$ is a sequence satisfying the conditions that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\vec{b} = \phi_{p, a}(\vec{q}) \ge \vec{0}$.  
-We will construct a sub-Hopf algebra $K$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.  
+We will construct a Hopf subalgebra $K$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.
 
 In order to do so, we construct a tower of sub-Lie algebras 
 \[
