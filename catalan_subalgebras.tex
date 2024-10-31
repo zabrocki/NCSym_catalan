@@ -84,6 +84,50 @@
 \maketitle
 
 \section{Introduction}
+
+We start with three questions:
+\begin{enumerate}
+\item what are the bases $b_\pi $ of $\mathrm{NCSym}$ for which $\{ b_\pi :  \text{for $pi$ non-(crossing or nesting)} \}$ is a Hopf subalgebra of dimension Catalan?
+
+\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
+
+\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
+
+\end{enumerate}
+
+Checking answers to (1) by computer, we found many bases seemed to give us Hopf subaglebras with the right dimension (transcribe meeting notes from May 13).  However, weren't sure if these were isomorphic or not.
+
+In order to answer (2), we needed to use structural properties of $\mathsf{NCSym}$.  
+In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
+The answers we found for $\mathsf{NCSym}$ hold in general for this class of Hopf algebra.  
+
+A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+\[
+\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
+\qquad\text{where}\qquad
+H = \bigoplus_{n \ge 0} H_{n}.
+\]
+We knew that all of of Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
+
+The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathrm{NCSym}$ which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{} states that all Hopf subaglerbas of an \FGCCHA are also \FGCCHAs.  This tells us that there is a unique isomorphism class of Catalan-dimensional Hopf subaglebra of $\mathrm{NCSym}$.
+
+We then considered how we would construct all subalgebras of $\mathrm{NCSym}$ with a given dimension sequence, or more generally for any \FGCCHA.  There are usually infinitely many isomorphic copies when one exists, but we describe a procedure for constructing all isomorphic copies of one \FGCCHA inside another in Section~\ref{}.
+
+We also give a necessary and sufficient condition for such a copy to exist, answering (3).  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
+
+\begin{center}
+\begin{tabular}{c|c|c}
+Question & Condition on $\vec{h}$, $\vec{a}$, and $\vec{c}$? & Theorem reference\\ \hline
+When is there a Hopf algebra? & When $\vec{a} \ge \vec{0}$ \\ \hline
+When is is there a Hopf subalgebra? & whenever $\vec{b} \ge 0$ and $\vec{q} \le \vec{p}$\\
+(with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & \\ \hline
+When is there a surjection from another Hopf algebra & when $\vec{b} \ge \vec{a}$\\
+ (with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & 
+\end{tabular}
+\end{center}
+
+
+\newpage
 \lucas{This is an outline-by-demonstration: a sketch of what points to hit in order to tell this story right.  Not  an attempt at the final version.}
 This paper builds a comprehensive dictionary between integer sequences and a class of Hopf algebras that we will call \FGCCHAs: \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebras.  
 A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
@@ -1136,14 +1180,16 @@ implies that $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 
 We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  Our proofs in this section and the next will make use of the subspaces
 \[
-H^{+} = \bigoplus_{n \geq 1} H_n \text{ and } H^{+2} = \bigoplus_{n \geq 1} H_n^{+2},
+H_{+} = \bigoplus_{n \geq 1} H_n
+\text{ and } 
+H^{2}_{+} = \mu(H_{+} \otimes H_{+}).
 \]
-where,
+The space $H^{2}_{+}$ is a graded subspace of $H$ with
 \begin{equation}
 \label{eq:Hplusdef}
-H_{n}^{+2} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}}
+(H^{2}_{+})_{n} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}}
 H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
-\end{equation}\mike{I think that this is not a $\bigoplus$ if there is an intersection of these spaces, $\bigcup$ instead?}
+\end{equation}\lucas{TODO: We changed some notation here.  Need to make sure it is reflected throughout the rest of the paper}
 By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $X = \biguplus_{n \ge 1} X^{(n)}$ of $H$, 
 \[
 \dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
@@ -1155,10 +1201,9 @@ There is a further relation between the quotient $H^+/H^{+2}$ and generators of 
 If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
 \end{proposition}
 
-We will also make use of the \emph{eulerian idempotent} (see 
+We will also make use of the \emph{Eulerian idempotent} (see \cite[\S 1.4]{aguiar2005cocommutative} or \cite[\S 4.5.2]{loday2013cyclic})
 %\cite[Section 1.4]{AL15},\cite{aguiar2005cocommutative} ,
-\cite[\S 3]{GERSTENHABER1991263},\cite[\S 4.5.2]{loday2013cyclic},\cite[\S 8.4]{Reutenauer-FreeLieAlgebras})
-\mike{do all of these references call it the `eulerian idempotent'?  If not, take note here}
+%\cite[\S 3]{GERSTENHABER1991263},\cite[\S 4.5.2]{loday2013cyclic},\cite[\S 3.2]{Reutenauer-FreeLieAlgebras}, )
 \[
 \mathbf{e}(x) = x - \frac{1}{2}\mu \circ \Delta_{+}(x) + \frac{1}{3} \mu^{(2)} \circ \Delta_{+}^{(2)}(x) - \cdots 
 \]
@@ -1167,10 +1212,10 @@ and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k^{th}$
 composition of the multiplication and comultiplication maps, respectively.
 By associativity and coassociativity of the Hopf algebra, these maps are well defined.
 
-Aguiar and Sottile use the eulerian idempotent to produce primitive
-generators for $\mathcal{H}_{HO}$ in~\cite[Theorem 3.4]{aguiar2005cocommutative}, as do
-Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite[text]{LM11}. We will prove this method holds for any \FGCCHA.
-\lucas{TODO: talk to Aaron Lauve next week about this.}
+Aguiar and Sottile use the Eulerian idempotent to produce primitive
+generators for $\mathcal{H}_{HO}$ in~\cite{aguiar2005cocommutative}, as do
+Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite{LM11}. 
+We will use this method holds for any \FGCCHA.
 
 \begin{lemma}[{\cite[Lemma 22]{PR04}}]
 \label{lemma:primitive generators}
@@ -1181,18 +1226,18 @@ Then the graded set
 \]
 is a complete set of primitive generators of $H$.
 \end{lemma}
-\eric{I found a paper which proves this exactly - Lemma 22 of Patras, Reutenauer - On Descent Algebras and Twisted Bialgebras \url{https://reutenauer.math.uqam.ca/wp-content/uploads/2024/05/Twisted-bialgebras-compresse.pdf} }
-\begin{proof}
-    For all $k \geq 2$ and $x \in X$, the term 
-    \[
-    \frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x)
-    \]
-    is in the space $H^{+2}$. Then we have
-    \[
-    \mathbf{e}(x) = x + \sum_{k \geq 2}\frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x),
-    \]
-    hence $\mathbf{e}(x) + H^{+2} = x + H^{+2}$. Because $X$ descends to a basis for $H^+/H^{+2}$, so must $\mathbf{e}(X)$, and by Proposition \ref{prop:indecomposable generators}, $\mathbf{e}(X)$ freely generates $H$.
-\end{proof}
+%\eric{I found a paper which proves this exactly - Lemma 22 of Patras, Reutenauer - On Descent Algebras and Twisted Bialgebras \url{https://reutenauer.math.uqam.ca/wp-content/uploads/2024/05/Twisted-bialgebras-compresse.pdf} }
+%\begin{proof}
+%    For all $k \geq 2$ and $x \in X$, the term 
+%    \[
+%    \frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x)
+%    \]
+%    is in the space $H^{+2}$. Then we have
+%    \[
+%    \mathbf{e}(x) = x + \sum_{k \geq 2}\frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x),
+%    \]
+%    hence $\mathbf{e}(x) + H^{+2} = x + H^{+2}$. Because $X$ descends to a basis for $H^+/H^{+2}$, so must $\mathbf{e}(X)$, and by Proposition \ref{prop:indecomposable generators}, $\mathbf{e}(X)$ freely generates $H$.
+%\end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
     Let us fix $\vec{G} = \biguplus_{n \geq 1} \vec{G}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$.
@@ -1402,7 +1447,7 @@ Then because $f$ induces a surjection $H_{n} / H_{n}^{+2} \to K_{n} / K_{n}^{+2}
 \[
 f(x^{(n)}_{i}) = \begin{cases} y^{(n)}_{i} & \text{if $i \le b_{n}$} \\ 0 & \text{otherwise.} \end{cases}
 \]
-By definition, the eulerian idempotent has the property that $f \circ \mathsf{e} = \mathsf{e} \circ f$, so we can assume that we have chosen primitive $x^{(n)}_{i}$ by possibly replacing each $x^{(n)}_{i}$ with $\mathsf{e}(x^{(n)}_{i})$ as we did with the $y^{(n)}_{i}$.
+By definition, the Eulerian idempotent has the property that $f \circ \mathsf{e} = \mathsf{e} \circ f$, so we can assume that we have chosen primitive $x^{(n)}_{i}$ by possibly replacing each $x^{(n)}_{i}$ with $\mathsf{e}(x^{(n)}_{i})$ as we did with the $y^{(n)}_{i}$.
 
 Finally, repeat this construction for all $n \ge 1$.  By Proposition~\ref{prop:indecomposable generators} we have $X = \biguplus_{n \ge 1} X^{(n)} \in \OPG(H)$ and $Y = \biguplus_{n \ge 1} Y^{(n)} \in \OPG(K)$, and by construction $f = f^{X}_{Y}$.
 \end{proof}
