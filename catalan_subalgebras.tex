@@ -761,7 +761,6 @@ The Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} states there is a Hopf algebr
 \mathcal{P}(H) \ni x & \mapsto&  x.
 \end{array}
 \]
-\lucas{See the paper \url{https://arxiv.org/pdf/2112.08434} for explanation on CMM v.s. MM v.s. CKGMM naming conventions}
 
 \begin{proof}[Proof of Proposition~\ref{prop:SequencesAsHopfStructures}]
 Let $\vec{h} = \vecdim(H)$, $\vec{a} = \veccard(X)$, and $\vec{p} = \vecdim(\mathcal{P}(H))$.  We will show that $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{h, p}(\vec{h})$, from which the claim follows.  
@@ -999,6 +998,8 @@ This begins with Aliniaeifard and Thiem's result.
 Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vecdim(G)$.
 \end{theorem}
 
+\lucas{Consider rewording}{\color{red} With discussions with people who work in Hopf algebra we've come to the conclusion that this result may have been known implicitly prior to Aliniaeifard and Thiem's publication.  However, given the way results are stated in the literature, it does not seem to be used explicitly; see Example~\ref{example:hopf_algebras_of_permutations}.}
+
 We consider here the question of determining which sequences $\vec{h} \in \NN^{\ZZ_+}$
 appear as the graded dimension of an \FGCCHA.  In fact,
 we go further by identifying an explicit representative of each isomorphism class of \FGCCHA.  
@@ -1026,6 +1027,19 @@ Similarly, $\vec{p} \in \NN^{\ZZ_{+}}$ is the dimension sequence for $\mathcal{P
 \end{theorem}
 
 We prove the theorem in Section~\ref{sec:classificationproof} following additional examples and results. 
+
+\begin{example}
+\label{example:hopf_algebras_of_permutations}
+\textit{A cocommutative Hopf algebra on permutations.}
+    Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
+    Let $\dot{\mathfrak{S}}$ denote the set of indecomposable permutations.  Then $\vec{a}$ is equal to $\veccard(\dot{\mathfrak{S}})$~\cite[A003319]{OEIS}.  
+    By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA} $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.
+    Viewing each permutation as a word in $\NN$, the product is shifted concatenation of permutations, and the coproduct is defined such that every indecomposable permutation is primitive.
+    
+    There are numerous \FGCCHAs with graded dimension $n!$ in the literature that have superficially different presentations.  
+    This includes the Hopf algebras of heap ordered trees and permutation in~\cite{GL09}, the dual of the associated graded of the Malvenuto--Reutenauer Hopf algebra of permutations~\cite{aguiar2005cocommutative}, the Hopf algebra of permutations $\mathbf{\mathfrak{S}Sym}$ defined in~\cite[\S 3]{HNT08}, and the Hopf algebra of permutations ($\mathbb{K}\mathfrak{S}$) from~\cite[\S 5]{Li15}.
+    The papers~\cite{aguiar2005cocommutative, GL09, HNT08, Li15} construct explicit isomorphisms between these Hopf algebras, and indeed by Theorem~\ref{thm:AT}, they are all isomorphic to $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$.
+    \end{example}
 
 %We conclude by giving an alternative sequence-based characterization of
 %\FGCCHAs which follows as a corollary of
@@ -1101,6 +1115,7 @@ The rest of the section concerns the technical question of explicitly realizing 
 \begin{definition}
 \label{def:OPG}
 \lucas{TODO: change the X and Y's in OPG to be a different letter}
+\lucas{Change notation to reflect symbols for OPG: $\vec{A}$ and $\vec{B}$}
 For an \FGCCHA $H$, an \emph{ordered primitive generating set} is a sequence of tuples\lucas{Is the term ``ordered set'' acceptable?  I like it more.}
 \[
 \vec{G} = \Big(\vec{G}^{(n)} = (g_{1}^{(n)}, g_{2}^{(n)}, \ldots, g_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
@@ -1128,7 +1143,7 @@ Let $H$ be an \FGCCHA with $\vec{h} = \vecdim(H)$.  Then writing $\vec{a} = \phi
 \phi & \mapsto & \phi(X_{\vec{a}}) \\
 \end{array}
 \]
-and 
+and \lucas{Change $A^{(n)}$ to $M^{(n)}$, in light of notation change for $\OPG(H)$}
 \[
 \begin{array}{rcl}
 \OPG(H) &\leftrightarrow& \left\{ \begin{array}{c}
@@ -1325,29 +1340,6 @@ Then immediately $\phi_{\vec{G}}$ is an isomorphism and $\phi_{\vec{G}}(X_{\vec{
 \subsection{Examples that need a home}
 
 \begin{example}
-
-
-
-\textit{A cocommutative Hopf algebra on permutations.}
-
-
-
-\lucas{Add citations to other $n!$ \FGCCHAs: -
-Grossman Larson ``Hopf algebras of heap-ordered trees and permutations'' \cite{GL09},
-Teresa X.S. Li ``The monomial basis and the Q-basis of the Hopf algebra of parking functions'' \cite{Li15},
-``Commutative combinatorial Hopf algebras'' by Novelli and Thibon (dual) \cite{HNT08},
-and the Bergeron one}
-\lucas{TODO: cut this example down on detail, add references to the \FGCCHA papers where this appears: Mike says it may appear in two, Bergeron and possibly one other.  If there are good connections, we can keep it after Theorem~\ref{thm:a sequence}}
-
-    Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
-    Then $\vec{a}$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$, which we will denote by $\dot{\mathfrak{S}}$.  By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA} $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.
-    Viewing each permutation as a word in $\NN$, the product is shifted concatenation of permutations, and the coproduct is defined such that every indecomposable permutation is primitive.
-    
-    There are numerous \FGCCHA structures on permutations in the literature, such as $k\mathcal{T}$ and $k\mathfrak{S}$~\cite{GL09}, $\mathrm{gr}(\mathfrak{S}Sym)^*$~\cite{aguiar2005cocommutative}, $\mathbf{\mathfrak{S}Sym}$~\cite{HNT08}, and $\mathbb{K}\mathfrak{S}$~\cite{Li15}.
-    By Theorem~\ref{thm:AT}, they are all isomorphic to $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$.
-    \end{example}
-
-\begin{example}
 \lucas{TODO: This is our OPG Example~\ref{ex:OPGexample}, up to some re-writing and adaptation!}
     The \FGCCHA $\mathbf{CQSym}$ introduced in ~\cite{NT05} has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$, and is freely generated by $\{\mathbf{P}^{\pi}:\pi \text{ is atomic and non-crossing}\}$~\cite[Proposition 5.2]{NT05}.
 
@@ -1361,7 +1353,8 @@ and the Bergeron one}
 \end{example}
 
 \section{Classifying surjections between \FGCCHAs}
-
+\lucas{Change notation to reflect symbols for OPG: $\vec{A}$ and $\vec{B}$}
+\lucas{Change notation for $H^{+2}$ to $H^{2}_{+}$.}
 We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
 Let $X \in \OPG(H)$ and $Y \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(X)$ and $\vec{b} = \veccard(Y)$. 
 If $\vec{a} \ge \vec{b}$, projecting from $X$ to $Y$ gives a surjective homomorphism:
