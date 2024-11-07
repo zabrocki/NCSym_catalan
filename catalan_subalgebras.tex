@@ -1254,7 +1254,7 @@ is a complete set of primitive generators of $H$.
     to the same isomorphism. To show surjectivity, consider an arbitrary $\vec{K} \in \OPG(H)$.
     Define $\phi_{\vec{K}}:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ by algebraically extending
     the mapping of generators $\phi_{\vec{K}}:g_{i}^{(n)} \mapsto k_i^{(n)}$.
-    Then it is clear that $\phi_{\vec{K}}$ is an isomorphism and $\phi_{\vec{K}}(\vec{G}) = \vec{K} \in \OPG(H)$.
+    Then immediately $\phi_{\vec{K}}$ is an isomorphism and $\phi_{\vec{K}}(\vec{G}) = \vec{K} \in \OPG(H)$.
 
     We now prove the second statement of the theorem.
     \mike{what is the second statement of the theorem precisely?  I see one statement}
@@ -1319,24 +1319,12 @@ and the Bergeron one}
 \lucas{TODO: cut this example down on detail, add references to the \FGCCHA papers where this appears: Mike says it may appear in two, Bergeron and possibly one other.  If there are good connections, we can keep it after Theorem~\ref{thm:a sequence}}
 
     Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
-    Then $\vec{a}$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$.  By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA} $H$ of graded dimension $n!$.
+    Then $\vec{a}$ corresponds to~\cite[A003319]{OEIS} which counts the number of indecomposable permutations of $[n]$, which we will denote by $\dot{\mathfrak{S}}$.  By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA} $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.
+    Viewing each permutation as a word in $\NN$, the product is shifted concatenation of permutations, and the coproduct is defined such that every indecomposable permutation is primitive.
     
-The Hopf algebra $H$ appears in the literature a number of times.  Li~\cite{Li15} 
-    
-    , which we will construct explicitly.
-
-    Let (placeholder) be the graded vector space spanned by permutations of $[n]$ in degree $n$. We will denote by $\pi = \pi_1\pi_2\cdots\pi_n$ the permutation of $[n]$ mapping $m \mapsto \pi_m$. For permutations $\sigma = \sigma_1\sigma_2\cdots\sigma_n$ of $[n]$ and $\tau = \tau_1\tau_2\cdots\tau_k$ of $[k]$, we define their concatenation product to be the permutation of $[n+k]$, 
-    \[
-    \sigma |\tau = \sigma_1\sigma_2\cdots\sigma_n(\tau_1 + n)(\tau_2+n)\cdots(\tau_k+n)
-    \]
-    which gives () the structure of a graded algebra. 
-    
-    The \textit{indecomposable permutations} are the permutations $\pi$ which cannot be written as the concatenation product of two non-trivial permutations, hence they are free generators for (). We now define the coproduct by declaring
-    \[
-    \Delta(\iota) = 1 \otimes \iota + \iota \otimes 1
-    \]
-    for all indecomposable permutations $\iota$, and extending algebraically. Under this coproduct () is endowed with the structure of a \textsf{FGCCHA}, with graded dimension $n!$.
-\end{example}
+    There are numerous \FGCCHA structures on permutations in the literature, such as $k\mathcal{T}$ and $k\mathfrak{S}$~\cite{GL09}, $\mathrm{gr}(\mathfrak{S}Sym)^*$~\cite{aguiar2005cocommutative}, $\mathbf{\mathfrak{S}Sym}$~\cite{HNT08}, and $\mathbb{K}\mathfrak{S}$~\cite{Li15}.
+    By Theorem~\ref{thm:AT}, they are all isomorphic to $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$.
+    \end{example}
 
 \begin{example}
 \lucas{TODO: This is our OPG Example~\ref{ex:OPGexample}, up to some re-writing and adaptation!}
