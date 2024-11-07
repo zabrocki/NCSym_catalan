@@ -327,7 +327,7 @@ This interpretation will provide useful motivation here:
 \end{itemize}
 
 To define our sequences, we make use of the fact---recorded in Proposition~\ref{prop:sequences}
-below---that any formal power series in $\QQ[[t]]$ with constant term $1$
+below---that any formal power series in $\QQ[\![t]\!]$ with constant term $1$
 can be expressed in three equivalent ways,
 \begin{equation}
 \label{eq:gf_relation}
@@ -336,7 +336,7 @@ can be expressed in three equivalent ways,
 which determines a triple of sequences: $(\vec{h}, \vec{a}, \vec{p})$ with $\vec{h} = (h_{1}, h_{2}, \ldots)$, $\vec{a} = (a_{1}, a_{2}, \ldots)$, and $\vec{p} = (p_{1}, p_{2}, \ldots)$.
 
 \begin{example}
-Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \QQ[[t]]$, so that $\vec{h} = (2, 3, 4, \ldots)$.
+Take $f(t) = 1 + 2t + 3 t^{2} + \cdots \in \QQ[\![t]\!]$, so that $\vec{h} = (2, 3, 4, \ldots)$.
 Then $f(t)$ is the power series,
 \[
 f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
@@ -1005,7 +1005,7 @@ we go further by identifying an explicit representative of each isomorphism clas
 Recall the free graded Lie algebra from Definition~\ref{defn:freelie} and for each sequence $\vec{a} \in \NN^{\ZZ_{+}}$, let
 \begin{equation}
 \label{eq:La}
-\mathfrak{L}(\vec{a}) = \mathfrak{L}(X_{\vec{a}}) \qquad\text{for}\qquad X_{\vec{a}} = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n}\}.
+\mathfrak{L}(\vec{a}) = \mathfrak{L}(X_{\vec{a}}) \qquad\text{where}\qquad X_{\vec{a}} = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n}\}.
 \end{equation}
 Further recall the map $\phi_{h, a}$ from
 Definition~\ref{defn:sequencetransfer} and the universal enveloping
@@ -1025,7 +1025,7 @@ In particular, $\vec{h} \in \NN^{\ZZ_+}$ is the dimension sequence of an \FGCCHA
 Similarly, $\vec{p} \in \NN^{\ZZ_{+}}$ is the dimension sequence for $\mathcal{P}(H)$ of an \FGCCHA $H$ if and only if $\phi_{p, a}(\vec{p}) \in \NN^{\ZZ_{+}}$.
 \end{theorem}
 
-We prove the theorem in subsection~\ref{sec:classificationproof} following additional examples and results. 
+We prove the theorem in Section~\ref{sec:classificationproof} following additional examples and results. 
 
 %We conclude by giving an alternative sequence-based characterization of
 %\FGCCHAs which follows as a corollary of
@@ -1101,7 +1101,7 @@ The rest of the section concerns the technical question of explicitly realizing 
 \begin{definition}
 \label{def:OPG}
 \lucas{TODO: change the X and Y's in OPG to be a different letter}
-For an \FGCCHA $H$, an \emph{ordered primitive generating set} is a sequence of tuples 
+For an \FGCCHA $H$, an \emph{ordered primitive generating set} is a sequence of tuples\lucas{Is the term ``ordered set'' acceptable?  I like it more.}
 \[
 \vec{G} = \Big(\vec{G}^{(n)} = (g_{1}^{(n)}, g_{2}^{(n)}, \ldots, g_{a_{n}}^{(n)})\Big)_{n = 1}^{\infty}
 \qquad\text{with}\qquad
@@ -1125,7 +1125,7 @@ Let $H$ be an \FGCCHA with $\vec{h} = \vecdim(H)$.  Then writing $\vec{a} = \phi
 \[
 \begin{array}{rcl}
 \{\text{isomorphisms $\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$}\} &\leftrightarrow& \OPG(H) \\
-\phi & \mapsto & \phi(X) \\
+\phi & \mapsto & \phi(X_{\vec{a}}) \\
 \end{array}
 \]
 and 
@@ -1139,9 +1139,7 @@ and
 \]
 \end{theorem}
 
-The proof of Theorem~\ref{thm:OPGmaps} is given in Section~\ref{sec:OPGproof}.
-
-
+The proof of Theorem~\ref{thm:OPGmaps} is given in Section~\ref{sec:OPGproof}.  
 As we do not explicitly describe our bijection, the second part of Theorem~\ref{thm:OPGmaps} should be read as a statement about how ``big'' the set $\OPG(H)$ is.  
 Realizing our bijection requires one to make a rather complicated choice of basis for $\mathcal{P}(H)$, which we explain fully in the proof.  
 However, we can illustrate the bijection concretely with a small example.  
@@ -1213,7 +1211,7 @@ implies that $H \cong \mathcal{U}(\mathfrak{L}(\phi_{h, a}(\vec{h})))$
 We now consider the problem of explicitly constructing isomorphisms between \FGCCHAs via the set $\OPG(H)$ defined at the beginning of the section.  Our proofs in this section and the next will make use of the subspaces
 \[
 H_{+} = \bigoplus_{n \geq 1} H_n
-\text{ and } 
+\qquad\text{and}\qquad 
 H^{2}_{+} = \mu(H_{+} \otimes H_{+}).
 \]
 The space $H^{2}_{+}$ is a graded subspace of $H$ with
@@ -1226,11 +1224,11 @@ By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $
 \[
 \dim(H_{n}/H_{n}^{+2}) = |X^{(n)}|.
 \]
-There is a further relation between the quotient $H^+/H^{+2}$ and generators of $H$, proven in \cite{F23}.
+There is a further relation between the quotient $H_{+}/H^{2}_{+}$ and generators of $H$, proven in \cite{F23}.
 
 \begin{proposition}[{\cite[Proposition 2.2]{F23}}]
 \label{prop:indecomposable generators}
-If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A^{+}/A^{+2}$, then $X$ freely generates $A$.
+If $A$ is a free graded connected algebra, and $X \subseteq A$ descends to a basis for $A_{+}/A^{2}_{+}$, then $X$ freely generates $A$.
 \end{proposition}
 
 We will also make use of the \emph{Eulerian idempotent} (see \cite[\S 1.4]{aguiar2005cocommutative} or \cite[\S 4.5.2]{loday2013cyclic})
@@ -1244,9 +1242,8 @@ and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k^{th}$
 composition of the multiplication and comultiplication maps, respectively.
 By associativity and coassociativity of the Hopf algebra, these maps are well defined.
 
-Aguiar and Sottile use the Eulerian idempotent to produce primitive
-generators for $\mathcal{H}_{HO}$ in~\cite{aguiar2005cocommutative}, as do
-Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite{LM11}. 
+Aguiar and Sottile use the Eulerian idempotent to produce primitive generators for $\mathcal{H}_{HO}$ in~\cite{aguiar2005cocommutative}, as do Novelli and Thibon for $\mathbf{CQSym}$ in~\cite[\S 5]{NT05}. 
+Lauve and Mastnak use a related primitive idempotent to produce primitive generators for $\mathsf{NCSym}$ in~\cite{LM11}. 
 We will use this method holds for any \FGCCHA.
 
 \begin{lemma}[{\cite[Lemma 22]{PR04}}]
@@ -1269,42 +1266,34 @@ is a complete set of primitive generators of $H$.
 %    \mathbf{e}(x) = x + \sum_{k \geq 2}\frac{(-1)}{k}^{k-1}\mu^{(k-1)} \circ \Delta_{+}^{(k-1)}(x),
 %    \]
 %    hence $\mathbf{e}(x) + H^{+2} = x + H^{+2}$. Because $X$ descends to a basis for $H^+/H^{+2}$, so must $\mathbf{e}(X)$, and by Proposition \ref{prop:indecomposable generators}, $\mathbf{e}(X)$ freely generates $H$.
-%\end{proof}
+%\end{proof
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
-    Let us fix $\vec{G} = \biguplus_{n \geq 1} \vec{G}^{(n)} \in \OPG(\mathcal{U}(\mathfrak{L}(\vec{a}))$.
-    For a graded Hopf algebra isomorphism $\phi:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$,
-    it is clear that $\phi(\vec{G})$ is a set of free homogeneous generators for $H$.
-    We may induce an ordering on $\phi(\vec{G})$ from the ordering on $\vec{G}$, so that 
-    \[
-    \vv{\phi(\vec{G}^{(n)})} = \left(\phi\left(g_1^{(n)}\right), \phi\left(g_2^{(n)}\right), \ldots, \phi\left(g_{a_n}^{(n)}\right)\right),
-    \]
-    hence $\phi(\vec{G})$ is a uniquely determined member of $\OPG(H)$.
+We first show that the map which sends a the graded Hopf algebra isomorphism $\phi: \mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ to the ordered set
+\[
+\phi(X_{\vec{a}}) = \biguplus_{n \ge 0} \big( \phi(x_{1}^{n}), \phi(x_{2}^{(n)}), \ldots, \phi(x_{a_{n}}^{(n)}) \big) \in \OPG(H)
+\]
+is a bijection.  The first step is to observe that this map is well-defined: since $\phi$ is an isomorphism the set $\phi(X_{\vec{a}})$ must freely generate $H$, and since $\phi$ is graded these generators are homogeneous.  
+The injectivity of the assignment $\phi \mapsto \phi(X_{\vec{a}})$ follows from the fact that any two algebra morphisms which agree on a generating set must be equal.  
+For surjectivity, consider an arbitrary $\vec{G} \in \OPG(H)$ and define $\phi_{\vec{G}}:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ by algebraically extending the mapping of generators $\phi_{\vec{G}}: x_{i}^{(n)} \mapsto g_i^{(n)}$.
+Then immediately $\phi_{\vec{G}}$ is an isomorphism and $\phi_{\vec{G}}(X_{\vec{a}}) = \vec{G} \in \OPG(H)$.
 
-    The assignment $\phi \mapsto \phi(\vec{G})$ is injective,
-    because any two \FGCCHA isomorphisms equal on a set of generators extend
-    to the same isomorphism. To show surjectivity, consider an arbitrary $\vec{K} \in \OPG(H)$.
-    Define $\phi_{\vec{K}}:\mathcal{U}(\mathfrak{L}(\vec{a})) \to H$ by algebraically extending
-    the mapping of generators $\phi_{\vec{K}}:g_{i}^{(n)} \mapsto k_i^{(n)}$.
-    Then immediately $\phi_{\vec{K}}$ is an isomorphism and $\phi_{\vec{K}}(\vec{G}) = \vec{K} \in \OPG(H)$.
-
-    We now prove the second statement of the theorem.
-    \mike{what is the second statement of the theorem precisely?  I see one statement}
-    Recall from Definition~\ref{defn:freelie} the free Lie algebra $\mathfrak{L}(X)$ on a graded set $X$.  
-    By \cite[Prop. 2.4]{F23},
-    for any $G \in \OPG(H)$ we have $\mathcal{P}(H) \cong \mathfrak{L}(G)$.
-    By definition, $\mathfrak{L}(G) = \CC G \oplus [\mathfrak{L}(G),\mathfrak{L}(G)]$, therefore
+    We now prove that the set $\OPG(H)$ is in bijection with sequences $(A^{(1)}, A^{(2)}, \ldots)$ of matrix $A^{(n)} \in \mathrm{Mat}_{a_{n} \times p_{n}}(\CC)$ with the property that $(A^{(n)}_{i, j})_{1 \le i, j \le a_{n}}$ has full rank.  
+    To this end, fix an element $G \in \OPG(H)$ and fix a homogeneous basis $\biguplus_{n \geq 1}\{v_1^{(n)},v_2^{(n)},\ldots,v_{p_n - a_n}^{(n)}\}$ of $[\mathcal{P}(H),\mathcal{P}(H)]$.  
+    \lucas{TODO: define bracket subspace, add citation for this fact}
+    Recall from Definition~\ref{defn:freelie} the free Lie algebra $\mathfrak{L}(X)$ on a graded set $X$, and that by \cite[Prop. 2.4]{F23}, we have $\mathcal{P}(H) \cong \mathfrak{L}(G)$.  
+    Moreover, $\mathfrak{L}(G) = \CC G \oplus [\mathfrak{L}(G),\mathfrak{L}(G)]$, therefore
     \[
         \CC G \cong \mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)].
     \]
-    \lucas{TODO: define bracket subspace, add citation for this fact}
-    Fixing $G \in \OPG(H)$, we can then interpret an arbitrary choice of $S \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. Each homogeneous component $\vec{Y}^{(n)}$ then has the form
+    We can then interpret an arbitrary choice of $S \in \OPG(H)$ as some homogeneous change of basis of the quotient space $\mathcal{P}(H)/[\mathcal{P}(H),\mathcal{P}(H)]$ relative to $X$. \lucas{I'm not sure I see what this means.}
+    Each homogeneous component $\vec{Y}^{(n)}$ then has the form
     \[
         \vec{S}^{(n)} = M^{(n)}\vec{G}^{(n)} + \vec{B}^{(n)},
     \]
     for some $M^{(n)} \in \GL(a_n,\CC)$ and $\vec{B}^{(n)} = \left(b_1^{(n)},b_2^{(n)},\ldots,b_{a_n}^{(n)}\right)$, for some $b_i^{(n)} \in [\mathcal{P}(H),\mathcal{P}(H)]_n$. 
     
-    Let us fix a homogeneous basis $\biguplus_{n \geq 1}\{v_1^{(n)},v_2^{(n)},\ldots,v_{p_n - a_n}^{(n)}\}$ of $[\mathcal{P}(H),\mathcal{P}(H)]$. Then $\vec{B}^{(n)}$ can be identified with an $a_n$ by $p_n-a_n$ matrix $K^{(n)}$, such that $b_i^{(n)} = \sum_{j = 1}^{p_n - a_n}K_{ij}^{(n)}v_j^{(n)}$. Then we define the $a_n$ by $p_n$ matrix
+    Let us fix . Then $\vec{B}^{(n)}$ can be identified with an $a_n$ by $p_n-a_n$ matrix $K^{(n)}$, such that $b_i^{(n)} = \sum_{j = 1}^{p_n - a_n}K_{ij}^{(n)}v_j^{(n)}$. Then we define the $a_n$ by $p_n$ matrix
     \[
     A^{(n)} = \Bigl[M^{(n)} \big| K^{(n)}\Bigr]
     \]
