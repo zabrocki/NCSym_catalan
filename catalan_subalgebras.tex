@@ -88,7 +88,7 @@
 We start with three questions:
 \begin{enumerate}
 \item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
-$\{ b_\pi :  \text{for $pi$ non-(crossing or nesting)} \}$
+$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
 is a Hopf subalgebra of dimension Catalan?
 
 \item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
@@ -97,7 +97,30 @@ is a Hopf subalgebra of dimension Catalan?
 
 \end{enumerate}
 
-Checking answers to (1) by computer, we found many bases seemed to give us Hopf subaglebras with the right dimension (transcribe meeting notes from May 13).  However, weren't sure if these were isomorphic or not.
+Checking answers to (1) by computer, we found many bases seemed
+to give us Hopf subaglebras with the right dimension
+(transcribe meeting notes from May 13).
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+basis name&
+non-crossing&non-nesting\\
+\hline
+$\chi$&False&False\\
+$\bf{q}$&True&True\\
+$m$&False&False\\
+$e$&True&False\\
+$h$&True&False\\
+$p$&True&True\\
+$\rho$&False&False\\
+$\bf{x}$&False&False\\
+\hline
+\end{tabular}\mike{if we keep this table, citations for the bases,
+e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.}
+\end{center}
+
+However, weren't sure if these were isomorphic or not.
 
 In order to answer (2), we needed to use structural properties of $\mathsf{NCSym}$.  
 In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
