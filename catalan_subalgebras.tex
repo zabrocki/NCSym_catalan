@@ -1433,20 +1433,21 @@ Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
 \lucas{Change notation to reflect symbols for OPG: $\vec{A}$ and $\vec{B}$}
 \lucas{Change notation for $H^{+2}$ to $H^{2}_{+}$.}
 We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
-Let $X \in \OPG(H)$ and $Y \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(X)$ and $\vec{b} = \veccard(Y)$. 
-If $\vec{a} \ge \vec{b}$, projecting from $X$ to $Y$ gives a surjective homomorphism:
+Let $\vec{A} \in \OPG(H)$ and $\vec{B} \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(\vec{A})$ and $\vec{b} = \veccard(\vec{B})$. 
+If $\vec{a} \ge \vec{b}$, projecting from $\vec{A}$ to $\vec{B}$ gives a surjective homomorphism:
 \lucas{Group TODO: how do we feel about this notation}
 \begin{equation}
 \label{eq:defaultsurjection}
 \begin{array}{rcl}
-f^{X}_{Y}: H & \to & K \\[1ex]
-x^{(n)}_{i} & \mapsto & \begin{cases}
-y^{(n)}_{i} & \text{for $1 \le i \le b_{n}$} \\
+f^{\vec{A}}_{\vec{B}}: H & \to & K \\[1ex]
+\alpha^{(n)}_{i} & \mapsto & \begin{cases}
+\beta^{(n)}_{i} & \text{for $1 \le i \le b_{n}$} \\
 0 & \text{otherwise}
 \end{cases}
 \end{array}
 \end{equation}
-where $x^{(n)}_{i}$ and $y^{(n)}_{i}$ denote the $i$th element of the degree $n$ parts of $X$ and $Y$, respectively.  
+where $\alpha^{(n)}_{i}$ and $\beta^{(n)}_{i}$ denote the
+$i$th element of the degree $n$ parts of $\vec{A}$ and $\vec{B}$, respectively.  
 We find that this construction actually accounts for all surjections between \FGCCHAs.
 
 \begin{theorem}
