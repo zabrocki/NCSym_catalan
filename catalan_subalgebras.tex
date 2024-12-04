@@ -1265,9 +1265,9 @@ The space $H^{2}_{+}$ is a graded subspace of $H$ with
 (H^{2}_{+})_{n} = \bigoplus_{\substack{\alpha \vDash n \\ \alpha \neq (n)}}
 H_{\alpha_{1}} H_{\alpha_{2}}\cdots H_{\alpha_{\ell}} \subseteq H_{n}.
 \end{equation}
-By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/H_{n}^{+2}$, and therefore for any graded generating set $\vec{A} = \biguplus_{n \ge 1} \vec{A}^{(n)}$ of $H$, 
+By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $n$ generators of $H$ descend to a basis of $H_{n}/ (H^{2}_{+})_{n}$, and therefore for any graded generating set $\vec{A} = \biguplus_{n \ge 1} \vec{A}^{(n)}$ of $H$, 
 \[
-\dim(H_{n}/H_{n}^{+2}) = |\vec{A}^{(n)}|.
+\dim(H_{n}/(H^{2}_{+})_{n}) = |\vec{A}^{(n)}|.
 \]
 We also use an additional relation between $H_{+}/H^{2}_{+}$ and generators of $H$ which appears in~\cite{F23}.
 
@@ -1530,11 +1530,11 @@ f: H \to K.
 For the next part of the argument, fix $n \ge 1$.  
 Recall the subspaces $(H_{+}^{2})_{n} \subseteq H_{n}$ and $(K_{+}^{2})_{n} \subseteq K_{n}$ defined in Equation~\eqref{eq:Hplusdef}, and that 
 \[
-\dim(H_{n} / (H_{n}^{+2}) = a_{n}
+\dim(H_{n} / (H^{2}_{+})_{n}) = a_{n}
 \qquad\text{and}\qquad
-\dim(K_{n} / K_{n}^{+2}) = b_{n}.
+\dim(K_{n} / (K^{2}_{+})_{n}) = b_{n}.
 \]
-As $f$ is a graded surjective algebra homomorphism, it must map $H_{n}$ onto $K_{n}$ and $H_{n}^{+2}$ onto $K_{n}^{+2}$.  
+As $f$ is a graded surjective algebra homomorphism, it must map $H_{n}$ onto $K_{n}$ and $(H^{2}_{+})_{n}$ onto $(K^{2}_{+})_{n}$.  
 Therefore $f$ induces a surjective linear transformation from $H_{n} / (H_{+}^{2})_{n}$ to $K_{n} / (K_{+}^{2})_{n}$.  
 Surjectivity implies that $a_{n} = \dim(H_{n} / (H_{+}^{2})_{n}) \ge \dim(K_{n} / (K_{+}^{2})_{n})  = b_{n}$.
 
