@@ -29,6 +29,7 @@
 \usepackage{xspace}
 \usepackage{esvect}
 \usepackage{stmaryrd}
+%\usepackage{showframe}
 
 \definecolor{darkblue}{rgb}{0.0,0,0.7} % darkblue color
 \definecolor{darkred}{rgb}{0.7,0,0} % darkred color
@@ -135,7 +136,7 @@ A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism
 \qquad\text{where}\qquad
 H = \bigoplus_{n \ge 0} H_{n}.
 \]
-We knew that all of of Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
+We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
 
 The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
 which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{} states that all
@@ -271,7 +272,7 @@ We resolve a more general version of this question in Theorem~\ref{}, and Proble
 \section{Notation}
 
 A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that $\beta_{1} + \beta_{2} + \cdots + \beta_{\ell} = n$.  
-We refer the the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
+We refer to the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
 We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
 
 We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
@@ -1014,7 +1015,7 @@ This begins with Aliniaeifard and Thiem's result.
 
 \begin{theorem}[{\cite[Theorem 4.2]{AT22}}]
 \label{thm:AT}
-Let $G$ and $H$ be \FGCCHAs.  Then $H \cong G$ if and only if $\vecdim(H) = \vecdim(G)$.
+Let $H$ and $K$ be \FGCCHAs.  Then $H \cong K$ if and only if $\vecdim(H) = \vecdim(K)$.
 \end{theorem}
 
 \lucas{Consider rewording}{\color{red} With discussions with people who work in Hopf algebra we've come to the conclusion that this result may have been known implicitly prior to Aliniaeifard and Thiem's publication.  However, given the way results are stated in the literature, it does not seem to be used explicitly; see Example~\ref{example:hopf_algebras_of_permutations}.}
@@ -1036,6 +1037,7 @@ algebra map $\mathcal{U}(-)$ defined in Section~\ref{sec:HopfAlgebra}.
 There is a bijection
 \[
 \begin{array}{rcl}
+%\mathcal{U}(\mathfrak{L}(-)):
 \left\{ \text{sequences }\vec{a} \in \NN^{\ZZ_+} \right\} & \to & \left\{ \begin{array}{c} \text{Isomorphism classes} \\ \text{of \FGCCHA} \end{array} \right\} \\[2ex]
 \vec{a} & \mapsto & \mathcal{U}(\mathfrak{L}(\vec{a}))) \\
 \phi_{h,a}(\vecdim(H)) & \mapsfrom & H
@@ -1156,7 +1158,7 @@ Let
 \]
 \end{definition}
 
-The second main result of the section is the the following.
+The second main result of the section is the following.
 
 \begin{theorem}
 \label{thm:OPGmaps}
@@ -1271,9 +1273,9 @@ By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $
 \]
 We also use an additional relation between $H_{+}/H^{2}_{+}$ and generators of $H$ which appears in~\cite{F23}.
 
-\begin{proposition}[{\cite[Proposition 2.2]{F23}}]
+\begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}]
 \label{prop:indecomposable generators}
-If $H$ is a free graded connected algebra, and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.
+If $H$ is a free graded connected algebra, and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.  If moreover $H$ is a Hopf algebra, then $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$.
 \end{proposition}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
@@ -1317,8 +1319,7 @@ Our definition depends on a choice of $\vec{A} \in \OPG(H)$ and a homogeneous ba
 \biguplus_{n \geq 1}\{v_1^{(n)},v_2^{(n)},\ldots,v_{p_n - a_n}^{(n)}\}
 \]
 of the derived subalgebra $[\mathcal{P}(H),\mathcal{P}(H)]$  (see Equation~\eqref{eq:derivedLiesubalgebra}), which we now fix.  
-By \cite[Prop. 2.4]{F23}, $\mathcal{P}(H)$ is freely generated as a Lie algebra by $\vec{A}$, so that $\mathcal{P}(H)$ is isomorphic to the free Lie algebra $\mathfrak{L}(\vec{A})$ from Definition~\ref{defn:freelie}.  
-Therefore, $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$, and the set $\{\alpha_{1}^{(n)}, \ldots, \alpha_{a_{n}}^{(n)}, v_{1}^{(n)}, \ldots, v_{p_n - a_n}^{(n)}\}$ is a basis for the degree $n$ component of $\mathcal{P}(H)$.  
+By Proposition~\ref{prop:indecomposable generators} $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$ so the set $\{\alpha_{1}^{(n)}, \ldots, \alpha_{a_{n}}^{(n)}, v_{1}^{(n)}, \ldots, v_{p_n - a_n}^{(n)}\}$ is a basis for the degree $n$ component of $\mathcal{P}(H)$.  
 For any $\vec{B} = \big((\beta_{i}^{(n)})_{i=1}^{a_{n}}\big)_{n \ge 1} \in \OPG(H)$, we define $M^{(n)}$ to be the matrix whose rows express each $\beta_{i}^{(n)}$ in this basis, and set
 \[
 \Xi(\vec{B}) = (M^{(n)})_{n \ge 1}.
@@ -1813,13 +1814,9 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 
 \section{Classifying Hopf subalgebras by primitive dimensions}
 
-Let $H$ be a free graded connected cocommutative Hopf algebra.  
-In this section we construct all the isomorphism classes of graded Hopf algebra which occur as Hopf subalgebras of $H$.
-To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ defined by
-\[
-\phi_{p, a}(\vec{p}) = \big( \sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{p_{d}}{m_{d}(\lambda)} \big)_{n = 1}^{\infty}
-\]
-and recall that for any nonnegative sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$, we write $\mathfrak{L}(\vec{a})$ for the free Lie algebra generated by $a_{n}$ elements in degree $n$ as in Equation~\eqref{eq:La}.
+Let $H$ be an \FGCCHA.  
+In this section we construct all the isomorphism classes of \FGCCHA which occur as Hopf subalgebras of $H$.
+To begin, recall the function $\phi_{p, a}$ on $\QQ^{\ZZ_+}$ from Definition~\ref{defn:sequencetransfer}, and recall that for any nonnegative sequence $\vec{a} = (a_{1}, a_{2}, \ldots)$, we write $\mathfrak{L}(\vec{a})$ for the free Lie algebra generated by the graded set $X_{\vec{a}}$ with $a_{n}$ elements in degree $n$ as in Equation~\eqref{eq:La}.
 
 \begin{theorem}
 \label{thm:subclassification2}
@@ -1828,25 +1825,30 @@ Let $H$ be a free graded connected cocommutative Hopf algebra and let $\vec{p} =
 \begin{array}{rcl}
 \left\{\begin{array}{c}
 \text{Isomorphism classes of} \\
-\text{Hopf subalgebras $G \subseteq H$}
+\text{Hopf subalgebras $K \subseteq H$}
 \end{array}\right\}
 & \leftrightarrow & 
 \left\{\begin{array}{c}
-\text{Sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which } \\
-\text{that $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$} 
+\text{Sequences $\vec{b} \in \NN^{\ZZ_{+}}$} \\
+\text{for which $\phi_{a, p}(\vec{b}) \le \vec{p}$} 
 %\\\sum_{\lambda \vdash n} (-1)^{\ell(\lambda) - 1} \prod_{d \ge 0} \binom{q_{d}}{m_{d}(\lambda)} \ge 0
-\end{array}\right\} \\[2em]
-G & \mapsto & \vecdim\big(\mathcal{P}(G)\big) \\
-\mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q}))) & \mapsfrom & \vec{q}
+\end{array}\right\} \\[1.5em]
+K & \mapsto & \phi_{h, a} \big( \vecdim(K)\big) \\
+\mathcal{U}(\mathfrak{L}(\vec{b}))) & \mapsfrom & \vec{b}
 \end{array}
 \]
 \end{theorem}
 
+\begin{remark}
+Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} imlies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
+\end{remark}
+
 The proof of Theorem~\ref{thm:subclassification2} will construct a Hopf subalgebra in $H$ isomorphic to each
-$\mathcal{U}(\mathfrak{L}(\phi_{p, a}(\vec{q})))$.
+$\mathcal{U}(\mathfrak{L}(\vec{b}))$.
 Before completing the proof we will give several motivating examples and intermediate results.
 
 \begin{example}
+\lucas{TODO: Swap the roles of a, b and h, k in this example to match the theorem's notation.}
 We illustrate a counterintuitive aspect of containment between \FGCCHAs. Let $H$ and $K$ be \FGCCHAs generated by graded sets with respective graded cardinalities $\vec{a}=(0,1,0,0,\dots)$ and $\vec{b}=(1,0,0,0,\dots)$, and further denote $\vec{h} = \vecdim(H)$ and $\vec{k} = \vecdim(K)$.
 Using Proposition~\ref{prop:sequences}, we can compute that
 \[
@@ -1856,13 +1858,14 @@ as $a_{\beta} \neq 0$ implies that $\beta = (2, \ldots, 2)$.  Similarly, we can 
 \[
 k_{n} = 1 \qquad\text{for all $n \ge 1$}.
 \]
-Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a Hopf subalgebra isomorphic to $H$.  However, Theorem~\ref{thm:subclassification2} tells us this is not the case, as $\vec{a}$ and $\vec{b}$ are incomparable.
+Therefore, $\vec{h} \le \vec{k}$, so one might expect that $K$ should contain a Hopf subalgebra isomorphic to $H$.  
+However Theorem~\ref{thm:subclassification2} tells us this is not the case: $\phi_{a, p}(\vec{a}) = \vec{a}$, $\phi_{a,p}(\vec{b}) = \vec{b}$, and $\vec{a}$ and $\vec{b}$ are incomparable.
 \end{example}
 
 \begin{example}
 \label{ex:NSymInCxy}
-We apply the theorem to our running example: let $H = \CC\langle x, y \rangle$,
-so that $\vec{p} = \vecdim(\mathcal{P}(H))$ is the sequence
+\lucas{Add pointer to the other example where $\CC\langle x, y \rangle$ appears}
+Recall the \FGCCHA $H = \CC\langle x, y \rangle$ from Example~\ref{}, so that $x$ and $y$ have degree one.  Then $\vec{p} = \vecdim(\mathcal{P}(H))$ is the sequence
 $\vec{p} = (2, 1, 2, 3, 6, 9, 18, 30,\ldots)$~\cite[A001037]{OEIS} given by 
 \[
 p_{n} = \frac{1}{n} \sum_{d | n} \mu(n/d) 2^{d}.
@@ -1872,56 +1875,56 @@ Then we can take
 \[
 \vec{q} = \vec{p} - (1, 0, 0, \ldots)
 \]
-so that clearly $\vec{p} \ge \vec{q} \ge \vec{0}$.  
+so that clearly $\vec{p} \ge \vec{q}$.  
 The sequence $\vec{q}$ is identified in~\cite[A059966]{OEIS}, and direct computation then gives that
 \[
-\phi_{p, a}(\vec{q}) = (1, 1, 1, \ldots) \ge \vec{0},
+\phi_{p, a}(\vec{q}) = (1, 1, 1, \ldots) \in \NN^{\ZZ_{+}},
 \]
 so this sequence determines a subalgebra of $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots))$
 that is freely generated by one primitive element in each degree. 
 In Example~\ref{ex:NSym}, we identified we have identified $\mathcal{U}(\mathfrak{L}(1, 1, 1, \ldots)) \cong \mathsf{NSym}$, we conclude that $H$ has a Hopf subalgebra isomorphic to $\mathsf{NSym}$.
 \end{example}
 
-We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  Recall the definition of the derived subalgebra $[L, L]$ of a graded Lie algebra $L$ from Equations~\eqref{eq:derivedLiesubalgebra}.
+We now state and prove an intermediate result in the proof of Theorem~\ref{thm:subclassification2}; the proof of the theorem follows.  Recall the definition of the derived subalgebra $[L, L]$ of a graded Lie algebra $L$ from Equation~\eqref{eq:derivedLiesubalgebra}.
 
 \begin{lemma}
 \label{lem:deriveddimension}
-Let $\vec{a} = (a_{1}, a_{2}, \ldots)$ be a sequence of nonnegative integers.  Then
+Let $\vec{a} = (a_{1}, a_{2}, \ldots) \in \NN^{\ZZ_{+}}$.  Then
 \[
-\vecdim([\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]) = \phi_{a, p}(\vec{a}) - \vec{a}.
+\vecdim([\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]) = \phi_{a, p}(\vec{a}) - \vec{a},
 \]
+or equivalently $\vec{a} = \vecdim\big(\mathfrak{L}(\vec{a})\big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]\big)$.
 \end{lemma}
 \begin{proof}
-Using the fact that $\phi_{a, p}(\vec{a}) = \vecdim(\mathfrak{L}(\vec{a}))$, it is sufficient to show that
-\[
-\vec{a} = \vecdim\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
-\]
-By definition, $\vec{a}$ enumerates a fixed choice $X$ of free homogeneous generators for $\mathfrak{L}(\vec{a})$.  
-Since free generators have no relations with lower-degree terms, the elements $X$ are linearly independent modulo the derived sub-Lie algebra $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$, so the dimension of the degree $n$ part of the quotient must be at least $a_{n}$.  
-However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ is,
-by definition, a linear combination of some element of
-$[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$
-generators, so the dimension of the quotient is at most $a_{n}$.
-\mike{TODO: Mike can we delete this? two assertions are being made in this paragraph that
-I think need to be justified: 1. the elements are lin ind mod $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$
-and 2. $r \in \mathfrak{L}(\vec{a})$ implies $r = s + t$ with 
-$s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
+Using Proposition~\ref{prop:indecomposable generators}, $ \mathfrak{L}(\vec{a}) = \CC X_{\vec{a}} \oplus [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$.  Taking the dimension vector of each space, we obtain an equivalent equation.
+%
+%Using the fact that $\phi_{a, p}(\vec{a}) = \vecdim(\mathfrak{L}(\vec{a}))$, it is sufficient to show that
+%\[
+%\vec{a} = \vecdim\left( \mathfrak{L}(\vec{a}) \big/ [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})] \right).
+%\]
+%By definition, $\vec{a}$ enumerates a fixed choice $X$ of free homogeneous generators for $\mathfrak{L}(\vec{a})$.  
+%Since free generators have no relations with lower-degree terms, the elements $X$ are linearly independent modulo the derived sub-Lie algebra $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$, so the dimension of the degree $n$ part of the quotient must be at least $a_{n}$.  
+%However, any element of homogeneous degree $n$ in $\mathfrak{L}(\vec{a})$ is,
+%by definition, a linear combination of some element of
+%$[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and the degree $n$
+%generators, so the dimension of the quotient is at most $a_{n}$.
+%\mike{TODO: Mike can we delete this? two assertions are being made in this paragraph that
+%I think need to be justified: 1. the elements are lin ind mod $[\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$
+%and 2. $r \in \mathfrak{L}(\vec{a})$ implies $r = s + t$ with 
+%$s \in [\mathfrak{L}(\vec{a}), \mathfrak{L}(\vec{a})]$ and $t$ primitive}
 \end{proof}
 
 
 \begin{proof}[Proof of Theorem~\ref{thm:subclassification2}]
-We first show that the given map is injective.  Suppose that $J$ and $K$ are Hopf subalgebras of $H$ with the property that $\vecdim(\mathcal{P}(J)) = \vecdim(\mathcal{P}(K))$.  By Proposition~\ref{prop:SequencesAsHopfStructures}, we have
-\[
-\vecdim(J) = \phi_{p, h}\big(\vecdim(\mathcal{P}(J))\big)
-\qquad\text{and}\qquad
-\vecdim(K) = \phi_{p, h}\big(\vecdim(\mathcal{P}(K))\big),
-\]
-so that $\vecdim(J) = \vecdim(K)$.  We therefore conclude by Theorem~\ref{thm:AT} that $J \cong K$.
+We first show the map $K \mapsto \phi_{h, a} \big( \vecdim(K)\big)$ is injective.  Suppose that $J$ and $K$ are Hopf subalgebras of $H$ with the property that $\phi_{h, a} \big(\vecdim(J)) = \phi_{h, a} \big(\vecdim(K))$.  
+Since $\phi_{h, a}$ is invertible by Proposition~\ref{}\lucas{TODO: insert reference} $\vecdim(J) = \vecdim(K)$.  We therefore conclude by Theorem~\ref{thm:AT} that $J \cong K$.
 
-Now, suppose that $\vec{q}$ is a sequence satisfying the conditions that $\vec{p} \ge \vec{q} \ge \vec{0}$ and $\vec{b} = \phi_{p, a}(\vec{q}) \ge \vec{0}$.  
-We will construct a Hopf subalgebra $K$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the given map is surjective, completing the proof.
+Now suppose that $\vec{b} \in \NN^{\ZZ_{+}}$ has the property that $\vec{q} = \phi_{a, p}(\vec{b}) \le \vec{p}$.  
+We will construct a Hopf subalgebra $K$ of $H$ which is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{b}))$; by Proposition~\ref{prop:sequences} this will show that the  map $K \mapsto \phi_{h, a} \big( \vecdim(K)\big)$ is surjective, completing the proof.
 
-In order to do so, we construct a tower of sub-Lie algebras 
+There is some subtlety to defining $K$.  Since we have not assumed that $a_{n} \ge b_{n}$, we cannot take $K$ to be generated by some subset of the free generators of $H$, and may have to choose elements of $H^{2}_{+}$ as generators for $K$.  
+These choices cannot always be expressed uniformly, so we resort to an inductive argument to demonstrate their existence.  
+Specifically, we construct a tower of Lie subalgebras 
 \[
 0 = L^{(1)} \subseteq L^{(2)} \subseteq L^{(3)} \subseteq \cdots \subseteq \mathcal{P}(H)
 \]
@@ -1931,47 +1934,54 @@ L^{(n)} \cong \mathfrak{L}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots).
 \]
 Taking $L^{(\infty)}$ to be the union of the $L^{(n)}$, we obtain $K$ as $\mathcal{U}(L^{(\infty)}) \subseteq \mathcal{U}(\mathcal{P}(H)) = H$.
 
-Our construction is inductive with base case $L^{(1)} = 0$.  
-Begin by assuming that $L^{(n)}$ has been constructed.  
+We proceed by induction with case case $L^{(1)} = 0$.  
+We then assume inductively that $L^{(n)}$ has been constructed.  
 By Lemma~\ref{lem:deriveddimension} and our inductive hypothesis,
 \[
 \vecdim([L^{(n)}, L^{(n)}])
  = 
 \phi_{a, p}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots) - (b_{1}, \ldots, b_{n-1}, 0, 0, \ldots).
 \]
-Considering the $n$th term, we see that $\vecdim(L^{(n)})_{n} = \vecdim([L^{(n)}, L^{(n)}])_{n}$, and we can further deduce---after a careful examination of the definition of $\phi_{a, p}$---that
-
+Thus $\vecdim([L^{(n)}, L^{(n)}])_{n}$ is equal to the $n$th term of $\phi_{a, p}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots)$, which is also equal to $\vecdim(L^{(n)})_{n}$.  
+We can further deduce---after a careful examination of the definition of $\phi_{a, p}$---that
 \begin{equation}
 \label{eq:inductivedimensionequality}
 \phi_{a, p}(b_{1}, \ldots, b_{n-1}, 0, 0, \ldots)_{n}
 =
-\phi_{a, p}(\vec{b}) - b_{n}
+\phi_{a, p}(\vec{b})_{n} - b_{n}
 =
 q_{n} - b_{n}.
 \end{equation}
 Therefore,
 \[
-\vecdim\left( \mathcal{P} \big/ [L^{(n)}, L^{(n)}] \right)_{n}
+\vecdim\left( \mathcal{P}(H) \big/ [L^{(n)}, L^{(n)}] \right)_{n}
 = p_{n} - (q_{n} - b_{n})
 = b_{n} + (p_{n} - q_{n})
 \ge b_{n}.
 \]
 
-The preceding inequality shows that we can choose $b_{n}$ linearly independent elements $\{x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}\}$ of $\mathcal{P}(H)_{n}$ which remain linearly independent modulo $[L^{(n)}, L^{(n)}]$ and define
-\[
-L^{(n+1)} = \langle L^{(n)}, x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}} \rangle.
-\]
+The preceding inequality shows that we can choose $b_{n}$ linearly independent elements $\{x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}\}$ of $\mathcal{P}(H)_{n}$ which remain linearly independent modulo $[L^{(n)}, L^{(n)}]$ and define $L^{(n+1)}$ to be the Lie algebra generated by  elements of $L^{(n)}$ as well as $x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}$.
+
+%\[
+%L^{(n+1)} = \langle L^{(n)}, x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}} \rangle.
+%\]
 Since $L^{(n+1)}$ is a sub-Lie algebra of a free Lie algebra, namely $\mathcal{P}(H)$,~\cite[Theorem 2.2]{MSZ} states that $L^{(n+1)}$ is also free.  
-Moreover, as $L^{(n+1)}$ is generated by the generators of $L^{(n)}$ and homogeneous elements of degree $n$, we deduce that
+As $L^{(n+1)}$ is generated by any generating set of $L^{(n)}$ and $b_{n}$-many homogeneous elements of degree $n$, we deduce that
 \[
 L^{(n+1)} \cong \mathfrak{L}(b_{1}, \ldots, b_{n-1}, b_{n}', 0, \ldots )
 \qquad\text{for some $b_{n}' \le b_{n}$}.
 \]
-Moreover, using Lemma~\ref{lem:deriveddimension} and the definition of $L^{(n+1)}$,
+The final step of the proof is to show that $b_{n}' = b_{n}$.  Using Lemma~\ref{lem:deriveddimension} and the definition of $L^{(n+1)}$,
 \begin{align*}
-b_{n}' &= \dim\left( L^{(n+1)}_{n} \big/ [L^{(n+1)}, L^{(n+1)}]_{n}\right) \\
-&= \dim\left(  \CC\operatorname{-span}\{x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}\} \oplus [L^{(n)}, L^{(n)}]_{n} \big/ [L^{(n)}, L^{(n)}]_{n} \right) \\
-&= b_{n}. \qedhere
+b_{n}' &= \dim\left( L^{(n+1)}_{n} \big/ [L^{(n+1)}, L^{(n+1)}]_{n}\right)% \\
+%&= \dim\left(  \CC\operatorname{-span}\{x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}\} \oplus [L^{(n)}, L^{(n)}]_{n} \big/ [L^{(n)}, L^{(n)}]_{n} \right) \\
+%&= b_{n}. \qedhere
+\end{align*}
+Then $[L^{(n+1)}, L^{(n+1)}]_{n} = [L^{(n)}, L^{(n)}]_{n}$ as $L^{(n)}$ and $L^{(n+1)}$ contain the same homogeneous elements of degree $n - 1$ and less.  Therefore,
+\begin{align*}
+ \dim\!\left( L^{(n+1)}_{n} \big/ [L^{(n+1)}, L^{(n+1)}]_{n}\right) 
+&= \dim\!\left(  \CC\operatorname{-span}\{x^{(n)}_{1}, \ldots, x^{(n)}_{b_{n}}\} \oplus [L^{(n)}, L^{(n)}]_{n} \big/ [L^{(n)}, L^{(n)}]_{n} \right) \\
+&= b_{n}.
 \end{align*}
 \end{proof}
 
