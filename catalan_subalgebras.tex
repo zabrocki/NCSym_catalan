@@ -68,6 +68,10 @@
 \newcommand{\veccard}{\overrightarrow{\operatorname{card}}}
 \newcommand{\OPG}{\operatorname{OPG}}
 
+\newcommand{\NCSym}{\mathsf{NCSym}}
+\newcommand{\Bell}{\mathbf{B}}
+\newcommand{\Catalan}{\mathbf{C}}
+
 \usepackage[colorinlistoftodos]{todonotes}
 
 \newcommand{\mike}[1]{\todo[size=\tiny,color=green!30]{#1 \\ \hfill --- Mike}}
@@ -78,34 +82,46 @@
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
 \setlength{\marginparwidth}{28mm}
 
-\title{Free, graded, connected, co-commutative Hopf algebras are integer sequences}
+\title{Free, graded, connected, co-commutative Hopf algebras as integer sequences}
 \author{}
 
 \begin{document}
 \maketitle
+\begin{abstract}
+Just \\ putting \\  something \\  here \\  to \\ take \\ up \\ space.
+\end{abstract}
 
 \section{Introduction}
 
-\lucas{hook}
+Hook, introduce $\NCSym$.  The obvious basis of $\NCSym$ is the \emph{monomial basis} whose degree-$n$ elements are
+\[
+\sum_{\beta \in S_{n} \cdot \alpha} x_{\beta_{1}} x_{\beta_{2}} \cdots x_{\beta_{n}}
+\qquad\text{for $\alpha \in \ZZ_{+}^{n}$},
+\]
+which can be uniquely indexed by the set partition in which $i$ and $j$ belong to the same part if and only if $\alpha_{i} = \alpha_{j}$.  
+Thus, the graded dimensions of $\NCSym$ are the Bell numbers $\Bell(n) = \#\{\text{set partitions of $[n]$}\}$.
+Many other bases of $\NCSym$ can be naturally indexed by set partitions, including those introduced by Rosas and Sagan~\cite{RS06} (and others?).  
 
-We start with three questions:
-\begin{enumerate}
-\item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
-$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
-is a Hopf subalgebra of dimension Catalan?
+The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?}  
+Our work on the present project began with the following natural question.
 
-\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
+\begin{problem}
+\label{problem:Catalan_hopfsub_basis}
+Given a basis $\mathcal{B} = \{b_{\pi} \;|\; \text{set partitions $\pi$} \}$ of $\NCSym$, do the subsets
+\[
+\{b_{\pi} \;|\; \text{noncrossing set partitions $\pi$} \}
+\qquad\text{or}\qquad
+\{b_{\pi} \;|\; \text{nonnesting set partitions $\pi$} \}
+\]
+span a graded Hopf subalgebra of $\NCSym$?
+\end{problem}
 
-\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
-\end{enumerate}
+Preliminary computer exploration suggested that Problem~\ref{problem:Catalan_hopfsub_basis} had a positive answer for a relatively large number of bases; see Table~\ref{table:catalan_bases}
+\mike{if we keep this table, citations for the bases, e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.} for a summary.  
+In some cases these Hopf subalgebras are obviously isomorphic, but generally the product and/or coproduct differed superficially between bases.  
+The relative abundance and diversity of these ``Catalan subalgebras'' led us to investigate another natural question.
 
-\href{mailto:zabrocki@yorku.ca}{mike}
-
-Checking answers to (1) by computer, we found many bases seemed
-to give us Hopf subaglebras with the right dimension
-(transcribe meeting notes from May 13).
-
-\begin{center}
+\begin{table}
 \begin{tabular}{|c|c|c|}
 \hline
 basis name&
@@ -120,15 +136,44 @@ $p$&True&True\\
 $\rho$&False&False\\
 $\bf{x}$&False&False\\
 \hline
-\end{tabular}\mike{if we keep this table, citations for the bases,
-e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.}
-\end{center}
+\end{tabular}
+\caption{Answers to Problem~\ref{Catalan_hopfsub_basis} for well-known bases of $\NCSym$.}
+\label{table:catalan_bases}
+\end{table}
 
-However, weren't sure if these were isomorphic or not.
+\begin{problem}
+\label{problem:Catalan_hopfsub_classify}
+Classify all Hopf subalgebras of $\NCSym$ with graded dimension  $\Catalan_{n}$.
+\end{problem}
 
-In order to answer (2), we needed to use structural properties of $\mathsf{NCSym}$.  
+
+%\newpage
+%
+%We start with three questions:
+%\begin{enumerate}
+%\item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
+%$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
+%is a Hopf subalgebra of dimension Catalan?
+%
+%\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
+%
+%\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
+%\end{enumerate}
+%
+%\href{mailto:zabrocki@yorku.ca}{mike}
+%
+%Checking answers to (1) by computer, we found many bases seemed
+%to give us Hopf subaglebras with the right dimension
+%(transcribe meeting notes from May 13).
+%
+%
+%However, weren't sure if these were isomorphic or not.
+
+In order to answer Problem~\ref{problem:Catalan_hopfsub_classify}, we needed to use structural properties of $\mathsf{NCSym}$.  
 In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
-The answers we found for $\mathsf{NCSym}$ hold in general for this class of Hopf algebra.  
+Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category, including each of the ones shown in Table~\ref{}.
+
+Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
 
 A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
 \[
@@ -136,6 +181,8 @@ A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism
 \qquad\text{where}\qquad
 H = \bigoplus_{n \ge 0} H_{n}.
 \]
+T
+
 We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
 
 The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
@@ -143,13 +190,20 @@ which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{}
 Hopf subaglerbas of an \FGCCHA are also \FGCCHAs.  This tells us that there is a unique isomorphism
 class of Catalan-dimensional Hopf subaglebra of $\mathsf{NCSym}$.
 
+These tools enable us to answer one final, much stronger, question.
+
+\begin{problem}
+\label{problem:Catalan_hopfsub_classify_all}
+Classify all Hopf subalgebras of $\NCSym$ .
+\end{problem}
+
 We then considered how we would construct all subalgebras of $\mathsf{NCSym}$
 with a given dimension sequence, or more generally for any \FGCCHA.  There are
 usually infinitely many isomorphic copies when one exists, but we describe a
 procedure for constructing all isomorphic copies of one \FGCCHA inside another
 in Section~\ref{}.
 
-We also give a necessary and sufficient condition for such a copy to exist, answering (3).  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
+We give a necessary and sufficient condition for such a copy to exist, answering Problem~\ref{problem:Catalan_hopfsub_classify_all}.  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
 
 \begin{center}
 \begin{tabular}{c|c|c}
