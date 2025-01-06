@@ -175,6 +175,14 @@ Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category
 
 Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
 
+
+
+The paper is structured as follows.  Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the relationship between the dimension of an \FGCCHA, the number of free generators, and the dimension of the Lie algebra of primitives, with Section~\ref{sec:SequencePrelims} taking on the combinatorial matter and Section~\ref{sec:HopfAlgebra} focusing on the algebraic content.  
+Section~\ref{sec:isoclassification} 
+Section~\ref{} 
+
+\newpage
+
 A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
 \[
 \vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
@@ -343,33 +351,10 @@ We resolve a more general version of this question in Theorem~\ref{}, and Proble
 %of this type.  
 %Every sequence of generators determines completely the Hopf algebra.
 
-\section{Notation}
+%\section{Notation}
+%\labe
 
-A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that $\beta_{1} + \beta_{2} + \cdots + \beta_{\ell} = n$.  
-We refer to the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
-We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
 
-We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
-$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
-of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
-that $d$ appears as a part in $\lambda$.
-
-Let $\QQ^{\ZZ_+}$ (respectively $\ZZ^{\ZZ_+}$ and $\NN^{\ZZ_+}$) denote the space of infinite sequences
-$(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of rational (respectively, integer and natural) numbers,
-i.e.~$c_{n} \in \QQ$ for all $n \ge 1$.
-Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_{2}, \ldots)$, we write
-\[
-\vec{c} \le \vec{d} 
-\qquad\text{if and only if}\qquad
-\text{$c_{n} \le d_{n}$ for all $n \ge 1$}.
-\]
-Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$
-if and only if $\vec{c}$ consists of entirely nonnegative entries.
-For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
-\[
-c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
-\]
-Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
 
 
 %Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
@@ -386,6 +371,27 @@ Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition wi
 %\]
 %\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
+
+
+\section{Combinatorics of sequences of numbers}
+\label{sec:SequencePrelims}
+
+Let $\QQ^{\ZZ_+}$ (respectively $\ZZ^{\ZZ_+}$ and $\NN^{\ZZ_+}$) denote the space of infinite sequences
+$(c_{n})_{n \ge 1} = (c_{1}, c_{2}, \ldots)$ of rational (respectively, integer and natural) numbers,
+i.e.~$c_{n} \in \QQ$ for all $n \ge 1$.
+Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_{2}, \ldots)$, we write
+\[
+\vec{c} \le \vec{d} 
+\qquad\text{if and only if}\qquad
+\text{$c_{n} \le d_{n}$ for all $n \ge 1$}.
+\]
+Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$
+if and only if $\vec{c}$ consists of entirely nonnegative entries.
+
+Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
+In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field of characteristic $0$.  
+
+However, in later sections these sequences come from an \FGCCHA $H$ and have an interpretation when they are non-negative integers.
 For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{0} = \CC$, let
 \[
 \vecdim(V) = \left( \dim(V_{n}) \right)_{n \ge 1}.
@@ -394,14 +400,6 @@ Similarly, for a graded set $X = \biguplus_{n \ge 1} X^{(n)}$, let
 \[
 \veccard(X) = \left( |X^{(n)}| \right)_{n \ge 0}~.
 \]
-
-\section{Combinatorics of sequences of numbers}
-\label{sec:SequencePrelims}
-
-Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
-In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field of characteristic $0$.
-
-However, in later sections these sequences come from an \FGCCHA $H$ and have an interpretation when they are non-negative integers.
 This interpretation will provide useful motivation here:
 \begin{itemize}
 \item $\vec{h} = (h_{1}, h_{2}, \ldots)$ will be the graded dimensions of $H$,
@@ -430,7 +428,22 @@ f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
 so the remaining sequences are $\vec{a} = (2, -1, 0, \ldots)$ and $\vec{p} = (2, 0, 0, \ldots)$.
 \end{example}
 
-We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  While these are well-known, we include a proof for the sake of completeness.
+We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  While these are well-known, we include a proof for the sake of completeness.  
+
+A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that $\beta_{1} + \beta_{2} + \cdots + \beta_{\ell} = n$.  
+We refer to the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
+We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
+
+We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
+$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
+of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
+that $d$ appears as a part in $\lambda$.
+
+For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
+\[
+c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
+\]
+Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
 
 \begin{proposition}
 \label{prop:sequences}
@@ -1083,6 +1096,7 @@ so by Proposition~\ref{prop:sequences} we have $\vec{p} = \phi_{h, p}(\vec{h})$.
 %and $\mathfrak{F}= \Phi 1 \oplus \mathfrak{M} \oplus (\mathfrak{M} \otimes \mathfrak{M}) \oplus \cdots$, and we write $\mathfrak{F}=\Phi\{x_1,\ldots,x_r\}$. The algebra $\mathfrak{F}$ is graded with $\mathfrak{M}_m=\mathfrak{M}\otimes\mathfrak{M}\otimes\cdots \otimes \mathfrak{M}$ ($m$-times) as the space of the homogeneous elements of degree $m$. A basis for this space is the set of monomials of the form $x_{i_1}x_{i_2}\cdots x_{i_m}$, $i_j=1,2,\cdots,r$; hence $\dim \mathfrak{M}_m=r^m$.
 
 \section{Characterization of \FGCCHAs by graded dimension}
+\label{sec:isoclassification}
 
 This section gives a classification of isomorphism types of \FGCCHAs via the associated integer sequences.  
 This begins with Aliniaeifard and Thiem's result.
