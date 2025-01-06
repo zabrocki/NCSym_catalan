@@ -177,9 +177,15 @@ Our results about FGCCHAs include....\lucas{this is where we explain the framewo
 
 
 
-The paper is structured as follows.  Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the relationship between the dimension of an \FGCCHA, the number of free generators, and the dimension of the Lie algebra of primitives, with Section~\ref{sec:SequencePrelims} taking on the combinatorial matter and Section~\ref{sec:HopfAlgebra} focusing on the algebraic content.  
-Section~\ref{sec:isoclassification} 
-Section~\ref{} 
+%The paper is structured as follows.  
+Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the relationship between the dimension of an \FGCCHA, the number of free generators, and the dimension of the Lie algebra of primitives. Section~\ref{sec:SequencePrelims} establishes preliminary notation about sequences, while Section~\ref{sec:HopfAlgebra} focuses on the algebraic content.  
+
+In Section~\ref{sec:isoclassification} we interpret a result by Aliniaeifard and Thiem as a characterization of \FGCCHAs by their sequence of graded dimensions, and Theorem~\ref{thm:a sequence} states that a sequence of nonnegative integers is the graded dimensions of an \FGCCHA if and only if the INVERTi transform~\cite{OEIS} of the sequence is nonnegative.  
+Theorem~\ref{thm:OPGmaps} describes an explicit construction of the isomorphisms between \FGCCHAs and a canonical representative of each isomorphism class.  
+
+In the last two sections we use the association between \FGCCHAs and sequences from Section~\ref{sec:isoclassification} to describe the structure of these objects.  
+In Section~\ref{sec:surjection}, Theorem~\ref{thm:surjection} establishes conditions under which there exists a surjective homomorphism from one \FGCCHA to another.  
+In the next section, Theorem~\ref{thm:subclassification2} states conditions under which an \FGCCHA occurs as a Hopf subalgebra of another; this classifies all Hopf subalgebras of \FGCCHAs. 
 
 \newpage
 
@@ -1249,7 +1255,10 @@ Let
 \]
 \end{definition}
 
-The second main result of the section is the following.
+We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
+We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of primitive generators of $H$.  
+The following theorem uses this relationship to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
+%The second main result of the section is the following.
 
 \begin{theorem}
 \label{thm:OPGmaps}
@@ -1504,6 +1513,7 @@ The matrix $(M^{(n)}_{i, j})_{1 \le i, j \le a_{n}}$ gives the change of basis f
 
 
 \section{Classifying surjections between \FGCCHAs}
+\label{sec:surjection}
 \lucas{Change notation to reflect symbols for OPG: $\vec{A}$ and $\vec{B}$}
 \lucas{Change notation for $H^{+2}$ to $H^{2}_{+}$.}
 We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
@@ -1927,6 +1937,7 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 %If yes, find me a different example.  If no, apply this theorem to explain why.}
 
 \section{Classifying Hopf subalgebras by primitive dimensions}
+\label{sec:subalgebras}
 
 Let $H$ be an \FGCCHA.  
 In this section we construct all the isomorphism classes of Hopf subalgebras of $H$; in particular we show that every Hopf subalgebra is an \FGCCHA satisfying a simple condition.
@@ -1954,7 +1965,7 @@ K & \mapsto & \phi_{h, a} \big( \vecdim(K)\big) \\
 \end{theorem}
 
 \begin{remark}
-Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} imlies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
+Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} implies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
 \end{remark}
 
 The proof of Theorem~\ref{thm:subclassification2} will construct a Hopf subalgebra in $H$ isomorphic to each
