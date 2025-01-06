@@ -181,8 +181,6 @@ A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism
 \qquad\text{where}\qquad
 H = \bigoplus_{n \ge 0} H_{n}.
 \]
-T
-
 We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
 
 The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
@@ -845,7 +843,7 @@ the enveloping algebra $\mathcal{U}(L)$ has a homogeneous basis
 \]
 This statement carries important information about the dimension of $\mathcal{U}(L)$, namely that 
 \[
-\vecdim(\mathcal{U}(L))_{n}= \#\{\text{multisubsets $S$ of $\{x_{i}\}$} \;|\; \sum_{z \in S} m_{z}(S) \mathsf{deg}(x) = n\},
+\vecdim(\mathcal{U}(L))_{n}= \#\{\text{multisubsets $S$ of $\{z_{i}\}$} \;|\; \sum_{z \in S} m_{z}(S) \mathsf{deg}(z) = n\},
 \]
 where $m_{z}(S)$ denotes the multiplicity of $z$ in $S$.
 
@@ -1095,7 +1093,7 @@ Let $H$ and $K$ be \FGCCHAs.  Then $H \cong K$ if and only if $\vecdim(H) = \vec
 \end{theorem}
 
 This result may not be surprising to experts in the field.  
-However, we have not found it recorded elsewhere in the literature, and in doing so~\cite{AT22} generalize a recurrent approach to comparing Hopf algebras; see Example~\ref{example:hopf_algebras_of_permutations}.
+However, we have not found it recorded elsewhere in the literature, and by stating it~\cite{AT22} generalize a recurrent approach to comparing Hopf algebras; see Example~\ref{example:hopf_algebras_of_permutations}.
 % by doing so~\cite{AT22} 
 %\lucas{Consider rewording}{\color{red} With discussions with people who work in Hopf algebra we've come to the conclusion that this result may have been known implicitly prior to Aliniaeifard and Thiem's publication.  However, given the way results are stated in the literature, it does not seem to be used explicitly; see Example~\ref{example:hopf_algebras_of_permutations}.}
 
@@ -1354,7 +1352,7 @@ We also use an additional relation between $H_{+}/H^{2}_{+}$ and generators of $
 
 \begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}]
 \label{prop:indecomposable generators}
-If $H$ is a free graded connected algebra, and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.  If moreover $H$ is a Hopf algebra, then $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$.
+If $H$ is a free graded connected algebra and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.  If moreover $H$ is a Hopf algebra, then $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$.
 \end{proposition}
 
 \begin{proof}[Proof of Theorem \ref{thm:OPGmaps}]
@@ -1595,9 +1593,10 @@ Aguiar and Sottile use the Eulerian idempotent to produce primitive generators f
 Hopf algebra of heap-ordered trees in~\cite{AS05cc},
 as do Novelli and Thibon for a Hopf algebra of dimension Catalan at each degree in~\cite[\S 5]{NT05}.
 Lauve and Mastnak use a related primitive idempotent to produce primitive generators for
-the symmetric functions in noncommuting variables in~\cite{LM11}.
-This method holds more generally for any \FGCCHA and was previously stated in the following result from \cite{PR04}.
-\lucas{Add something about Foissy's paper here!}
+the symmetric functions in noncommuting variables in~\cite{LM11}.  
+Foissy and Patras recently showed that this method holds more generally for any \FGCCHA and Lie idempotent family~\cite{FP24}, generalizing the following result of Patras and Reutenauer~\cite{PR04}.
+%This method holds more generally for any \FGCCHA and was previously stated in the following result from \cite{PR04}.
+%\lucas{Add something about Foissy's paper here!}
 
 \begin{lemma}[{\cite[Lemma 22]{PR04}}]
 \label{lemma:primitive generators}
