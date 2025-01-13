@@ -93,6 +93,37 @@ Just \\ putting \\  something \\  here \\  to \\ take \\ up \\ space.
 
 \section{Introduction}
 
+\mike{this is the part that we wrote last time.  I'm brining it to the top so that all the previous
+"versions" of the introduction are below.}
+%The paper is structured as follows.
+Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the
+relationship between the dimension of an \FGCCHA, the number of free generators,
+and the dimension of the Lie algebra of primitives. Section~\ref{sec:SequencePrelims}
+establishes preliminary notation about sequences, while Section~\ref{sec:HopfAlgebra}
+focuses on the algebraic content.
+
+In Section~\ref{sec:isoclassification} we interpret a result by
+Aliniaeifard and Thiem as a characterization of \FGCCHAs by their
+sequence of graded dimensions, and Theorem~\ref{thm:a sequence}
+states that a sequence of nonnegative integers is the graded
+dimensions of an \FGCCHA if and only if the INVERTi transform~\cite{OEIS}
+of the sequence is nonnegative.
+Theorem~\ref{thm:OPGmaps} describes an explicit construction of the
+isomorphisms between \FGCCHAs and a canonical representative of each isomorphism class.
+
+In the last two sections we use the association between \FGCCHAs
+and sequences from Section~\ref{sec:isoclassification}
+to describe the structure of these objects.
+In Section~\ref{sec:surjection}, Theorem~\ref{thm:surjection}
+establishes conditions under which there exists a surjective
+homomorphism from one \FGCCHA to another.
+In the next section, Theorem~\ref{thm:subclassification2} states
+conditions under which an \FGCCHA occurs as a Hopf subalgebra of
+another; this classifies all Hopf subalgebras of \FGCCHAs.
+
+\newpage
+
+
 Hook, introduce $\NCSym$.  The obvious basis of $\NCSym$ is the \emph{monomial basis} whose degree-$n$ elements are
 \[
 \sum_{\beta \in S_{n} \cdot \alpha} x_{\beta_{1}} x_{\beta_{2}} \cdots x_{\beta_{n}}
@@ -102,7 +133,7 @@ which can be uniquely indexed by the set partition in which $i$ and $j$ belong t
 Thus, the graded dimensions of $\NCSym$ are the Bell numbers $\Bell(n) = \#\{\text{set partitions of $[n]$}\}$.
 Many other bases of $\NCSym$ can be naturally indexed by set partitions, including those introduced by Rosas and Sagan~\cite{RS06} (and others?).  
 
-The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?}  
+The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{Stanley2015}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?} \mike{I used Stanley's Catalan book as a reference}
 Our work on the present project began with the following natural question.
 
 \begin{problem}
@@ -175,11 +206,6 @@ Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category
 
 Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
 
-
-
-The paper is structured as follows.  Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the relationship between the dimension of an \FGCCHA, the number of free generators, and the dimension of the Lie algebra of primitives, with Section~\ref{sec:SequencePrelims} taking on the combinatorial matter and Section~\ref{sec:HopfAlgebra} focusing on the algebraic content.  
-Section~\ref{sec:isoclassification} 
-Section~\ref{} 
 
 \newpage
 
@@ -299,7 +325,7 @@ These results follow primarily from new applications of known results, though in
 Throughout, we emphasize clear, constrictive statements which can be applied ``out of the box'' in the ongoing study of \FGCCHAs, with numerous examples.
 
 We close with a discussion of our initial motivation on this project, demonstrating one application of our results.  
-The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[A000108]{OEIS}; see Example~\ref{}.  
+The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}; see Example~\ref{}.  
 We sought to understand ``how many'' of these Catalan Hopf subalgebras there were.
 
 \begin{problem}
@@ -372,6 +398,7 @@ We resolve a more general version of this question in Theorem~\ref{}, and Proble
 %\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
 
 
+\newpage
 
 \section{Combinatorics of sequences of numbers}
 \label{sec:SequencePrelims}
@@ -584,7 +611,7 @@ f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
 so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
 (that is, $a_n$ is the $n-1^{st}$ Catalan number).
 We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[A022553]{OEIS}.
+It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
 %and $p_n$ is the number of binary Lyndon words of length $2n$
 %with the same number of $0$s as $1$s (the definition of Lyndon word appears before
 %Proposition \ref{prop:combinatorialinterpretation} below).
@@ -691,7 +718,7 @@ Continuing with Example \ref{ex:catalan}, we have that if
 $h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is equal to the number
 of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
-However,~\cite[A022553]{OEIS} states that $p_n$ is also equal to the number of
+However,~\cite[\href{https://oeis.org/A022553}{A022553}]{OEIS} states that $p_n$ is also equal to the number of
 length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.
 %This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
 %balanced binary Lyndon words of size $n$.  This implies that there should be a nice bijection between balanced binary Lyndon words of size $n$ and Lyndon words in an alphabet $X$; 
@@ -1146,7 +1173,7 @@ We prove the theorem in Section~\ref{sec:classificationproof} following addition
     Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
     Let $\dot{\mathfrak{S}}$ denote the set of connected permutations \cite{AS05}
     (also sometimes called indecomposable or irreducible permutations in the literature).
-    Then $\vec{a}$ is equal to $\veccard(\dot{\mathfrak{S}})$~\cite[A003319]{OEIS}.
+    Then $\vec{a}$ is equal to $\veccard(\dot{\mathfrak{S}})$~\cite[\href{https://oeis.org/A003319}{A003319}]{OEIS}.
     By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA}
     $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.
     Viewing each permutation as a word in the alphabet $\ZZ_{+}$, the product is shifted
@@ -1249,7 +1276,10 @@ Let
 \]
 \end{definition}
 
-The second main result of the section is the following.
+We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
+We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of primitive generators of $H$.  
+The following theorem uses this relationship to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
+%The second main result of the section is the following.
 
 \begin{theorem}
 \label{thm:OPGmaps}
@@ -1504,8 +1534,7 @@ The matrix $(M^{(n)}_{i, j})_{1 \le i, j \le a_{n}}$ gives the change of basis f
 
 
 \section{Classifying surjections between \FGCCHAs}
-\lucas{Change notation to reflect symbols for OPG: $\vec{A}$ and $\vec{B}$}
-\lucas{Change notation for $H^{+2}$ to $H^{2}_{+}$.}
+\label{sec:surjection}
 We now consider the problem of constructing surjective homomorphisms between two \FGCCHAs, $H$ and $K$, beginning with a naive approach to this problem.  
 Let $\vec{A} \in \OPG(H)$ and $\vec{B} \in \OPG(K)$ be ordered primitive generating sets as in Definition~\ref{def:OPG}, and let $\vec{a} = \veccard(\vec{A})$ and $\vec{b} = \veccard(\vec{B})$. 
 If $\vec{a} \ge \vec{b}$, projecting from $\vec{A}$ to $\vec{B}$ gives a surjective homomorphism:
@@ -1927,6 +1956,7 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 %If yes, find me a different example.  If no, apply this theorem to explain why.}
 
 \section{Classifying Hopf subalgebras by primitive dimensions}
+\label{sec:subalgebras}
 
 Let $H$ be an \FGCCHA.  
 In this section we construct all the isomorphism classes of Hopf subalgebras of $H$; in particular we show that every Hopf subalgebra is an \FGCCHA satisfying a simple condition.
@@ -1954,7 +1984,7 @@ K & \mapsto & \phi_{h, a} \big( \vecdim(K)\big) \\
 \end{theorem}
 
 \begin{remark}
-Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} imlies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
+Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} implies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
 \end{remark}
 
 The proof of Theorem~\ref{thm:subclassification2} will construct a Hopf subalgebra in $H$ isomorphic to each
@@ -1979,7 +2009,7 @@ However Theorem~\ref{thm:subclassification2} tells us this is not the case: $\ph
 \begin{example}
 \label{ex:NSymInCxy}
 Recall the \FGCCHA $K = \CC\langle u, v \rangle$ from Example~\ref{ex:quotientHopf}, so that $u$ and $v$ have degree one.  Then $\vec{p} = \vecdim(\mathcal{P}(K))$ is the sequence
-$\vec{p} = (2, 1, 2, 3, 6, 9, 18, 30,\ldots)$~\cite[A001037]{OEIS} given by 
+$\vec{p} = (2, 1, 2, 3, 6, 9, 18, 30,\ldots)$~\cite[\href{https://oeis.org/A001037}{A001037}]{OEIS} given by 
 \[
 p_{n} = \frac{1}{n} \sum_{d | n} \mu(n/d) 2^{d}.
 \]
@@ -1989,7 +2019,7 @@ Then we can take
 \vec{q} = \vec{p} - (1, 0, 0, \ldots)
 \]
 so that clearly $\vec{p} \ge \vec{q}$.  
-The sequence $\vec{q}$ is identified in~\cite[A059966]{OEIS}, and direct computation then gives that
+The sequence $\vec{q}$ is identified in~\cite[\href{https://oeis.org/A059966}{A059966}]{OEIS}, and direct computation then gives that
 \[
 \phi_{p, a}(\vec{q}) = (1, 1, 1, \ldots) \in \NN^{\ZZ_{+}},
 \]
@@ -2157,14 +2187,14 @@ Then $[L^{(n+1)}, L^{(n+1)}]_{n} = [L^{(n)}, L^{(n)}]_{n}$ as $L^{(n)}$ and $L^{
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lucas{TODO: We need a better bibliography!}
 \bibliographystyle{plain}
 \bibliography{bibliography}{}
 
 
 
-\begin{table}[h]
-    \hspace*{-1cm} %  move the table to the left 
+\newpage
+ \begin{table}[h]
+    \hspace*{-1cm} 
     \begin{tabular}{|l|l|l|l||l|l|l||l|l|l|l||l|l|l|}
         \hline
         Sequence & h sequence & a sequence & p sequence \\
