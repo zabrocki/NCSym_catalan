@@ -111,9 +111,21 @@ Classify all Hopf subalgebras of $\NCSym$ with graded dimensions equal to the Ca
 %Classify all Hopf subalgebras of $\NCSym$ .
 %\end{problem}
 
-We realized that all Hopf subalgebras of $\NCSym$ with equal graded dimensions are isomorphic.  
-We also realized that this is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
-This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA.  
+We realized that we could resolve Problem~\ref{problem:motivating_calatan_question} by applying a recent result of Aliniaeifard and Thiem~\cite{AT20}.  
+This is a consequence of the the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
+This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA. 
+In this context,~\cite[Theorem~?.?]{AT20} show that that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+\[
+\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
+\qquad\text{where}\qquad
+H = \bigoplus_{n \ge 0} H_{n}.
+\]
+We answer Problem~\ref{problem:motivating_calatan_question} by showing that all Hopf subalgebras of $\NCSym$ are \FGCCHAs, which follows from the Shirshov--Witt Theorem (see Lemma~\ref{lem:ShiWitt}).  
+%In fact, this a consequence of the fact that \FGCCHAs are closed under taking graded Hopf subalgebras.  
+%We found that the result of Aliniaeifard and Thiem allows us to answer a much stronger problem of characterizing all $\FGCCHAs$ and their subalgebras using the dimension sequences.  
+%We realized that all Hopf subalgebras of $\NCSym$ with equal graded dimensions are isomorphic.  
+%We also realized that this is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
+%This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA.  
 
 Properties of the category of \FGCCHAs (or its dual) have been considered in several references:~\cite{MM65},~\cite{Block85},~\cite{Reutenauer-FreeLieAlgebras},~\cite{AT22}, and~\cite{FP24}.  
 Going back to the Milnor--Moore theorem, the structure of \FGCCHAs have been characterized by the number of free generators and the dimension of the subspace of primitives.  
@@ -128,16 +140,6 @@ From our perspective, proving that two \FGCCHAs are isomorphic amounts to showin
 %The category of \FGCCHAs has been studied in the literature before:
 %generally \cite{MM65}, \cite{Block85}, \cite{AT22}, \cite{FP24}, \cite{HNT04}, \cite{Reutenauer-FreeLieAlgebras}
 %specfically: NSym, NCSym, \cite{HNT08},
-
-A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
-\[
-\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
-\qquad\text{where}\qquad
-H = \bigoplus_{n \ge 0} H_{n}.
-\]
-We answer Problem~\ref{problem:motivating_calatan_question} by showing that all Hopf subalgebras of $\NCSym$ are \FGCCHAs, which follows from the Shirshov--Witt Theorem (see Lemma~\ref{lem:ShiWitt}).  
-In fact, this a consequence of the fact that \FGCCHAs are closed under taking graded Hopf subalgebras.  
-We found that the result of Aliniaeifard and Thiem allows us to answer a much stronger problem of characterizing all $\FGCCHAs$ and their subalgebras using the dimension sequences.  
 
 %In particular, we know that up to isomorphism, there is exactly one Hopf subagebra of $\NCSym$ of dimension Catalan (which is isomorphic to the Catalan Quasiymmetric Hopf subalgebra $\mathsf{PQSym}$~\cite{}).  
 
