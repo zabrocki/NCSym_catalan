@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{AgEtAl12}
+Marcelo Aguiar, Carlos Andr{\'e}, Carolina Benedetti, Nantel Bergeron, Zhi Chen, Persi Diaconis, Anders Hendrickson, Samuel Hsiao, I.~Martin Isaacs, Andrea Jedwab, Kenneth Johnson, Gizem Karaali, Aaron Lauve, Tung Le, Stephen Lewis, Huilan Li, Kay Magaard, Eric Marberg, Jean-Christophe Novelli, Amy Pang, Franco Saliola, Lenny Tevlin, Jean-Yves Thibon, Nathaniel Thiem, Vidya Venkateswaran, C.~Ryan Vinroot, Ning Yan, and Mike Zabrocki.
+\newblock Supercharacters, symmetric functions in noncommuting variables, and related {Hopf} algebras.
+\newblock {\em Adv. Math.}, 229(4):2310--2337, 2012.
+
 \bibitem{AS05cc}
 Marcelo Aguiar and Frank Sottile.
 \newblock Cocommutative {H}opf algebras of permutations and trees.
@@ -20,6 +25,11 @@ Farid Aliniaeifard and Nathaniel Thiem.
 \newblock Hopf structures in the representation theory of direct products.
 \newblock {\em Electronic Journal of Combinatorics}, 29:Paper No. 4.39, 2022.
 
+\bibitem{BHRZ05}
+N~Bergeron, C~Hohlweg, M~Rosas, and M~Zabrocki.
+\newblock Grothendieck bialgebras, partition lattices, and symmetric functions in noncommutative variables.
+\newblock {\em The Electronic Journal of Combinatorics}, pages R75--R75, 2006.
+
 \bibitem{Bergeron_2002}
 Nantel Bergeron, Stefan Mykytiuk, Frank Sottile, and Stephanie van Willigenburg.
 \newblock Shifted quasi-symmetric functions and the {H}opf algebra of peak functions.
@@ -39,6 +49,11 @@ Lo{\"\i}c Foissy.
 Lo{\"i}c Foissy and Fr{\'e}d{\'e}ric Patras.
 \newblock {Lie theory of free cocommutative and commutative cofree {H}opf algebras}.
 \newblock HAL preprint \href{https://hal.science/hal-04773293v1}{hal-04773293v1}, 2024.
+
+\bibitem{GebSag01}
+David~D. Gebhard and Bruce~E. Sagan.
+\newblock A chromatic symmetric function in noncommuting variables.
+\newblock {\em J. Algebr. Comb.}, 13(3):227--255, 2001.
 
 \bibitem{GKLLRT}
 IM~Gelfand, D~Krob, A~Lascoux, B~Leclerc, VS~Retakh, and JY~Thibon.
@@ -75,6 +90,11 @@ Teresa~Xueshan Li.
 \newblock The monomial basis and the q-basis of the {H}opf algebra of parking functions.
 \newblock {\em Journal of Algebraic Combinatorics}, 42(2):473--496, 2015.
 
+\bibitem{LodayRonco10}
+Jean-Louis Loday and Mar{\'{\i}}a Ronco.
+\newblock Combinatorial {Hopf} algebras.
+\newblock In {\em Quanta of maths. Conference on non commutative geometry in honor of Alain Connes, Paris, France, March 29--April 6, 2007}, volume~11, pages 347--383. Amer. Math. Soc., Providence, RI, 2010.
+
 \bibitem{loday2013cyclic}
 J.L. Loday.
 \newblock {\em Cyclic Homology}.
@@ -101,6 +121,11 @@ C.~Reutenauer.
 \newblock {\em Free {L}ie Algebras}.
 \newblock London Mathematical Society Monographs New Series. Oxford University Press, 1993.
 
+\bibitem{RS06}
+Mercedes Rosas and Bruce Sagan.
+\newblock Symmetric functions in noncommuting variables.
+\newblock {\em Transactions of the American Mathematical Society}, 358(1):215--232, 2006.
+
 \bibitem{S09}
 A.~I. Shirshov.
 \newblock {\em Subalgebras of Free {L}ie Algebras}, pages 3--13.
@@ -110,5 +135,10 @@ A.~I. Shirshov.
 Ernst Witt.
 \newblock Die unterringe der freien lieschen ringe.
 \newblock {\em Mathematische Zeitschrift}, 64(1):195--216, 1956.
+
+\bibitem{Wolf36}
+M.~Wolf.
+\newblock Symmetric functions of non-commutative elements.
+\newblock {\em Duke Math. J.}, 2(4):626--637, 1936.
 
 \end{thebibliography}
