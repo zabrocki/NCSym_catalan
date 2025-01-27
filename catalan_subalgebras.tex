@@ -134,16 +134,6 @@ In this paper, we take the perspective that these can be thought of simply as se
 In addition to $\NCSym$, much work has gone into understanding specific examples including the \FGCCHAs of noncommutative symmetric functions (see Example~\ref{ex:NSym}), permutations (see Example~\ref{example:hopf_algebras_of_permutations}), and trees~\cite{AS05cc, GL09}.  
 From our perspective, proving that two \FGCCHAs are isomorphic amounts to showing properties of their dimension sequences.  
 
-%\lucas{roughtideal here}
-%The category of \FGCCHAs has been studied in the literature before, as the CMM theorem (see Section~\ref{sec:HopfAlgebra}) tells us that it is equivalent to the category of free Lie Algebras.  MORE HERE\lucas{``reference, reference, reference''}.
-%
-%The category of \FGCCHAs has been studied in the literature before:
-%generally \cite{MM65}, \cite{Block85}, \cite{AT22}, \cite{FP24}, \cite{HNT04}, \cite{Reutenauer-FreeLieAlgebras}
-%specfically: NSym, NCSym, \cite{HNT08},
-
-%In particular, we know that up to isomorphism, there is exactly one Hopf subagebra of $\NCSym$ of dimension Catalan (which is isomorphic to the Catalan Quasiymmetric Hopf subalgebra $\mathsf{PQSym}$~\cite{}).  
-
-\vskip .5inS0673
 This paper considers what we can learn about
 a single Hopf algebra in the category of \FGCCHAs
 from the sequence of the graded dimensions of the 
@@ -181,284 +171,284 @@ subalgebra of an \FGCCHA with dimension sequence $\vec{k}$ if and only if
 the inverse Euler transform of $\vec{k}$ dominates the inverse Euler transform of $\vec{h}$.  
 This classifies all Hopf subalgebras of \FGCCHAs.
 
-\newpage
-
-
-Hook, introduce $\NCSym$.  The obvious basis of $\NCSym$ is the \emph{monomial basis} whose degree-$n$ elements are
-\[
-\sum_{\beta \in S_{n} \cdot \alpha} x_{\beta_{1}} x_{\beta_{2}} \cdots x_{\beta_{n}}
-\qquad\text{for $\alpha \in \ZZ_{+}^{n}$},
-\]
-which can be uniquely indexed by the set partition in which $i$ and $j$ belong to the same part if and only if $\alpha_{i} = \alpha_{j}$.  
-Thus, the graded dimensions of $\NCSym$ are the Bell numbers $\Bell(n) = \#\{\text{set partitions of $[n]$}\}$.
-Many other bases of $\NCSym$ can be naturally indexed by set partitions, including those introduced by Rosas and Sagan~\cite{RS06} (and others?).  
-
-The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{Stanley2015}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?} \mike{I used Stanley's Catalan book as a reference}
-Our work on the present project began with the following natural question.
-
-\begin{problem}
-\label{problem:Catalan_hopfsub_basis}
-Given a basis $\mathcal{B} = \{b_{\pi} \;|\; \text{set partitions $\pi$} \}$ of $\NCSym$, do the subsets
-\[
-\{b_{\pi} \;|\; \text{noncrossing set partitions $\pi$} \}
-\qquad\text{or}\qquad
-\{b_{\pi} \;|\; \text{nonnesting set partitions $\pi$} \}
-\]
-span a graded Hopf subalgebra of $\NCSym$?
-\end{problem}
-
-Preliminary computer exploration suggested that Problem~\ref{problem:Catalan_hopfsub_basis} had a positive answer for a relatively large number of bases; see Table~\ref{table:catalan_bases}
-\mike{if we keep this table, citations for the bases, e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.} for a summary.  
-In some cases these Hopf subalgebras are obviously isomorphic, but generally the product and/or coproduct differed superficially between bases.  
-The relative abundance and diversity of these ``Catalan subalgebras'' led us to investigate another natural question.
-
-\begin{table}
-\begin{tabular}{|c|c|c|}
-\hline
-basis name&
-non-crossing&non-nesting\\
-\hline
-$\chi$&False&False\\
-$\bf{q}$&True&True\\
-$m$&False&False\\
-$e$&True&False\\
-$h$&True&False\\
-$p$&True&True\\
-$\rho$&False&False\\
-$\bf{x}$&False&False\\
-\hline
-\end{tabular}
-\caption{Answers to Problem~\ref{Catalan_hopfsub_basis} for well-known bases of $\NCSym$.}
-\label{table:catalan_bases}
-\end{table}
-
-\begin{problem}
-\label{problem:Catalan_hopfsub_classify}
-Classify all Hopf subalgebras of $\NCSym$ with graded dimension  $\Catalan_{n}$.
-\end{problem}
-
-
-%\newpage
-%
-%We start with three questions:
-%\begin{enumerate}
-%\item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
-%$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
-%is a Hopf subalgebra of dimension Catalan?
-%
-%\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
-%
-%\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
-%\end{enumerate}
-%
-%\href{mailto:zabrocki@yorku.ca}{mike}
-%
-%Checking answers to (1) by computer, we found many bases seemed
-%to give us Hopf subaglebras with the right dimension
-%(transcribe meeting notes from May 13).
-%
-%
-%However, weren't sure if these were isomorphic or not.
-
-In order to answer Problem~\ref{problem:Catalan_hopfsub_classify}, we needed to use structural properties of $\mathsf{NCSym}$.  
-In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
-Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category, including each of the ones shown in Table~\ref{}.
-
-Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
-
-
-\newpage
-
-A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
-\[
-\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
-\qquad\text{where}\qquad
-H = \bigoplus_{n \ge 0} H_{n}.
-\]
-We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
-
-The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
-which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{} states that all
-Hopf subaglerbas of an \FGCCHA are also \FGCCHAs.  This tells us that there is a unique isomorphism
-class of Catalan-dimensional Hopf subaglebra of $\mathsf{NCSym}$.
-
-These tools enable us to answer one final, much stronger, question.
-
-\begin{problem}
-\label{problem:Catalan_hopfsub_classify_all}
-Classify all Hopf subalgebras of $\NCSym$ .
-\end{problem}
-
-We then considered how we would construct all subalgebras of $\mathsf{NCSym}$
-with a given dimension sequence, or more generally for any \FGCCHA.  There are
-usually infinitely many isomorphic copies when one exists, but we describe a
-procedure for constructing all isomorphic copies of one \FGCCHA inside another
-in Section~\ref{}.
-
-We give a necessary and sufficient condition for such a copy to exist, answering Problem~\ref{problem:Catalan_hopfsub_classify_all}.  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
-
-\begin{center}
-\begin{tabular}{c|c|c}
-Question & Condition on $\vec{h}$, $\vec{a}$, and $\vec{c}$? & Theorem reference\\ \hline
-When is there a Hopf algebra? & When $\vec{a} \ge \vec{0}$ \\ \hline
-When is is there a Hopf subalgebra? & whenever $\vec{b} \ge 0$ and $\vec{q} \le \vec{p}$\\
-(with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & \\ \hline
-When is there a surjection from another Hopf algebra & when $\vec{b} \ge \vec{a}$\\
- (with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & 
-\end{tabular}
-\end{center}
-
-\lucas{de-tabularize}
-
-.\lucas{lit review/methodology: which of our results are novel, what do we take credit for, etc.}
-
-.\lucas{examples: include table with relevant sequences?}
-
-.\lucas{Motivate: why care about the level of generality needed for our results/how are they useful?}
-
-
-
-\begin{example}
-\lucas{Adapt into our story about $\mathsf{NCSym}$ as presented in here}
-    The \FGCCHA $\mathbf{CQSym}$ introduced in ~\cite{NT05} has a basis $\mathbf{P}^{\pi}$
-    indexed by non-crossing set partitions $\pi$, and is freely generated by
-    $\{\mathbf{P}^{\pi}:\pi \text{ is atomic and non-crossing}\}$~\cite[Proposition 5.2]{NT05}.
-
-    There is a Hopf subalgebra $\mathsf{NCSym}_{\mathrm{NC}}$ of $\mathsf{NCSym}$ spanned by the power-sum basis elements $\mathbf{p}_{\pi}$ indexed also by non-crossing set partitions, and freely generated by $\{\mathbf{p}_{\pi}:\pi \text{ is atomic and non-crossing}\}$ (see ~\cite{BHRZ05} for details on the Hopf structure on the $\{\mathbf{p}_{\pi}\}$ basis of \textsf{NCSym}).
-
-The product and the coproduct on the bases $\mathbf{P}^{\pi}$ from \cite{NT05} and $\mathbf{p}_{\pi}$ from \cite{BHRZ05}
-are not the same, however both bases are indexed by the non-crossing set partitions of $[n]$
-which are enumerated by the Catalan numbers, $(C_n)_{n \geq 1}$. Given that 
-    \[
-    \vecdim(\mathbf{CQSym}) = \vecdim(\mathsf{NCSym}_{\mathrm{NC}}) = (C_n)_{n \geq 1},
-    \]
-    we know $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$.
-
-To make the isomorphism explicit, we map $f:\mathbf{e}(\mathbf{P}^{\pi}) \to \mathbf{e}(\mathbf{p}_{\pi})$
-for all atomic non-crossing set partitions $\pi$, and extending algebraically gives a
-Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
-\end{example}
-
-\newpage
-\lucas{This is an outline-by-demonstration: a sketch of what points to hit in order to tell this story right.  Not  an attempt at the final version.}
-This paper builds a comprehensive dictionary between integer sequences and a class of Hopf algebras that we will call \FGCCHAs: \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebras.  
-A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
-\[
-\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
-\qquad\text{where}\qquad
-H = \bigoplus_{n \ge 0} H_{n}.
-\]
-This inspired us to ask: ``how much about \FGCCHAs can one say using only integer sequences?'' and we found the answer to be ``almost everything.''
-
-\mike{example here?  Connes-Kreimer Hopf algebra of rooted trees is an \FGCCHA by Theorem 3 of \cite{CK99}
-Theorem 3 states it is the dual of the enveloping algebra of the Lie algebra $\mathcal{L}_1$. To discuss: is it clear
-from that presentation that it is free?}
--\lucas{TODO: Check if the Lie algebra in Mikes reference is free.  If so, we have what we need 
-about Connes-Kreimer}
--\lucas{GROUP TODO: what other classes of Hopf algebra are there?}
-
-Paragraph here about: why \FGCCHAs, why asking about isomorphism, maps between them make sense.  
-Summarize NCSym story in 1-2 sentences (since this is one of the bigger \FGCCHAs) including Advances Paper.  Touch on other examples of \FGCCHAs and maps in combinatorics: (Bergeron Adv. Appl. paper, the tree paper, maybe look for some other examples).  Takeaway: these are nontrivial and interesting objects.
-
-We find that essentially all categorical data about \FGCCHAs is determined by the dimension sequence via certain simple arithmetic transformations.  
-This is reminiscent of Foissy's work on free and cofree Hopf algebras~\cite{F12}, but we are still
-surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.
-\begin{enumerate}[itemsep = 1ex]
-\item We give an elementary description of all isomorphism classes of \FGCCHA:
-Theorem~\ref{thm:a sequence} states that there is  an isomorphism class of \FGCCHAs
-for each arbitrary nonnegative sequence $\vec{a}$
-that are the free generators at each degree.
-
-\item W show that every Hopf subalgebra of an \FGCCHA is itself an \FGCCHA
-and classify these using a second transformation of the dimension sequence
-that we  denote by $\phi_{h, p}$.  Theorem~\ref{thm:subclassification2} states
-that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$
-if and only if $\phi_{h, p}(\vecdim(H))$ is dominated by $\phi_{h, p}(\vecdim(K))$
-term-wise, while Theorem~\ref{} give an algorithm to construct all such maps.
-
-\item While not every quotient of an \FGCCHA is free, we determine when one \FGCCHA is the quotient of another.  With the transformation $\phi_{h, a}$ from (1), Theorem~\ref{} shows that there is a surjective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ dominates $\phi_{h, p}(\vecdim(K))$ term-wise, and Theorem~\ref{} gives an algorithm to produce all such maps.  
-
-\item Any map between two \FGCCHAs factors naturally as the  composition of a surjection and injections.  Section~\ref{} uses (2) and (3) to classify all maps between \FGCCHAs.
-
-\end{enumerate}
-These results follow primarily from new applications of known results, though in a few cases there are gaps or ``folklore'' results with no written proof and we introduce truly novel proof methods.  
-Throughout, we emphasize clear, constrictive statements which can be applied ``out of the box'' in the ongoing study of \FGCCHAs, with numerous examples.
-
-We close with a discussion of our initial motivation on this project, demonstrating one application of our results.  
-The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}; see Example~\ref{}.  
-We sought to understand ``how many'' of these Catalan Hopf subalgebras there were.
-
-\begin{problem}
-\label{prob1}
-Identify all of the Hopf subalgebras $C \subseteq \mathsf{NCSym}$ for which $\vecdim(C)$ is the sequence of Catalan numbers.
-\end{problem}
-
-With the information above, however, this is easy to resolve:
-(2) tells us that every one of these Catalan Hopf subalgebras is an \FGCCHA,
-so Aliniaeifard-Thiem~\cite{AT20} tell us they are isomorphic.
-Moreover, Theorem~\ref{} gives an algorithm for constructing
-every such Hopf subalgebra from some preliminary data about $\mathsf{NCSym}$.
-This led us to the following, more ambitious question.
-
-\begin{problem}
-\label{prob2}
-Classify all (isomorphism classes of) Hopf subalgebras of $\mathsf{NCSym}$.
-\end{problem}
-
-Here, (1) comes into play: while (2) tells us how to check is a given \FGCCHA appears as a Hopf subalgebra, we also need to be able to exhaustively enumerate \FGCCHAs to answer this question.
-We resolve a more general version of this question in Theorem~\ref{}, and Problem~\ref{prob2} specifically in Example~\ref{}.  
-
-%At this point we turned to two 
-%
-%At this point we 
-%
-%We also solved this and answered it in terms of sequences.  In the process, we encountered two more fundamental questions about  \FGCCHAs.
-%
-%\begin{problem}
-%Identify conditions on the graded dimensions that imply the existence of a free graded connected co-commutative Hopf algebra.
-%\end{problem}
-%
-%\begin{problem}
-%Given two Hopf algebras that
-%have the same graded dimension, find a procedure for
-%determining an (all) isomorphism(s) between the Hopf
-%algebras.
-%\end{problem}
-%
-%We state the answer to this problem
-%as a calculation that one can perform on the
-%sequence of graded dimensions.
-%The answer (stated in Theorem \ref{}) is that one should calculate a
-%related sequence representing the number of free generators
-%of the Hopf algebra.
-%If the sequence is non-negative, then we can
-%construct a Hopf algebra with these graded dimensions.
-%This provides a complete characterization of Hopf algebras
-%of this type.  
-%Every sequence of generators determines completely the Hopf algebra.
-
-%\section{Notation}
-%\labe
-
-
-
-
-%Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
-%\[
-%X(\vec{a}) = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n} \}.
-%\]
-%and let $\mathfrak{L}(\vec{a})$ denote the free graded Lie algebra on the graded set $X(\vec{a})$.  
-%
-%For a graded Lie algebra $L$, $\mathcal{U}(L)$ will denote the universal enveloping algebra of $L$. We can define $\mathcal{U}(L)$ as a quotient of the tensor algebra $T(L)/I$ where $I$ is the ideal generated by $x \otimes y - y \otimes x - [x,y]$ for $x,y \in L$. Because $I$ is generated by homogeneous elements, $\mathcal{U}(L)$ inherits a grading from $L$. The Poincar\'{e}-Birkhoff-Witt Theorem implies that for a given ordered basis $\{x_i\}$ of $L$, a basis for $\mathcal{U}(L)$ is given by $\{x_{i_1}x_{i_2}\cdots x_{i_k}:i_1 \leq i_2 \leq \cdots \leq i_k\}.$
-
-%For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra of primitives, so that
-%\[
-%\mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
-%\]
-%\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
-
-
-\newpage
+%%%%%\newpage
+%%%%%
+%%%%%
+%%%%%Hook, introduce $\NCSym$.  The obvious basis of $\NCSym$ is the \emph{monomial basis} whose degree-$n$ elements are
+%%%%%\[
+%%%%%\sum_{\beta \in S_{n} \cdot \alpha} x_{\beta_{1}} x_{\beta_{2}} \cdots x_{\beta_{n}}
+%%%%%\qquad\text{for $\alpha \in \ZZ_{+}^{n}$},
+%%%%%\]
+%%%%%which can be uniquely indexed by the set partition in which $i$ and $j$ belong to the same part if and only if $\alpha_{i} = \alpha_{j}$.  
+%%%%%Thus, the graded dimensions of $\NCSym$ are the Bell numbers $\Bell(n) = \#\{\text{set partitions of $[n]$}\}$.
+%%%%%Many other bases of $\NCSym$ can be naturally indexed by set partitions, including those introduced by Rosas and Sagan~\cite{RS06} (and others?).  
+%%%%%
+%%%%%The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{Stanley2015}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?} \mike{I used Stanley's Catalan book as a reference}
+%%%%%Our work on the present project began with the following natural question.
+%%%%%
+%%%%%\begin{problem}
+%%%%%\label{problem:Catalan_hopfsub_basis}
+%%%%%Given a basis $\mathcal{B} = \{b_{\pi} \;|\; \text{set partitions $\pi$} \}$ of $\NCSym$, do the subsets
+%%%%%\[
+%%%%%\{b_{\pi} \;|\; \text{noncrossing set partitions $\pi$} \}
+%%%%%\qquad\text{or}\qquad
+%%%%%\{b_{\pi} \;|\; \text{nonnesting set partitions $\pi$} \}
+%%%%%\]
+%%%%%span a graded Hopf subalgebra of $\NCSym$?
+%%%%%\end{problem}
+%%%%%
+%%%%%Preliminary computer exploration suggested that Problem~\ref{problem:Catalan_hopfsub_basis} had a positive answer for a relatively large number of bases; see Table~\ref{table:catalan_bases}
+%%%%%\mike{if we keep this table, citations for the bases, e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.} for a summary.  
+%%%%%In some cases these Hopf subalgebras are obviously isomorphic, but generally the product and/or coproduct differed superficially between bases.  
+%%%%%The relative abundance and diversity of these ``Catalan subalgebras'' led us to investigate another natural question.
+%%%%%
+%%%%%\begin{table}
+%%%%%\begin{tabular}{|c|c|c|}
+%%%%%\hline
+%%%%%basis name&
+%%%%%non-crossing&non-nesting\\
+%%%%%\hline
+%%%%%$\chi$&False&False\\
+%%%%%$\bf{q}$&True&True\\
+%%%%%$m$&False&False\\
+%%%%%$e$&True&False\\
+%%%%%$h$&True&False\\
+%%%%%$p$&True&True\\
+%%%%%$\rho$&False&False\\
+%%%%%$\bf{x}$&False&False\\
+%%%%%\hline
+%%%%%\end{tabular}
+%%%%%\caption{Answers to Problem~\ref{Catalan_hopfsub_basis} for well-known bases of $\NCSym$.}
+%%%%%\label{table:catalan_bases}
+%%%%%\end{table}
+%%%%%
+%%%%%\begin{problem}
+%%%%%\label{problem:Catalan_hopfsub_classify}
+%%%%%Classify all Hopf subalgebras of $\NCSym$ with graded dimension  $\Catalan_{n}$.
+%%%%%\end{problem}
+%%%%%
+%%%%%
+%%%%%%\newpage
+%%%%%%
+%%%%%%We start with three questions:
+%%%%%%\begin{enumerate}
+%%%%%%\item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
+%%%%%%$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
+%%%%%%is a Hopf subalgebra of dimension Catalan?
+%%%%%%
+%%%%%%\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
+%%%%%%
+%%%%%%\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
+%%%%%%\end{enumerate}
+%%%%%%
+%%%%%%\href{mailto:zabrocki@yorku.ca}{mike}
+%%%%%%
+%%%%%%Checking answers to (1) by computer, we found many bases seemed
+%%%%%%to give us Hopf subaglebras with the right dimension
+%%%%%%(transcribe meeting notes from May 13).
+%%%%%%
+%%%%%%
+%%%%%%However, weren't sure if these were isomorphic or not.
+%%%%%
+%%%%%In order to answer Problem~\ref{problem:Catalan_hopfsub_classify}, we needed to use structural properties of $\mathsf{NCSym}$.  
+%%%%%In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
+%%%%%Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category, including each of the ones shown in Table~\ref{}.
+%%%%%
+%%%%%Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
+%%%%%
+%%%%%
+%%%%%\newpage
+%%%%%
+%%%%%A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+%%%%%\[
+%%%%%\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
+%%%%%\qquad\text{where}\qquad
+%%%%%H = \bigoplus_{n \ge 0} H_{n}.
+%%%%%\]
+%%%%%We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
+%%%%%
+%%%%%The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
+%%%%%which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{} states that all
+%%%%%Hopf subaglerbas of an \FGCCHA are also \FGCCHAs.  This tells us that there is a unique isomorphism
+%%%%%class of Catalan-dimensional Hopf subaglebra of $\mathsf{NCSym}$.
+%%%%%
+%%%%%These tools enable us to answer one final, much stronger, question.
+%%%%%
+%%%%%\begin{problem}
+%%%%%\label{problem:Catalan_hopfsub_classify_all}
+%%%%%Classify all Hopf subalgebras of $\NCSym$ .
+%%%%%\end{problem}
+%%%%%
+%%%%%We then considered how we would construct all subalgebras of $\mathsf{NCSym}$
+%%%%%with a given dimension sequence, or more generally for any \FGCCHA.  There are
+%%%%%usually infinitely many isomorphic copies when one exists, but we describe a
+%%%%%procedure for constructing all isomorphic copies of one \FGCCHA inside another
+%%%%%in Section~\ref{}.
+%%%%%
+%%%%%We give a necessary and sufficient condition for such a copy to exist, answering Problem~\ref{problem:Catalan_hopfsub_classify_all}.  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
+%%%%%
+%%%%%\begin{center}
+%%%%%\begin{tabular}{c|c|c}
+%%%%%Question & Condition on $\vec{h}$, $\vec{a}$, and $\vec{c}$? & Theorem reference\\ \hline
+%%%%%When is there a Hopf algebra? & When $\vec{a} \ge \vec{0}$ \\ \hline
+%%%%%When is is there a Hopf subalgebra? & whenever $\vec{b} \ge 0$ and $\vec{q} \le \vec{p}$\\
+%%%%%(with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & \\ \hline
+%%%%%When is there a surjection from another Hopf algebra & when $\vec{b} \ge \vec{a}$\\
+%%%%% (with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & 
+%%%%%\end{tabular}
+%%%%%\end{center}
+%%%%%
+%%%%%\lucas{de-tabularize}
+%%%%%
+%%%%%.\lucas{lit review/methodology: which of our results are novel, what do we take credit for, etc.}
+%%%%%
+%%%%%.\lucas{examples: include table with relevant sequences?}
+%%%%%
+%%%%%.\lucas{Motivate: why care about the level of generality needed for our results/how are they useful?}
+%%%%%
+%%%%%
+%%%%%
+%%%%%\begin{example}
+%%%%%\lucas{Adapt into our story about $\mathsf{NCSym}$ as presented in here}
+%%%%%    The \FGCCHA $\mathbf{CQSym}$ introduced in ~\cite{NT05} has a basis $\mathbf{P}^{\pi}$
+%%%%%    indexed by non-crossing set partitions $\pi$, and is freely generated by
+%%%%%    $\{\mathbf{P}^{\pi}:\pi \text{ is atomic and non-crossing}\}$~\cite[Proposition 5.2]{NT05}.
+%%%%%
+%%%%%    There is a Hopf subalgebra $\mathsf{NCSym}_{\mathrm{NC}}$ of $\mathsf{NCSym}$ spanned by the power-sum basis elements $\mathbf{p}_{\pi}$ indexed also by non-crossing set partitions, and freely generated by $\{\mathbf{p}_{\pi}:\pi \text{ is atomic and non-crossing}\}$ (see ~\cite{BHRZ05} for details on the Hopf structure on the $\{\mathbf{p}_{\pi}\}$ basis of \textsf{NCSym}).
+%%%%%
+%%%%%The product and the coproduct on the bases $\mathbf{P}^{\pi}$ from \cite{NT05} and $\mathbf{p}_{\pi}$ from \cite{BHRZ05}
+%%%%%are not the same, however both bases are indexed by the non-crossing set partitions of $[n]$
+%%%%%which are enumerated by the Catalan numbers, $(C_n)_{n \geq 1}$. Given that 
+%%%%%    \[
+%%%%%    \vecdim(\mathbf{CQSym}) = \vecdim(\mathsf{NCSym}_{\mathrm{NC}}) = (C_n)_{n \geq 1},
+%%%%%    \]
+%%%%%    we know $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$.
+%%%%%
+%%%%%To make the isomorphism explicit, we map $f:\mathbf{e}(\mathbf{P}^{\pi}) \to \mathbf{e}(\mathbf{p}_{\pi})$
+%%%%%for all atomic non-crossing set partitions $\pi$, and extending algebraically gives a
+%%%%%Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
+%%%%%\end{example}
+%%%%%
+%%%%%\newpage
+%%%%%\lucas{This is an outline-by-demonstration: a sketch of what points to hit in order to tell this story right.  Not  an attempt at the final version.}
+%%%%%This paper builds a comprehensive dictionary between integer sequences and a class of Hopf algebras that we will call \FGCCHAs: \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebras.  
+%%%%%A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+%%%%%\[
+%%%%%\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
+%%%%%\qquad\text{where}\qquad
+%%%%%H = \bigoplus_{n \ge 0} H_{n}.
+%%%%%\]
+%%%%%This inspired us to ask: ``how much about \FGCCHAs can one say using only integer sequences?'' and we found the answer to be ``almost everything.''
+%%%%%
+%%%%%\mike{example here?  Connes-Kreimer Hopf algebra of rooted trees is an \FGCCHA by Theorem 3 of \cite{CK99}
+%%%%%Theorem 3 states it is the dual of the enveloping algebra of the Lie algebra $\mathcal{L}_1$. To discuss: is it clear
+%%%%%from that presentation that it is free?}
+%%%%%-\lucas{TODO: Check if the Lie algebra in Mikes reference is free.  If so, we have what we need 
+%%%%%about Connes-Kreimer}
+%%%%%-\lucas{GROUP TODO: what other classes of Hopf algebra are there?}
+%%%%%
+%%%%%Paragraph here about: why \FGCCHAs, why asking about isomorphism, maps between them make sense.  
+%%%%%Summarize NCSym story in 1-2 sentences (since this is one of the bigger \FGCCHAs) including Advances Paper.  Touch on other examples of \FGCCHAs and maps in combinatorics: (Bergeron Adv. Appl. paper, the tree paper, maybe look for some other examples).  Takeaway: these are nontrivial and interesting objects.
+%%%%%
+%%%%%We find that essentially all categorical data about \FGCCHAs is determined by the dimension sequence via certain simple arithmetic transformations.  
+%%%%%This is reminiscent of Foissy's work on free and cofree Hopf algebras~\cite{F12}, but we are still
+%%%%%surprised by the definitive nature of our results on \FGCCHAs and expect them to be useful tools in future work.
+%%%%%\begin{enumerate}[itemsep = 1ex]
+%%%%%\item We give an elementary description of all isomorphism classes of \FGCCHA:
+%%%%%Theorem~\ref{thm:a sequence} states that there is  an isomorphism class of \FGCCHAs
+%%%%%for each arbitrary nonnegative sequence $\vec{a}$
+%%%%%that are the free generators at each degree.
+%%%%%
+%%%%%\item W show that every Hopf subalgebra of an \FGCCHA is itself an \FGCCHA
+%%%%%and classify these using a second transformation of the dimension sequence
+%%%%%that we  denote by $\phi_{h, p}$.  Theorem~\ref{thm:subclassification2} states
+%%%%%that there is an injective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$
+%%%%%if and only if $\phi_{h, p}(\vecdim(H))$ is dominated by $\phi_{h, p}(\vecdim(K))$
+%%%%%term-wise, while Theorem~\ref{} give an algorithm to construct all such maps.
+%%%%%
+%%%%%\item While not every quotient of an \FGCCHA is free, we determine when one \FGCCHA is the quotient of another.  With the transformation $\phi_{h, a}$ from (1), Theorem~\ref{} shows that there is a surjective homomorphisms $H \to K$ between \FGCCHAs $H$ and $K$ if and only if $\phi_{h, p}(\vecdim(H))$ dominates $\phi_{h, p}(\vecdim(K))$ term-wise, and Theorem~\ref{} gives an algorithm to produce all such maps.  
+%%%%%
+%%%%%\item Any map between two \FGCCHAs factors naturally as the  composition of a surjection and injections.  Section~\ref{} uses (2) and (3) to classify all maps between \FGCCHAs.
+%%%%%
+%%%%%\end{enumerate}
+%%%%%These results follow primarily from new applications of known results, though in a few cases there are gaps or ``folklore'' results with no written proof and we introduce truly novel proof methods.  
+%%%%%Throughout, we emphasize clear, constrictive statements which can be applied ``out of the box'' in the ongoing study of \FGCCHAs, with numerous examples.
+%%%%%
+%%%%%We close with a discussion of our initial motivation on this project, demonstrating one application of our results.  
+%%%%%The \FGCCHA of symmetric functions in non-commuting variables $\mathsf{NCSym}$ has a number of natural Hopf subalgebras whose dimension sequence was equal to the Catalan sequence~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}; see Example~\ref{}.  
+%%%%%We sought to understand ``how many'' of these Catalan Hopf subalgebras there were.
+%%%%%
+%%%%%\begin{problem}
+%%%%%\label{prob1}
+%%%%%Identify all of the Hopf subalgebras $C \subseteq \mathsf{NCSym}$ for which $\vecdim(C)$ is the sequence of Catalan numbers.
+%%%%%\end{problem}
+%%%%%
+%%%%%With the information above, however, this is easy to resolve:
+%%%%%(2) tells us that every one of these Catalan Hopf subalgebras is an \FGCCHA,
+%%%%%so Aliniaeifard-Thiem~\cite{AT20} tell us they are isomorphic.
+%%%%%Moreover, Theorem~\ref{} gives an algorithm for constructing
+%%%%%every such Hopf subalgebra from some preliminary data about $\mathsf{NCSym}$.
+%%%%%This led us to the following, more ambitious question.
+%%%%%
+%%%%%\begin{problem}
+%%%%%\label{prob2}
+%%%%%Classify all (isomorphism classes of) Hopf subalgebras of $\mathsf{NCSym}$.
+%%%%%\end{problem}
+%%%%%
+%%%%%Here, (1) comes into play: while (2) tells us how to check is a given \FGCCHA appears as a Hopf subalgebra, we also need to be able to exhaustively enumerate \FGCCHAs to answer this question.
+%%%%%We resolve a more general version of this question in Theorem~\ref{}, and Problem~\ref{prob2} specifically in Example~\ref{}.  
+%%%%%
+%%%%%%At this point we turned to two 
+%%%%%%
+%%%%%%At this point we 
+%%%%%%
+%%%%%%We also solved this and answered it in terms of sequences.  In the process, we encountered two more fundamental questions about  \FGCCHAs.
+%%%%%%
+%%%%%%\begin{problem}
+%%%%%%Identify conditions on the graded dimensions that imply the existence of a free graded connected co-commutative Hopf algebra.
+%%%%%%\end{problem}
+%%%%%%
+%%%%%%\begin{problem}
+%%%%%%Given two Hopf algebras that
+%%%%%%have the same graded dimension, find a procedure for
+%%%%%%determining an (all) isomorphism(s) between the Hopf
+%%%%%%algebras.
+%%%%%%\end{problem}
+%%%%%%
+%%%%%%We state the answer to this problem
+%%%%%%as a calculation that one can perform on the
+%%%%%%sequence of graded dimensions.
+%%%%%%The answer (stated in Theorem \ref{}) is that one should calculate a
+%%%%%%related sequence representing the number of free generators
+%%%%%%of the Hopf algebra.
+%%%%%%If the sequence is non-negative, then we can
+%%%%%%construct a Hopf algebra with these graded dimensions.
+%%%%%%This provides a complete characterization of Hopf algebras
+%%%%%%of this type.  
+%%%%%%Every sequence of generators determines completely the Hopf algebra.
+%%%%%
+%%%%%%\section{Notation}
+%%%%%%\labe
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%%Given a sequence $\vec{a}$ consisting of nonnegative integers, let 
+%%%%%%\[
+%%%%%%X(\vec{a}) = \biguplus_{n \ge 1} \{x^{(n)}_{i} \;|\; 1 \le i \le a_{n} \}.
+%%%%%%\]
+%%%%%%and let $\mathfrak{L}(\vec{a})$ denote the free graded Lie algebra on the graded set $X(\vec{a})$.  
+%%%%%%
+%%%%%%For a graded Lie algebra $L$, $\mathcal{U}(L)$ will denote the universal enveloping algebra of $L$. We can define $\mathcal{U}(L)$ as a quotient of the tensor algebra $T(L)/I$ where $I$ is the ideal generated by $x \otimes y - y \otimes x - [x,y]$ for $x,y \in L$. Because $I$ is generated by homogeneous elements, $\mathcal{U}(L)$ inherits a grading from $L$. The Poincar\'{e}-Birkhoff-Witt Theorem implies that for a given ordered basis $\{x_i\}$ of $L$, a basis for $\mathcal{U}(L)$ is given by $\{x_{i_1}x_{i_2}\cdots x_{i_k}:i_1 \leq i_2 \leq \cdots \leq i_k\}.$
+%%%%%
+%%%%%%For a graded Hopf algebra $H$, $\mathcal{P}(H)$ will denote graded Lie algebra of primitives, so that
+%%%%%%\[
+%%%%%%\mathcal{P}(H) = \{x \in H \;|\; \Delta(x) = 1 \otimes x + x \otimes 1\}.
+%%%%%%\]
+%%%%%%\lucas{Add reference/definition for universal enveloping algebra and primitives.  Add statement of Milnor--Moore and PBW theorem.}
+%%%%%
+%%%%%
+%%%%%\newpage
 
 \section{Combinatorics of sequences of numbers}
 \label{sec:SequencePrelims}

@@ -20,25 +20,15 @@ Farid Aliniaeifard and Nathaniel Thiem.
 \newblock Hopf structures in the representation theory of direct products.
 \newblock {\em Electronic Journal of Combinatorics}, 29:Paper No. 4.39, 2022.
 
-\bibitem{BHRZ05}
-N~Bergeron, C~Hohlweg, M~Rosas, and M~Zabrocki.
-\newblock Grothendieck bialgebras, partition lattices, and symmetric functions in noncommutative variables.
-\newblock {\em The Electronic Journal of Combinatorics}, pages R75--R75, 2006.
-
 \bibitem{Bergeron_2002}
 Nantel Bergeron, Stefan Mykytiuk, Frank Sottile, and Stephanie van Willigenburg.
 \newblock Shifted quasi-symmetric functions and the {H}opf algebra of peak functions.
 \newblock {\em Discrete Mathematics}, 246(1–3):57–66, March 2002.
 
-\bibitem{CK99}
-Alain Connes and Dirk Kreimer.
-\newblock Hopf algebras, renormalization and noncommutative geometry.
-\newblock In {\em Quantum field theory: perspective and prospective}, pages 59--109. Springer, 1999.
-
-\bibitem{F12}
-Lo{\"\i}c Foissy.
-\newblock Free and cofree {H}opf algebras.
-\newblock {\em Journal of Pure and Applied Algebra}, 216(2):480--494, 2012.
+\bibitem{Block85}
+Richard~E. Block.
+\newblock Commutative {H}opf algebras, {L}ie coalgebras, and divided powers.
+\newblock {\em Journal of Algebra}, 96(1):275--306, 1985.
 
 \bibitem{F23}
 Lo{\"\i}c Foissy.
@@ -47,8 +37,8 @@ Lo{\"\i}c Foissy.
 
 \bibitem{FP24}
 Lo{\"i}c Foissy and Fr{\'e}d{\'e}ric Patras.
-\newblock {Lie theory of free cocommutative and commutative cofree Hopf algebras}.
-\newblock working paper or preprint, 2024.
+\newblock {Lie theory of free cocommutative and commutative cofree {H}opf algebras}.
+\newblock HAL preprint \href{https://hal.science/hal-04773293v1}{hal-04773293v1}, 2024.
 
 \bibitem{GKLLRT}
 IM~Gelfand, D~Krob, A~Lascoux, B~Leclerc, VS~Retakh, and JY~Thibon.
@@ -90,11 +80,6 @@ J.L. Loday.
 \newblock {\em Cyclic Homology}.
 \newblock Grundlehren der mathematischen Wissenschaften. Springer Berlin Heidelberg, 2013.
 
-\bibitem{MSZ}
-A.~A. Mikhalev, V.~E. Shpilrain, and A.~A. Zolotykh.
-\newblock Subalgebras of free algebras.
-\newblock {\em Proc. Amer. Math. Soc.}, 124(7):1977--1984, 1996.
-
 \bibitem{MM65}
 John~W Milnor and John~C Moore.
 \newblock On the structure of {H}opf algebras.
@@ -113,12 +98,17 @@ F.~Patras and C.~Reutenauer.
 
 \bibitem{Reutenauer-FreeLieAlgebras}
 C.~Reutenauer.
-\newblock {\em Free Lie Algebras}.
+\newblock {\em Free {L}ie Algebras}.
 \newblock London Mathematical Society Monographs New Series. Oxford University Press, 1993.
 
-\bibitem{RS06}
-Mercedes Rosas and Bruce Sagan.
-\newblock Symmetric functions in noncommuting variables.
-\newblock {\em Transactions of the American Mathematical Society}, 358(1):215--232, 2006.
+\bibitem{S09}
+A.~I. Shirshov.
+\newblock {\em Subalgebras of Free {L}ie Algebras}, pages 3--13.
+\newblock Birkh{\"a}user Basel, Basel, 2009.
+
+\bibitem{Witt56}
+Ernst Witt.
+\newblock Die unterringe der freien lieschen ringe.
+\newblock {\em Mathematische Zeitschrift}, 64(1):195--216, 1956.
 
 \end{thebibliography}
