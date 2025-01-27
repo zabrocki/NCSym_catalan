@@ -184,162 +184,18 @@ In particular, the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{
 Therefore $\NCSym$ has a Hopf subalgebra with Catalan dimension, which is unique up to isomorphism.  
 In the following example, we concretley identify one representative of this isomorphism class inside of $\NCSym$.  
 
-%%%%%\newpage
-%%%%%
-%%%%%
-%%%%%Hook, introduce $\NCSym$.  The obvious basis of $\NCSym$ is the \emph{monomial basis} whose degree-$n$ elements are
-%%%%%\[
-%%%%%\sum_{\beta \in S_{n} \cdot \alpha} x_{\beta_{1}} x_{\beta_{2}} \cdots x_{\beta_{n}}
-%%%%%\qquad\text{for $\alpha \in \ZZ_{+}^{n}$},
-%%%%%\]
-%%%%%which can be uniquely indexed by the set partition in which $i$ and $j$ belong to the same part if and only if $\alpha_{i} = \alpha_{j}$.  
-%%%%%Thus, the graded dimensions of $\NCSym$ are the Bell numbers $\Bell(n) = \#\{\text{set partitions of $[n]$}\}$.
-%%%%%Many other bases of $\NCSym$ can be naturally indexed by set partitions, including those introduced by Rosas and Sagan~\cite{RS06} (and others?).  
-%%%%%
-%%%%%The Catalan numbers $\Catalan_{n} = \frac{1}{n+1}\binom{2n}{n}$ count several noteworthy classes of set partition, most notably the noncrossing and nonnesting partitions~\cite{Stanley2015}.\lucas{not sure what the best citation for this is - Stanley, OEIS, or something more bespoke?} \mike{I used Stanley's Catalan book as a reference}
-%%%%%Our work on the present project began with the following natural question.
-%%%%%
-%%%%%\begin{problem}
-%%%%%\label{problem:Catalan_hopfsub_basis}
-%%%%%Given a basis $\mathcal{B} = \{b_{\pi} \;|\; \text{set partitions $\pi$} \}$ of $\NCSym$, do the subsets
-%%%%%\[
-%%%%%\{b_{\pi} \;|\; \text{noncrossing set partitions $\pi$} \}
-%%%%%\qquad\text{or}\qquad
-%%%%%\{b_{\pi} \;|\; \text{nonnesting set partitions $\pi$} \}
-%%%%%\]
-%%%%%span a graded Hopf subalgebra of $\NCSym$?
-%%%%%\end{problem}
-%%%%%
-%%%%%Preliminary computer exploration suggested that Problem~\ref{problem:Catalan_hopfsub_basis} had a positive answer for a relatively large number of bases; see Table~\ref{table:catalan_bases}
-%%%%%\mike{if we keep this table, citations for the bases, e.g. $m$, $e$, $h$, $p$ were all from the Rosas/Sagan paper.} for a summary.  
-%%%%%In some cases these Hopf subalgebras are obviously isomorphic, but generally the product and/or coproduct differed superficially between bases.  
-%%%%%The relative abundance and diversity of these ``Catalan subalgebras'' led us to investigate another natural question.
-%%%%%
-%%%%%\begin{table}
-%%%%%\begin{tabular}{|c|c|c|}
-%%%%%\hline
-%%%%%basis name&
-%%%%%non-crossing&non-nesting\\
-%%%%%\hline
-%%%%%$\chi$&False&False\\
-%%%%%$\bf{q}$&True&True\\
-%%%%%$m$&False&False\\
-%%%%%$e$&True&False\\
-%%%%%$h$&True&False\\
-%%%%%$p$&True&True\\
-%%%%%$\rho$&False&False\\
-%%%%%$\bf{x}$&False&False\\
-%%%%%\hline
-%%%%%\end{tabular}
-%%%%%\caption{Answers to Problem~\ref{Catalan_hopfsub_basis} for well-known bases of $\NCSym$.}
-%%%%%\label{table:catalan_bases}
-%%%%%\end{table}
-%%%%%
-%%%%%\begin{problem}
-%%%%%\label{problem:Catalan_hopfsub_classify}
-%%%%%Classify all Hopf subalgebras of $\NCSym$ with graded dimension  $\Catalan_{n}$.
-%%%%%\end{problem}
-%%%%%
-%%%%%
-%%%%%%\newpage
-%%%%%%
-%%%%%%We start with three questions:
-%%%%%%\begin{enumerate}
-%%%%%%\item what are the bases $b_\pi $ of $\mathsf{NCSym}$ for which
-%%%%%%$\{ b_\pi :  \text{for $\pi$ non-(crossing or nesting)} \}$
-%%%%%%is a Hopf subalgebra of dimension Catalan?
-%%%%%%
-%%%%%%\item what are all the Hopf subalgebras $\mathsf{NCSym}$ of dimension Catalan? (a) up to isomorphism and (b) all Hopf algebras?
-%%%%%%
-%%%%%%\item what are all the Hopf subalgebras of $\mathsf{NCSym}$ (with (a) and (b))?
-%%%%%%\end{enumerate}
-%%%%%%
-%%%%%%\href{mailto:zabrocki@yorku.ca}{mike}
-%%%%%%
-%%%%%%Checking answers to (1) by computer, we found many bases seemed
-%%%%%%to give us Hopf subaglebras with the right dimension
-%%%%%%(transcribe meeting notes from May 13).
-%%%%%%
-%%%%%%
-%%%%%%However, weren't sure if these were isomorphic or not.
-%%%%%
-%%%%%In order to answer Problem~\ref{problem:Catalan_hopfsub_classify}, we needed to use structural properties of $\mathsf{NCSym}$.  
-%%%%%In particular, $\mathsf{NCSym}$ what we will call an \FGCCHA, or \textsf{F}ree, \textsf{G}raded, \textsf{C}onnected, \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra.  
-%%%%%Beyond $\NCSym$, numerous Hopf algebras in combinatorics fall into this category, including each of the ones shown in Table~\ref{}.
-%%%%%
-%%%%%Our results about FGCCHAs include....\lucas{this is where we explain the framework, including below}
-%%%%%
-%%%%%
-%%%%%\newpage
-%%%%%
-%%%%%A recent result of Aliniaeifard and Thiem~\cite{AT20} shows that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
-%%%%%\[
-%%%%%\vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
-%%%%%\qquad\text{where}\qquad
-%%%%%H = \bigoplus_{n \ge 0} H_{n}.
-%%%%%\]
-%%%%%We knew that all Hopf subalgerbas of $\mathsf{NCSym}$ that we found in Table~\ref{} were \FGCCHAs, so all of these are isomorphic.
-%%%%%
-%%%%%The remainder of Question (2a) is therefore asking whether there are Hopf subalgebras of $\mathsf{NCSym}$
-%%%%%which are not \FGCCHAs.  However, we found that this is not true: Theorem~\ref{} states that all
-%%%%%Hopf subaglerbas of an \FGCCHA are also \FGCCHAs.  This tells us that there is a unique isomorphism
-%%%%%class of Catalan-dimensional Hopf subaglebra of $\mathsf{NCSym}$.
-%%%%%
-%%%%%These tools enable us to answer one final, much stronger, question.
-%%%%%
-%%%%%\begin{problem}
-%%%%%\label{problem:Catalan_hopfsub_classify_all}
-%%%%%Classify all Hopf subalgebras of $\NCSym$ .
-%%%%%\end{problem}
-%%%%%
-%%%%%We then considered how we would construct all subalgebras of $\mathsf{NCSym}$
-%%%%%with a given dimension sequence, or more generally for any \FGCCHA.  There are
-%%%%%usually infinitely many isomorphic copies when one exists, but we describe a
-%%%%%procedure for constructing all isomorphic copies of one \FGCCHA inside another
-%%%%%in Section~\ref{}.
-%%%%%
-%%%%%We give a necessary and sufficient condition for such a copy to exist, answering Problem~\ref{problem:Catalan_hopfsub_classify_all}.  The characterization is in terms of the dimension sequence $\vec{h}$, the graded cardinality of the generating set $\vec{a}$, and the graded dimension of the space of primitives $\vec{p}$.  
-%%%%%
-%%%%%\begin{center}
-%%%%%\begin{tabular}{c|c|c}
-%%%%%Question & Condition on $\vec{h}$, $\vec{a}$, and $\vec{c}$? & Theorem reference\\ \hline
-%%%%%When is there a Hopf algebra? & When $\vec{a} \ge \vec{0}$ \\ \hline
-%%%%%When is is there a Hopf subalgebra? & whenever $\vec{b} \ge 0$ and $\vec{q} \le \vec{p}$\\
-%%%%%(with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & \\ \hline
-%%%%%When is there a surjection from another Hopf algebra & when $\vec{b} \ge \vec{a}$\\
-%%%%% (with sequences $\vec{k}$, $\vec{b}$, and $\vec{q}$) & 
-%%%%%\end{tabular}
-%%%%%\end{center}
-%%%%%
-%%%%%\lucas{de-tabularize}
-%%%%%
-%%%%%.\lucas{lit review/methodology: which of our results are novel, what do we take credit for, etc.}
-%%%%%
-%%%%%.\lucas{examples: include table with relevant sequences?}
-%%%%%
-%%%%%.\lucas{Motivate: why care about the level of generality needed for our results/how are they useful?}
-%%%%%
-%%%%%
-%%%%%
 \begin{example}
+We first identify one such Hopf subalgebra explcitly.  The power-sum basis elements $\mathbf{p}_{\pi}$ of $\mathsf{NCSym}$ are indexed by set partitions (see~\cite{BHRZ05} for details on the Hopf structure on the power sum basis).  Direct calculation shows that the subset $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ is closed under the product and coproduct, so they span a Hopf subalgebra whose dimension is the Catalan numbers.
+
 In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathbf{CQSym}$ which has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$.  
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
-Moreover, the number of non-crossing set partitions is the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}, so $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ with Catalan dimension sequence. 
+Moreover, the number of non-crossing set partitions is the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}, so $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ whose dimension is also the Catalan numbers.
 
-In order to construct an explicit isomorphism, we first identify one such Hopf subalgebra.  The power-sum basis elements $\mathbf{p}_{\pi}$ of $\mathsf{NCSym}$ are indexed by set partitions (see ~\cite{BHRZ05} for details on the Hopf structure on the power sum basis).  Direct calculation shows that the non-crossing subset of power sums is closed under the product and coproduct, so we have a Hopf subalgebra whose dimension is also the Catalan numbers.
+Using Aliniaefard and Thiem's result~\cite{}, $\mathbf{CQSym}$ and $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ are isomorphic.  
+However, the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same, so this isomorphism is not immediately obtained.  
+Theorem~\ref{} outlines a procedure (using the Eulerian idempotent) for constructing one of the many isomorphisms that we know must exist.  
 
 
-The product and the coproduct on the bases $\mathbf{P}^{\pi}$ from \cite{NT05} and $\mathbf{p}_{\pi}$ from \cite{BHRZ05}
-are not the same, however both bases are indexed by the non-crossing set partitions of $[n]$
-which are enumerated by the Catalan numbers, $(C_n)_{n \geq 1}$. Given that 
-    \[
-    \vecdim(\mathbf{CQSym}) = \vecdim(\mathsf{NCSym}_{\mathrm{NC}}) = (C_n)_{n \geq 1},
-    \]
-    we know $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$.
-
-To make the isomorphism explicit, we map $f:\mathbf{e}(\mathbf{P}^{\pi}) \to \mathbf{e}(\mathbf{p}_{\pi})$
-for all atomic non-crossing set partitions $\pi$, and extending algebraically gives a
-Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
 \end{example}
 %%%%%
 %%%%%\newpage
