@@ -128,7 +128,7 @@ We answer Problem~\ref{problem:motivating_calatan_question} by showing that all 
 %This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA.  
 
 Properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}.  
-Going back to the Milnor--Moore theorem, the structure of \FGCCHAs have been characterized by the number of free generators and the dimension of the subspace of primitives.  
+{\color{red}{Going back to the Milnor--Moore theorem}}, the structure of \FGCCHAs have been characterized by the number of free generators and the dimension of the subspace of primitives.  
 In this paper, we take the perspective that these can be thought of simply as sequences of integers satisfying certain relations.  
 
 In addition to $\NCSym$, much work has gone into understanding specific examples including the \FGCCHAs of noncommutative symmetric functions (see Example~\ref{ex:NSym}), permutations (see Example~\ref{example:hopf_algebras_of_permutations}), and trees~\cite{AS05cc, GL09}.  
@@ -322,24 +322,15 @@ In the following example, we concretley identify one representative of this isom
 %%%%%
 %%%%%
 \begin{example}
+We first identify one such Hopf subalgebra explcitly; there are many more examples including the one constructed in~\cite{AT20}.  The power-sum basis elements $\mathbf{p}_{\pi}$ of $\mathsf{NCSym}$ are indexed by set partitions (see~\cite{BHRZ05} for details on the Hopf structure on the power sum basis).  Direct calculation shows that the subset $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ is closed under the product and coproduct, so they span a Hopf subalgebra whose dimension is the Catalan numbers.
+
 In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathbf{CQSym}$ which has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$.  
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
-Moreover, the number of non-crossing set partitions is the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}, so $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ with Catalan dimension sequence. 
+Moreover, the number of non-crossing set partitions is the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}, so $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ whose dimension is also the Catalan numbers.
 
-In order to construct an explicit isomorphism, we first identify one such Hopf subalgebra.  The power-sum basis elements $\mathbf{p}_{\pi}$ of $\mathsf{NCSym}$ are indexed by set partitions (see ~\cite{BHRZ05} for details on the Hopf structure on the power sum basis).  Direct calculation shows that the non-crossing subset of power sums is closed under the product and coproduct, so we have a Hopf subalgebra whose dimension is also the Catalan numbers.
-
-
-The product and the coproduct on the bases $\mathbf{P}^{\pi}$ from \cite{NT05} and $\mathbf{p}_{\pi}$ from \cite{BHRZ05}
-are not the same, however both bases are indexed by the non-crossing set partitions of $[n]$
-which are enumerated by the Catalan numbers, $(C_n)_{n \geq 1}$. Given that 
-    \[
-    \vecdim(\mathbf{CQSym}) = \vecdim(\mathsf{NCSym}_{\mathrm{NC}}) = (C_n)_{n \geq 1},
-    \]
-    we know $\mathbf{CQSym} \cong \mathsf{NCSym}_{\mathrm{NC}}$.
-
-To make the isomorphism explicit, we map $f:\mathbf{e}(\mathbf{P}^{\pi}) \to \mathbf{e}(\mathbf{p}_{\pi})$
-for all atomic non-crossing set partitions $\pi$, and extending algebraically gives a
-Hopf algebra isomorphism $f:\mathbf{CQSym} \to \mathsf{NCSym}_{\mathrm{NC}}$.
+Using Aliniaefard and Thiem's result (see Theorem~\ref{thm:AT}), $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ and $\mathbf{CQSym}$ are isomorphic.  
+However, the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same, so this isomorphism is not immediately obtained.  
+Theorem~\ref{thm:subclassification2} outlines a procedure (using the Eulerian idempotent) for constructing one of the many isomorphisms that we know must exist.  
 \end{example}
 %%%%%
 %%%%%\newpage
