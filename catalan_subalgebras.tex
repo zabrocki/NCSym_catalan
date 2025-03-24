@@ -84,7 +84,7 @@
 \newcommand{\nicolas}[1]{\todo[size=\tiny,color=purple!50]{#1 \\ \hfill --- Nicolas}}
 \setlength{\marginparwidth}{28mm}
 
-\title{Free, graded, connected, co-commutative Hopf algebras as integer sequences}
+\title{Free, graded, connected, cocommutative Hopf algebras as integer sequences}
 \author{}
 
 \begin{document}
@@ -92,7 +92,7 @@
 \begin{abstract}
 %attempt 1
 We study the category of graded Hopf algebras that are
-free non-commutative, co-commutative,
+free noncommutative, cocommutative,
 graded and connected
 from the perspective of the sequences of dimensions of the graded pieces.
 We show that a Hopf algebra exists with a given sequence of graded dimensions
@@ -105,7 +105,7 @@ $H$ occurs as a Hopf subalgebra of $K$.
 
 \begin{comment}
 %attempt 2
-We study the category of free, graded, connected, co-commutative Hopf algebras
+We study the category of free, graded, connected, cocommutative Hopf algebras
 by what can be said from the sequence of graded dimensions.
 Let $\vec{a} = (a_1, a_2, a_3, \ldots)$ be a sequence of nonnegative integers,
 then a Hopf algebra $H := \bigoplus_{n\geq0} H_n$ such that 
@@ -140,7 +140,8 @@ The former result applies to every member of the full subcategory of free, grade
 As stated above, this includes $\NCSym$.  
 %This is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
 %This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA. 
-In the context of \FGCCHAs,~\cite[Theorem~4.2]{AT20} show that that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+In the context of \FGCCHAs,~\cite[Theorem~4.2]{AT20} show that that the isomorphism class of an
+\FGCCHA $H$, can be fully determined by the \emph{dimension sequence}
 \[
 \vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
 \qquad\text{where}\qquad
@@ -150,7 +151,7 @@ We answer Problem~\ref{problem:motivating_calatan_question} by showing that all 
 
 
 Beyond $\NCSym$, much work has gone into understanding specific examples including the \FGCCHAs of noncommutative symmetric functions (see Example~\ref{ex:NSym}), permutations (see Example~\ref{example:hopf_algebras_of_permutations}), and trees~\cite{AS05cc, GL09}.  
-At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and the Milnor--Moore theorem states that the structure of an \FGCCHA $H$ is determined by its Lie algebra of primitives.  
+At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and the Milnor--Moore theorem states that the structure of an \FGCCHA $H$, is determined by its Lie algebra of primitives.  
 Experts in the field will know that beyond this work, \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives, but this result is not known to a general audience and to the best of our knowledge it is not available in a widely-accessible source or publication. 
 
 This paper records and expands on the folklore in order to give a description of \FGCCHAs in terms of sequences of integers.  
@@ -204,9 +205,9 @@ Our example uses the power-sum basis $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is a 
 Direct calculation shows that the subset $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ is closed under the product and coproduct, so they span a Hopf subalgebra whose dimension is the Catalan numbers.  
 There are many more examples including the one constructed in~\cite{AT20}.
 
-In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathbf{CQSym}$ which has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$.  
+In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathbf{CQSym}$ which has a basis $\mathbf{P}^{\pi}$ indexed by noncrossing set partitions $\pi$.  
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
-Moreover, the number of non-crossing set partitions is the Catalan numbers.
+Moreover, the number of noncrossing set partitions is the Catalan numbers.
 
 Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to ever Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan nummbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
 It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.
@@ -539,7 +540,7 @@ A set partition $A$ is called \defn{crossing} if there exists $A_i \neq A_j$ whi
 are parts of $A$ with $a < b < c < d$ and $a,c \in A_i$ and $b,d \in A_j$.  A set partition is said to be \defn{noncrossing} otherwise.
 A set partition $A$ is said to be \defn{nesting} if there exists $A_i \neq A_j$ which
 are parts of $A$ with $a < b < c < d$ and $a,d \in A_i$ and $b,c \in A_j$ and is \defn{nonnesting} otherwise.
-\mike{The definition of non-nesting is probably not correct}
+\mike{The definition of nonnesting is probably not correct}
 
 We will define a few combinatorial operations on set partitions that we will need to describe the algebra structure.
 For $A \vdash [n]$ and $k \in \mathbb{Z}_{\geq 0}$, let $A_{\uparrow k}$ be the set partition
@@ -1285,7 +1286,7 @@ Let $H$ and $K$ be \FGCCHAs which are generated by sets of graded cardinality $\
 \begin{enumerate}
 \item There is a surjective homomorphism $f: H \to K$ if and only if $\vec{a} \ge \vec{b}$.
 
-\item For every surjective homomorphism $f: H \to K$, there exists a (non-unique) choice of
+\item For every surjective homomorphism $f: H \to K$, there exists a (nonunique) choice of
 ordered primitive generating sets $\vec{A} \in \OPG(H)$ and $\vec{B} \in \OPG(K)$
 for which $f = f^{\vec{A}}_{\vec{B}}$.
 
@@ -1637,7 +1638,7 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 
 %\section{A set of details to add}
 %
-%Aliniaeifard-Thiem \cite[Theorem 4.2]{AT22} give a theorem that says that two co-commutative Hopf algebras that
+%Aliniaeifard-Thiem \cite[Theorem 4.2]{AT22} give a theorem that says that two cocommutative Hopf algebras that
 %have the same sequence of graded dimensions are isomorphic.  We should have a section here
 %that says how to carry out this construction (outlined in the Cocalc summary for July 3).
 %
