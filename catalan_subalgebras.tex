@@ -413,7 +413,7 @@ and $\phi_{h,a}$ is the INVERTi transform.
 If the sequence $\vec{a}$ consists entirely of non-negative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
 Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
-If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
+If $X = \biguplus_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
 \[
 \mathsf{deg}(w_1 w_2 \ldots w_{\ell}) = \sum_{i = 1}^{\ell} \mathsf{deg}(w_{i})
 \qquad\text{where $\mathsf{deg}(x) = n$ for all $x \in X^{(n)}$}.
@@ -505,23 +505,9 @@ than the one given in  Proposition~\ref{prop:combinatorialinterpretation}.
 Continuing with Example \ref{ex:catalan}, we have that if
 $h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is equal to the number
-of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
+of Lyndon words in an alphabet $X = \biguplus_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
 However,~\cite[\href{https://oeis.org/A022553}{A022553}]{OEIS} states that $p_n$ is also equal to the number of
 length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.
-%This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
-%balanced binary Lyndon words of size $n$.  This implies that there should be a nice bijection between balanced binary Lyndon words of size $n$ and Lyndon words in an alphabet $X$; 
-%
-%A balanced binary word is a sequence $D = d_1d_2\ldots d_{2n} \in \{0, 1\}^{n}$ with an equal number of $1$s and $0$s, and we say that $D$ has size $n$.  We take the order $0 < 1$ when considering the Lyndon condition.  
-%We say that $D$ is a Dyck word of size $n$ if $\sum_{i=1}^k d_i \geq k/2$ for $1 \leq k \leq 2n$
-%and it is well known that the number of Dyck words of size $n$ is the Catalan number $\frac{1}{n+1}\binom{2n}{n}$.  
-%
-%We have that $p_n$ is also the number of Lyndon words of the form
-%$(D_1, \ldots, D_r)$ where for $1 \leq i \leq r$,
-%$D_i$ is a Dyck word, including the empty word $\bullet$, and $r+|D_1|+\cdots+|D_r| = n$.  
-%If we order the set of Dyck words by size and then lexicographically within each size, then for $n = 8$ these Lyndon words are
-%$(111000)$, $(110100)$, $(101100)$, $(110010)$, $(101010)$,
-%$(\bullet, 1100)$, $(\bullet, 1010)$, $(\bullet, \bullet, 10)$.
-%From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.\mike{Maybe remove a bit of details and clean up so that it is a little shorter}
 \end{example}
 
 \begin{corollary}
@@ -992,7 +978,9 @@ that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we m
 that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
-The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
+The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.  
+We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
+We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of generators, inspiring the following definition.
 
 \begin{definition}
 \label{def:OPG}
@@ -1014,9 +1002,7 @@ Let
 \]
 \end{definition}
 
-We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
-We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of primitive generators of $H$.  
-The following theorem uses this relationship to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
+The following theorem uses the set $\OPG(H)$ to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
 %The second main result of the section is the following.
 
 \begin{theorem}
