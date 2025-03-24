@@ -115,10 +115,10 @@ sequences of $H$ and $K$...
 \section{Introduction}
 \mike{rewrite abstract, identify missing references (start by look in the .bib file), proofread!}
 
-This paper is motivated by a question about the Hopf algebra of symmetric functions in noncommutative variables, $\NCSym$~\cite{AgEtAl12, BHRZ05, GebSag01, HNT08, RS06, Wolf36}.  
-This is a graded Hopf algebra with dimensions given by the Bell numbers, so bases of $\NCSym$ are naturally indexed by set partitions.  
+This paper begins with a question about the Hopf algebra of symmetric functions in noncommutative variables, $\NCSym$~\cite{AgEtAl12, BHRZ05, GebSag01, HNT08, RS06, Wolf36}.  
+This is a graded Hopf algebra with dimensions given by the Bell numbers, and many well-known bases of $\NCSym$ are naturally indexed by set partitions.  
 The Catalan numbers enumerate several distinguished families of partitions, including the nonnesting and noncrossing set partitions.  
-We recognized that some well-known bases of $\NCSym$ had product and coproduct formulas that were closed when restricted to the nonnesting or noncrossing subsets.  
+We recognized that some bases of $\NCSym$ had product and coproduct formulas that were closed when restricted to the nonnesting or noncrossing subsets, meaning that these sets spanned a Hopf subalgebra of $\NCSym$.
 
 \begin{problem}
 \label{problem:motivating_calatan_question}
@@ -133,30 +133,27 @@ Classify all Hopf subalgebras of $\NCSym$ with graded dimensions equal to the Ca
 %Classify all Hopf subalgebras of $\NCSym$ .
 %\end{problem}
 
-We realized that we could resolve Problem~\ref{problem:motivating_calatan_question} by applying a recent result of Aliniaeifard and Thiem~\cite{AT20}.  
-This is a consequence of the the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
-This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA. 
-In this context,~\cite[Theorem~4.2]{AT20} show that that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
+We resolve Problem~\ref{problem:motivating_calatan_question} up to isomorphism by applying a recent result of Aliniaeifard and Thiem~\cite{AT20} and the Shirshov--Witt Theorem~\cite{S09, Witt56}.  
+The former result applies to every member of the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will abbreviate as \FGCCHA.  
+As stated above, this includes $\NCSym$.  
+%This is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
+%This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA. 
+In the context of \FGCCHAs,~\cite[Theorem~4.2]{AT20} show that that the isomorphism class of an \FGCCHA $H$ can be fully determined by the \emph{dimension sequence}
 \[
 \vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
 \qquad\text{where}\qquad
 H = \bigoplus_{n \ge 0} H_{n}.
 \]
-We answer Problem~\ref{problem:motivating_calatan_question} by showing that all Hopf subalgebras of any \FGCCHA (including $\NCSym$) are \FGCCHAs, which follows from the Shirshov--Witt Theorem; see Lemma~\ref{lem:ShiWitt}.  
-%In fact, this a consequence of the fact that \FGCCHAs are closed under taking graded Hopf subalgebras.  
-%We found that the result of Aliniaeifard and Thiem allows us to answer a much stronger problem of characterizing all $\FGCCHAs$ and their subalgebras using the dimension sequences.  
-%We realized that all Hopf subalgebras of $\NCSym$ with equal graded dimensions are isomorphic.  
-%We also realized that this is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
-%This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA.  
+We answer Problem~\ref{problem:motivating_calatan_question} by showing that all Hopf subalgebras of any \FGCCHA (including $\NCSym$) are \FGCCHAs, a fact that we deduce from the Shirshov--Witt Theorem; see Lemma~\ref{lem:ShiWitt}.  
+
 
 Beyond $\NCSym$, much work has gone into understanding specific examples including the \FGCCHAs of noncommutative symmetric functions (see Example~\ref{ex:NSym}), permutations (see Example~\ref{example:hopf_algebras_of_permutations}), and trees~\cite{AS05cc, GL09}.  
 At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and the Milnor--Moore theorem states that the structure of an \FGCCHA $H$ is determined by its Lie algebra of primitives.  
-Experts in the field will know that beyond this work, \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives, but this result is not widely known or published.  
+Experts in the field will know that beyond this work, \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives, but this result is not known to a general audience and to the best of our knowledge it is not available in a widely-accessible source or publication. 
 
-This paper records and expands on the folklore to fully describe \FGCCHAs using as sequences of integers.  
-Building on known results (Theorem~\ref{thm:AT}, Proposition~\ref{prop:LieToFree}, Proposition~\ref{prop:indecomposable generators}, Lemma~\ref{lemma:primitive generators}, and Proposition \ref{lem:ShiWitt}), this perspective allows us determine 
-whether maps between \FGCCHAs exist by checking properties of the sequences.    
-For example, proving that two \FGCCHAs are isomorphic amounts to showing that their dimension sequences are equal.  
+This paper records and expands on the folklore in order to give a description of \FGCCHAs in terms of sequences of integers.  
+Building on known results (Theorem~\ref{thm:AT}, Proposition~\ref{prop:LieToFree}, Proposition~\ref{prop:indecomposable generators}, Lemma~\ref{lemma:primitive generators}, and Proposition \ref{lem:ShiWitt}), this perspective allows us to determine whether maps between \FGCCHAs exist by checking properties of the sequences.    
+For example, proving that two \FGCCHAs have equal dimension sequences amounts to showing that they are isomorphic, by Aliniaeifard and Thiem's result.
 
 The sections of this paper are structured as follows.
 Sections~\ref{sec:SequencePrelims} and~\ref{sec:HopfAlgebra} state the
@@ -198,18 +195,19 @@ As stated above, the dimension sequence of $\NCSym$ is the Bell numbers,
 \]
 Every Hopf subalgebra of $\NCSym$ corresponds to a sequence whose inverse Euler transform is dominated by $(1, 1, 3, 9, 34, 135,\ldots)$~\cite[\href{https://oeis.org/A085686}{A085686}]{OEIS}, which is  the inverse Euler transform of the Bell numbers.  
 In particular, the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS} have inverse Euler transform $(1, 1, 3, 8, 25, 75,\ldots)$~\cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}, which is dominated by~\cite[\href{https://oeis.org/A085686}{A085686}]{OEIS}.  
-Therefore $\NCSym$ has a Hopf subalgebra with Catalan dimension, which is unique up to isomorphism.  
-In the following example, we concretley identify one representative of this isomorphism class inside of $\NCSym$.  
+Therefore $\NCSym$ has a Hopf subalgebra with Catalan dimension, which is unique up to isomorphism; in the following we identify such a sub-Hopf algbera and then a well-known representative of its isomorphism class.  
 
 %\begin{example}
-We first identify one such Hopf subalgebra explcitly; there are many more examples including the one constructed in~\cite{AT20}.  The power-sum basis elements $\mathbf{p}_{\pi}$ of $\mathsf{NCSym}$ are indexed by set partitions (see~\cite{BHRZ05} for details on the Hopf structure on the power sum basis).  Direct calculation shows that the subset $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ is closed under the product and coproduct, so they span a Hopf subalgebra whose dimension is the Catalan numbers.
+Our example uses the power-sum basis $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is a set partition of $[n]$, $n \ge 0$}\}$ of $\mathsf{NCSym}$; see~\cite{BHRZ05} for details on the Hopf structure on this basis.  
+Direct calculation shows that the subset $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ is closed under the product and coproduct, so they span a Hopf subalgebra whose dimension is the Catalan numbers.  
+There are many more examples including the one constructed in~\cite{AT20}.
 
 In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathbf{CQSym}$ which has a basis $\mathbf{P}^{\pi}$ indexed by non-crossing set partitions $\pi$.  
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
-Moreover, the number of non-crossing set partitions is the Catalan numbers $(1, 2, 5, 14, 42, 132, \ldots)$~\cite[\href{https://oeis.org/A000108}{A000108}]{OEIS}, so $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ whose dimension is also the Catalan numbers.
+Moreover, the number of non-crossing set partitions is the Catalan numbers.
 
-Using Aliniaefard and Thiem's result (see Theorem~\ref{thm:AT}), $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$ and $\mathbf{CQSym}$ are isomorphic.  
-However, the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same, so this isomorphism is not immediately obtained.  
+Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to ever Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan nummbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
+It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.  
 Theorem~\ref{thm:subclassification2} outlines a procedure (using the Eulerian idempotent) for constructing one of the many isomorphisms that we know must exist.  
 %\end{example}
 
@@ -229,9 +227,9 @@ Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \ve
 if and only if $\vec{c}$ consists of entirely nonnegative entries.
 
 Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
-In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field of characteristic $0$.  
+In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field containing $\QQ$.  
 
-However, in later sections these sequences come from an \FGCCHA $H$ and have an interpretation when they are non-negative integers.
+However, in later sections these sequences come from an \FGCCHA $H$ and have an interpretation showing that they are non-negative integers.
 For a graded vector space $V = \bigoplus_{n \ge 0} V_{n}$ with $V_{0} = \CC$, let
 \[
 \vecdim(V) = \left( \dim(V_{n}) \right)_{n \ge 1}.
@@ -274,8 +272,7 @@ A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \b
 We refer to the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
 We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
 
-We say that $\lambda$ is a \defn{partition} of $n$, if $\lambda \vDash n$ and
-$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
+We say that $\lambda \vDash n$ is a \defn{partition} of $n$ if $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_{\ell(\lambda)}$.  We will indicate that $\lambda$ is a partition
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
@@ -304,9 +301,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a
 \end{enumerate}
 \end{proposition}
 
-\begin{remark} Although not necessarily obvious from the form of the equation in the proposition, 
-an induction argument implies that if $\vec{a} \in \ZZ^{\ZZ_+}$ or $\vec{h} \in \ZZ^{\ZZ_+}$,
-then $\vec{p} \in \ZZ^{\ZZ_+}$.
+\begin{remark} Although not necessarily obvious, an induction argument implies that if $\vec{a} \in \ZZ^{\ZZ_+}$ or $\vec{h} \in \ZZ^{\ZZ_+}$, then $\vec{p} \in \ZZ^{\ZZ_+}$.\lucas{citation?}
 \end{remark}
 
 \begin{proof}
@@ -358,7 +353,7 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-Proposition \ref{prop:sequences} can be stated as biconditional theorem in the sense
+Proposition \ref{prop:sequences} can be stated as biconditional theorem\lucas{don't love this phrasing} in the sense
 that any one equality in the proposition implies, by reversing the calculations,
 that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
@@ -586,7 +581,7 @@ $$\Delta(\mathbf{h}_A) = \sum_{A \subseteq [n]}
 We now give the algebraic context for the results of Section~\ref{sec:SequencePrelims}.  
 As in the introduction, we use the abbreviation \FGCCHA to mean \textsf{F}ree \textsf{G}raded \textsf{C}onnected \textsf{C}ocommutative \textsf{H}opf \textsf{A}lgebra, which we now formally define.
 
-In order to define an \FGCCHA, we must first recall the tensor algebra of a graded vector space $V = \bigoplus_{n \ge 1} V_{i}$:
+We first recall the tensor algebra of a graded vector space $V = \bigoplus_{n \ge 1} V_{i}$:
 \begin{equation}
 \label{eq:tensoralg}
 \mathsf{T}(V) = \bigoplus_{n \ge 0} \Big( \bigoplus_{k \ge 0} V_{k} \Big)^{\otimes n},
@@ -604,7 +599,7 @@ H \cong \mathsf{T}(\CC X)
 Under this isomorphism, the coproduct of $H$ corresponds to some graded algebra homomorphism $\tilde{\Delta}: \mathsf{T}(\CC X) \to \mathsf{T}(\CC X) \otimes \mathsf{T}(\CC X)$.
 \end{definition}
 
-We will also consider Lie subalgebras of $\mathsf{T}(V)$ and \FGCCHAs under the commutator bracket $[x, y] = xy - yx$.
+We will also consider Lie subalgebras of $\mathsf{T}(V)$, and more generally any \FGCCHA, under the commutator bracket $[x, y] = xy - yx$.
 
 \begin{definition}[{see~\cite[\S 0.2]{Reutenauer-FreeLieAlgebras}}]
 \label{defn:freelie}
@@ -651,7 +646,7 @@ is freely generated by $X = \{ \mathbf{h}_1, \mathbf{h}_2, \mathbf{h}_3, \ldots 
 %The Hopf algebra $\mathsf{NSym}$ is the graded dual of the Hopf algebra to the quasisymmetric functions $\mathsf{QSym}$.
 The bases of the degree $n$ homogeneous components of $\mathsf{NSym}$ are indexed by compositions
 of $n$ and hence $\vecdim(\mathsf{NSym}) = (1,2,4,8,\ldots)$.
-The dimensions of the space pf primitives is the sequence 
+The dimensions of the space of primitives is the sequence 
 $\vecdim(\mathcal{P}(\mathsf{NSym})) = (1, 1, 2, 3, 6, 9, 18, 30, 56, \ldots)$
 whose $n^{th}$ term is equal to the number
 of compositions of $n$ that are Lyndon \cite{H07}.
@@ -1925,83 +1920,83 @@ Then $[L^{(n+1)}, L^{(n+1)}]_{n} = [L^{(n)}, L^{(n)}]_{n}$ as $L^{(n)}$ and $L^{
 \bibliography{bibliography}{}
 
 
-\newpage
- \begin{table}[h]
-    \hspace*{-1cm} 
-    \begin{tabular}{|l|l|l|l||l|l|l||l|l|l|l||l|l|l|}
-        \hline
-        Sequence & h sequence & a sequence & p sequence \\
-        \hline
-        \href{https://oeis.org/A000108}{Catalan} & \(1, 2, 5, 14\) & 
-        \(1, 1, 2, 5, 14, 42, 132, 429, 1430\) & 
-        \(1, 1, 3, 8, 25, 75, 245, 800, 2700\) \\
-        
-        %\hline
-        %\href{https://oeis.org/A001764}%{Ternary Trees} & \(1, 3, 12, 55,273\) & 
-        %\(1, 2, 7, 30, 143, 728, 3876, %21318, 120175, 690690\) & 
-        %\(1, 2, 9, 40, 200, 1026, 5537, %30624, 173583, 1001400\)
-        %\\
-        
-        \hline
-        \href{https://oeis.org/A001006}{Motzkin}  & \(1, 2, 4, 9, 21\) & 
-        \(1, 1, 1, 2, 4, 9, 21, 51, 127, 323\) & 
-        \(1, 1, 2, 4, 10, 22, 56, 136, 348, 890\)
-
-          \\
-        \hline
-        \href{https://oeis.org/A000045}{ Fibonacci}
-        & \(1, 1, 2, 3,5\) & 
-        \(1, 0, 1, 0, 1, 0, 1, 0, 1, 0\) & 
-        \(1, 0, 1, 1, 2, 2, 4, 5, 8, 11\)
-
-         \\
-        \hline
-        \href{https://oeis.org/A000073}{Tribonacci} & \(0, 1, 1, 2, 4\) & 
-        \(0, 1, 1, 1, 2, 3, 4, 6, 9, 13\) & 
-        \(0, 1, 1, 1, 3, 4, 8, 13, 23, 38\)
-
-             \\
-        \hline
-        \href{https://oeis.org/A000032}{Lucas} & \(2, 1, 3, 4, 7\) & 
-        \(2, -3, 7, -13, 27, -53, 107, -213, 427, -853\) & 
-        \(2, -2, 3, -2, 8, -9, 22, -25, 64, -94\)
-
-         \\
-        \hline
-        \href{https://oeis.org/A000110}{Bell}
-         & \(1, 2, 5, 15, 52\) & 
-        \(1, 1, 2, 6, 22, 92, 426, 2146, 11624, 67146\) & 
-        \(1, 1, 3, 9, 34, 135, 610, 2965, 15612, 87871\)
-
-
-   \\
-        \hline
-\href{https://oeis.org/A000009}{Odd Part.}
-         & \(1, 1, 2, 2, 3\) & 
-        \(1, 0, 1, -1, 1, -1, 1, -2, 2, -2\) & 
-        \(1, 0, 1, 0, 1, 0, 1, 0, 1, 0\)
-
-   \\   
-        \hline
-        \href{https://oeis.org/A000272}{Park. Func.}
-         & \(1,3, 16, 125\) & 
-        \(1, 2, 11, 92, 1014, 13795, 223061\) & 
-        \(1, 2, 13, 106, 1145, 15204, 241630\)
-
-   \\  
-        \hline
-    \end{tabular}
-    \caption{Sequences}
-    \label{tab:sequences}
-\end{table}
-
-Rooted trees (Grossman-Larson, Connes-Kreimer),
-ordered trees (Grossman-Larson),
-heap-ordered trees (Grossman-Larson),
-planar binary trees (Loady-Ronco), permutations (Malvenuto-Reutenauer, Aguiar-Sottile),
-compositions (QSym/NSym), odd compositions (Peak algebra of Stembridge),
-parking functions ($(n+1)^{n-1}$).
-Set partitions.
+%\newpage
+% \begin{table}[h]
+%    \hspace*{-1cm} 
+%    \begin{tabular}{|l|l|l|l||l|l|l||l|l|l|l||l|l|l|}
+%        \hline
+%        Sequence & h sequence & a sequence & p sequence \\
+%        \hline
+%        \href{https://oeis.org/A000108}{Catalan} & \(1, 2, 5, 14\) & 
+%        \(1, 1, 2, 5, 14, 42, 132, 429, 1430\) & 
+%        \(1, 1, 3, 8, 25, 75, 245, 800, 2700\) \\
+%        
+%        %\hline
+%        %\href{https://oeis.org/A001764}%{Ternary Trees} & \(1, 3, 12, 55,273\) & 
+%        %\(1, 2, 7, 30, 143, 728, 3876, %21318, 120175, 690690\) & 
+%        %\(1, 2, 9, 40, 200, 1026, 5537, %30624, 173583, 1001400\)
+%        %\\
+%        
+%        \hline
+%        \href{https://oeis.org/A001006}{Motzkin}  & \(1, 2, 4, 9, 21\) & 
+%        \(1, 1, 1, 2, 4, 9, 21, 51, 127, 323\) & 
+%        \(1, 1, 2, 4, 10, 22, 56, 136, 348, 890\)
+%
+%          \\
+%        \hline
+%        \href{https://oeis.org/A000045}{ Fibonacci}
+%        & \(1, 1, 2, 3,5\) & 
+%        \(1, 0, 1, 0, 1, 0, 1, 0, 1, 0\) & 
+%        \(1, 0, 1, 1, 2, 2, 4, 5, 8, 11\)
+%
+%         \\
+%        \hline
+%        \href{https://oeis.org/A000073}{Tribonacci} & \(0, 1, 1, 2, 4\) & 
+%        \(0, 1, 1, 1, 2, 3, 4, 6, 9, 13\) & 
+%        \(0, 1, 1, 1, 3, 4, 8, 13, 23, 38\)
+%
+%             \\
+%        \hline
+%        \href{https://oeis.org/A000032}{Lucas} & \(2, 1, 3, 4, 7\) & 
+%        \(2, -3, 7, -13, 27, -53, 107, -213, 427, -853\) & 
+%        \(2, -2, 3, -2, 8, -9, 22, -25, 64, -94\)
+%
+%         \\
+%        \hline
+%        \href{https://oeis.org/A000110}{Bell}
+%         & \(1, 2, 5, 15, 52\) & 
+%        \(1, 1, 2, 6, 22, 92, 426, 2146, 11624, 67146\) & 
+%        \(1, 1, 3, 9, 34, 135, 610, 2965, 15612, 87871\)
+%
+%
+%   \\
+%        \hline
+%\href{https://oeis.org/A000009}{Odd Part.}
+%         & \(1, 1, 2, 2, 3\) & 
+%        \(1, 0, 1, -1, 1, -1, 1, -2, 2, -2\) & 
+%        \(1, 0, 1, 0, 1, 0, 1, 0, 1, 0\)
+%
+%   \\   
+%        \hline
+%        \href{https://oeis.org/A000272}{Park. Func.}
+%         & \(1,3, 16, 125\) & 
+%        \(1, 2, 11, 92, 1014, 13795, 223061\) & 
+%        \(1, 2, 13, 106, 1145, 15204, 241630\)
+%
+%   \\  
+%        \hline
+%    \end{tabular}
+%    \caption{Sequences}
+%    \label{tab:sequences}
+%\end{table}
+%
+%Rooted trees (Grossman-Larson, Connes-Kreimer),
+%ordered trees (Grossman-Larson),
+%heap-ordered trees (Grossman-Larson),
+%planar binary trees (Loady-Ronco), permutations (Malvenuto-Reutenauer, Aguiar-Sottile),
+%compositions (QSym/NSym), odd compositions (Peak algebra of Stembridge),
+%parking functions ($(n+1)^{n-1}$).
+%Set partitions.
 
 \end{document}
 %))
