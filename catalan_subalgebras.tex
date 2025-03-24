@@ -353,6 +353,20 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
+\begin{example}
+\label{ex:catalan}
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
+so that $h_n$ is equal to the $n^{th}$ Catalan number
+$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
+\[
+f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
+\]
+so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
+(that is, $a_n$ is the $n-1^{st}$ Catalan number).
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
+It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
+\end{example}
+
 Proposition \ref{prop:sequences} can be stated as biconditional theorem\lucas{don't love this phrasing} in the sense
 that any one equality in the proposition implies, by reversing the calculations,
 that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
@@ -395,21 +409,7 @@ of \cite{OEIS},
 the map $\phi_{a,h}$ is known as the INVERT transform
 and $\phi_{h,a}$ is the INVERTi transform.
 
-\begin{example}
-\label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
-so that $h_n$ is equal to the $n^{th}$ Catalan number
-$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
-\[
-f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
-\]
-so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
-(that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
-\end{example}
-
-If the sequence $\vec{a}$ consists of entirely non-negative integers,
+If the sequence $\vec{a}$ consists entirely of non-negative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
 Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
 If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
@@ -436,7 +436,7 @@ following result for completeness.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
-Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
+Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \biguplus_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
 If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$, then for each $n \geq 1$, we have:
 \begin{enumerate}[itemsep = 0.5em]
 \item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
