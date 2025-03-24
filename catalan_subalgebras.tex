@@ -943,15 +943,14 @@ We prove the theorem in Section~\ref{sec:classificationproof} following addition
 
 \begin{example}[A cocommutative Hopf algebra on permutations]
 \label{example:hopf_algebras_of_permutations}
-    Let $\vec{h} = (n!)_{n \geq 1}$, and $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$.
-    Let $\dot{\mathfrak{S}}$ denote the set of connected permutations \cite{AS05}
-    (also sometimes called indecomposable or irreducible permutations in the literature).
-    Then $\vec{a}$ is equal to $\veccard(\dot{\mathfrak{S}})$~\cite[\href{https://oeis.org/A003319}{A003319}]{OEIS}.
+    Let $\vec{h} = (n!)_{n \geq 1}$, so that $\vec{a} = \phi_{h,a}(\vec{h}) = (1,1,3,13,71,\ldots)$~\cite[\href{https://oeis.org/A003319}{A003319}]{OEIS}.  
+    Then $\vec{a}$ counts graded cardinality of the set $\dot{\mathfrak{S}}$ of \emph{connected} permutations, i.e.~those which are not the shifted concatenation of two others~\cite{AS05}.  
+    (In the literature these are sometimes called ``indecomposable'' or ``irreducible'' permutations).
     By Theorem~\ref{thm:a sequence} there exists a \textsf{FGCCHA}
-    $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.
-    Viewing each permutation as a word in the alphabet $\ZZ_{+}$, the product is shifted
-    concatenation of permutations, and the coproduct is defined such that
-    every indecomposable permutation is primitive.
+    $\mathcal{U}(\mathfrak{L}(\dot{\mathfrak{S}}))$ of graded dimension $n!$.  
+%    Viewing each permutation as a word in the alphabet $\ZZ_{+}$, the product is shifted
+%    concatenation of permutations, and the coproduct is defined such that
+%    every indecomposable permutation is primitive.
     
     There are numerous \FGCCHAs with graded dimension $n!$ in the literature that have superficially different presentations.  
     This includes the Hopf algebras of heap ordered trees and permutation in~\cite{GL09}, the dual of the associated graded of the Malvenuto--Reutenauer Hopf algebra of permutations~\cite{AS05cc}, the Hopf algebra of permutations $\mathbf{\mathfrak{S}Sym}$ defined in~\cite[\S 3]{HNT08}, and the Hopf algebra of permutations ($\mathbb{K}\mathfrak{S}$) from~\cite[\S 5]{Li15}.
