@@ -410,7 +410,7 @@ and $\phi_{h,a}$ is the INVERTi transform.
 If the sequence $\vec{a}$ consists entirely of non-negative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
 Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
-If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
+If $X = \biguplus_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
 \[
 \mathsf{deg}(w_1 w_2 \ldots w_{\ell}) = \sum_{i = 1}^{\ell} \mathsf{deg}(w_{i})
 \qquad\text{where $\mathsf{deg}(x) = n$ for all $x \in X^{(n)}$}.
@@ -502,7 +502,7 @@ than the one given in  Proposition~\ref{prop:combinatorialinterpretation}.
 Continuing with Example \ref{ex:catalan}, we have that if
 $h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is equal to the number
-of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
+of Lyndon words in an alphabet $X = \biguplus_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
 However,~\cite[\href{https://oeis.org/A022553}{A022553}]{OEIS} states that $p_n$ is also equal to the number of
 length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.
 %This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
