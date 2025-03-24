@@ -207,8 +207,11 @@ This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} s
 Moreover, the number of non-crossing set partitions is the Catalan numbers.
 
 Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to ever Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan nummbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
-It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.  
-Theorem~\ref{thm:subclassification2} outlines a procedure (using the Eulerian idempotent) for constructing one of the many isomorphisms that we know must exist.  
+It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.
+We conclude the last last section with
+Theorem~\ref{thm:subclassification2} which is a
+procedure that uses the Eulerian idempotent for
+constructing one of the many isomorphisms that we know must exist.
 %\end{example}
 
 \section{Combinatorics of sequences of numbers}
@@ -224,7 +227,7 @@ Given two sequences $\vec{c} = (c_{1}, c_{2}, \ldots)$ and $\vec{d} = (d_{1}, d_
 \text{$c_{n} \le d_{n}$ for all $n \ge 1$}.
 \]
 Let $\vec{0} \in \QQ^{\ZZ_+}$ denote the zero sequence, so that $\vec{c} \ge \vec{0}$
-if and only if $\vec{c}$ consists of entirely nonnegative entries.
+if and only if $\vec{c}$ consists entirely of nonnegative entries.
 
 Our main results make use of three interrelated sequences that we will denote by $\vec{h}$, $\vec{a}$, and $\vec{p}$.  
 In this section we take a purely enumerative perspective to these sequences, assuming only that they satisfy the relation given in Equation~\eqref{eq:gf_relation} and may have values from a field containing $\QQ$.  
@@ -301,7 +304,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a
 \end{enumerate}
 \end{proposition}
 
-\begin{remark} Although not necessarily obvious, an induction argument implies that if $\vec{a} \in \ZZ^{\ZZ_+}$ or $\vec{h} \in \ZZ^{\ZZ_+}$, then $\vec{p} \in \ZZ^{\ZZ_+}$.\lucas{citation?}
+\begin{remark} Although not necessarily obvious, the interested reader can verify using an induction argument that if $\vec{a} \in \ZZ^{\ZZ_+}$ or $\vec{h} \in \ZZ^{\ZZ_+}$, then $\vec{p} \in \ZZ^{\ZZ_+}$.
 \end{remark}
 
 \begin{proof}
@@ -353,9 +356,21 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-Proposition \ref{prop:sequences} can be stated as biconditional theorem\lucas{don't love this phrasing} in the sense
-that any one equality in the proposition implies, by reversing the calculations,
-that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
+\begin{example}
+\label{ex:catalan}
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
+so that $h_n$ is equal to the $n^{th}$ Catalan number
+$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
+\[
+f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
+\]
+so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
+(that is, $a_n$ is the $n-1^{st}$ Catalan number).
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
+It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
+\end{example}
+
+Proposition \ref{prop:sequences} is biconditional in the sense that given any equality in the proposition, reversing the calculations shows that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
 
 \begin{definition}
@@ -395,24 +410,10 @@ of \cite{OEIS},
 the map $\phi_{a,h}$ is known as the INVERT transform
 and $\phi_{h,a}$ is the INVERTi transform.
 
-\begin{example}
-\label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
-so that $h_n$ is equal to the $n^{th}$ Catalan number
-$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
-\[
-f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
-\]
-so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
-(that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
-\end{example}
-
-If the sequence $\vec{a}$ consists of entirely non-negative integers,
+If the sequence $\vec{a}$ consists entirely of non-negative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
 Recall that a word in a set $X$ is a finite sequence $w = w_{1} w_{2} \ldots w_{\ell}$ of ``letters'' $w_{i} \in X$.  
-If $X = \bigcup_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
+If $X = \biguplus_{n \geq 1} X^{(n)}$ is a graded set, then define the \emph{degree} of a word to be
 \[
 \mathsf{deg}(w_1 w_2 \ldots w_{\ell}) = \sum_{i = 1}^{\ell} \mathsf{deg}(w_{i})
 \qquad\text{where $\mathsf{deg}(x) = n$ for all $x \in X^{(n)}$}.
@@ -436,7 +437,7 @@ following result for completeness.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
-Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \bigcup_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
+Let $\vec{a} \in \NN^{\ZZ_+}$ so that there exists a graded set $X = \biguplus_{n \geq 1} X^{(n)}$ with $\veccard(X) = \vec{a}$.
 If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$, then for each $n \geq 1$, we have:
 \begin{enumerate}[itemsep = 0.5em]
 \item $h_n$ is equal to the number of words of degree $n$ in the alphabet $X$ for all $n \ge 1$, and 
@@ -504,23 +505,9 @@ than the one given in  Proposition~\ref{prop:combinatorialinterpretation}.
 Continuing with Example \ref{ex:catalan}, we have that if
 $h_n = a_{n+1} = \frac{1}{n+1}\binom{2n}{n}$, Proposition
 \ref{prop:combinatorialinterpretation} says that $p_n$ is equal to the number
-of Lyndon words in an alphabet $X = \bigcup_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
+of Lyndon words in an alphabet $X = \biguplus_{n\geq1} X^{(n)}$ with $a_n = |X^{(n)}|$.
 However,~\cite[\href{https://oeis.org/A022553}{A022553}]{OEIS} states that $p_n$ is also equal to the number of
 length $2n$ Lyndon words in the alphabet $\{0 < 1\}$ with an equal number of $0$s and $1$s.
-%This ambiguity can be resolved by constructing a bijection between these sets: take $X^{(n)}$ to be the set of indecomposable Dyck words of length $2n$~\cite{}.\lucas{TODO: is there a source that clearly defines Dyck words as strings in $\{0, 1\}$?  Else, say that it is a folklore bijection.}
-%balanced binary Lyndon words of size $n$.  This implies that there should be a nice bijection between balanced binary Lyndon words of size $n$ and Lyndon words in an alphabet $X$; 
-%
-%A balanced binary word is a sequence $D = d_1d_2\ldots d_{2n} \in \{0, 1\}^{n}$ with an equal number of $1$s and $0$s, and we say that $D$ has size $n$.  We take the order $0 < 1$ when considering the Lyndon condition.  
-%We say that $D$ is a Dyck word of size $n$ if $\sum_{i=1}^k d_i \geq k/2$ for $1 \leq k \leq 2n$
-%and it is well known that the number of Dyck words of size $n$ is the Catalan number $\frac{1}{n+1}\binom{2n}{n}$.  
-%
-%We have that $p_n$ is also the number of Lyndon words of the form
-%$(D_1, \ldots, D_r)$ where for $1 \leq i \leq r$,
-%$D_i$ is a Dyck word, including the empty word $\bullet$, and $r+|D_1|+\cdots+|D_r| = n$.  
-%If we order the set of Dyck words by size and then lexicographically within each size, then for $n = 8$ these Lyndon words are
-%$(111000)$, $(110100)$, $(101100)$, $(110010)$, $(101010)$,
-%$(\bullet, 1100)$, $(\bullet, 1010)$, $(\bullet, \bullet, 10)$.
-%From Example \ref{ex:catalan}, we confirm that $p_4 = 8$.\mike{Maybe remove a bit of details and clean up so that it is a little shorter}
 \end{example}
 
 \begin{corollary}
@@ -991,7 +978,9 @@ that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we m
 that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
 
-The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.
+The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.  
+We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
+We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of generators, inspiring the following definition.
 
 \begin{definition}
 \label{def:OPG}
@@ -1013,9 +1002,7 @@ Let
 \]
 \end{definition}
 
-We now know that every \FGCCHA is isomorphic to $\mathcal{U}(\mathfrak{L}(\vec{a}))$ for some $\vec{a} \in \NN^{\ZZ_{+}}$, so it is natural to ask how many isomorphisms there are between these two objects.  
-We noticed that the isomorphisms between $\mathcal{U}(\mathfrak{L}(\vec{a}))$ and $H$ are in bijection with ordered sequences of primitive generators of $H$.  
-The following theorem uses this relationship to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
+The following theorem uses the set $\OPG(H)$ to quantify the number of isomorphisms  $\mathcal{U}(\mathfrak{L}(\vec{a})) \cong H$.
 %The second main result of the section is the following.
 
 \begin{theorem}
