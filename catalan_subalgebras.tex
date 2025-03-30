@@ -183,7 +183,7 @@ In Section~\ref{sec:surjection}, Theorem~\ref{thm:surjection}
 shows that there exists a surjective homomorphism from an \FGCCHA with
 dimension sequence $\vec{h}$ to an \FGCCHA with dimension sequence 
 $\vec{k}$ if and only if the INVERTi transform of $\vec{k}$ is dominated by 
-if the INVERTi transform of $\vec{h}$.
+the INVERTi transform of $\vec{h}$.
 In the last section, Theorem~\ref{thm:subclassification2} states
 that an \FGCCHA  with dimension sequence $\vec{h}$ occurs as a Hopf 
 subalgebra of an \FGCCHA with dimension sequence $\vec{k}$ if and only if 
@@ -211,7 +211,7 @@ In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathb
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
 Moreover, the number of noncrossing set partitions is the Catalan numbers.
 
-Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to ever Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan nummbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
+Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan numbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
 It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.
 
 \section{Combinatorics of sequences of numbers}
@@ -280,7 +280,8 @@ We say that $\lambda \vDash n$ is a \defn{partition} of $n$ if $\lambda_1 \geq \
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
-For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
+For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$,
+define for the sequence $\vec{c} = (c_{1}, c_{2}, \ldots) \in \QQ^{\ZZ_+}$,
 \[
 c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 \]
@@ -357,20 +358,6 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-\begin{example}
-\label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
-so that $h_n$ is equal to the $n^{th}$ Catalan number
-$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
-\[
-f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
-\]
-so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
-(that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
-\end{example}
-
 Proposition \ref{prop:sequences} is biconditional in the sense that given any equality in the proposition, reversing the calculations shows that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
 
@@ -410,6 +397,20 @@ Also following the conventions
 of \cite{OEIS},
 the map $\phi_{a,h}$ is known as the INVERT transform
 and $\phi_{h,a}$ is the INVERTi transform.
+
+\begin{example}
+\label{ex:catalan}
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
+so that $h_n$ is equal to the $n^{th}$ Catalan number
+$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
+\[
+f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
+\]
+so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
+(that is, $a_n$ is the $n-1^{st}$ Catalan number).
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
+It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
+\end{example}
 
 If the sequence $\vec{a}$ consists entirely of nonnegative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
