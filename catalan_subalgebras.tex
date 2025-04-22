@@ -285,7 +285,7 @@ c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
 
 
-We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  The following formula can be derived directly from Equation~\eqref{eq:gf_relation} using standard techniques.  The first part of (iii) below also appears in~\cite[Theorem 2.2]{KK95} as the ```generalized Witt's formula.''
+We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  The following formula can be derived directly from Equation~\eqref{eq:gf_relation} using standard techniques.  A form of the first part of (iii) below also appears in~\cite[Theorem 2.2]{KK95} as the ``generalized Witt's formula.''
 
 \begin{proposition}
 \label{prop:sequences}
@@ -360,7 +360,7 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a
 %\end{proof}
 
 Proposition \ref{prop:sequences} is biconditional in the sense that given any equality in the proposition, reversing the calculations shows that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
-will hold.
+will hold.  (See e.g.~\cite{AL15} below Equation (33).)
 
 \begin{definition}
 \label{defn:sequencetransfer}
@@ -661,7 +661,7 @@ This statement carries important information about the dimension of $\mathcal{U}
 where $m_{z}(S)$ denotes the multiplicity of $z$ in $S$.
 
 For any \FGCCHA $H$, the space $\mathcal{P}(H)$ is a Lie algebra under the bracket $[x, y] = xy - yx$.  
-The Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism
+The Cartier-Milnor-Moore theorem~\cite[Theorem 5.18]{MM65} states there is a Hopf algebra isomorphism
 \[
 \begin{array}{rcl}
 \mathcal{U}(\mathcal{P}(H)) &\to& H \\
@@ -973,7 +973,7 @@ This Hopf algebra $H$ has graded dimension equal to $\vecdim(H) = \vec{f}$.
 This Hopf algebra is sometimes referred to as the peak algebra~\cite[\S 2]{Bergeron_2002}.
 
 Next consider the Lucas sequence $\vec{\ell} = (2,1,3,4,7,11,18,\ldots)$
-as if it could also be the graded dimensions of a Hopf algebra.  We compute that $\phi_{h,a}(\vec{\ell})$ and determine
+as if it could also be the graded dimensions of an \FGCCHA.  We compute that $\phi_{h,a}(\vec{\ell})$ and determine
 that the sequence is alternating and begins $(2, -3, 7, -13,\ldots)$ and so we must conclude
 that there does not exist a Hopf algebra with graded dimensions equal to $\vec{\ell}$.
 \end{example}
