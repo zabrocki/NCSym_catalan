@@ -435,8 +435,8 @@ For instance, if $X = \{x < y\}$, then $xyxyy$ is a Lyndon word, but neither $xy
 If the sequence $\vec{a}$ is of nonnegative integers rather than
 any values from a field, there is a combinatorial interpretation for
 $\phi_{a, h}(\vec{a})$ and $\phi_{a, p}(\vec{a})$.
-These are well known and exposition of similar results can be found in~\cite[Chapter 5]{Reutenauer-FreeLieAlgebras},~\cite{KK95}, among others.  
-However, the exact statement of Proposition~\ref{prop:sequences} does not appear in these sources, so we include a proof for the sake of completeness.
+Similar results are well-known and appear in expositions such as~\cite[Chapter 5]{Reutenauer-FreeLieAlgebras}.  
+The exact statement below appears in~\cite[p.~566]{AL15}, which the authors attribute in part to~\cite{KK95}.
 
 \begin{proposition}
 \label{prop:combinatorialinterpretation}
@@ -449,57 +449,57 @@ If $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$, then f
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
-To see (1), note that any degree $n$ word $w = w_1 w_2 \cdots w_{\ell}$ in $X$
-defines a unique composition $(\mathsf{deg}(w_{1}), \mathsf{deg}(w_{2}), \ldots, \mathsf{deg}(w_{\ell}))$,
-and for a particular composition $\beta \vDash n$,
-every $w \in X^{(\beta_{1})} \times X^{(\beta_{2})} \times \cdots \times X^{(\beta_{\ell})}$ has this property.
-Thus, the number of degree $n$ words in $X$ agrees with the formula for $h_{n}$ given in Proposition~\ref{prop:sequences} (i).  
-
-For the second point the reader may refer to \cite[Theorem 4.9, Theorem 5.1]{Reutenauer-FreeLieAlgebras}
-for a more complete exposition.
-
-The proof will make use of the set
-\[
-I_{n} = \{ (i, w) \;|\; \text{degree $n$ words $w$ in $X$ and $1 \le i \le \mathsf{deg}(w_{1})$}\},
-\]
-which has size
-$
-|I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta} .
-$
-Note that since $a_\beta = a_{\mathsf{cyc}^k(\beta)}$, then we have
-\[
-|I_{n}|
-= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
-\sum_{k=1}^{\ell(\beta)} \beta_{1} a_{\mathsf{cyc}^{k}(\beta)}
-= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
-\sum_{k=1}^{\ell(\beta)} \mathsf{cyc}^{-k}(\beta)_{1} a_{\beta}
-= \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}~.
-\]
-We will show that 
-\begin{equation}
-\label{eq:LyndonMobius}
-\sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)} = |I_{n}| = \sum_{d | n} d \; |\{\text{degree $d$ Lyndon words in $X$}\}|,
-\end{equation}
-from which M\"{o}bius inversion shows that the number of degree $n$ Lyndon words is equal to the formula for $p_{n}$ in terms of $\vec{a}$ given in Proposition~\ref{prop:sequences} (iii).
-
-To start, we define a ``faux-cycling'' operation on $I_{n}$ by
-\[
-\mathsf{fcyc}(i, w) = \begin{cases} 
-\big(i+1, w\big) & \text{if $i < \mathsf{deg}(w_{1})$} \\ 
-\big(1, \mathsf{cyc}(w)\big) & \text{otherwise}.
-\end{cases}
-\]
-For any degree $n$ word $w = w_{1} w_{2} \cdots w_{\ell}$ and  $1 \le a \le \ell$, 
-\[
-(0, \mathsf{cyc}^{a}(w)) = \mathsf{fcyc}^{\mathsf{deg}(w_{1}) + \cdots + \mathsf{deg}(w_{a-1})} (0, w).
-\]
-Thus, $\mathsf{fcyc}$ is periodic of order $n$.  Moreover, if $k$ is the minimal positive integer for which $\mathsf{cyc}^{k}(w) = w$, then the $\mathsf{fcyc}$ orbit of $(0, w)$, or $(i, w)$ for any $1 \le i \le \mathsf{deg}(w_{1})$, has size
-\[
-d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
-\]
-Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $(\ell/k$)-fold concatenation of $w'$ with itself, the $d$-elements of the $\mathsf{fcyc}$-orbit of $(0, w)$ are uniquely determined by $w'$.
-\end{proof}
+%\begin{proof}
+%To see (1), note that any degree $n$ word $w = w_1 w_2 \cdots w_{\ell}$ in $X$
+%defines a unique composition $(\mathsf{deg}(w_{1}), \mathsf{deg}(w_{2}), \ldots, \mathsf{deg}(w_{\ell}))$,
+%and for a particular composition $\beta \vDash n$,
+%every $w \in X^{(\beta_{1})} \times X^{(\beta_{2})} \times \cdots \times X^{(\beta_{\ell})}$ has this property.
+%Thus, the number of degree $n$ words in $X$ agrees with the formula for $h_{n}$ given in Proposition~\ref{prop:sequences} (i).  
+%
+%For the second point the reader may refer to \cite[Theorem 4.9, Theorem 5.1]{Reutenauer-FreeLieAlgebras}
+%for a more complete exposition.
+%
+%The proof will make use of the set
+%\[
+%I_{n} = \{ (i, w) \;|\; \text{degree $n$ words $w$ in $X$ and $1 \le i \le \mathsf{deg}(w_{1})$}\},
+%\]
+%which has size
+%$
+%|I_{n}| = \sum_{\beta \vDash n} \beta_{1} a_{\beta} .
+%$
+%Note that since $a_\beta = a_{\mathsf{cyc}^k(\beta)}$, then we have
+%\[
+%|I_{n}|
+%= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
+%\sum_{k=1}^{\ell(\beta)} \beta_{1} a_{\mathsf{cyc}^{k}(\beta)}
+%= \sum_{\beta \vDash n} \frac{1}{\ell(\beta)}
+%\sum_{k=1}^{\ell(\beta)} \mathsf{cyc}^{-k}(\beta)_{1} a_{\beta}
+%= \sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)}~.
+%\]
+%We will show that 
+%\begin{equation}
+%\label{eq:LyndonMobius}
+%\sum_{\beta \vDash n} \frac{n a_{\beta}}{\ell(\beta)} = |I_{n}| = \sum_{d | n} d \; |\{\text{degree $d$ Lyndon words in $X$}\}|,
+%\end{equation}
+%from which M\"{o}bius inversion shows that the number of degree $n$ Lyndon words is equal to the formula for $p_{n}$ in terms of $\vec{a}$ given in Proposition~\ref{prop:sequences} (iii).
+%
+%To start, we define a ``faux-cycling'' operation on $I_{n}$ by
+%\[
+%\mathsf{fcyc}(i, w) = \begin{cases} 
+%\big(i+1, w\big) & \text{if $i < \mathsf{deg}(w_{1})$} \\ 
+%\big(1, \mathsf{cyc}(w)\big) & \text{otherwise}.
+%\end{cases}
+%\]
+%For any degree $n$ word $w = w_{1} w_{2} \cdots w_{\ell}$ and  $1 \le a \le \ell$, 
+%\[
+%(0, \mathsf{cyc}^{a}(w)) = \mathsf{fcyc}^{\mathsf{deg}(w_{1}) + \cdots + \mathsf{deg}(w_{a-1})} (0, w).
+%\]
+%Thus, $\mathsf{fcyc}$ is periodic of order $n$.  Moreover, if $k$ is the minimal positive integer for which $\mathsf{cyc}^{k}(w) = w$, then the $\mathsf{fcyc}$ orbit of $(0, w)$, or $(i, w)$ for any $1 \le i \le \mathsf{deg}(w_{1})$, has size
+%\[
+%d = \mathsf{deg}(w_{1}w_{2}\cdots w_{k}).
+%\]
+%Finally, the cyclic shifts of $w' = w_{1}w_{2}\cdots w_{k}$ are distinct, so taking the unique minimal one, we obtain a Lyndon word of degree $d$.  Since $w$ is the $(\ell/k$)-fold concatenation of $w'$ with itself, the $d$-elements of the $\mathsf{fcyc}$-orbit of $(0, w)$ are uniquely determined by $w'$.
+%\end{proof}
 
 \begin{example}\label{ex:balancedLyndon}
 For specific examples of sequences,
