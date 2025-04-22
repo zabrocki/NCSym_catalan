@@ -269,9 +269,6 @@ f(t) = \frac{1}{1 - 2 t^{2} + t^{2}} = \frac{1}{(1-t)^{2}}
 \]
 so the remaining sequences are $\vec{a} = (2, -1, 0, \ldots)$ and $\vec{p} = (2, 0, 0, \ldots)$.
 \end{example}
-
-We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  While these are well-known, we include a proof for the sake of completeness.  
-
 A \defn{composition} of $n$ is a sequence $\beta = (\beta_1, \beta_2, \ldots, \beta_\ell)$ of positive integers such that $\beta_{1} + \beta_{2} + \cdots + \beta_{\ell} = n$.  
 We refer to the integers $\beta_{i}$ as the parts of $\beta$ and write $\ell(\beta)$ for the length of $\beta$, which is the number of parts.  
 We will use the notation $\beta \vDash n$ to indicate that $\beta$ is a composition of $n$.
@@ -288,7 +285,7 @@ c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 Note that $c_{\alpha} = c_{\beta}$ whenever $\beta \vDash n$ is a composition with the same parts as $\alpha$ in a possibly different order, i.e.~ $\beta_{i} = \alpha_{\sigma(i)}$ for some permutation $\sigma$ of the integers $\{1,2, \ldots, \ell(\alpha)\}$.
 
 
-
+We will make extensive use of explicit formulas relating the sequences $\vec{h}$, $\vec{p}$, and $\vec{a}$.  The following formula can be derived directly from Equation~\eqref{eq:gf_relation} using standard techniques.  The first part of (iii) below also appears in~\cite[Theorem 2.2]{KK95} as the ```generalized Witt's formula.''
 
 \begin{proposition}
 \label{prop:sequences}
@@ -309,57 +306,58 @@ Any one sequence $\vec{h}$, $\vec{a}$, or $\vec{p} \in \QQ^{\ZZ_+}$ belongs to a
 \end{enumerate}
 \end{proposition}
 
+
 \begin{remark} Although not necessarily obvious, the interested reader can verify using an induction argument that if $\vec{a} \in \ZZ^{\ZZ_+}$ or $\vec{h} \in \ZZ^{\ZZ_+}$, then $\vec{p} \in \ZZ^{\ZZ_+}$.
 \end{remark}
 
-\begin{proof}
-%We will make use of the identities
+%\begin{proof}
+%%We will make use of the identities
+%%\[
+%%(1-t)^p = \sum_{k \geq 0} \binom{p}{k} t^k, \quad
+%%\frac{1}{(1-t)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} t^k, \quad\text{and}\quad
+%%\log(1-t) = \sum_{j \geq 1} \frac{t^j}{j}
+%%\]
+%%to derive equations (i)--(iii) from Equation \eqref{eq:gf_relation}.
+%
+%In order to see (i), take the series expansion of the second
+%and third expressions in Equation \eqref{eq:gf_relation} to obtain
+%\begin{equation}\label{eq:gf_relation_reciprocal}
+%1 + \sum_{k \geq 1} h_k t^k
+%= \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k
+%= \prod_{d \geq 1} \left(\sum_{k \geq 0} \binom{p_d+k-1}{k} t^{kd}\right).
+%\end{equation}
+%Expanding each product of sums and isolating the coefficient of $t^{n}$ in each expression gives the desired equation.
+%
+%Now we prove (ii).  Take the reciprocal of Equation \eqref{eq:gf_relation}
+%and isolate the sum over $m$ to obtain
 %\[
-%(1-t)^p = \sum_{k \geq 0} \binom{p}{k} t^k, \quad
-%\frac{1}{(1-t)^p} = \sum_{k \geq 0} \binom{p+k-1}{p-1} t^k, \quad\text{and}\quad
-%\log(1-t) = \sum_{j \geq 1} \frac{t^j}{j}
+%1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} 
+%= \sum_{m \geq 1} a_m t^m 
+%= 1 - \prod_{d \geq 1} (1-t^d)^{p_d}.
 %\]
-%to derive equations (i)--(iii) from Equation \eqref{eq:gf_relation}.
-
-In order to see (i), take the series expansion of the second
-and third expressions in Equation \eqref{eq:gf_relation} to obtain
-\begin{equation}\label{eq:gf_relation_reciprocal}
-1 + \sum_{k \geq 1} h_k t^k
-= \sum_{k \geq 0} \left(\sum_{m \geq 1} a_m t^m\right)^k
-= \prod_{d \geq 1} \left(\sum_{k \geq 0} \binom{p_d+k-1}{k} t^{kd}\right).
-\end{equation}
-Expanding each product of sums and isolating the coefficient of $t^{n}$ in each expression gives the desired equation.
-
-Now we prove (ii).  Take the reciprocal of Equation \eqref{eq:gf_relation}
-and isolate the sum over $m$ to obtain
-\[
-1 - \frac{1}{1 + \sum_{k \geq 1} h_k t^k} 
-= \sum_{m \geq 1} a_m t^m 
-= 1 - \prod_{d \geq 1} (1-t^d)^{p_d}.
-\]
-Expanding the left- and rightmost expressions yields
-\[
-\sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
-= \sum_{m \geq 1} a_m t^m
-= 1 - \prod_{d \geq 1} \sum_{k \geq 0} (-1)^k \binom{p_d}{k} t^{dk}.
-\]
-Isolating the coefficient of $t^{n}$, we obtain equation (ii).
-
-Finally, we deduce (iii).  Beginning with Equation \eqref{eq:gf_relation} as above,
-take the logarithm of each term and Taylor expand about $1$ to obtain
-\[
- \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}
-= \sum_{r \geq 1} \frac{(\sum_{m \geq 1} a_m t^m )^r}{r}
-= \sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}.
-\]
-Now we isolate the coefficient of $t^{n}$ in each of the expressions: 
-\[
-\sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}
-= \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
-= \frac{1}{n} \sum_{d | n} d p_{d} .
-\]
-Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
-\end{proof}
+%Expanding the left- and rightmost expressions yields
+%\[
+%\sum_{r \geq 1} (-1)^{r-1} \left(\sum_{k \geq 1} h_k t^k\right)^r
+%= \sum_{m \geq 1} a_m t^m
+%= 1 - \prod_{d \geq 1} \sum_{k \geq 0} (-1)^k \binom{p_d}{k} t^{dk}.
+%\]
+%Isolating the coefficient of $t^{n}$, we obtain equation (ii).
+%
+%Finally, we deduce (iii).  Beginning with Equation \eqref{eq:gf_relation} as above,
+%take the logarithm of each term and Taylor expand about $1$ to obtain
+%\[
+% \sum_{r \geq 1} \frac{(-1)^{r-1}(\sum_{k \geq 1} h_k t^k )^r}{r}
+%= \sum_{r \geq 1} \frac{(\sum_{m \geq 1} a_m t^m )^r}{r}
+%= \sum_{d \geq 1} \sum_{j \geq 1} p_d \frac{t^{jd}}{j}.
+%\]
+%Now we isolate the coefficient of $t^{n}$ in each of the expressions: 
+%\[
+%\sum_{\beta \vDash n} \frac{(-1)^{\ell(\beta)-1} h_\beta}{\ell(\beta)}
+%= \sum_{\beta \vDash n} \frac{a_\beta}{\ell(\beta)}
+%= \frac{1}{n} \sum_{d | n} d p_{d} .
+%\]
+%Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
+%\end{proof}
 
 Proposition \ref{prop:sequences} is biconditional in the sense that given any equality in the proposition, reversing the calculations shows that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
