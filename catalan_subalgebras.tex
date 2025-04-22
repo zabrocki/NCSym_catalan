@@ -137,12 +137,12 @@ Classify all Hopf subalgebras of $\NCSym$ with graded dimensions equal to the Ca
 %Classify all Hopf subalgebras of $\NCSym$ .
 %\end{problem}
 
-We resolve Problem~\ref{problem:motivating_calatan_question} up to isomorphism by applying a recent result of Aliniaeifard and Thiem~\cite{AT20} and the Shirshov--Witt Theorem~\cite{S09, Witt56}.  
+We resolve Problem~\ref{problem:motivating_calatan_question} up to isomorphism by applying a recent result of Aliniaeifard and Thiem~\cite{AT22} and the Shirshov--Witt Theorem~\cite{S09, Witt56}.  
 The former result applies to every member of the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will abbreviate as \FGCCHA.  
 As stated above, this includes $\NCSym$.  
 %This is a consequence of the category in which $\NCSym$ lies, and applies to a much larger class of Hopf algebras.  
 %This category is the full subcategory of free, graded, connected, and cocommutative Hopf algebras, which we will denote by \FGCCHA. 
-In the context of \FGCCHAs,~\cite[Theorem~4.2]{AT20} show that that the isomorphism class of an
+In the context of \FGCCHAs,~\cite[Theorem~4.2]{AT22} show that that the isomorphism class of an
 \FGCCHA $H$, can be fully determined by the \emph{dimension sequence}
 \[
 \vecdim(H) = \big( \dim(H_{1}), \dim(H_{2}), \dim(H_{3}), \ldots \big)
@@ -183,7 +183,7 @@ In Section~\ref{sec:surjection}, Theorem~\ref{thm:surjection}
 shows that there exists a surjective homomorphism from an \FGCCHA with
 dimension sequence $\vec{h}$ to an \FGCCHA with dimension sequence 
 $\vec{k}$ if and only if the INVERTi transform of $\vec{k}$ is dominated by 
-if the INVERTi transform of $\vec{h}$.
+the INVERTi transform of $\vec{h}$.
 In the last section, Theorem~\ref{thm:subclassification2} states
 that an \FGCCHA  with dimension sequence $\vec{h}$ occurs as a Hopf 
 subalgebra of an \FGCCHA with dimension sequence $\vec{k}$ if and only if 
@@ -211,7 +211,7 @@ In~\cite{NT05} Novelli and Thibon define a graded connected Hopf algebra $\mathb
 This Hopf algebra is manifestly cocommutative and~\cite[Proposition 5.2]{NT05} shows that it is free, so $\mathbf{CQSym}$ is an \FGCCHA.  
 Moreover, the number of noncrossing set partitions is the Catalan numbers.
 
-Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to ever Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan nummbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
+Using Aliniaefard and Thiem's result, $\mathbf{CQSym}$ is isomorphic to every Hopf subalgebra of $\NCSym$ with graded dimensions equal to the Catalan numbers, and in particular to $\{\mathbf{p}_{\pi} \;|\; \text{$\pi$ is noncrossing}\}$.  
 It is important to note that this does not immediately produce an isomorphisms, as the product and the coproduct on the bases $\mathbf{P}^{\pi}$ from~\cite{NT05} and $\mathbf{p}_{\pi}$ from~\cite{BHRZ05} are not the same.
 
 \section{Combinatorics of sequences of numbers}
@@ -280,7 +280,8 @@ We say that $\lambda \vDash n$ is a \defn{partition} of $n$ if $\lambda_1 \geq \
 of $n$ with the notation $\lambda \vdash n$.  We will also use the notation $m_d(\lambda)$ to be the number of times
 that $d$ appears as a part in $\lambda$.
 
-For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$, define
+For a composition $\alpha = (\alpha_{1}, \alpha_{2}, \ldots, \alpha_{\ell}) \vDash n$,
+define for the sequence $\vec{c} = (c_{1}, c_{2}, \ldots) \in \QQ^{\ZZ_+}$,
 \[
 c_{\alpha} = c_{\alpha_{1}} c_{\alpha_{2}} \cdots c_{\alpha_{\ell}}.
 \]
@@ -357,20 +358,6 @@ Now we isolate the coefficient of $t^{n}$ in each of the expressions:
 Lastly, multiply the equation by $n$ and apply M\"{o}bius inversion to solve for $n p_{n}$.
 \end{proof}
 
-\begin{example}
-\label{ex:catalan}
-Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
-so that $h_n$ is equal to the $n^{th}$ Catalan number
-$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
-\[
-f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
-\]
-so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
-(that is, $a_n$ is the $n-1^{st}$ Catalan number).
-We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
-It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
-\end{example}
-
 Proposition \ref{prop:sequences} is biconditional in the sense that given any equality in the proposition, reversing the calculations shows that the corresponding generating function relations in Equation~\eqref{eq:gf_relation}
 will hold.
 
@@ -410,6 +397,20 @@ Also following the conventions
 of \cite{OEIS},
 the map $\phi_{a,h}$ is known as the INVERT transform
 and $\phi_{h,a}$ is the INVERTi transform.
+
+\begin{example}
+\label{ex:catalan}
+Take $f(t) = 1 + t + 2 t^{2} + 5t^3 + 14t^4 + \cdots \in \QQ[[t]]$,
+so that $h_n$ is equal to the $n^{th}$ Catalan number
+$\frac{1}{n+1}\binom{2n}{n}$.  It is well known that $f(t)$ satisfies the functional equation
+\[
+f(t) = \frac{1}{1 - t - t^2 - 2t^3 - 5t^4 - 14t^5 - \cdots} = \frac{1}{1-t f(t)}
+\]
+so we have that $\phi_{h,a}(1,2,5,14,42,132,\ldots) = \vec{a} = (1,1,2,5,14,42, \ldots)$
+(that is, $a_n$ is the $n-1^{st}$ Catalan number).
+We can use Proposition~\ref{prop:sequences} to calculate the first few values of $\vec{p} = (1,1,3,8,25, \ldots)$.
+It follows from \cite[\S 5.1.3]{NT05} that $\vec{p}$ is equal to sequence \cite[\href{https://oeis.org/A022553}{A022553}]{OEIS}.
+\end{example}
 
 If the sequence $\vec{a}$ consists entirely of nonnegative integers,
 then $\vec{h} = \phi_{a, h}(\vec{a})$ and $\vec{p} = \phi_{a, p}(\vec{a})$ will also have combinatorial interpretation in terms of words.
@@ -901,7 +902,7 @@ so by Proposition~\ref{prop:sequences} we have $\vec{p} = \phi_{h, p}(\vec{h})$.
 This section gives a classification of isomorphism types of \FGCCHAs via the associated integer sequences.  
 This begins with Aliniaeifard and Thiem's result.
 
-\begin{theorem}[{\cite[Theorem 4.2]{AT22}}]
+\begin{theorem}[{\cite[Theorem 12]{AT22}}]
 \label{thm:AT}
 Let $H$ and $K$ be \FGCCHAs.  Then $H \cong K$ if and only if $\vecdim(H) = \vecdim(K)$.
 \end{theorem}
@@ -1494,9 +1495,9 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 %\begin{proof}
 %Here is a sketch of what we need to formalize:
 %\begin{enumerate}
-%\item %Using Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, we only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
+%\item %Using Aliniaeifard--Thiem's result~\cite[Theorem 12]{AT22}, we only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$ to prove this part.  \lucas{Should we write out their proof to convince ourselves it is true.  It is short.}
 %
-%Following Aliniaeifard--Thiem's result~\cite[Theorem 4.2]{AT22}, one only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$.
+%Following Aliniaeifard--Thiem's result~\cite[Theorem 12]{AT22}, one only need to compare the Hilbert series of $H$ and $\mathcal{U}\big(\mathfrak{L}(\vec{a})\big)$.
 %
 %
 %\item Let $G \subseteq H$ be a sub-Hopf algebra.  By (1), the Lie algebra of primitives $\mathcal{P}(H) \cong \mathcal{L}(\vec{a})$.  Thus $\mathcal{P}(G)$ is isomorphic to a subalgebra of $\mathcal{L}(\vec{a})$.  
@@ -1633,12 +1634,12 @@ belong to $\OPG(H)$ and $\OPG(K)$ respectively, and by construction $f = f^{\vec
 
 %\section{A set of details to add}
 %
-%Aliniaeifard-Thiem \cite[Theorem 4.2]{AT22} give a theorem that says that two cocommutative Hopf algebras that
+%Aliniaeifard-Thiem \cite[Theorem 12]{AT22} give a theorem that says that two cocommutative Hopf algebras that
 %have the same sequence of graded dimensions are isomorphic.  We should have a section here
 %that says how to carry out this construction (outlined in the Cocalc summary for July 3).
 %
 %Let \(H\) and \(K\) be two free graded cocommutative Hopf algebras, such that \(\dim(H_n) = \dim(K_n)\) for all \(n \geq 0\).
-%Aliniaeifard-Thiem  ~\cite[Theorem 4.2]{AT22}, guarantees that \(H \cong K\) and we outline here the method for constructing an 
+%Aliniaeifard-Thiem  ~\cite[Theorem 12]{AT22}, guarantees that \(H \cong K\) and we outline here the method for constructing an 
 %isomorphism \(f:H \to K\).  In general, the idea is to find the free primitive generators of \(H\) and \(K\), and map the primitive generators of 
 %each graded component \(H_n\) to the primitive generators of the  coresponding graded component \(K_n\).
 %
