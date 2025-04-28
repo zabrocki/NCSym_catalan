@@ -1205,12 +1205,6 @@ The matrix $(M^{(n)}_{i, j})_{1 \le i, j \le a_{n}}$ gives the change of basis f
 
 %The above results prove the first part of Theorem \ref{thm:OPGmaps}. By definition of $\mathfrak{L}(\vec{a})$ we have that $A_n\in \GL(\CC)$ correspond to all isomorphism between two free Lie algebra $\mathfrak{L}(\vec{a})$ and $\mathfrak{L}(\vec{b})$ and by definition of $\vec{B}_n$ and $\mathcal{U}(-)$ we have that $\vec{Y}_n$ correspond to all isomorphism between two universal enveloping algebra. Therefore, the above proposition gives us part (i) of Theorem \ref{thm:OPGmaps}.
 
-\begin{remark}
-    Given two \FGCCHAs $H$ and $K$ with $\vecdim(H) = \vecdim(K)$, Theorem \ref{thm:AT} gives $H \cong K$. However, this isomorphism is abstract. As an explicit isomorphism may be desired, we present a method of constructing one. 
-    
-    Given graded sets $X$ and $Y$ generating $H$ and $K$ respectively, we apply Lemma~\ref{lemma:primitive generators} to obtain primitive generators $\mathbf{e}(X)$ and $\mathbf{e}(Y)$. Choosing bijections $f_n:\mathbf{e}(X)_n \to \mathbf{e}(Y)_n$ for all $n \geq 1$ we obtain a bijection of primitive generators $f:\mathbf{e}(X) \to \mathbf{e}(Y)$ which extends to an isomorphism $\tilde{f}:H \to K$.
-\end{remark}
-
 %\subsection{Passages that need a home}
 
 %\lucas{we use the eulerian idempotent in the proof of Theorem~\ref{thm:surjection}, let's move it there}
@@ -1343,7 +1337,7 @@ For (2), let $f$ be as in the previous paragraph  and let $g$ be a surjective ho
 We first note that by Theorem~\ref{thm:surjection},  $g = f^{\vec{C}}_{\vec{D}}$ for some $\vec{C} \in \OPG(H)$ and $\vec{D} \in \OPG(K)$.  We then take $\tau: H \to H$ to be the extension of the order-preserving map which sends $\vec{C}$ to $\vec{A}$, and similarly $\gamma: K \to K$ as the extension of the order-preserving mapping of $\vec{B}$ to $\vec{D}$.  Then $g = \gamma \circ f \circ \tau$.
 \end{proof}
 
-Our proof makes use of the \emph{Eulerian idempotent} (see \cite[\S 1.4]{AS05cc} or \cite[\S 4.5.2]{loday2013cyclic})
+Our proof makes use of the \emph{Eulerian idempotent}, also known as the canonical projection or the first Eulerian idempotent (see \cite{P94}, \cite[\S 1.4]{AS05cc} or \cite[\S 4.5.2]{loday2013cyclic})
 %\cite[Section 1.4]{AL15},\cite{AS05cc} ,
 %\cite[\S 3]{GERSTENHABER1991263},\cite[\S 4.5.2]{loday2013cyclic},\cite[\S 3.2]{Reutenauer-FreeLieAlgebras}, )
 \begin{equation}
@@ -1355,12 +1349,16 @@ and we write $\mu^{(k)}$ and $\Delta^{(k)}$ for the $k^{th}$
 composition of the multiplication and comultiplication maps, respectively.
 By associativity and coassociativity of the Hopf algebra, these maps are well defined.
 
+When $H$ is graded, connected and cocommutative, the Eulerian idempotent projects onto $\mathcal{P}(H)$~\cite[Theorem 9.4]{S94}.
+Following~\cite{P99}, we call the family of all graded linear idempotents of $H$ satisfying the above condition \emph{Lie Idempotents}.
+
 Aguiar and Sottile use the Eulerian idempotent to produce primitive generators for the Grossman-Larson
 Hopf algebra of heap-ordered trees in~\cite{AS05cc},
 as do Novelli and Thibon for a Hopf algebra of dimension Catalan at each degree in~\cite[\S 5]{NT05}.
 Lauve and Mastnak use a related primitive idempotent to produce primitive generators for
 the symmetric functions in noncommuting variables in~\cite{LM11}.  
-Foissy and Patras recently showed that this method holds more generally for any \FGCCHA and Lie idempotent family~\cite{FP24}, generalizing the following result of Patras and Reutenauer~\cite{PR04}.
+
+Foissy and Patras recently showed that this method holds more generally for any \FGCCHA and Lie idempotent~\cite{FP24}, generalizing the following result of Patras and Reutenauer~\cite{PR04}.
 %This method holds more generally for any \FGCCHA and was previously stated in the following result from \cite{PR04}.
 %\lucas{Add something about Foissy's paper here!}
 
