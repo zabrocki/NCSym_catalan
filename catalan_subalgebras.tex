@@ -156,9 +156,13 @@ Beyond $\NCSym$, much work has gone into understanding specific examples includi
 At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and key results appear in Loday's work on triples of operads, which include \FGCCHAs as an example~\cite[Section 4.1]{L08}.  
 The particular ingredients of Aliniaefard and Thiem's result comes from Loday's generalization of the  Cartier--Milnor--Moore and Poincar\'{e}--Birkhoff--Witt theorems~\cite[Theorem 4.1.3]{L08}, which state that the structure of an \FGCCHA $H$, is determined by its Lie algebra of primitives, and the Poincar\'{e}--Birkhoff--Witt theorem then implies that \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives.  Aliniaeifard and Thiem deduce their result from these properties.  
 
-This paper records and expands on the folklore in order to give a description of \FGCCHAs in terms of sequences of integers.
-%\mike{for reference: Loday \cite{L08} might be useful}
-Building on known results (Theorem~\ref{thm:AT}, Proposition~\ref{prop:LieToFree}, Proposition~\ref{prop:indecomposable generators}, Lemma~\ref{lemma:primitive generators}, and Proposition \ref{lem:ShiWitt}), this perspective allows us to determine whether maps between \FGCCHAs exist by checking properties of the sequences.  
+Foissy \cite{F12} has studied the category of free and cofree Hopf
+algebras from a similar perspective and deduces that free
+and cofree Hopf algebras are also determined by the sequences of
+graded dimensions (Proposition 23).
+This paper collects some known results from the literature as a toolbox for what can be deduced about examples in the category of \FGCCHAs from associated sequences of integers.
+
+Building on known properties of \FGCCHAs (Theorem~\ref{thm:AT}, Proposition~\ref{prop:LieToFree}, Proposition~\ref{prop:indecomposable generators}, Lemma~\ref{lemma:primitive generators}, and Proposition \ref{lem:ShiWitt}), this perspective allows us to determine whether maps between \FGCCHAs exist by checking properties of the sequences.  
 For example, proving that two \FGCCHAs have equal dimension sequences amounts to showing that they are isomorphic, by Aliniaeifard and Thiem's result.
 
 The sections of this paper are structured as follows.
@@ -612,8 +616,9 @@ Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is
 [L, L]_{n} = \CC\operatorname{-span}\{\text{degree-$n$ commutators of $L$}\}.
 \end{equation}
 
-The main result of this section relates the graded dimensions of an \FGCCHA to its generating set and primitives.  
-This sort of result is well-known to experts, but we have not found a statement which incorporates grading in the literature.  
+The main result of this section relates the graded dimensions of an \FGCCHA to its generating set and primitives.
+{\color{red}
+This sort of result is well-known to experts, but we have not found a statement which incorporates grading in the literature.}
 
 \begin{proposition}
 \label{prop:SequencesAsHopfStructures}
@@ -640,8 +645,8 @@ whose $n^{th}$ term is equal to the number
 of compositions of $n$ that are Lyndon \cite{H07}.
 \end{example}
 
-We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
-As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.  
+%We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.
+%As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.
 
 Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, let the \emph{universal enveloping algebra} of $L$ be
 \[
@@ -1121,7 +1126,7 @@ By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $
 \]
 We also use an additional relation between $H_{+}/H^{2}_{+}$ and generators of $H$ which appears in~\cite{F23}.
 
-\begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}, \cite{patras1993algebre}] \mike{what is [patras1993algebre] ?}
+\begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}, \cite{P94}]
 \label{prop:indecomposable generators}
 If $H$ is a free graded connected algebra and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.  If moreover $H$ is a Hopf algebra, then $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$.
 \end{proposition}
