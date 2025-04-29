@@ -153,10 +153,20 @@ We answer Problem~\ref{problem:motivating_calatan_question} by showing that all 
 
 
 Beyond $\NCSym$, much work has gone into understanding specific examples including the \FGCCHAs of noncommutative symmetric functions (see Example~\ref{ex:NSym}), permutations (see Example~\ref{example:hopf_algebras_of_permutations}), and trees~\cite{AS05cc, GL09}.  
-At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and the Milnor--Moore theorem states that the structure of an \FGCCHA $H$, is determined by its Lie algebra of primitives.  
-Experts in the field will know that beyond this work, \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives, but this result is not known to a general audience and to the best of our knowledge it is not available in a widely-accessible source or publication. 
+At a more general level, properties of the category of \FGCCHAs (or its dual) have been considered in several references~\cite{AT22, Block85, FP24, LodayRonco10, MM65, Reutenauer-FreeLieAlgebras}, and the Milnor--Moore theorem states that the structure of an \FGCCHA $H$, is determined by its Lie algebra of primitives.
 
-This paper records and expands on the folklore in order to give a description of \FGCCHAs in terms of sequences of integers.\mike{for reference: Loday \cite{L08} might be useful}
+Foissy \cite{F12} has studied the category of free and cofree Hopf
+algebras from a similar perspective and deduces that free
+and cofree Hopf algebras are also determined by the sequences of
+graded dimensions (Proposition 23).
+Loday \cite{L08} develops the theory of a generalized bialgebra which includes the category of \FGCCHAs.  The results we develop for \FGCCHAs apply to many examples of combinatorial Hopf algebras that are studied in the literature fall into these categories and we hope that this will be a useful reference.
+
+{\color{red}
+Experts in the field will know that beyond this work, \FGCCHAs are completely determined by the number of free generators and the dimension of the subspace of primitives, but this result is not known to a general audience and to the best of our knowledge it is not available in a widely-accessible source or publication.}
+\mike{for reference: Loday \cite{L08} might be useful and \cite{F12} seems to do the exact same thing for free and cofree Hopf algebras}
+
+
+This paper collects some known results from the literature as a toolbox for what can be deduced about examples in the category of \FGCCHAs from associated sequences of integers.
 Building on known results (Theorem~\ref{thm:AT}, Proposition~\ref{prop:LieToFree}, Proposition~\ref{prop:indecomposable generators}, Lemma~\ref{lemma:primitive generators}, and Proposition \ref{lem:ShiWitt}), this perspective allows us to determine whether maps between \FGCCHAs exist by checking properties of the sequences.  
 For example, proving that two \FGCCHAs have equal dimension sequences amounts to showing that they are isomorphic, by Aliniaeifard and Thiem's result.
 
@@ -611,8 +621,9 @@ Given a graded Lie algebra $L$, the (graded) derived subalgebra of $L$ is
 [L, L]_{n} = \CC\operatorname{-span}\{\text{degree-$n$ commutators of $L$}\}.
 \end{equation}
 
-The main result of this section relates the graded dimensions of an \FGCCHA to its generating set and primitives.  
-This sort of result is well-known to experts, but we have not found a statement which incorporates grading in the literature.  
+The main result of this section relates the graded dimensions of an \FGCCHA to its generating set and primitives.
+{\color{red}
+This sort of result is well-known to experts, but we have not found a statement which incorporates grading in the literature.}
 
 \begin{proposition}
 \label{prop:SequencesAsHopfStructures}
@@ -639,8 +650,8 @@ whose $n^{th}$ term is equal to the number
 of compositions of $n$ that are Lyndon \cite{H07}.
 \end{example}
 
-We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.  
-As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.  
+%We now begin to assemble our proof of Proposition~\ref{prop:SequencesAsHopfStructures}.
+%As stated above, this is a folklore result which we prove using well-known theorems for the sake of completeness.
 
 Given a graded Lie algebra $L = \bigoplus_{n \ge 1} L^{(n)}$, let the \emph{universal enveloping algebra} of $L$ be
 \[
@@ -1118,7 +1129,7 @@ By definition (see the beginning of Section~\ref{sec:HopfAlgebra}), the degree $
 \]
 We also use an additional relation between $H_{+}/H^{2}_{+}$ and generators of $H$ which appears in~\cite{F23}.
 
-\begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}, \cite{patras1993algebre}] \mike{what is [patras1993algebre] ?}
+\begin{proposition}[{\cite[Proposition 2.2 and 2.4]{F23}}, \cite{P94}]
 \label{prop:indecomposable generators}
 If $H$ is a free graded connected algebra and $\vec{A} \subseteq H$ is a graded set with $H_{+} = \CC \vec{A} \oplus H_{+}^{2}$, then $\vec{A}$ freely generates $H$.  If moreover $H$ is a Hopf algebra, then $\mathcal{P}(H) = \CC \vec{A} \oplus [\mathcal{P}(H), \mathcal{P}(H)]$.
 \end{proposition}
