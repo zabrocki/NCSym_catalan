@@ -1001,6 +1001,7 @@ The fact there is a descent in the first two entries is not the issue here since
 even if the initial value of the sequence is ignored or replaced by a $1$, it is still the case
 that $\phi_{h,a}$ applied to these modified sequences also contain negative entries
 hence cannot be a dimension sequence of an \FGCCHA.
+\mike{the last sentence of this paragraph is new and should review together}
 \end{example}
 
 The rest of the section concerns the technical question of explicitly realizing the Aliniaeifard--Thiem isomorphism in every possible way; this has further applications in later sections.  
@@ -1754,6 +1755,45 @@ K & \mapsto & \phi_{h, a} \big( \vecdim(K)\big) \\
 \begin{remark}
 Using the sequence transfer maps from Definition~\ref{defn:sequencetransfer}, Theorem~\ref{thm:subclassification2} implies that isomorphisms of Hopf subalgebras of $H$ are also indexed by sequences $\vec{q} \in \NN^{\ZZ_{+}}$ for which $\vec{p} \ge \vec{q}$ and $\phi_{p, a}(\vec{q}) \in \NN^{\ZZ_{+}}$.
 \end{remark}
+
+Necessary conditions for the existence of a Hopf subalgebra with a given degree sequence were given in
+\cite[Corollary 1.4]{AL13}.  Specifically that result states that if $H$ is a Hopf algebra with
+a Hopf subalgebra $K \subseteq H$, then the ratio of Poincar\'e series
+\begin{equation}
+\label{eq:ratio_gfs}
+\frac{1 + \sum_{n \geq 1} h_n t^n}{1 + \sum_{n \geq 1} k_n t^n}
+\end{equation}
+has non-negative coefficients where $\vec{h} = \vecdim(H)$ and $\vec{k} = \vecdim(K)$.
+If this is the case, the coefficients will satisfy
+\[
+\sum_{r=0}^n \sum_{\alpha \models n-r} (-1)^{\ell(\alpha)} h_r k_\alpha \geq 0
+\]
+for all $n \geq 1$.
+
+These conditions are necessary, but are not sufficient.
+Let $\vec{p} = \phi_{h,p}(\vec{h})$ and
+$\vec{q} = \phi_{h,p}(\vec{k})$, then Equation \eqref{eq:gf_relation} implies
+the ratio in Equation \eqref{eq:ratio_gfs} is equal to
+\[
+\prod_{d \geq 0} \frac{1}{(1-t^d)^{p_d - q_d}}~.
+\]
+We note in the following example a pair of sequences whose ratio of generating
+functions is positive, but that there is not a Hopf subalgebra with the given
+dimension sequence.
+
+\begin{example}
+Consider $\vec{h} = \phi_{p,h}(1,1,1,1,0,0,\ldots)$ so that for $n \geq 1$,
+$h_n$ is equal to the number of integer partitions of $n$ with parts of size $1,2,3,4$.
+Next set, $\vec{k} = \phi_{p,k}(0,0,0,2,0,0,\ldots)$ so that $k_n$ is equal to $d + 1$
+if $n =4d$ and $0$ otherwise.
+It is easily checked that the coefficient of $t^n$ in Equation \eqref{eq:ratio_gfs}
+is equal to $2d+1$ if $n=3d$ or $3d+1$ and it is equal to $n=2d$ if $n=3d-1$.
+
+It is the case that all of these coefficients are non-negative, however by
+Theorem \ref{thm:subclassification2}, there does not exist a Hopf subalgebra
+of $H$ where $\vec{h} = \vecdim(H)$ with dimension sequence $\vec{k} = \vecdim(K)$.
+\end{example}\mike{to review: all of the text from Remark 6.2 until here is new and
+we should review together to ensure that it answers the reviewer's comments.}
 
 The proof of Theorem~\ref{thm:subclassification2} will construct a Hopf subalgebra in $H$ isomorphic to each
 $\mathcal{U}(\mathfrak{L}(\vec{b}))$.
